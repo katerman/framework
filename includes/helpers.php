@@ -41,6 +41,12 @@ class helpers {
 				$result = '/'.implode('/', $result);
 				return $result;
 			break;
+			
+			case lastpath:
+				$url=end(explode('/',$_SERVER['PHP_SELF']));
+				
+				return $url;
+			break;
  		}	    	    
 	}
 
