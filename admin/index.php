@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-require_once "db.php";
-require_once "AuthModel.php";
-require_once "AuthView.php";
-require_once "includes/helpers.php";
+require_once "../db.php";
+require_once "../AuthModel.php";
+require_once "../AuthView.php";
+require_once "../includes/helpers.php";
 
 
 $model = new AuthModel($dsn, $db_user, $db_pass);
@@ -30,7 +30,10 @@ if (!empty($username) && !empty($password)){
 		$contentPage = 'body';
 		session_start();
 		$_SESSION['userInfo'] = $user;
-
+		
+ 		if($user['access'] != 1){
+ 			header('location: logout.php');
+ 		}
 	}
 }
 
