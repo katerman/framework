@@ -31,9 +31,10 @@ class AuthModel{
 		return array();//If the expected successful return is an array, the failed return should be an empty array
 	}//end of get users.
 	
-	public function sqlPages(){
+	public function sqlPages($select, $table, $values, $times, $where){
 		//die(print_r(debug_backtrace(),true));
-		$stmt = $this->db->prepare("SELECT page_id, page_name FROM pages");
+		
+		$stmt = $this->db->prepare("SELECT $select FROM $table $where");
 		try {
 			if ($stmt->execute()) {
 				$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -41,12 +42,16 @@ class AuthModel{
 		}
 		catch(PDOException $e){
 			echo "Query Failed - users";
-		}	
-
-		print_r($results);
+		}			
 		
-		foreach($results as $key=>$r){
-			echo '<p>'. $r[page_name] .'</p>';
+		if (is_array($results)){
+			foreach($results as $rkey=>$r){
+				foreach($values as $vkey=>$v){
+					if($rkey < $times){
+						echo $r[$v] . '<br>';
+					}
+				}	
+			}		
 		}
 	}
 	
