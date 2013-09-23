@@ -31,7 +31,7 @@ class AuthModel{
 		return array();//If the expected successful return is an array, the failed return should be an empty array
 	}//end of get users.
 	
-	public function sqlPages($select, $table, $values, $times, $where){
+	public function sqlPages($select = "*", $table="*", $values="*", $times="1", $where=""){
 		//die(print_r(debug_backtrace(),true));
 		
 		$stmt = $this->db->prepare("SELECT $select FROM $table $where");
@@ -47,7 +47,7 @@ class AuthModel{
 		if (is_array($results)){
 			foreach($results as $rkey=>$r){
 				foreach($values as $vkey=>$v){
-					if($rkey < $times){
+					if($rkey < $times || $values === false || $values === null){
 						echo $r[$v] . '<br>';
 					}
 				}	
