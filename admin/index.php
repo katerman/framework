@@ -6,7 +6,6 @@ require_once "../AuthModel.php";
 require_once "../AuthView.php";
 require_once "../includes/helpers.php";
 
-
 $model = new AuthModel($dsn, $db_user, $db_pass);
 $view = new AuthView();
 $helpers = new helpers();
