@@ -31,7 +31,7 @@ class AuthModel{
 		return array();//If the expected successful return is an array, the failed return should be an empty array
 	}//end of get users.
 	
-	public function sqlPages($select = "*", $table="*", $values="*", $times="1", $where=""){
+	public function sql($select = "*", $table="*", $values="*", $times="1", $where="", $type = "echo"){
 		//die(print_r(debug_backtrace(),true));
 		
 		$stmt = $this->db->prepare("SELECT $select FROM $table $where");
@@ -44,14 +44,43 @@ class AuthModel{
 			echo "Query Failed - users";
 		}			
 		
+		$arr = array();
 		if (is_array($results)){
 			foreach($results as $rkey=>$r){
-				foreach($values as $vkey=>$v){
-					if($rkey < $times || $values === false || $values === null){
-						echo $r[$v] . '<br>';
+
+				foreach($values as $v){			
+						
+					if($type != "array"){
+
+						if($rkey < $times || $values != false || $values != null){
+							if($type == "return"){
+								return $r[$v];
+							}else{
+								echo $r[$v];
+							}						
+						}
+					}else{
+						array_push($arr, $r[$v]);
 					}
-				}	
+				}
 			}		
+		}
+		
+		if(sizeof($arr) > 0){
+			return $arr;
+		}
+	}
+
+	
+	
+	public function getQuery($query="page", $type="echo"){ /* Default is to ech out the query, but including a second argument called return you can return the query instead */
+		$q = htmlentities($query);
+		$r = $_GET[$q];
+		
+		if($type == "return"){
+			return $r;		
+		}else{
+			echo $r;
 		}
 	}
 	

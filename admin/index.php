@@ -10,6 +10,7 @@ $model = new AuthModel($dsn, $db_user, $db_pass);
 $view = new AuthView();
 $helpers = new helpers();
 
+
 $username = empty($_POST['username']) ? '' : strtolower(trim($_POST['username']));
 $password = empty($_POST['password']) ? '' : trim($_POST['password']);
 
