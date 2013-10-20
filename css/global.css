@@ -43,15 +43,15 @@ body {
 }
 
 #content {
-	border-radius:10px;
-	-moz-border-radius:10px; /* Old Firefox */
-	
+	border-radius: 10px;
+	-moz-border-radius: 10px;
 	background-color: rgba(0,0,0,0.3);
 	width: 1000px;
 	margin: 0 auto;
 	padding: 10px;
 	border: 1px solid black;
-	height: auto;
+	height: 100px;
+	clear: both !important;
 }
 
 

@@ -1,19 +1,53 @@
 <?php
+/*
 	echo 'full: ' . helpers::url(full) . '<br>';
 	echo 'fullpage: ' . helpers::url(fullpage) . '<br>';
 	echo 'folder: ' . helpers::url(folder) . '<br>';
 	echo 'base: ' . helpers::url(base) . '<br>';
 	echo 'lastpath: ' . helpers::url(lastpath);
+*/
+
+?>
+
+
+<?php
+	global $model; 
+	global $helpers; 
+	global $view;
+	global $security;
+
+/*
+	echo 'full: ' . helpers::url(full) . '<br>';
+	echo 'fullpage: ' . helpers::url(fullpage) . '<br>';
+	echo 'folder: ' . helpers::url(folder) . '<br>';
+	echo 'base: ' . helpers::url(base) . '<br>';
+	echo 'lastpath: ' . helpers::url(lastpath);
+	
+	$model->sqlSelect( "*" //select, 
+					  "pages", //from
+					  array("page_template"), //column names
+					  "" //where
+				  ); 	
+*/
 
 ?>
 
 
 <div id="content"><!-- start content -->
-<h1><? echo helpers::url(base); ?></h1>
-<p>Welcome back, <?php echo htmlentities($data['fullname']);?>.</p>
-<p><a class="logout" href="logout.php">Log out</a></p>
+	
+	<? include_once('nav.inc'); ?>
 
+	<div id="display">
+
+		<? 
+		
+			if($helpers->getQuery('page','return') == false){
+				header('Location:index.php?page=home');
+			}		
+			
+		?>
+		
+	</div>
+	
 </div><!-- end content-->
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
