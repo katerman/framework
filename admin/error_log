@@ -1,0 +1,2 @@
+[18-Oct-2013 13:15:44 America/New_York] PHP Fatal error:  Call to undefined function CONCAT() in /home/refinedd/public_html/framework/admin/add.php on line 75
+[18-Oct-2013 13:15:54 America/New_York] PHP Fatal error:  Call to undefined function CONCAT() in /home/refinedd/public_html/framework/admin/add.php on line 75

@@ -2,6 +2,9 @@
 
 class helpers {
 	
+	static $db;
+	static $model;
+	
 	public function url($t){ //Return url based on arguments (full, base, fullpage, folder), $type, $amount = for folder levels
 		switch ($t) {
 		
@@ -43,7 +46,7 @@ class helpers {
 			break;
 			
 			case lastpath:
-				$url=end(explode('/',$_SERVER['PHP_SELF']));
+				$url = basename($_SERVER['PHP_SELF']);
 				
 				return $url;
 			break;
@@ -53,7 +56,7 @@ class helpers {
     public function debugAll(){
 	    $x = print '<pre>' . print_r($GLOBALS) . '</pre>';
 	    return $x;
-   }
+	}
    
 	public function debugOpts($array, $type){
 		switch ($type) {
@@ -68,9 +71,30 @@ class helpers {
 				return $x;
 			break;
 		}	
-
-   }
 	
+	}
+	
+	
+	public function getQuery($query="page", $type="echo"){ /* Default is to echo out the query, but including a second argument called return you can return the query instead */
+		$q = htmlentities($query);
+		$r = $_GET[$q];
+		
+		if($type == "return"){
+			return $r;		
+		}else{
+			echo $r;
+		}
+	}
+	
+	function cleantohtml($s){
+		//should contain html
+		return strip_tags(htmlentities(trim(stripslashes($s))), ENT_NOQUOTES, "UTF-8");
+	}	
+
+	function stripcleantohtml($s){
+		// Use: Anything that shouldn't contain html (pretty much everything that is not a textarea)
+		return htmlentities(trim(strip_tags(stripslashes($s))), ENT_NOQUOTES, "UTF-8");
+	}	
 
 }
 	
