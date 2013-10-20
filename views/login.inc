@@ -20,7 +20,7 @@
 	
 	<h1><? echo helpers::url(base); ?></h1>
 	<p>Welcome back, <?php if($data['fullname']){echo htmlentities($data['fullname']);}else{echo 'guest';}?>.</p>
-	<p><a class="logout" href="logout.php">Log out</a></p>
+	<?php if($data){echo '<p><a class="logout" href="logout.php">Log out</a></p>';} ?>
 
 </div>
 

@@ -1,11 +1,5 @@
+<div id="header">
+	<? echo '<h1>'. ucfirst($helpers->url(base)).' Admin Panel</h1>'; ?>
+	<a class="logout" href="logout.php">Log out</a>
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8"/>
-<link rel="stylesheet" href="css/global.css" type="text/css" media="screen">
-<title><? helpers::url(folder); ?></title>
-</head>
-<body>
-
-  
+</div>

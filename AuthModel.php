@@ -6,18 +6,17 @@ class AuthModel{
 	
 	public function __construct($dsn, $user, $pass){
 		try{
-			$this->db = new PDO($dsn, $user, $pass);
-				
-		} catch (PDOException $e) {
+			$this->db = new PDO($dsn, $user, $pass);		
+		}catch (PDOException $e){
 			var_dump($e);		
 		}
-		//$this->db->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+		$this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); //throw errors
 	}
 	
 	//get users
 	public function getUserByNamePass($name, $pass){
 		$stmt = $this->db->prepare("
-			SELECT user_Id AS id, user_uName AS name, user_Fullname AS fullname, user_Access AS access
+			SELECT users_Id AS id, user_uName AS name, user_Fullname AS fullname, user_Access AS access
 			FROM users
 			WHERE (user_uName = :name)
 				AND (user_Pass = MD5(CONCAT(user_salt,:pass)))
@@ -30,10 +29,9 @@ class AuthModel{
 		}
 		return array();//If the expected successful return is an array, the failed return should be an empty array
 	}//end of get users.
-	
-	public function sqlPages($select = "*", $table="*", $values="*", $times="1", $where=""){
+
+	public function sqlSelect($select = "*", $table="*", $values="", $where=""){
 		//die(print_r(debug_backtrace(),true));
-		
 		$stmt = $this->db->prepare("SELECT $select FROM $table $where");
 		try {
 			if ($stmt->execute()) {
@@ -41,20 +39,28 @@ class AuthModel{
 			}
 		}
 		catch(PDOException $e){
-			echo "Query Failed - users";
+			echo "Query Failed -> sqlselect()";
 		}			
 		
+		$arr = array();
 		if (is_array($results)){
 			foreach($results as $rkey=>$r){
-				foreach($values as $vkey=>$v){
-					if($rkey < $times || $values === false || $values === null){
-						echo $r[$v] . '<br>';
+				
+				if($values != ""){
+					foreach($values as $v){			
+						array_push($arr,$r[$v]);
 					}
-				}	
-			}		
+				}else{
+					array_push($arr,$r);
+				}
+				
+			}
+			return $arr;		
 		}
 	}
 	
+
+
 }
 
 
