@@ -75,9 +75,8 @@
 					  ':user_Pass' => MD5($salt.$password), 
 					 );
 					
-			print_r($data);
 			
-			$sql = $db->prepare("INSERT INTO `users` (user_uName, user_FullName, user_Access, user_Salt, user_Pass ) VALUES (:user_uName, :user_FullName, :user_Access, :user_Salt, :user_Pass)");
+			$sql = $db->prepare("INSERT INTO `users` (user_uName, user_FullName, user_Access, user_Salt, user_Pass) VALUES (:user_uName, :user_FullName, :user_Access, :user_Salt, :user_Pass)");
 
             $sql->execute($data); 	
             

@@ -6,7 +6,7 @@
 			$addToken = $security->generateFormToken('add_page_token'); 
 			
 		?>
-		<form id="add_page_form" class="form" action="" method="" accept-charset="utf-8">
+		<form id="add_form" class="form" action="" method="" accept-charset="utf-8">
 				
 			<label for="user_uname">Username</label><br/>
             <input id="user_uname" name="username" value="" placeholder="Username" class="required"><br/>
