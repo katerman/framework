@@ -13,7 +13,7 @@
 
 	
 	$token = $_POST['token'];
-	$security->checkToken('edit_page_token');	
+	$security->checkToken('edit_token');	
 
 	try{
 		$db = new PDO($dsn, $db_user, $db_pass);		
@@ -44,6 +44,41 @@
 		        echo 'ERROR: ' . $e->getMessage();
 		    }		
 		}
+		if($update_type === 'user'){ //User
+			$user_id = $_POST['user_id'];
+			$user_username = $_POST['username'];
+			$user_pass = $_POST['password'];
+			$user_fullname = $_POST['fullname'];
+			$user_access = $_POST['access'];
+			
+			function random_numbers($digits){ 
+			    $min = pow(10, $digits - 1);
+			    $max = pow(10, $digits) - 1;
+			    return mt_rand($min, $max);
+			}
+									
+			if(strlen($user_pass) != 0){ // we have to split up to see if we're updating the password or not, if the password field is empty it wont pass any new password/salt data to the db
+				$salt = random_numbers(8); //heres our new salt
+				$pw = MD5($salt.$password);
+				
+		        $query = "UPDATE users SET user_uName = ?, user_Pass = ?, user_FullName = ?, user_Access = ?, user_Salt = ? WHERE users_id = ?";
+    			$data = array($user_username, $pw, $user_fullname, $user_access, $salt, $user_id);
+
+
+			}else{
+				$query = "UPDATE users SET user_uName = ?, user_FullName = ?, user_Access = ? WHERE users_id = ?";
+    			$data = array($user_username, $user_fullname, $user_access, $user_id);
+			}
+			
+
+		    try{
+				$q = $db->prepare($query);
+		        $q->execute($data);
+				echo 'your bidding has been completed';
+		    }catch(PDOException $e){
+		        echo 'ERROR: ' . $e->getMessage();
+		    }		
+		}		
 	}else{
 		die;
 	}
