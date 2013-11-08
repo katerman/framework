@@ -15,7 +15,7 @@
             <input id="page_url" name="page_url" value="" placeholder="Page url"><br/>
 			
 			
-			<label for="page_meta_title">Page Meta Title</label><br/>
+			<label for="page_meta_title">Page Meta Description</label><br/>
             <input id="page_meta_title" name="page_meta_title" value="" placeholder="Page Meta Title"><br/>
 
 			<label for="page_meta_keyword">Page Meta Keywords</label><br/>

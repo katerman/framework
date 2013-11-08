@@ -9,7 +9,9 @@
 	
 	include_once "../db.php";
 	include_once "../includes/security.php";
+	include_once "../includes/helpers.php";
 	$security = new security();
+	$helpers = new helpers();
 
 	
 	$token = $_POST['token'];
@@ -78,7 +80,49 @@
 		    }catch(PDOException $e){
 		        echo 'ERROR: ' . $e->getMessage();
 		    }		
-		}		
+		}
+		if($update_type === 'config'){
+			$id = $_POST['config_id'];
+			$site_name = $_POST['site_name'];
+			$global_logo = $_POST['global_logo'];
+			$extra_js = $_POST['extra_js'];
+ 			$extra_css = $_POST['extra_css'];
+
+			$ds          = DIRECTORY_SEPARATOR;  			 
+			$storeFolder = 'uploads'; 
+			$dirname = '..'.$ds.$storeFolder.$ds;
+			
+		
+		    try{
+		        $query = "UPDATE config SET site_name = ?, global_logo = ?, extra_js = ?, extra_css = ? WHERE id = ?";
+		        $q = $db->prepare($query);
+		        $q->execute(array($site_name,$global_logo, $extra_js, $extra_css, $id));
+				echo 'your bidding has been completed';
+		    }catch(PDOException $e){
+		        echo 'ERROR: ' . $e->getMessage();
+		    }		
+		}
+		
+		if($update_type === 'content'){
+			$content_id = $_POST['content_id'];
+			$content = $_POST['content'];
+			$content_area = $_POST['content_area'];
+			$content_name = $_POST['content_name'];
+			$content_order = $_POST['content_order'];
+
+			
+		
+		    try{
+		        $query = "UPDATE content SET content = ?, content_area = ?, content_name = ?, content_order = ? WHERE content_id = ?";
+		        $q = $db->prepare($query);
+		        $q->execute(array($content, $content_area, $content_name,$content_order, $content_id));
+				echo 'your bidding has been completed';
+		    }catch(PDOException $e){
+		        echo 'ERROR: ' . $e->getMessage();
+		    }		
+		}
+
+				
 	}else{
 		die;
 	}

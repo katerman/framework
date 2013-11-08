@@ -50,6 +50,31 @@ class helpers {
 				
 				return $url;
 			break;
+			
+			case current:
+			    if(isset($_SERVER['HTTPS'])){
+			        $protocol = ($_SERVER['HTTPS'] && $_SERVER['HTTPS'] != "off") ? "https" : "http";
+			    }
+			    else{
+			        $protocol = 'http';
+			    }
+			    
+			    				$request = parse_url($_SERVER['REQUEST_URI']);
+				$path = $request["path"];
+				
+				$result = trim(str_replace(basename($_SERVER['SCRIPT_NAME']), '', $path), '/');
+				
+				$result = explode('/', $result);
+
+				$max_level = 3;
+				while ($max_level < count($result)) {
+				    unset($result[0]);
+				}
+				$result = '/'.implode('/', $result);
+			    
+			    
+			    return $protocol . "://www." . $_SERVER['HTTP_HOST'] . $result . '/';
+			break;
  		}	    	    
 	}
 

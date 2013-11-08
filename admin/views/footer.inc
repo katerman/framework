@@ -1,5 +1,5 @@
 <div id="footer">
-	<span><a href="https://github.com/katerman/framework">Refined Framework v0.1 <? echo '(' . date('Y') . ')'; ?></span>
+	<span><a href="https://github.com/katerman/framework">Refined Framework v0.1 <? echo '(' . date('Y') . ')'; ?></a></span>
 </div>
 
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

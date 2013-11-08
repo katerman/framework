@@ -12,7 +12,7 @@
 							<td>Page Group</td>
 							<td>Sub Page</td>
 							<td>Page Meta Keyword</td>
-							<td>Page Meta Title</td>
+							<td>Page Meta Description</td>
 							<td>Page Url</td>
 							<td>Page Order</td>
 							<td>Actions</td>
