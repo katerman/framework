@@ -1,8 +1,4 @@
 <?php
-	global $model; 
-	global $helpers; 
-	global $view;
-	global $security;
 
 /*
 	echo 'full: ' . helpers::url(full) . '<br>';
@@ -20,10 +16,11 @@
 
 ?>
 
+<div id="overlay"> <? include_once('forms/edit_content_form.inc');?></div>
 
 <? include_once('header.inc'); ?>
 
-<div id="content"><!-- start content -->
+<div id="container"><!-- start content -->
 	
 	<? include_once('nav.inc'); ?>
 

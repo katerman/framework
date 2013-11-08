@@ -1,6 +1,6 @@
 $(document).ready(function(){
-	body = $('body');
-
+	var body = $('body');
+	
 	function login_validation(){		
          $("#login_form").validate({				     
             submitHandler: function(form) {                
@@ -49,7 +49,7 @@ $(document).ready(function(){
             
 		        
 				var update_type = $('#update_type').val(); // need to grab the update type to send the correct data
-				
+
 				if(update_type === 'pages'){ //if the update type is pages
 				
 		       		values = ['page_name','page_meta_title','page_meta_keyword','page_template','page_group','sub_page','pages_id','page_order','page_url','token'];
@@ -80,8 +80,21 @@ $(document).ready(function(){
 					data['token'] = token;	
 					data['update_type'] = update_type;
 					
-				}
+				}else if(update_type === 'config'){
+					
+		       		values = ['config_id','extra_css','extra_js','site_name','token'];
+		
+					data = new Object; //make data object to hold data passed through post
 				
+				    for(var i = 0; i <values.length; i++) {
+				        data[values[i]] = $('#'+values[i]).val();
+				        // == data[page_name] = $('#page_name').val();
+				    }
+				    
+				    data['global_logo'] = $('select.logo_dropdown option:selected').val();
+
+				}
+								
 				$(form).ajaxSubmit({
 						url:"update.php",
 						type:"POST",
@@ -131,7 +144,7 @@ $(document).ready(function(){
 				var auth_token = $('#token').val();     
 				var db_id = $(this).siblings('#db_id').val();
 				
-				//make these vars global, however this is terrible..
+				//object to hold info
 				data['update_type'] = update_type;
 				data['pages_id'] = pages_id;
 				data['auth_token'] = auth_token;
@@ -231,13 +244,61 @@ $(document).ready(function(){
 				});
 			}
         }); 	
-	}// end of edit_validation
+	}// end of add_validation
+		
+		function edit_content_validation(){
+			$("#edit_content_form").validate({   
+				submitHandler: function(form) {
+				
+				
+					var update_type = $('#update_type').val(); // need to grab the update type to send the correct data
+				
+					if(update_type === 'content'){
+							values = ['content_order','content','content_area','content_name','content_id','token'];
+					
+						data = new Object; //make data object to hold data passed through post
+					
+						for(var i = 0; i <values.length; i++) {
+							data[values[i]] = $('#'+values[i]).val();
+							// == data[page_name] = $('#page_name').val();
+						}
+					}
+				
+				
+					$(form).ajaxSubmit({
+							url:"update.php",
+							type:"POST",
+							data: data,
+							timeout: 2000,
+							clearForm: false,
+							cache: false,
+							success: function(){
+							console.log('success');
+							
+								var feedb_text = $('.feedback_content');
+								feedb_text.show().css('color', 'green').text('Updated!').stop().fadeOut(2500, "linear");
+								
+							},
+							error: function(x,t,m){
+							console.log('failure');
+	
+								if(t==="timeout"){
+									var feedb_text = $('.feedback_content');
+									feedb_text.show().css('color', 'red').text('Something has gone wrong..').stop().fadeOut(2500, "linear");
+									
+								}
+							}
+					});
+				}
+        }); 	
+	}// end of edit_content_validation
 
 	function init(){
 		edit_validation();
 		login_validation();
 		delete_validation();
 		add_validation();
+		edit_content_validation();
 	}
 	
 	init();	

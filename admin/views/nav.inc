@@ -1,6 +1,15 @@
 	<div id="nav">
 
 		<ul>
+			<li><a href="#config">Config</a></li>
+			<li>
+				<ul class="dropdownBtn">
+					<li><a href="?tpl=edit&type=edit_config&pagename=config#config">Config</a></li>
+				</ul>
+			</li>
+		</ul>	
+
+		<ul>
 			<li><a href="#pages">Pages</a></li>
 			<li>
 				<ul class="dropdownBtn">
@@ -32,10 +41,12 @@
 		</ul>	
 		
 		<ul>
-			<li><a href="#config">Config</a></li>
+			<li><a href="#assets">Assets</a></li>
 			<li>
 				<ul class="dropdownBtn">
-					<li><a href="?tpl=config&pagename=config#config">Users</a></li>
+					<li><a href="?tpl=upload&pagename=upload#assets">Upload</a></li>
+					<li><a href="?tpl=uploaded&pagename=uploaded#assets">Uploaded</a></li>
+					<li><a href="?tpl=templates&pagename=templates#assets">Templates</a></li>
 				</ul>
 			</li>
 		</ul>				

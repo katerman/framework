@@ -39,7 +39,7 @@ class AuthModel{
 			}
 		}
 		catch(PDOException $e){
-			echo "Query Failed -> sqlselect()";
+			echo "Query Failed -> sqlselect() ". $e;
 		}			
 		
 		$arr = array();
