@@ -1,14 +1,15 @@
 <?		global $page;
+		global $model;
 
-		$x = $model->sqlSelect( "*", //select, 
+		$p = $model->sqlSelect( "*", //select, 
 					  "pages", //from
 					  "", //column names
-					  "ORDER BY page_order ASC" //where
+					  "WHERE on_nav = 1 ORDER BY page_order ASC" //where
 				  ); 	
 				  
 		echo '<ul id="nav">';		
 		       
-		foreach($x as $key=>$value){
+		foreach($p as $value){
 			echo '<li '; 
 
 			if($page[pages_id] == $value[pages_id]){ echo 'id="active"'; } 

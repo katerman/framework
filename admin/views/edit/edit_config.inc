@@ -4,7 +4,7 @@
 				$page = $helpers->getQuery('pageid','return');
 				$z = $model->sqlSelect("*" , "config", "", "");
 				
-				print_r($z);
+			//	print_r($z);
 				
 				echo '<table>
 						<tr class="th">

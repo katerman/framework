@@ -3,7 +3,7 @@
 		<? 								
 					    
 
-			$addToken = $security->generateFormToken('add_page_token'); 
+			$addToken = $security->generateFormToken('add_token'); 
 			
 		?>
 		<form id="add_form" class="form" action="" method="" accept-charset="utf-8">

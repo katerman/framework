@@ -7,8 +7,6 @@
 	
 ?>
 
-<div id="header">
-	<? echo '<h1>'. ucfirst($helpers::url(base)).' Admin Panel</h1>'; ?>
-	<a class="logout" href="logout.php">Log out</a>
 
-</div>
+<? echo '<h1 class="three columns">'. ucfirst($helpers::url(base)).'</h1>'; ?>
+<a class="logout six columns" href="logout.php">Log out</a>

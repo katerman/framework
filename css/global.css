@@ -50,7 +50,7 @@ body {
 	margin: 0 auto;
 	padding: 10px;
 	border: 1px solid black;
-	height: 100px;
+	height: auto;
 	clear: both !important;
 }
 
@@ -243,4 +243,10 @@ td,th {
 
 .edit-block:active {
     background-color:#003f92;
+ }
+ 
+ /* Login Form */
+ 
+ #login_form {
+	 margin: 0 auto;
  }
