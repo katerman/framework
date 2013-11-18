@@ -16,18 +16,25 @@
 	$config = $GLOBALS['config'];
 	
 	$page_id = $page['pages_id'];
-	$content = $model->sqlSelect("*" , "content", "", "WHERE page_id = $page_id");
+	$cont = $model->sqlSelect("*" , "content", "", "WHERE page_id = $page_id");
+	
+	$GLOBALS['content'] = $cont;
+	$content = $GLOBALS['content'];
 	
 	$areas = new stdClass;
 	
-	foreach($content as $con){
-		$areas->$con['content_area'] = $con['content'];
+	foreach($cont as $con){
+		if($con['content_area']){
+			$areas->$con['content_area'] = $con['content'];
+		}else{
+			$areas->$con['content_name'] = $con['content'];
+		}
 	}
 	
 	$GLOBALS['areas'] = $areas;
 	$areas = $GLOBALS['areas'];
-	 
-	print_r($areas);
+	
+	//print_r($content);
 
 ?> 
 <!DOCTYPE html>

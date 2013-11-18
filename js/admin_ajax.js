@@ -52,21 +52,23 @@ $(document).ready(function(){
 
 				if(update_type === 'pages'){ //if the update type is pages
 				
-		       		values = ['page_name','page_meta_title','page_meta_keyword','page_template','page_group','sub_page','pages_id','page_order','page_url','token'];
-		
+		       		values = ['page_name','page_meta_title','page_meta_keyword','page_group','sub_page','pages_id','page_order','page_url','token','on_nav'];
+			   		
 					data = new Object; //make data object to hold data passed through post
 				
 				    for(var i = 0; i <values.length; i++) {
 				        data[values[i]] = $('#'+values[i]).val();
 				        // == data[page_name] = $('#page_name').val();
 				    }
-				    					
+				    
+				    data['page_template'] = $('#page_template option:selected').val(); 
+				   
 				}else if(update_type === 'user'){ // if user
-					var user_id = $('user_id').val();
+					var user_id = $('#user_id').val();
 					var user_name = $('#user_uname').val();	
 					var pass_word = $('#user_pass').val();	
 					var full_name = $('#user_fullname').val();	
-					var access = $('#add_page_form input[type="radio"]:checked').val(); 
+					var access = $('#edit_page_form input[type="radio"]:checked').val(); 
 					var update_type = $('#update_type').val();
 				 	var token = $('#token').val();
 				 	
@@ -104,10 +106,10 @@ $(document).ready(function(){
 						cache: false,
 						success: function(){
 						console.log('success');
-						
+
 							var feedb_text = $('.feedback_text');
 							feedb_text.show().css('color', 'green').text('Updated!').stop().fadeOut(2500, "linear");
-							
+							location.reload();
 						},
 						error: function(x,t,m){
 						console.log('failure');
@@ -141,15 +143,20 @@ $(document).ready(function(){
 				
 				var update_type = $(this).siblings('#type').val();
 				var pages_id = $(this).siblings('#id').val();   
-				var auth_token = $('#token').val();     
 				var db_id = $(this).siblings('#db_id').val();
 				
+				if(update_type === 'templates'){
+					var auth_token = $('p#token').text();     
+				}else{
+					var auth_token = $('#token').val();     
+				}
 				//object to hold info
 				data['update_type'] = update_type;
 				data['pages_id'] = pages_id;
 				data['auth_token'] = auth_token;
 				data['db_id'] = db_id;
 				
+				console.log(data);
 				return false;
 		});
 		
@@ -160,7 +167,6 @@ $(document).ready(function(){
 						url:"delete.php",
 						type:"POST",
 						data: {token: data['auth_token'], id: data['pages_id'], type: data['update_type'], dbid: data['db_id']},
-
 						timeout: 2000,
 						clearForm: false,
 						cache: false,
@@ -187,18 +193,20 @@ $(document).ready(function(){
             			 	
 				var update_type = $('#update_type').val(); // need to grab the update type to send the correct data
 				var added = '';
-				
+				data = new Object; //make data object to hold data passed through post
+
 				if(update_type === 'pages'){ //if the update type is pages
 				
-					values = ['page_name','page_meta_title','page_meta_keyword','page_template','page_group','sub_page','pages_id','page_order','page_url','token', 'update_type'];
-		
-					data = new Object; //make data object to hold data passed through post
-				
+					values = ['page_name','page_meta_title','page_meta_keyword','page_group','sub_page','pages_id','page_order','page_url','token', 'update_type'];
+						
 				    for(var i = 0; i <values.length; i++) {
 				        data[values[i]] = $('#'+values[i]).val();
 				        // == data[page_name] = $('#page_name').val();
 				    }
 				    
+				    data['page_template'] = $('#page_template option:selected').val(); 
+				    data['on_nav'] = $('#add_form #on_nav').val();
+
 					var added = data['page_name'];
 					
 				}else if(update_type === 'user'){ // if user
@@ -209,7 +217,6 @@ $(document).ready(function(){
 					var update_type = $('#update_type').val();
 				 	var token = $('#token').val();
 				 	
-					data = new Object; //make data object to hold data passed through post
 							
 					data['user_uname'] = user_name;
 					data['user_pass'] = pass_word;
@@ -231,13 +238,13 @@ $(document).ready(function(){
 						cache: false,
 						success: function(){
 							var feedb_text = $('.feedback_text');
-							feedb_text.show().css('color', 'green').text('Added: ' + added + ' !');
+							feedb_text.show().css('color', 'green').text('Added: ' + added + ' !').stop().fadeOut();
 							console.log(data);
 						},
 						error: function(x,t,m){
 							if(t==="timeout"){
 								var feedb_text = $('.feedback_text');
-								feedb_text.show().css('color', 'red').text('Something has gone wrong..');
+								feedb_text.show().css('color', 'red').text('Something has gone wrong..').stop().fadeOut();
 								
 							}
 						}
@@ -246,27 +253,44 @@ $(document).ready(function(){
         }); 	
 	}// end of add_validation
 		
-		function edit_content_validation(){
-			$("#edit_content_form").validate({   
+		function content_validation(){
+			$("#content_form").validate({   
 				submitHandler: function(form) {
 				
 				
 					var update_type = $('#update_type').val(); // need to grab the update type to send the correct data
-				
-					if(update_type === 'content'){
-							values = ['content_order','content','content_area','content_name','content_id','token'];
-					
-						data = new Object; //make data object to hold data passed through post
-					
+					var update_crud = $('#update_crud').val(); // since we can edit or add using the same form we have to figure out which crud type we're using in that moment
+					var url = '';
+					var feedback = '';
+					data = new Object; //make data object to hold data passed through post
+						
+					if(update_type === 'content' & update_crud == 'edit'){
+						values = ['content_order','content','content_area','content_name','content_id','token'];
+										
 						for(var i = 0; i <values.length; i++) {
 							data[values[i]] = $('#'+values[i]).val();
 							// == data[page_name] = $('#page_name').val();
 						}
+						
+						url = "update.php";
+						feedback = 'Updated!';
+						
+					}else if(update_type === 'content' & update_crud == 'add'){
+										
+						values = ['content_order','content','content_area','content_name','token', 'content_page_id'];
+										
+						for(var i = 0; i <values.length; i++) {
+							data[values[i]] = $('#'+values[i]).val();
+							// == data[page_name] = $('#page_name').val();
+						}
+						
+						url = "add.php";
+						feedback = 'Added!';
 					}
 				
 				
 					$(form).ajaxSubmit({
-							url:"update.php",
+							url:url,
 							type:"POST",
 							data: data,
 							timeout: 2000,
@@ -276,29 +300,100 @@ $(document).ready(function(){
 							console.log('success');
 							
 								var feedb_text = $('.feedback_content');
-								feedb_text.show().css('color', 'green').text('Updated!').stop().fadeOut(2500, "linear");
+								feedb_text.show().css('color', 'green').text(feedback).stop().fadeOut(2500, "linear");
 								
 							},
 							error: function(x,t,m){
-							console.log('failure');
+							console.log('failure: ' + '			x: ' + JSON.stringify(x) + '			t: ' + t +'			m: ' +m);
 	
 								if(t==="timeout"){
 									var feedb_text = $('.feedback_content');
 									feedb_text.show().css('color', 'red').text('Something has gone wrong..').stop().fadeOut(2500, "linear");
 									
 								}
+								
 							}
 					});
 				}
         }); 	
-	}// end of edit_content_validation
+	}// end of content_validation
+
+		function template_validation(){
+			$("#template_form").validate({   
+				submitHandler: function(form) {
+				
+				
+					var update_type = $('#update_type').val(); // need to grab the update type to send the correct data
+					var update_crud = $('#update_crud').val(); // since we can edit or add using the same form we have to figure out which crud type we're using in that moment
+					var url = '';
+					var feedback = '';
+					data = new Object; //make data object to hold data passed through post
+					data['template_type'] = $('#template_type option:selected').val();
+					data['token'] = $('p#token').text();
+					//console.log(data['token']);
+						
+					if(update_type === 'template' & update_crud == 'edit'){
+						values = ['template_name','id'];
+										
+						for(var i = 0; i <values.length; i++) {
+							data[values[i]] = $('#'+values[i]).val();
+						}
+						
+						url = "update.php";
+						feedback = 'Updated!';
+						
+					}else if(update_type === 'template' & update_crud == 'add'){
+										
+						values = ['template_name'];
+										
+						for(var i = 0; i <values.length; i++) {
+							data[values[i]] = $('#'+values[i]).val();
+						}
+						
+						url = "add.php";
+						feedback = 'Added!';
+					}
+				
+				
+					$(form).ajaxSubmit({
+							url:url,
+							type:"POST",
+							data: data,
+							timeout: 2000,
+							clearForm: false,
+							cache: false,
+							success: function(){
+							console.log('success');
+							
+								var feedb_text = $('.feedback_content');
+								feedb_text.show().css('color', 'green').text(feedback).stop().fadeOut(2500, "linear");
+								location.reload();
+							},
+							error: function(x,t,m){
+							console.log('failure: ' + '			x: ' + JSON.stringify(x) + '			t: ' + t +'			m: ' +m);
+	
+								if(t==="timeout"){
+									var feedb_text = $('.feedback_content');
+									feedb_text.show().css('color', 'red').text('Something has gone wrong..').stop().fadeOut(2500, "linear");
+									
+								}
+								
+							}
+					});
+				}
+        }); 	
+	}// end of template_validation
+
 
 	function init(){
 		edit_validation();
 		login_validation();
 		delete_validation();
 		add_validation();
-		edit_content_validation();
+		content_validation();
+		template_validation();
+		
+		// the amount of seperate functions is silly, but makes it much easier to seperate things out.
 	}
 	
 	init();	
