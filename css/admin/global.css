@@ -435,7 +435,7 @@ input[type="radio"] {
 
 #overlay #content_form, #overlay #template_form{
 	margin: 0 auto;
-	width: 330px;
+	max-width: 330px;
 	background: rgba(255,255,255,0.9);
 	padding: 20px 10px 20px 50px;
 	height: 520px;
@@ -453,6 +453,10 @@ input[type="radio"] {
 	top: 0;
 	right: 0;
 	cursor: pointer;
+}
+
+#overlay .form_close:hover{
+	opacity: 0.5;
 }
 
 /*overlay*/
@@ -525,8 +529,6 @@ input[type="radio"] {
 /* here we go btn here we go */
 
 .btn {
-	color: #333;
-	border: 1px solid #333;
 	display: inline-block;
 	outline: none;
 	cursor: pointer;
@@ -540,6 +542,17 @@ input[type="radio"] {
 	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
 	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
 	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	
+	color: #fef4e9;
+	border: solid 1px #da7c0c;
+	background: rgb(250,165,26); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(250,165,26,1) 0%, rgba(244,122,32,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(250,165,26,1)), color-stop(100%,rgba(244,122,32,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(250,165,26,1) 0%,rgba(244,122,32,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(250,165,26,1) 0%,rgba(244,122,32,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(250,165,26,1) 0%,rgba(244,122,32,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(250,165,26,1) 0%,rgba(244,122,32,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#faa51a', endColorstr='#f47a20',GradientType=0 ); /* IE6-9 */	
 }
 .btn:hover {
 	text-decoration: none;
@@ -562,7 +575,7 @@ input[type="radio"] {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#faa51a', endColorstr='#f47a20',GradientType=0 ); /* IE6-9 */
 }
 
-.orange:hover {
+.orange:hover, .btn:hover {
 	background: rgb(248,142,17); /* Old browsers */
 	background: -moz-linear-gradient(top,  rgba(248,142,17,1) 0%, rgba(240,96,21,1) 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(248,142,17,1)), color-stop(100%,rgba(240,96,21,1))); /* Chrome,Safari4+ */
