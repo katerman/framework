@@ -12,8 +12,10 @@ $db_id = $_POST['dbid'];
 
 if($type === 'content'){
 	$security->checkToken('edit_token');
-}else if($type === 'templates'){
+}elseif($type === 'templates'){
 	$security->checkToken('template_token');
+}elseif($type === 'labels'){
+	$security->checkToken('label_token');
 }else{
 	$security->checkToken('delete_page_token');
 }

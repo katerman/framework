@@ -247,17 +247,17 @@ body {
 	
 }
 
-.add_content, .add_template {
+.add_content, .add_template, .add_labels {
 	padding-left: 20px;
 	cursor: pointer;
 	margin: 10px 0;	
 }
 
-.add_content:hover {
+.add_content:hover,.add_template:hover, .add_labels:hover {
 	text-decoration: underline;
 }
 
-.add_content:before, .add_template:before{
+.add_content:before, .add_template:before, .add_labels:before{
 	background: rgba(0, 255, 0, 0.5) url('../../img/admin/add-file.png') no-repeat -2px -1px;
 	content: '';
 	position: absolute;
@@ -266,6 +266,11 @@ body {
 	margin-left: -20px;
 	-webkit-border-radius: 6px;
 	border-radius: 6px;
+}
+
+.content-table > .content {
+	max-width: 400px;
+	overflow: hidden;
 }
 /*footer */
 
@@ -416,15 +421,11 @@ input[type="radio"] {
 	margin-left: 20px;
 }
 
-#uploaded > ul > li:first-child {
-	margin-left: 0;
-}
-
 #uploaded p {
 	word-break: break-all;
 	width: 130px !important;
 	margin-left: 17px;	
-	height: 30px;
+	height: 10px;
 }
 
 /* Edit content */
@@ -433,7 +434,7 @@ input[type="radio"] {
 	width: 100px;
 }
 
-#overlay #content_form, #overlay #template_form{
+#overlay #content_form, #overlay #template_form, #overlay #label_form{
 	margin: 0 auto;
 	max-width: 330px;
 	background: rgba(255,255,255,0.9);
@@ -444,7 +445,7 @@ input[type="radio"] {
 	position: relative;
 }
 
-#overlay #template_form {
+#overlay #template_form, #overlay #label_form {
 	height: 280px;
 }
 

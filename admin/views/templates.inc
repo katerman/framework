@@ -6,12 +6,13 @@
 	$r = $model->sqlSelect("*" , "templates", "", "");
 	//print_r($r);
 	
-				echo '<table>
+				echo '<table class="search_table">
 						<tr class="th">
 							<td class="hidden">id</td>
 							<td>Template Name</td>
 							<td>Template Type</td>
 							<td>Actions</td>
+							<td>  <input class="search" placeholder="Type to search"/></td>
 						</tr>
 					';		
 								  
@@ -23,7 +24,7 @@
 						$type = 'content';
 					}
 					
-					echo '<tr>'
+					echo '<tr class="data">'
 							.'<td class="id hidden">'.$value[id].'</td>'
 							.'<td class="template_name">'.$value[template_name].'</td>'
 							.'<td class="template_type">'.$type.'</td>'

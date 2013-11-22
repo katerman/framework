@@ -10,5 +10,6 @@
 <script type="text/javascript" src="<? echo $_CONFIG->js_path; ?>jquery.form.js"></script> 
 <script type="text/javascript" src="<? echo $_CONFIG->js_path; ?>admin_ajax.js" charset="utf-8"></script>
 <script type="text/javascript" src="<? echo $_CONFIG->js_path; ?>responsive-tables.js"></script>
+<script type="text/javascript" src="<? echo $_CONFIG->js_path; ?>list.min.js"></script>
 </body>
 </html>
