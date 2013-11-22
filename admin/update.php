@@ -17,6 +17,8 @@
 	
 	if($update_type === 'template'){
 		$security->checkToken('template_token');	
+	}elseif($update_type === 'labels'){
+		$security->checkToken('label_token');	
 	}else{
 		$security->checkToken('edit_token');
 	}
@@ -27,7 +29,7 @@
 		var_dump($e);		
 	}
 		
-	print_r($_POST);
+	///print_r($_POST);
 	
 	if(isset($update_type)){
 		if($update_type === 'pages'){
@@ -145,7 +147,21 @@
 		        echo 'ERROR: ' . $e->getMessage();
 		    }		
 		}
+		
+		if($update_type === 'labels'){
+			$label_name = $_POST['label_name'];
+			$label_content = $_POST['label_content'];
+			$id = $_POST['id'];
 
+		    try{
+		        $query = "UPDATE labels SET label_name = ?, label_content = ? WHERE label_id = ?";
+		        $q = $db->prepare($query);
+		        $q->execute(array($label_name, $label_content, $id));
+				echo 'your bidding has been completed';
+		    }catch(PDOException $e){
+		        echo 'ERROR: ' . $e->getMessage();
+		    }		
+		}
 				
 	}else{
 		die;

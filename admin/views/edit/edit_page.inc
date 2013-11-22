@@ -7,7 +7,7 @@
 		
 				echo '<table>
 						<tr class="th">
-							<td>Pages ID</td>
+							<td class="hidden">Pages ID</td>
 							<td>Page Name</td>
 							<td>On Nav</td>
 							<td>Page Template</td>
@@ -22,7 +22,7 @@
 								  
 				foreach($z as $value) {
 					echo '<tr>'.
-							'<td>'.$value[pages_id].'</td>'
+							'<td class="hidden">'.$value[pages_id].'</td>'
 							.'<td>'.$value[page_name].'</td>'
 							.'<td>'.$value[on_nav].'</td>'
 							.'<td class="page_template">'.$value[page_template].'</td>'
@@ -117,24 +117,26 @@
 		<?
 			$c = $model->sqlSelect("*" , "content", "", "WHERE page_id = $page ORDER BY content_order ASC" );
 			//print_r($c);
-			echo '<h2 style="padding-top: 20px;" class="clear-fix">Content for '.$page_name.'</h2> <table style="padding-top: 20px;" class="clear-fix">
+			echo '<h2 style="padding-top: 20px;" class="clear-fix">Content for '.$page_name.'</h2> 
+				  <table style="padding-top: 20px;" class="clear-fix search_table">
 					<tr class="th">
 						<td>Content Name</td>
 						<td class="hidden">Content ID</td>
 						<td class="hidden">Page ID</td>
-						<td class="hidden">Content</td>
+						<td class="">Content</td>
 						<td>Content Area</td>
 						<td>Order</td>
 						<td>Actions</td>
+						<td>  <input class="search" placeholder="Type to search"/></td>
 					</tr>
 				';		
 							  
 			foreach($c as $value) {
-				echo '<tr>'.
+				echo '<tr class="content-table data">'.
 						'<td class="content_name">'.$value[content_name].'</td>'
 						.'<td class="content_id hidden">'.$value[content_id].'</td>'
 						.'<td class="hidden">'.$value[page_id].'</td>'
-						.'<td class="content hidden">'.htmlspecialchars($value[content]).'</td>'
+						.'<td class="content">'.$helpers->custom_clean($value[content]).'</td>'
 						.'<td class="content_area">'.$value[content_area].'</td>'
 						.'<td class="content_order">'.$value[content_order].'</td>'
 						.'<td id="content_token" class="hidden">'.$edit_token.'</td>'

@@ -123,3 +123,9 @@
 [18-Nov-2013 16:20:15 America/New_York] PHP Catchable fatal error:  Object of class PDOStatement could not be converted to string in /home/refinedd/public_html/framework/admin/delete.php on line 32
 [18-Nov-2013 16:20:18 America/New_York] PHP Catchable fatal error:  Object of class PDOStatement could not be converted to string in /home/refinedd/public_html/framework/admin/delete.php on line 32
 [18-Nov-2013 16:20:23 America/New_York] PHP Catchable fatal error:  Object of class PDOStatement could not be converted to string in /home/refinedd/public_html/framework/admin/delete.php on line 32
+[22-Nov-2013 11:53:35 America/New_York] PHP Catchable fatal error:  Object of class PDOStatement could not be converted to string in /home/refinedd/public_html/framework/admin/delete.php on line 32
+[22-Nov-2013 12:11:56 America/New_York] PHP Catchable fatal error:  Object of class PDOStatement could not be converted to string in /home/refinedd/public_html/framework/admin/delete.php on line 34
+[22-Nov-2013 12:12:05 America/New_York] PHP Catchable fatal error:  Object of class PDOStatement could not be converted to string in /home/refinedd/public_html/framework/admin/delete.php on line 34
+[22-Nov-2013 13:49:37 America/New_York] PHP Warning:  strip_tags() expects at most 2 parameters, 3 given in /home/refinedd/public_html/framework/includes/helpers.php on line 116
+[22-Nov-2013 13:49:37 America/New_York] PHP Warning:  strip_tags() expects at most 2 parameters, 3 given in /home/refinedd/public_html/framework/includes/helpers.php on line 116
+[22-Nov-2013 13:49:37 America/New_York] PHP Warning:  strip_tags() expects at most 2 parameters, 3 given in /home/refinedd/public_html/framework/includes/helpers.php on line 116

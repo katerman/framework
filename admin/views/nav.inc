@@ -47,6 +47,7 @@
 				<li><a href="?tpl=upload&pagename=upload#assets">Upload</a></li>
 				<li><a href="?tpl=uploaded&pagename=uploaded#assets">Uploaded</a></li>
 				<li><a href="?tpl=templates&pagename=templates#assets">Templates</a></li>
+				<li><a href="?tpl=labels&pagename=labels#assets">Labels</a></li>
 			</ul>
 		</li>
 	</ul>				

@@ -15,8 +15,10 @@
 	
 	if($update_type === 'content'){
 		$security->checkToken('edit_token');	 // because our content adding is on the page edit page, we'll stick it with the edit token
-	}else if($update_type === 'template'){
+	}elseif($update_type === 'template'){
 		$security->checkToken('template_token');
+	}elseif($update_type === 'labels'){
+		$security->checkToken('label_token');
 	}else{
 		$security->checkToken('add_token');	
 	}
@@ -122,13 +124,48 @@
 			$template_name = $_POST['template_name'];
 
 			$data = array(':template_type' => $template_type, 
-					  ':template_name' => $template_name
+					      ':template_name' => $template_name
 					 );
 					
 			
 			$sql = $db->prepare("INSERT INTO `templates` (template_type, template_name) VALUES (:template_type, :template_name)");
 
             $sql->execute($data); 	
+            
+         //   print_r($sql);
+        //    print_r($data);		
+			
+		}elseif($update_crud ==='add' && $update_type==='labels'){ // ======== IF labels ========//
+			
+			$label_name = $_POST['label_name'];
+			$label_content = $_POST['label_content'];
+
+			$data = array(':label_name' => $label_name, 
+					  	  ':label_content' => $label_content
+					 );
+					
+			
+			$sql = $db->prepare("INSERT INTO `labels` (label_name, label_content) VALUES (:label_name, :label_content)");
+
+            $sql->execute($data); 	
+            
+         //   print_r($sql);
+        //    print_r($data);		
+			
+		}else{
+			die;
+		}
+		
+	}else{
+	
+		die;
+	
+	}
+	
+	
+?>
+
+>execute($data); 	
             
          //   print_r($sql);
         //    print_r($data);		

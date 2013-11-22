@@ -12,11 +12,11 @@ $(document).ready(function(){
 						clearForm: false,
 						cache: false,
 						success: function(){
-							console.log('success');
+							//console.log('success');
 							
 						},
 						error: function(x, status, error) {
-							console.log('Error======');
+							//console.log('Error======');
 								
 							//console.log('jqXHR' + x);
 							//console.log('text status' + status);
@@ -25,14 +25,14 @@ $(document).ready(function(){
 						},
 						statusCode: {
 							200: function() {
-								console.log('200');
+								//console.log('200');
 								var feedb_text = $('.feedback_text');
 								feedb_text.show().css('color', 'green').text('Logging in..');	
 								location.reload();								
 								
 							},
 							403:function(){
-								console.log('403');
+								//console.log('403');
 								var feedb_text = $('.feedback_text');
 								feedb_text.show().css('color', 'red').text('Username/Password Wrong, or no Access.');								
 							}
@@ -105,14 +105,14 @@ $(document).ready(function(){
 						clearForm: false,
 						cache: false,
 						success: function(){
-						console.log('success');
+						//console.log('success');
 
 							var feedb_text = $('.feedback_text');
 							feedb_text.show().css('color', 'green').text('Updated!').stop().fadeOut(2500, "linear");
 							location.reload();
 						},
 						error: function(x,t,m){
-						console.log('failure');
+						//console.log('failure');
 
 							if(t==="timeout"){
 								var feedb_text = $('.feedback_text');
@@ -128,7 +128,7 @@ $(document).ready(function(){
 	function delete_validation(){	
 		data = new Object;
 		
-		var d_click = $('.delete').click(function(event) {
+		var d_click = $('.delete').click(function(e) {
 			$(this).parent().prepend('<div class="yn-overlay"><div class="yesBtn"></div> <div class="noBtn"></div></div>');
 
 			body.on('click', '.yesBtn', function(){
@@ -145,7 +145,7 @@ $(document).ready(function(){
 				var pages_id = $(this).siblings('#id').val();   
 				var db_id = $(this).siblings('#db_id').val();
 				
-				if(update_type === 'templates'){
+				if(update_type === 'templates' || update_type === 'labels'){
 					var auth_token = $('p#token').text();     
 				}else{
 					var auth_token = $('#token').val();     
@@ -156,8 +156,8 @@ $(document).ready(function(){
 				data['auth_token'] = auth_token;
 				data['db_id'] = db_id;
 				
-				console.log(data);
-				return false;
+				//console.log(data);
+				e.preventDefault();
 		});
 		
 		$("#delete_form").validate({				     
@@ -171,16 +171,16 @@ $(document).ready(function(){
 						clearForm: false,
 						cache: false,
 						success: function(){
-							console.log('good');
+							//console.log('good');
 							location.reload();
 						},
 						error: function(x,t,m){
 							if(t==="timeout"){
-								console.log('timeout');
+								//console.log('timeout');
 								
 							}
 							
-							console.log( ' bad: ' + x + m);
+							//console.log( ' bad: ' + x + m);
 						}										
 				});
 			}
@@ -239,7 +239,7 @@ $(document).ready(function(){
 						success: function(){
 							var feedb_text = $('.feedback_text');
 							feedb_text.show().css('color', 'green').text('Added: ' + added + ' !').stop().fadeOut();
-							console.log(data);
+							//console.log(data);
 						},
 						error: function(x,t,m){
 							if(t==="timeout"){
@@ -297,14 +297,14 @@ $(document).ready(function(){
 							clearForm: false,
 							cache: false,
 							success: function(){
-							console.log('success');
+							//console.log('success');
 							
 								var feedb_text = $('.feedback_content');
 								feedb_text.show().css('color', 'green').text(feedback).stop().fadeOut(2500, "linear");
 								
 							},
 							error: function(x,t,m){
-							console.log('failure: ' + '			x: ' + JSON.stringify(x) + '			t: ' + t +'			m: ' +m);
+							//console.log('failure: ' + '			x: ' + JSON.stringify(x) + '			t: ' + t +'			m: ' +m);
 	
 								if(t==="timeout"){
 									var feedb_text = $('.feedback_content');
@@ -363,14 +363,81 @@ $(document).ready(function(){
 							clearForm: false,
 							cache: false,
 							success: function(){
-							console.log('success');
+							//console.log('success');
 							
 								var feedb_text = $('.feedback_content');
 								feedb_text.show().css('color', 'green').text(feedback).stop().fadeOut(2500, "linear");
 								location.reload();
 							},
 							error: function(x,t,m){
-							console.log('failure: ' + '			x: ' + JSON.stringify(x) + '			t: ' + t +'			m: ' +m);
+							//console.log('failure: ' + '			x: ' + JSON.stringify(x) + '			t: ' + t +'			m: ' +m);
+	
+								if(t==="timeout"){
+									var feedb_text = $('.feedback_content');
+									feedb_text.show().css('color', 'red').text('Something has gone wrong..').stop().fadeOut(2500, "linear");
+									
+								}
+								
+							}
+					});
+				}
+        }); 	
+	}// end of template_validation
+	
+	
+	
+		function labels_validation(){
+			$("#label_form").validate({   
+				submitHandler: function(form) {
+				
+				
+					var update_type = $('#update_type').val(); // need to grab the update type to send the correct data
+					var update_crud = $('#update_crud').val(); // since we can edit or add using the same form we have to figure out which crud type we're using in that moment
+					var url = '';
+					var feedback = '';
+					data = new Object; //make data object to hold data passed through post
+					data['token'] = $('p#token').text();
+					//console.log(data['token']);
+						
+					if(update_type === 'labels' & update_crud == 'edit'){
+						values = ['label_name','label_content','id'];
+										
+						for(var i = 0; i <values.length; i++) {
+							data[values[i]] = $('#'+values[i]).val();
+						}
+						
+						url = "update.php";
+						feedback = 'Updated!';
+						
+					}else if(update_type === 'labels' & update_crud == 'add'){
+										
+						values = ['label_name','label_content'];
+										
+						for(var i = 0; i <values.length; i++) {
+							data[values[i]] = $('#'+values[i]).val();
+						}
+						
+						url = "add.php";
+						feedback = 'Added!';
+					}
+				
+				
+					$(form).ajaxSubmit({
+							url:url,
+							type:"POST",
+							data: data,
+							timeout: 2000,
+							clearForm: false,
+							cache: false,
+							success: function(){
+							//console.log('success');
+							
+								var feedb_text = $('.feedback_content');
+								feedb_text.show().css('color', 'green').text(feedback).stop().fadeOut(2500, "linear");
+								location.reload();
+							},
+							error: function(x,t,m){
+							//console.log('failure: ' + '			x: ' + JSON.stringify(x) + '			t: ' + t +'			m: ' +m);
 	
 								if(t==="timeout"){
 									var feedb_text = $('.feedback_content');
@@ -392,6 +459,7 @@ $(document).ready(function(){
 		add_validation();
 		content_validation();
 		template_validation();
+		labels_validation();
 		
 		// the amount of seperate functions is silly, but makes it much easier to seperate things out.
 	}

@@ -19,7 +19,9 @@
 	
 	?>
 	
-	<div id="overlay" class="ten columns"> <?if($type === 'edit_page'){ include_once('forms/content_form.inc'); }else if($tpl === 'templates'){include_once('forms/template_form.inc');}
+	<div id="overlay" class="ten columns"> <?if($type === 'edit_page'){ include_once('forms/content_form.inc'); }
+											 else if($tpl === 'templates'){include_once('forms/template_form.inc');}
+											 else if($tpl === 'labels'){include_once('forms/label_form.inc');}
 	?></div>
 	
 	<div id="header" class="sixteen columns"><? include_once('header.inc'); ?></div>

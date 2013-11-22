@@ -8,6 +8,8 @@
 	$page_url = $helpers->getQuery('page','return');
 	$q = $model->sqlSelect("*" , "pages", "", "WHERE page_url LIKE '%$page_url%'");
 	$c = $model->sqlSelect("*" , "config", "", "");
+	$l = $model->sqlSelect("*" , "labels", "", "");
+
 
 	$GLOBALS['config'] = $c[0];
 	$GLOBALS['page'] = $q[0];
@@ -21,6 +23,7 @@
 	$GLOBALS['content'] = $cont;
 	$content = $GLOBALS['content'];
 	
+	//areas
 	$areas = new stdClass;
 	
 	foreach($cont as $con){
@@ -34,7 +37,20 @@
 	$GLOBALS['areas'] = $areas;
 	$areas = $GLOBALS['areas'];
 	
-	//print_r($content);
+	
+	//labels
+	$labels = new stdClass;
+	
+	foreach($l as $lab){
+		$labels->$lab['label_name'] = $lab['label_content'];
+	}
+	
+	$GLOBALS['labels'] = $labels;
+	$labels = $GLOBALS['labels'];
+	
+
+	
+	//print_r($labels);
 
 ?> 
 <!DOCTYPE html>

@@ -64,7 +64,7 @@ $(document).ready(function(){
 			
 		});
 		
-		add_content.click(function(){
+		add_content.click(function(e){
 			overlay.toggle();
 			values = ['content_order','content','content_area','content_name','content_id'];
 			update.val('add');
@@ -135,7 +135,7 @@ $(document).ready(function(){
 				$('#template_form '+'#'+values[i]).val(data[values[i]]);
 			} 
 			
-			data['token'] = $(this).parents('tr').children('#template_token').text();
+
 			data['template_type'] = $(this).parents('tr').children('.template_type').text();
 			
 			var type = data['template_type'];
@@ -149,7 +149,8 @@ $(document).ready(function(){
 			
 			//console.log(data['template_type']);
 			
-			$('#template_form').val(data['token']);
+			data['token'] = $('p#token').text();
+			$('#template_token').val(data['token']);
 			
 			//console.log(data);
 			
@@ -162,7 +163,7 @@ $(document).ready(function(){
 			
 		});
 		
-		add_template.click(function(){
+		add_template.click(function(e){
 			overlay.toggle();
 			values = ['template_name' ,'id'];
 			update.val('add');
@@ -205,15 +206,112 @@ $(document).ready(function(){
 		
 	}//templates
 
+	function labels(){
+		var label_edit = $('.edit_labels');
+		var overlay = $('#overlay');
+		var add_label = $('.add_labels');
+		var KEYCODE_ESC = 27;     
+		var x = '0'; 
+		var update = $('#update_crud');
+		var form = $('#label_form');
 
+		overlay.on('click', '.form_close', function() { 
+	        overlay.hide();
+			x = '0';
+        });      
+        
+		label_edit.click(function(e){ //=================== EDIT ===================
+			overlay.toggle();
+			form.children('h1').text('Edit Label');			
+			values = ['label_name','id', 'label_content'];
+			update.val('edit');
+			
+			data = new Object;
+			
+			for(var i = 0; i <values.length; i++) {
+				data[values[i]] = $(this).parents('tr').children('.'+values[i]).text();
+				$('#label_form '+'#'+values[i]).val(data[values[i]]);
+			} 
+			
+			data['token'] = $('p#token').text();
+			$('#label_token').val(data['token']);
+			
+			console.log(data);
+			
+			if(x === '0'){
+				overlay.append(form);
+				x++;
+			}
+	        
+			e.preventDefault();
+			
+		});
+		
+		add_label.click(function(e){ //=================== ADD ===================
+			overlay.toggle();
+			values = ['template_name' ,'template_content'];
+			update.val('add');
+			
+			data = new Object;
+			
+			for(var i = 0; i <values.length; i++) {
+				$('#template_form '+'#'+values[i]).val('');
+			}
+
+			
+			form.children('h1').text('Add Template');			
+			data = new Object;
+							
+			data['token'] = $('p#token').text();
+			$('#label_token').val(data['token']);
+			
+			console.log(data);
+			
+			if(x === '0'){
+				overlay.append(form);
+				x++;
+			}
+	        
+			e.preventDefault();
+
+		});
+		
+		$(document).keyup(function(e) { //clicking escape will hide the overlay and graph 
+	        if (e.keyCode == KEYCODE_ESC) {
+				overlay.hide();
+				x = '0';
+	        } 
+		});
+		
+
+		
+		
+	}//labels
+
+	function regexSearch(v, s){
+		$(s).keyup(function() {
+			$rows = v;
+		    var val =$.trim($(this).val()),
+		        reg = RegExp(val, 'i'),
+		        text;
+		
+		    $rows.show().filter(function() {
+		        text = $(this).text().replace(/\s+/g, ' ');
+		        return !reg.test(text);
+		    }).hide();
+		});
+	}
 		
 	function init(){
 		navdropdowns();
 		content();
 		templates();
+		labels();
 		
 		var tables = $('table').addClass('responsive'); // for responsive tables.. yay
 		$('#page_template').val($('.page_template').text());
+
+		regexSearch($('.search_table .data'), $('.search'));
 	}
 	
 	init();

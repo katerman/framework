@@ -5,17 +5,18 @@
 	$q = $model->sqlSelect("*" , "users", "", "ORDER BY user_Access ASC");
 	$deleteToken = $security->generateFormToken('delete_page_token');
 
-	echo '<table>
+	echo '<table class="search_table">
 			<tr class="th">
 				<td>username</td>
 				<td>full name</td>
 				<td>access</td>
 				<td>Actions</td>
+				<td>  <input class="search" placeholder="Type to search"/></td>
 			</tr>
 		';		
 					  
 	foreach($q as $value) {
-		echo '<tr>'
+		echo '<tr class="data">'
 				.'<td>'.$value[user_uName].'</td>'
 				.'<td>'.$value[user_FullName].'</td>'
 				.'<td>';if($value[user_Access] === '1'){echo 'Admin';}else{echo 'User';}  echo '</td>'

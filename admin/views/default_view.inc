@@ -4,17 +4,18 @@
 				$z = $model->sqlSelect("*" , "pages", "", "ORDER BY page_order ASC");
 				$deleteToken = $security->generateFormToken('delete_page_token');
 						
-				echo '<table>
+				echo '<table class="search_table">
 						<tr class="th">
 							<td>Page Name</td>
 							<td>Page Url</td>
 							<td>Page Order</td>
 							<td>Actions</td>
+							<td>  <input class="search" placeholder="Type to search"/></td>
 						</tr>
 					';		
 								  
 				foreach($z as $value) {
-					echo '<tr>'
+					echo '<tr class="data">'
 							.'<td>'.$value[page_name].'</td>'
 							.'<td>'.$value[page_url].'</td>'
 							.'<td>'.$value[page_order].'</td>'
