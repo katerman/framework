@@ -136,7 +136,7 @@
 						'<td class="content_name">'.$value[content_name].'</td>'
 						.'<td class="content_id hidden">'.$value[content_id].'</td>'
 						.'<td class="hidden">'.$value[page_id].'</td>'
-						.'<td class="content">'.$helpers->custom_clean($value[content]).'</td>'
+						.'<td class="content">'.htmlspecialchars($value[content]).'</td>'
 						.'<td class="content_area">'.$value[content_area].'</td>'
 						.'<td class="content_order">'.$value[content_order].'</td>'
 						.'<td id="content_token" class="hidden">'.$edit_token.'</td>'
