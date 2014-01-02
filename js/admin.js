@@ -36,10 +36,10 @@ $(document).ready(function(){
 			x = '0';
         });      
         
-		content.click(function(e){
+		content.click(function(e){ //edit content
 			overlay.toggle();
 			form.children('h1').text('Edit Content');			
-			values = ['content_order','content','content_area','content_name','content_id'];
+			values = ['content_order','content_area','content_name','content_id'];
 			update.val('edit');
 			
 			data = new Object;
@@ -49,6 +49,17 @@ $(document).ready(function(){
 				$('#content_form '+'#'+values[i]).val(data[values[i]]);
 
 			}
+			
+			var content = $(this).parents('tr').children('.content');
+						
+			if (content.html().match(/<(\w+)((?:\s+\w+(?:\s*=\s*(?:(?:"[^"]*")|(?:'[^']*')|[^>\s]+))?)*)\s*(\/?)>/)) {
+				data['content'] = content.html();				
+			}else{
+				data['content'] = content.text();			
+			}
+			
+			$('#content').val(data['content']);
+
 			
 			data['token'] = $(this).parents('tr').children('#content_token').text();
 			$('#content_token').val(data['token']);
@@ -236,7 +247,7 @@ $(document).ready(function(){
 			data['token'] = $('p#token').text();
 			$('#label_token').val(data['token']);
 			
-			console.log(data);
+			//console.log(data);
 			
 			if(x === '0'){
 				overlay.append(form);
@@ -259,13 +270,17 @@ $(document).ready(function(){
 			}
 
 			
-			form.children('h1').text('Add Template');			
+			form.children('h1').text('Add Label');			
 			data = new Object;
+							
+			form.children('#label_name').val('');		
+			form.children('#label_content').val('');		
+					
 							
 			data['token'] = $('p#token').text();
 			$('#label_token').val(data['token']);
 			
-			console.log(data);
+			//console.log(data);
 			
 			if(x === '0'){
 				overlay.append(form);
@@ -310,6 +325,7 @@ $(document).ready(function(){
 		
 		var tables = $('table').addClass('responsive'); // for responsive tables.. yay
 		$('#page_template').val($('.page_template').text());
+		$('#parent_page').val($('.sub_page').text());
 
 		regexSearch($('.search_table .data'), $('.search'));
 	}

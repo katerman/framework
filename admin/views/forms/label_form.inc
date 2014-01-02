@@ -3,7 +3,7 @@
 ?>	
 
 
-<form id="label_form" class="form" action="" method="" accept-charset="utf-8"><h1>edit/add template</h1><img class="form_close" src="<? echo $_CONFIG->img_path; ?>admin/close.png" alt="close"> 
+<form id="label_form" class="form" action="" method="" accept-charset="utf-8"><h1>edit/add label</h1><img class="form_close" src="<? echo $_CONFIG->img_path; ?>admin/close.png" alt="close"> 
 
 	<p> Press Escape, or Click the x to close.</p>
 	

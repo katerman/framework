@@ -2,6 +2,7 @@
 
 		<? 								
 			$r = $model->sqlSelect("*" , "templates", "", "");
+			$pp = $model->sqlSelect("*" , "pages", "", "WHERE on_nav = '1'");
 		    
 
 			$addToken = $security->generateFormToken('add_token'); 
@@ -25,10 +26,21 @@
 			
 			<label for="page_template">Page Template</label><br/>
 			<select id="page_template" name="page_template" style="margin-bottom: 10px; width: 150px;">
-				<option value=""></option>
+				<option value="">None</option>
 			<? 
 				foreach($r as $temp){
 					echo '<option value="'.$temp[id].'">'.$temp[template_name].'</option>';
+				}
+				
+			?>
+			</select><br/>			
+			
+			<label for="parent_page">Parent Page</label><br/>
+			<select id="parent_page" name="parent_page" style="margin-bottom: 10px; width: 150px;">
+				<option value="">None</option>
+			<? 
+				foreach($pp as $p){
+					echo '<option value="'.$p[pages_id].'">'.$p[page_name].'</option>';
 				}
 				
 			?>
@@ -36,15 +48,12 @@
 			
 			<label for="page_group">Page Group</label><br/>
             <input id="page_group" name="page_group" value="" placeholder="Page Group"><br/>
-			
-			<label for="sub_page">Sub Pages</label><br/>
-            <input id="sub_page" name="sub_page" value="" placeholder="Sub Pages"><br/>
 
 			<label for="page_order">Page Order</label><br/>
             <input id="page_order" name="page_order" value="" placeholder="Page Order"><br/>
 
 			<label for="on_nav">On Nav?</label>           
-            <input id="on_nav" type="checkbox" name="on_nav" value="1" /><br/>
+            <input id="on_nav" type="checkbox" name="on_nav" value="0" /><br/>
 
 			<input type="hidden" id="token" name="token" value="<?php echo $addToken; ?>">
 			<input type="hidden" id="update_type" name="update_type" value="pages">

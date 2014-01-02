@@ -38,7 +38,7 @@
 			$page_meta_keyword = $_POST['page_meta_keyword'];
 			$page_template = $_POST['page_template'];
 			$page_group = $_POST['page_group'];
-			$sub_page = $_POST['sub_page'];	
+			$sub_page = $_POST['parent_page'];	
 			$page_url = $_POST['page_url'];
 			$page_order = $_POST['page_order'];		
 			$on_nav = $_POST['on_nav'];		
@@ -165,21 +165,5 @@
 	
 ?>
 
->execute($data); 	
-            
-         //   print_r($sql);
-        //    print_r($data);		
-			
-		}else{
-			die;
-		}
-		
-	}else{
-	
-		die;
-	
-	}
-	
-	
 ?>
 

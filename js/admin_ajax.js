@@ -52,7 +52,7 @@ $(document).ready(function(){
 
 				if(update_type === 'pages'){ //if the update type is pages
 				
-		       		values = ['page_name','page_meta_title','page_meta_keyword','page_group','sub_page','pages_id','page_order','page_url','token','on_nav'];
+		       		values = ['page_name','page_meta_title','page_meta_keyword','page_group','pages_id','page_order','page_url','token','on_nav'];
 			   		
 					data = new Object; //make data object to hold data passed through post
 				
@@ -62,6 +62,7 @@ $(document).ready(function(){
 				    }
 				    
 				    data['page_template'] = $('#page_template option:selected').val(); 
+				    data['parent_page'] = $('#parent_page option:selected').val(); 
 				   
 				}else if(update_type === 'user'){ // if user
 					var user_id = $('#user_id').val();
@@ -108,7 +109,7 @@ $(document).ready(function(){
 						//console.log('success');
 
 							var feedb_text = $('.feedback_text');
-							feedb_text.show().css('color', 'green').text('Updated!').stop().fadeOut(2500, "linear");
+							feedb_text.show().css('color', 'green').text('Updated!');
 							location.reload();
 						},
 						error: function(x,t,m){
@@ -116,7 +117,7 @@ $(document).ready(function(){
 
 							if(t==="timeout"){
 								var feedb_text = $('.feedback_text');
-								feedb_text.show().css('color', 'red').text('Something has gone wrong..').stop().fadeOut(2500, "linear");
+								feedb_text.show().css('color', 'red').text('Something has gone wrong..');
 								
 							}
 						}
@@ -142,7 +143,7 @@ $(document).ready(function(){
 			
 				
 				var update_type = $(this).siblings('#type').val();
-				var pages_id = $(this).siblings('#id').val();   
+				var id = $(this).siblings('#id').val();   
 				var db_id = $(this).siblings('#db_id').val();
 				
 				if(update_type === 'templates' || update_type === 'labels'){
@@ -150,13 +151,14 @@ $(document).ready(function(){
 				}else{
 					var auth_token = $('#token').val();     
 				}
+				
+				console.log(auth_token);
 				//object to hold info
-				data['update_type'] = update_type;
-				data['pages_id'] = pages_id;
-				data['auth_token'] = auth_token;
+				data['type'] = update_type;
+				data['id'] = id;
+				data['token'] = auth_token;
 				data['db_id'] = db_id;
 				
-				//console.log(data);
 				e.preventDefault();
 		});
 		
@@ -166,12 +168,11 @@ $(document).ready(function(){
 				$(form).ajaxSubmit({
 						url:"delete.php",
 						type:"POST",
-						data: {token: data['auth_token'], id: data['pages_id'], type: data['update_type'], dbid: data['db_id']},
+						data: data,
 						timeout: 2000,
-						clearForm: false,
+						clearForm: true,
 						cache: false,
 						success: function(){
-							//console.log('good');
 							location.reload();
 						},
 						error: function(x,t,m){
@@ -197,7 +198,7 @@ $(document).ready(function(){
 
 				if(update_type === 'pages'){ //if the update type is pages
 				
-					values = ['page_name','page_meta_title','page_meta_keyword','page_group','sub_page','pages_id','page_order','page_url','token', 'update_type'];
+					values = ['page_name','page_meta_title','page_meta_keyword','page_group','pages_id','page_order','page_url','token', 'update_type'];
 						
 				    for(var i = 0; i <values.length; i++) {
 				        data[values[i]] = $('#'+values[i]).val();
@@ -205,6 +206,7 @@ $(document).ready(function(){
 				    }
 				    
 				    data['page_template'] = $('#page_template option:selected').val(); 
+				    data['parent_page'] = $('#parent_page option:selected').val(); 
 				    data['on_nav'] = $('#add_form #on_nav').val();
 
 					var added = data['page_name'];
@@ -238,13 +240,13 @@ $(document).ready(function(){
 						cache: false,
 						success: function(){
 							var feedb_text = $('.feedback_text');
-							feedb_text.show().css('color', 'green').text('Added: ' + added + ' !').stop().fadeOut();
+							feedb_text.show().css('color', 'green').text('Added: ' + added + ' !');
 							//console.log(data);
 						},
 						error: function(x,t,m){
 							if(t==="timeout"){
 								var feedb_text = $('.feedback_text');
-								feedb_text.show().css('color', 'red').text('Something has gone wrong..').stop().fadeOut();
+								feedb_text.show().css('color', 'red').text('Something has gone wrong..');
 								
 							}
 						}
@@ -264,7 +266,7 @@ $(document).ready(function(){
 					var feedback = '';
 					data = new Object; //make data object to hold data passed through post
 						
-					if(update_type === 'content' & update_crud == 'edit'){
+					if(update_type === 'content' && update_crud == 'edit'){
 						values = ['content_order','content','content_area','content_name','content_id','token'];
 										
 						for(var i = 0; i <values.length; i++) {
@@ -275,7 +277,7 @@ $(document).ready(function(){
 						url = "update.php";
 						feedback = 'Updated!';
 						
-					}else if(update_type === 'content' & update_crud == 'add'){
+					}else if(update_type === 'content' && update_crud == 'add'){
 										
 						values = ['content_order','content','content_area','content_name','token', 'content_page_id'];
 										
@@ -300,7 +302,7 @@ $(document).ready(function(){
 							//console.log('success');
 							
 								var feedb_text = $('.feedback_content');
-								feedb_text.show().css('color', 'green').text(feedback).stop().fadeOut(2500, "linear");
+								feedb_text.show().css('color', 'green').text(feedback);
 								
 							},
 							error: function(x,t,m){
@@ -308,7 +310,7 @@ $(document).ready(function(){
 	
 								if(t==="timeout"){
 									var feedb_text = $('.feedback_content');
-									feedb_text.show().css('color', 'red').text('Something has gone wrong..').stop().fadeOut(2500, "linear");
+									feedb_text.show().css('color', 'red').text('Something has gone wrong..');
 									
 								}
 								
@@ -332,7 +334,7 @@ $(document).ready(function(){
 					data['token'] = $('p#token').text();
 					//console.log(data['token']);
 						
-					if(update_type === 'template' & update_crud == 'edit'){
+					if(update_type === 'template' && update_crud == 'edit'){
 						values = ['template_name','id'];
 										
 						for(var i = 0; i <values.length; i++) {
@@ -342,7 +344,7 @@ $(document).ready(function(){
 						url = "update.php";
 						feedback = 'Updated!';
 						
-					}else if(update_type === 'template' & update_crud == 'add'){
+					}else if(update_type === 'template' && update_crud == 'add'){
 										
 						values = ['template_name'];
 										
@@ -366,7 +368,7 @@ $(document).ready(function(){
 							//console.log('success');
 							
 								var feedb_text = $('.feedback_content');
-								feedb_text.show().css('color', 'green').text(feedback).stop().fadeOut(2500, "linear");
+								feedb_text.show().css('color', 'green').text(feedback);
 								location.reload();
 							},
 							error: function(x,t,m){
@@ -374,7 +376,7 @@ $(document).ready(function(){
 	
 								if(t==="timeout"){
 									var feedb_text = $('.feedback_content');
-									feedb_text.show().css('color', 'red').text('Something has gone wrong..').stop().fadeOut(2500, "linear");
+									feedb_text.show().css('color', 'red').text('Something has gone wrong..');
 									
 								}
 								
@@ -398,25 +400,26 @@ $(document).ready(function(){
 					data = new Object; //make data object to hold data passed through post
 					data['token'] = $('p#token').text();
 					//console.log(data['token']);
-						
-					if(update_type === 'labels' & update_crud == 'edit'){
+											
+					if(update_type === 'labels' && update_crud === 'edit'){
 						values = ['label_name','label_content','id'];
 										
 						for(var i = 0; i <values.length; i++) {
 							data[values[i]] = $('#'+values[i]).val();
 						}
-						
+												
 						url = "update.php";
 						feedback = 'Updated!';
 						
-					}else if(update_type === 'labels' & update_crud == 'add'){
-										
+					}else if(update_type === 'labels' && update_crud === 'add'){
+							
+									
 						values = ['label_name','label_content'];
 										
 						for(var i = 0; i <values.length; i++) {
 							data[values[i]] = $('#'+values[i]).val();
 						}
-						
+												
 						url = "add.php";
 						feedback = 'Added!';
 					}
@@ -433,7 +436,7 @@ $(document).ready(function(){
 							//console.log('success');
 							
 								var feedb_text = $('.feedback_content');
-								feedb_text.show().css('color', 'green').text(feedback).stop().fadeOut(2500, "linear");
+								feedb_text.show().css('color', 'green').text(feedback);
 								location.reload();
 							},
 							error: function(x,t,m){
@@ -441,7 +444,7 @@ $(document).ready(function(){
 	
 								if(t==="timeout"){
 									var feedb_text = $('.feedback_content');
-									feedb_text.show().css('color', 'red').text('Something has gone wrong..').stop().fadeOut(2500, "linear");
+									feedb_text.show().css('color', 'red').text('Something has gone wrong..');
 									
 								}
 								

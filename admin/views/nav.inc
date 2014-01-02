@@ -17,7 +17,7 @@
 				<li><a class="nav_add-page" href="?tpl=add&type=add_page#pages">Add Page</a></li>					
 				<? 
 				
-					$x = $model->sqlSelect("*" , "pages", "", "");
+					$x = $model->sqlSelect("*" , "pages", "", "WHERE on_nav = '1'");
 					
 	
 					foreach($x as $key=>$value) {
