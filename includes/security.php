@@ -81,7 +81,7 @@ class security {
 		
 		} else {
 		   
-		   echo "Something is wrong..";
+		   echo "Token..";
 		   $this->writeLog($form);
 		   die;
 		
