@@ -25,6 +25,8 @@ class AuthModel{
 			$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 			if(count($rows) === 1) {
 				return $rows[0];
+			}else{
+				$e = header("HTTP/1.1 403 Forbidden");
 			}
 		}
 		return array();//If the expected successful return is an array, the failed return should be an empty array

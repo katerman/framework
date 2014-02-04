@@ -1,70 +1,586 @@
-[18-Oct-2013 13:15:44 America/New_York] PHP Fatal error:  Call to undefined function CONCAT() in /home/refinedd/public_html/framework/admin/add.php on line 75
-[18-Oct-2013 13:15:54 America/New_York] PHP Fatal error:  Call to undefined function CONCAT() in /home/refinedd/public_html/framework/admin/add.php on line 75
-[22-Oct-2013 14:33:35 America/New_York] PHP Warning:  include(edit/edit_user.inc) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/refinedd/public_html/framework/admin/views/edit.inc on line 8
-[22-Oct-2013 14:33:35 America/New_York] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening 'edit/edit_user.inc' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/refinedd/public_html/framework/admin/views/edit.inc on line 8
-[03-Nov-2013 09:57:20 America/New_York] PHP Warning:  include(edit/edit_user.inc) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/refinedd/public_html/framework/admin/views/edit.inc on line 8
-[03-Nov-2013 09:57:20 America/New_York] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening 'edit/edit_user.inc' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/refinedd/public_html/framework/admin/views/edit.inc on line 8
-[03-Nov-2013 09:59:24 America/New_York] PHP Warning:  include(edit/edit_user.inc) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/refinedd/public_html/framework/admin/views/edit.inc on line 8
-[03-Nov-2013 09:59:24 America/New_York] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening 'edit/edit_user.inc' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/refinedd/public_html/framework/admin/views/edit.inc on line 8
-[03-Nov-2013 10:55:28 America/New_York] PHP Warning:  Invalid argument supplied for foreach() in /home/refinedd/public_html/framework/admin/views/edit/edit_user.inc on line 21
-[03-Nov-2013 10:56:04 America/New_York] PHP Warning:  Invalid argument supplied for foreach() in /home/refinedd/public_html/framework/admin/views/edit/edit_user.inc on line 21
-[03-Nov-2013 10:56:17 America/New_York] PHP Warning:  Invalid argument supplied for foreach() in /home/refinedd/public_html/framework/admin/views/edit/edit_user.inc on line 21
-[03-Nov-2013 10:58:52 America/New_York] PHP Warning:  Invalid argument supplied for foreach() in /home/refinedd/public_html/framework/admin/views/edit/edit_user.inc on line 21
-[03-Nov-2013 10:59:11 America/New_York] PHP Warning:  Invalid argument supplied for foreach() in /home/refinedd/public_html/framework/admin/views/edit/edit_user.inc on line 19
-[03-Nov-2013 11:09:12 America/New_York] PHP Warning:  Invalid argument supplied for foreach() in /home/refinedd/public_html/framework/admin/views/edit/edit_user.inc on line 19
-[04-Nov-2013 10:48:38 America/New_York] PHP Warning:  PDOStatement::execute() [<a href='pdostatement.execute'>pdostatement.execute</a>]: SQLSTATE[HY093]: Invalid parameter number: no parameters were bound in /home/refinedd/public_html/framework/admin/update.php on line 76
-[04-Nov-2013 10:50:09 America/New_York] PHP Warning:  PDOStatement::execute() [<a href='pdostatement.execute'>pdostatement.execute</a>]: SQLSTATE[HY093]: Invalid parameter number: no parameters were bound in /home/refinedd/public_html/framework/admin/update.php on line 76
-[04-Nov-2013 10:50:19 America/New_York] PHP Warning:  PDOStatement::execute() [<a href='pdostatement.execute'>pdostatement.execute</a>]: SQLSTATE[HY093]: Invalid parameter number: no parameters were bound in /home/refinedd/public_html/framework/admin/update.php on line 76
-[04-Nov-2013 10:51:31 America/New_York] PHP Warning:  PDOStatement::execute() [<a href='pdostatement.execute'>pdostatement.execute</a>]: SQLSTATE[HY093]: Invalid parameter number: no parameters were bound in /home/refinedd/public_html/framework/admin/update.php on line 78
-[04-Nov-2013 10:51:53 America/New_York] PHP Warning:  PDOStatement::execute() [<a href='pdostatement.execute'>pdostatement.execute</a>]: SQLSTATE[HY093]: Invalid parameter number: no parameters were bound in /home/refinedd/public_html/framework/admin/update.php on line 78
-[04-Nov-2013 13:34:30 America/New_York] PHP Fatal error:  Call to a member function url() on a non-object in /home/refinedd/public_html/framework/admin/views/header.inc on line 2
-[04-Nov-2013 13:36:01 America/New_York] PHP Fatal error:  Call to a member function url() on a non-object in /home/refinedd/public_html/framework/admin/views/header.inc on line 2
-[04-Nov-2013 13:37:12 America/New_York] PHP Fatal error:  Class name must be a valid object or a string in /home/refinedd/public_html/framework/admin/views/header.inc on line 2
-[04-Nov-2013 13:37:15 America/New_York] PHP Fatal error:  Class name must be a valid object or a string in /home/refinedd/public_html/framework/admin/views/header.inc on line 2
-[04-Nov-2013 15:19:57 America/New_York] PHP Warning:  move_uploaded_file(/home/refinedd/public_html/framework/admin/views/uploads/drpepperbro.gif) [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: failed to open stream: No such file or directory in /home/refinedd/public_html/framework/admin/views/upload.inc on line 14
-[04-Nov-2013 15:19:57 America/New_York] PHP Warning:  move_uploaded_file() [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: Unable to move '/tmp/php65JVGa' to '/home/refinedd/public_html/framework/admin/views/uploads/drpepperbro.gif' in /home/refinedd/public_html/framework/admin/views/upload.inc on line 14
-[04-Nov-2013 15:28:56 America/New_York] PHP Warning:  Invalid argument supplied for foreach() in /home/refinedd/public_html/framework/admin/views/uploaded.inc on line 8
-[04-Nov-2013 15:45:20 America/New_York] PHP Warning:  Invalid argument supplied for foreach() in /home/refinedd/public_html/framework/admin/views/uploaded.inc on line 22
-[04-Nov-2013 15:45:54 America/New_York] PHP Warning:  Invalid argument supplied for foreach() in /home/refinedd/public_html/framework/admin/views/uploaded.inc on line 22
-[04-Nov-2013 16:08:51 America/New_York] PHP Parse error:  syntax error, unexpected '.' in /home/refinedd/public_html/framework/admin/views/uploaded.inc on line 27
-[04-Nov-2013 16:09:15 America/New_York] PHP Parse error:  syntax error, unexpected T_ECHO in /home/refinedd/public_html/framework/admin/views/uploaded.inc on line 27
-[04-Nov-2013 16:11:52 America/New_York] PHP Warning:  get_html_translation_table() expects parameter 1 to be long, string given in /home/refinedd/public_html/framework/admin/views/uploaded.inc on line 27
-[04-Nov-2013 16:13:10 America/New_York] PHP Warning:  get_html_translation_table() expects parameter 1 to be long, string given in /home/refinedd/public_html/framework/admin/views/uploaded.inc on line 27
-[04-Nov-2013 16:14:33 America/New_York] PHP Warning:  trim() expects at most 2 parameters, 3 given in /home/refinedd/public_html/framework/admin/views/uploaded.inc on line 27
-[04-Nov-2013 16:14:55 America/New_York] PHP Warning:  trim() expects parameter 2 to be string, array given in /home/refinedd/public_html/framework/admin/views/uploaded.inc on line 27
-[04-Nov-2013 19:17:26 America/New_York] PHP Warning:  Invalid argument supplied for foreach() in /home/refinedd/public_html/framework/admin/views/edit/edit_config.inc on line 21
-[05-Nov-2013 09:07:41 America/New_York] PHP Warning:  move_uploaded_file(..//home/refinedd/public_html/framework/admin/uploads/delete.ico) [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: failed to open stream: No such file or directory in /home/refinedd/public_html/framework/admin/upload.php on line 14
-[05-Nov-2013 09:07:41 America/New_York] PHP Warning:  move_uploaded_file() [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: Unable to move '/tmp/phpjREi1g' to '..//home/refinedd/public_html/framework/admin/uploads/delete.ico' in /home/refinedd/public_html/framework/admin/upload.php on line 14
-[05-Nov-2013 09:07:49 America/New_York] PHP Warning:  move_uploaded_file(..//home/refinedd/public_html/framework/admin/uploads/delete.ico) [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: failed to open stream: No such file or directory in /home/refinedd/public_html/framework/admin/upload.php on line 14
-[05-Nov-2013 09:07:49 America/New_York] PHP Warning:  move_uploaded_file() [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: Unable to move '/tmp/phpgBl0uA' to '..//home/refinedd/public_html/framework/admin/uploads/delete.ico' in /home/refinedd/public_html/framework/admin/upload.php on line 14
-[05-Nov-2013 09:08:17 America/New_York] PHP Warning:  trim() [<a href='function.trim'>function.trim</a>]: Invalid '..'-range, no character to the left of '..' in /home/refinedd/public_html/framework/admin/views/uploaded.inc on line 29
-[05-Nov-2013 09:13:12 America/New_York] PHP Warning:  move_uploaded_file(..//home/refinedd/public_html/framework/admin/uploads/Miix 10-resized[1].png) [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: failed to open stream: No such file or directory in /home/refinedd/public_html/framework/admin/upload.php on line 14
-[05-Nov-2013 09:13:12 America/New_York] PHP Warning:  move_uploaded_file() [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: Unable to move '/tmp/phpEwqZrB' to '..//home/refinedd/public_html/framework/admin/uploads/Miix 10-resized[1].png' in /home/refinedd/public_html/framework/admin/upload.php on line 14
-[05-Nov-2013 09:14:27 America/New_York] PHP Parse error:  syntax error, unexpected '.' in /home/refinedd/public_html/framework/admin/upload.php on line 10
-[05-Nov-2013 09:15:11 America/New_York] PHP Parse error:  syntax error, unexpected '.' in /home/refinedd/public_html/framework/admin/upload.php on line 10
-[05-Nov-2013 09:15:25 America/New_York] PHP Warning:  move_uploaded_file(..//home/refinedd/public_html/framework/admin/uploads/lenovoblock-20.gif) [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: failed to open stream: No such file or directory in /home/refinedd/public_html/framework/admin/upload.php on line 14
-[05-Nov-2013 09:15:25 America/New_York] PHP Warning:  move_uploaded_file() [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: Unable to move '/tmp/phpqiJCQ5' to '..//home/refinedd/public_html/framework/admin/uploads/lenovoblock-20.gif' in /home/refinedd/public_html/framework/admin/upload.php on line 14
-[05-Nov-2013 09:15:30 America/New_York] PHP Warning:  move_uploaded_file(..//home/refinedd/public_html/framework/admin/uploads/lenovoblock-20.gif) [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: failed to open stream: No such file or directory in /home/refinedd/public_html/framework/admin/upload.php on line 14
-[05-Nov-2013 09:15:30 America/New_York] PHP Warning:  move_uploaded_file() [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: Unable to move '/tmp/phpzkVxdu' to '..//home/refinedd/public_html/framework/admin/uploads/lenovoblock-20.gif' in /home/refinedd/public_html/framework/admin/upload.php on line 14
-[05-Nov-2013 09:16:19 America/New_York] PHP Warning:  move_uploaded_file(..//home/refinedd/public_html/framework/admin/uploads/lenovoblock-20.gif) [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: failed to open stream: No such file or directory in /home/refinedd/public_html/framework/admin/upload.php on line 14
-[05-Nov-2013 09:16:19 America/New_York] PHP Warning:  move_uploaded_file() [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: Unable to move '/tmp/phpqcn8b9' to '..//home/refinedd/public_html/framework/admin/uploads/lenovoblock-20.gif' in /home/refinedd/public_html/framework/admin/upload.php on line 14
-[05-Nov-2013 09:16:23 America/New_York] PHP Warning:  move_uploaded_file(..//home/refinedd/public_html/framework/admin/uploads/lenovoblock-miix.gif) [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: failed to open stream: No such file or directory in /home/refinedd/public_html/framework/admin/upload.php on line 14
-[05-Nov-2013 09:16:23 America/New_York] PHP Warning:  move_uploaded_file() [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: Unable to move '/tmp/phpixRu6l' to '..//home/refinedd/public_html/framework/admin/uploads/lenovoblock-miix.gif' in /home/refinedd/public_html/framework/admin/upload.php on line 14
-[05-Nov-2013 09:19:04 America/New_York] PHP Parse error:  syntax error, unexpected ';' in /home/refinedd/public_html/framework/admin/upload.php on line 19
-[05-Nov-2013 09:19:23 America/New_York] PHP Parse error:  syntax error, unexpected ';' in /home/refinedd/public_html/framework/admin/upload.php on line 19
-[05-Nov-2013 09:37:07 America/New_York] PHP Fatal error:  Class 'helpers' not found in /home/refinedd/public_html/framework/admin/update.php on line 91
-[05-Nov-2013 09:48:07 America/New_York] PHP Parse error:  syntax error, unexpected T_IF in /home/refinedd/public_html/framework/admin/views/edit/edit_config.inc on line 62
-[05-Nov-2013 09:48:28 America/New_York] PHP Parse error:  syntax error, unexpected T_IF in /home/refinedd/public_html/framework/admin/views/edit/edit_config.inc on line 62
-[05-Nov-2013 09:49:42 America/New_York] PHP Parse error:  syntax error, unexpected T_IF in /home/refinedd/public_html/framework/admin/views/edit/edit_config.inc on line 63
-[05-Nov-2013 09:50:29 America/New_York] PHP Parse error:  syntax error, unexpected T_IF in /home/refinedd/public_html/framework/admin/views/edit/edit_config.inc on line 63
-[05-Nov-2013 09:52:58 America/New_York] PHP Parse error:  syntax error, unexpected T_IF in /home/refinedd/public_html/framework/admin/views/edit/edit_config.inc on line 63
-[05-Nov-2013 09:55:22 America/New_York] PHP Parse error:  syntax error, unexpected T_ECHO in /home/refinedd/public_html/framework/admin/views/edit/edit_config.inc on line 63
-[05-Nov-2013 09:55:29 America/New_York] PHP Parse error:  syntax error, unexpected T_ECHO in /home/refinedd/public_html/framework/admin/views/edit/edit_config.inc on line 63
-[05-Nov-2013 09:56:48 America/New_York] PHP Parse error:  syntax error, unexpected T_IF in /home/refinedd/public_html/framework/admin/views/edit/edit_config.inc on line 60
-[05-Nov-2013 11:26:25 America/New_York] PHP Parse error:  syntax error, unexpected T_IF in /home/refinedd/public_html/framework/admin/views/edit/edit_config.inc on line 63
-[05-Nov-2013 11:26:36 America/New_York] PHP Parse error:  syntax error, unexpected T_IF in /home/refinedd/public_html/framework/admin/views/edit/edit_config.inc on line 61
-[05-Nov-2013 11:26:46 America/New_York] PHP Parse error:  syntax error, unexpected T_IF in /home/refinedd/public_html/framework/admin/views/edit/edit_config.inc on line 62
-[05-Nov-2013 11:26:55 America/New_York] PHP Parse error:  syntax error, unexpected T_IF in /home/refinedd/public_html/framework/admin/views/edit/edit_config.inc on line 62
-[06-Nov-2013 11:15:52 America/New_York] PHP Fatal error:  Class 'security' not found in /home/refinedd/public_html/framework/admin/add_copy.php on line 7
-[06-Nov-2013 11:45:03 America/New_York] PHP Parse error:  syntax error, unexpected T_ENCAPSED_AND_WHITESPACE in /home/refinedd/public_html/framework/admin/views/edit/edit_page.inc on line 107
-[06-Nov-2013 12:07:23 America/New_York] PHP Warning:  PDOStatement::execute() [<a href='pdostatement.execute'>pdostatement.execute</a>]: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /home/refinedd/public_html/framework/admin/add_copy.php on line 33
+[04-Feb-2014 14:17:07 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 14:17:07 America/New_York] PHP Notice:  Undefined index: tpl in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 14:17:25 America/New_York] PHP Notice:  Undefined index: parent_page in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 12:17:34 America/Denver] PHP Notice:  Undefined index: update_crud in /home3/refinee9/public_html/framework/admin/add.php on line 16
+[04-Feb-2014 12:17:34 America/Denver] PHP Notice:  Undefined index: update_crud in /home3/refinee9/public_html/framework/admin/add.php on line 16
+[04-Feb-2014 14:32:16 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 12:32:20 America/Denver] PHP Notice:  Array to string conversion in /home3/refinee9/public_html/framework/admin/delete.php on line 59
+[04-Feb-2014 14:32:20 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 14:32:51 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 14:34:03 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 14:34:24 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 14:51:56 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 14:53:09 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 14:53:55 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 14:54:24 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 14:55:02 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 14:55:10 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 14:55:46 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 14:56:28 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 14:56:39 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 14:57:55 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 14:58:48 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 14:59:02 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 14:59:09 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 14:59:46 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:00:24 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:00:33 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:04:49 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:05:20 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:06:03 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:08:01 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:08:27 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:08:34 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:09:02 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:09:34 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:09:57 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:10:36 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:10:40 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:10:56 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:11:13 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:12:03 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:14:13 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:15:33 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:15:50 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:22:53 America/New_York] PHP Notice:  Undefined index: pageid in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:22:53 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 21
+[04-Feb-2014 15:22:53 America/New_York] PHP Notice:  Use of undefined constant site_name - assumed 'site_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 22
+[04-Feb-2014 15:22:53 America/New_York] PHP Notice:  Use of undefined constant global_logo - assumed 'global_logo' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 23
+[04-Feb-2014 15:22:53 America/New_York] PHP Notice:  Use of undefined constant extra_js - assumed 'extra_js' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 24
+[04-Feb-2014 15:22:53 America/New_York] PHP Notice:  Use of undefined constant extra_css - assumed 'extra_css' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 25
+[04-Feb-2014 15:22:53 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 33
+[04-Feb-2014 15:22:53 America/New_York] PHP Notice:  Use of undefined constant site_name - assumed 'site_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 34
+[04-Feb-2014 15:22:53 America/New_York] PHP Notice:  Use of undefined constant global_logo - assumed 'global_logo' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 35
+[04-Feb-2014 15:22:53 America/New_York] PHP Notice:  Use of undefined constant extra_js - assumed 'extra_js' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 36
+[04-Feb-2014 15:22:53 America/New_York] PHP Notice:  Use of undefined constant extra_css - assumed 'extra_css' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 37
+[04-Feb-2014 15:22:57 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:22:59 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:23:07 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:24:55 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:25:07 America/New_York] PHP Notice:  Undefined index: userInfo in /home3/refinee9/public_html/framework/admin/index.php on line 30
+[04-Feb-2014 15:25:12 America/New_York] PHP Notice:  Undefined index: userInfo in /home3/refinee9/public_html/framework/admin/index.php on line 30
+[04-Feb-2014 15:25:12 America/New_York] PHP Notice:  A session had already been started - ignoring session_start() in /home3/refinee9/public_html/framework/admin/index.php on line 49
+[04-Feb-2014 15:25:12 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:25:12 America/New_York] PHP Notice:  Undefined index: tpl in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:25:12 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:25:12 America/New_York] PHP Notice:  Undefined index: tpl in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:26:27 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:26:27 America/New_York] PHP Notice:  Undefined index: tpl in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:26:53 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:26:53 America/New_York] PHP Notice:  Undefined index: tpl in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:27:11 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:27:11 America/New_York] PHP Notice:  Undefined index: tpl in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:27:20 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:27:23 America/New_York] PHP Notice:  Undefined index: pageid in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:27:23 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 21
+[04-Feb-2014 15:27:23 America/New_York] PHP Notice:  Use of undefined constant site_name - assumed 'site_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 22
+[04-Feb-2014 15:27:23 America/New_York] PHP Notice:  Use of undefined constant global_logo - assumed 'global_logo' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 23
+[04-Feb-2014 15:27:23 America/New_York] PHP Notice:  Use of undefined constant extra_js - assumed 'extra_js' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 24
+[04-Feb-2014 15:27:23 America/New_York] PHP Notice:  Use of undefined constant extra_css - assumed 'extra_css' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 25
+[04-Feb-2014 15:27:23 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 33
+[04-Feb-2014 15:27:23 America/New_York] PHP Notice:  Use of undefined constant site_name - assumed 'site_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 34
+[04-Feb-2014 15:27:23 America/New_York] PHP Notice:  Use of undefined constant global_logo - assumed 'global_logo' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 35
+[04-Feb-2014 15:27:23 America/New_York] PHP Notice:  Use of undefined constant extra_js - assumed 'extra_js' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 36
+[04-Feb-2014 15:27:23 America/New_York] PHP Notice:  Use of undefined constant extra_css - assumed 'extra_css' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 37
+[04-Feb-2014 15:32:35 America/New_York] PHP Notice:  Undefined index: pageid in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:32:35 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 21
+[04-Feb-2014 15:32:35 America/New_York] PHP Notice:  Use of undefined constant site_name - assumed 'site_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 22
+[04-Feb-2014 15:32:35 America/New_York] PHP Notice:  Use of undefined constant global_logo - assumed 'global_logo' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 23
+[04-Feb-2014 15:32:35 America/New_York] PHP Notice:  Use of undefined constant extra_js - assumed 'extra_js' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 24
+[04-Feb-2014 15:32:35 America/New_York] PHP Notice:  Use of undefined constant extra_css - assumed 'extra_css' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 25
+[04-Feb-2014 15:32:35 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 33
+[04-Feb-2014 15:32:35 America/New_York] PHP Notice:  Use of undefined constant site_name - assumed 'site_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 34
+[04-Feb-2014 15:32:35 America/New_York] PHP Notice:  Use of undefined constant global_logo - assumed 'global_logo' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 35
+[04-Feb-2014 15:32:35 America/New_York] PHP Notice:  Use of undefined constant extra_js - assumed 'extra_js' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 36
+[04-Feb-2014 15:32:35 America/New_York] PHP Notice:  Use of undefined constant extra_css - assumed 'extra_css' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 37
+[04-Feb-2014 15:33:01 America/New_York] PHP Notice:  Undefined index: pageid in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:33:01 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 21
+[04-Feb-2014 15:33:01 America/New_York] PHP Notice:  Use of undefined constant site_name - assumed 'site_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 22
+[04-Feb-2014 15:33:01 America/New_York] PHP Notice:  Use of undefined constant global_logo - assumed 'global_logo' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 23
+[04-Feb-2014 15:33:01 America/New_York] PHP Notice:  Use of undefined constant extra_js - assumed 'extra_js' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 24
+[04-Feb-2014 15:33:01 America/New_York] PHP Notice:  Use of undefined constant extra_css - assumed 'extra_css' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 25
+[04-Feb-2014 15:33:01 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 33
+[04-Feb-2014 15:33:01 America/New_York] PHP Notice:  Use of undefined constant site_name - assumed 'site_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 34
+[04-Feb-2014 15:33:01 America/New_York] PHP Notice:  Use of undefined constant global_logo - assumed 'global_logo' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 35
+[04-Feb-2014 15:33:01 America/New_York] PHP Notice:  Use of undefined constant extra_js - assumed 'extra_js' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 36
+[04-Feb-2014 15:33:01 America/New_York] PHP Notice:  Use of undefined constant extra_css - assumed 'extra_css' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 37
+[04-Feb-2014 15:34:43 America/New_York] PHP Notice:  Undefined index: pageid in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:34:43 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 21
+[04-Feb-2014 15:34:43 America/New_York] PHP Notice:  Use of undefined constant site_name - assumed 'site_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 22
+[04-Feb-2014 15:34:43 America/New_York] PHP Notice:  Use of undefined constant global_logo - assumed 'global_logo' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 23
+[04-Feb-2014 15:34:43 America/New_York] PHP Notice:  Use of undefined constant extra_js - assumed 'extra_js' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 24
+[04-Feb-2014 15:34:43 America/New_York] PHP Notice:  Use of undefined constant extra_css - assumed 'extra_css' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 25
+[04-Feb-2014 15:34:43 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 33
+[04-Feb-2014 15:34:43 America/New_York] PHP Notice:  Use of undefined constant site_name - assumed 'site_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 34
+[04-Feb-2014 15:34:43 America/New_York] PHP Notice:  Use of undefined constant global_logo - assumed 'global_logo' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 35
+[04-Feb-2014 15:34:43 America/New_York] PHP Notice:  Use of undefined constant extra_js - assumed 'extra_js' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 36
+[04-Feb-2014 15:34:43 America/New_York] PHP Notice:  Use of undefined constant extra_css - assumed 'extra_css' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 37
+[04-Feb-2014 15:35:43 America/New_York] PHP Notice:  Undefined index: pageid in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:35:43 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 21
+[04-Feb-2014 15:35:43 America/New_York] PHP Notice:  Use of undefined constant site_name - assumed 'site_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 22
+[04-Feb-2014 15:35:43 America/New_York] PHP Notice:  Use of undefined constant global_logo - assumed 'global_logo' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 23
+[04-Feb-2014 15:35:43 America/New_York] PHP Notice:  Use of undefined constant extra_js - assumed 'extra_js' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 24
+[04-Feb-2014 15:35:43 America/New_York] PHP Notice:  Use of undefined constant extra_css - assumed 'extra_css' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 25
+[04-Feb-2014 15:35:43 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 33
+[04-Feb-2014 15:35:43 America/New_York] PHP Notice:  Use of undefined constant site_name - assumed 'site_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 34
+[04-Feb-2014 15:35:43 America/New_York] PHP Notice:  Use of undefined constant global_logo - assumed 'global_logo' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 35
+[04-Feb-2014 15:35:43 America/New_York] PHP Notice:  Use of undefined constant extra_js - assumed 'extra_js' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 36
+[04-Feb-2014 15:35:43 America/New_York] PHP Notice:  Use of undefined constant extra_css - assumed 'extra_css' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 37
+[04-Feb-2014 15:36:04 America/New_York] PHP Notice:  Undefined index: pageid in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:36:04 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 21
+[04-Feb-2014 15:36:04 America/New_York] PHP Notice:  Use of undefined constant site_name - assumed 'site_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 22
+[04-Feb-2014 15:36:04 America/New_York] PHP Notice:  Use of undefined constant global_logo - assumed 'global_logo' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 23
+[04-Feb-2014 15:36:04 America/New_York] PHP Notice:  Use of undefined constant extra_js - assumed 'extra_js' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 24
+[04-Feb-2014 15:36:04 America/New_York] PHP Notice:  Use of undefined constant extra_css - assumed 'extra_css' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 25
+[04-Feb-2014 15:36:04 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 33
+[04-Feb-2014 15:36:04 America/New_York] PHP Notice:  Use of undefined constant site_name - assumed 'site_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 34
+[04-Feb-2014 15:36:04 America/New_York] PHP Notice:  Use of undefined constant global_logo - assumed 'global_logo' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 35
+[04-Feb-2014 15:36:04 America/New_York] PHP Notice:  Use of undefined constant extra_js - assumed 'extra_js' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 36
+[04-Feb-2014 15:36:04 America/New_York] PHP Notice:  Use of undefined constant extra_css - assumed 'extra_css' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 37
+[04-Feb-2014 15:36:49 America/New_York] PHP Notice:  Undefined index: pageid in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:36:49 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 21
+[04-Feb-2014 15:36:49 America/New_York] PHP Notice:  Use of undefined constant site_name - assumed 'site_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 22
+[04-Feb-2014 15:36:49 America/New_York] PHP Notice:  Use of undefined constant global_logo - assumed 'global_logo' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 23
+[04-Feb-2014 15:36:49 America/New_York] PHP Notice:  Use of undefined constant extra_js - assumed 'extra_js' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 24
+[04-Feb-2014 15:36:49 America/New_York] PHP Notice:  Use of undefined constant extra_css - assumed 'extra_css' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 25
+[04-Feb-2014 15:36:49 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 33
+[04-Feb-2014 15:36:49 America/New_York] PHP Notice:  Use of undefined constant site_name - assumed 'site_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 34
+[04-Feb-2014 15:36:49 America/New_York] PHP Notice:  Use of undefined constant global_logo - assumed 'global_logo' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 35
+[04-Feb-2014 15:36:49 America/New_York] PHP Notice:  Use of undefined constant extra_js - assumed 'extra_js' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 36
+[04-Feb-2014 15:36:49 America/New_York] PHP Notice:  Use of undefined constant extra_css - assumed 'extra_css' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 37
+[04-Feb-2014 15:37:05 America/New_York] PHP Notice:  Undefined index: pageid in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:37:05 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 21
+[04-Feb-2014 15:37:05 America/New_York] PHP Notice:  Use of undefined constant site_name - assumed 'site_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 22
+[04-Feb-2014 15:37:05 America/New_York] PHP Notice:  Use of undefined constant global_logo - assumed 'global_logo' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 23
+[04-Feb-2014 15:37:05 America/New_York] PHP Notice:  Use of undefined constant extra_js - assumed 'extra_js' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 24
+[04-Feb-2014 15:37:05 America/New_York] PHP Notice:  Use of undefined constant extra_css - assumed 'extra_css' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 25
+[04-Feb-2014 15:37:05 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 33
+[04-Feb-2014 15:37:05 America/New_York] PHP Notice:  Use of undefined constant site_name - assumed 'site_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 34
+[04-Feb-2014 15:37:05 America/New_York] PHP Notice:  Use of undefined constant global_logo - assumed 'global_logo' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 35
+[04-Feb-2014 15:37:05 America/New_York] PHP Notice:  Use of undefined constant extra_js - assumed 'extra_js' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 36
+[04-Feb-2014 15:37:05 America/New_York] PHP Notice:  Use of undefined constant extra_css - assumed 'extra_css' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 37
+[04-Feb-2014 15:37:56 America/New_York] PHP Notice:  Undefined index: pageid in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:37:56 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 21
+[04-Feb-2014 15:37:56 America/New_York] PHP Notice:  Use of undefined constant site_name - assumed 'site_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 22
+[04-Feb-2014 15:37:56 America/New_York] PHP Notice:  Use of undefined constant global_logo - assumed 'global_logo' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 23
+[04-Feb-2014 15:37:56 America/New_York] PHP Notice:  Use of undefined constant extra_js - assumed 'extra_js' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 24
+[04-Feb-2014 15:37:56 America/New_York] PHP Notice:  Use of undefined constant extra_css - assumed 'extra_css' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 25
+[04-Feb-2014 15:37:56 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 33
+[04-Feb-2014 15:37:56 America/New_York] PHP Notice:  Use of undefined constant site_name - assumed 'site_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 34
+[04-Feb-2014 15:37:56 America/New_York] PHP Notice:  Use of undefined constant global_logo - assumed 'global_logo' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 35
+[04-Feb-2014 15:37:56 America/New_York] PHP Notice:  Use of undefined constant extra_js - assumed 'extra_js' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 36
+[04-Feb-2014 15:37:56 America/New_York] PHP Notice:  Use of undefined constant extra_css - assumed 'extra_css' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 37
+[04-Feb-2014 15:38:25 America/New_York] PHP Notice:  Undefined index: pageid in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:38:25 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 21
+[04-Feb-2014 15:38:25 America/New_York] PHP Notice:  Use of undefined constant site_name - assumed 'site_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 22
+[04-Feb-2014 15:38:25 America/New_York] PHP Notice:  Use of undefined constant global_logo - assumed 'global_logo' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 23
+[04-Feb-2014 15:38:25 America/New_York] PHP Notice:  Use of undefined constant extra_js - assumed 'extra_js' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 24
+[04-Feb-2014 15:38:25 America/New_York] PHP Notice:  Use of undefined constant extra_css - assumed 'extra_css' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 25
+[04-Feb-2014 15:38:25 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 33
+[04-Feb-2014 15:38:25 America/New_York] PHP Notice:  Use of undefined constant site_name - assumed 'site_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 34
+[04-Feb-2014 15:38:25 America/New_York] PHP Notice:  Use of undefined constant global_logo - assumed 'global_logo' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 35
+[04-Feb-2014 15:38:25 America/New_York] PHP Notice:  Use of undefined constant extra_js - assumed 'extra_js' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 36
+[04-Feb-2014 15:38:25 America/New_York] PHP Notice:  Use of undefined constant extra_css - assumed 'extra_css' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 37
+[04-Feb-2014 15:38:45 America/New_York] PHP Notice:  Undefined index: pageid in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:38:45 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 21
+[04-Feb-2014 15:38:45 America/New_York] PHP Notice:  Use of undefined constant site_name - assumed 'site_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 22
+[04-Feb-2014 15:38:45 America/New_York] PHP Notice:  Use of undefined constant global_logo - assumed 'global_logo' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 23
+[04-Feb-2014 15:38:45 America/New_York] PHP Notice:  Use of undefined constant extra_js - assumed 'extra_js' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 24
+[04-Feb-2014 15:38:45 America/New_York] PHP Notice:  Use of undefined constant extra_css - assumed 'extra_css' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 25
+[04-Feb-2014 15:38:45 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 33
+[04-Feb-2014 15:38:45 America/New_York] PHP Notice:  Use of undefined constant site_name - assumed 'site_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 34
+[04-Feb-2014 15:38:45 America/New_York] PHP Notice:  Use of undefined constant global_logo - assumed 'global_logo' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 35
+[04-Feb-2014 15:38:45 America/New_York] PHP Notice:  Use of undefined constant extra_js - assumed 'extra_js' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 36
+[04-Feb-2014 15:38:45 America/New_York] PHP Notice:  Use of undefined constant extra_css - assumed 'extra_css' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 37
+[04-Feb-2014 15:39:36 America/New_York] PHP Notice:  Undefined index: pageid in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:39:36 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 21
+[04-Feb-2014 15:39:36 America/New_York] PHP Notice:  Use of undefined constant site_name - assumed 'site_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 22
+[04-Feb-2014 15:39:36 America/New_York] PHP Notice:  Use of undefined constant global_logo - assumed 'global_logo' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 23
+[04-Feb-2014 15:39:36 America/New_York] PHP Notice:  Use of undefined constant extra_js - assumed 'extra_js' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 24
+[04-Feb-2014 15:39:36 America/New_York] PHP Notice:  Use of undefined constant extra_css - assumed 'extra_css' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 25
+[04-Feb-2014 15:39:36 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 33
+[04-Feb-2014 15:39:36 America/New_York] PHP Notice:  Use of undefined constant site_name - assumed 'site_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 34
+[04-Feb-2014 15:39:36 America/New_York] PHP Notice:  Use of undefined constant global_logo - assumed 'global_logo' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 35
+[04-Feb-2014 15:39:36 America/New_York] PHP Notice:  Use of undefined constant extra_js - assumed 'extra_js' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 36
+[04-Feb-2014 15:39:36 America/New_York] PHP Notice:  Use of undefined constant extra_css - assumed 'extra_css' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 37
+[04-Feb-2014 15:39:49 America/New_York] PHP Notice:  Undefined index: pageid in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:39:49 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 21
+[04-Feb-2014 15:39:49 America/New_York] PHP Notice:  Use of undefined constant site_name - assumed 'site_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 22
+[04-Feb-2014 15:39:49 America/New_York] PHP Notice:  Use of undefined constant global_logo - assumed 'global_logo' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 23
+[04-Feb-2014 15:39:49 America/New_York] PHP Notice:  Use of undefined constant extra_js - assumed 'extra_js' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 24
+[04-Feb-2014 15:39:49 America/New_York] PHP Notice:  Use of undefined constant extra_css - assumed 'extra_css' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 25
+[04-Feb-2014 15:39:49 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 33
+[04-Feb-2014 15:39:49 America/New_York] PHP Notice:  Use of undefined constant site_name - assumed 'site_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 34
+[04-Feb-2014 15:39:49 America/New_York] PHP Notice:  Use of undefined constant global_logo - assumed 'global_logo' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 35
+[04-Feb-2014 15:39:49 America/New_York] PHP Notice:  Use of undefined constant extra_js - assumed 'extra_js' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 36
+[04-Feb-2014 15:39:49 America/New_York] PHP Notice:  Use of undefined constant extra_css - assumed 'extra_css' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 37
+[04-Feb-2014 15:40:04 America/New_York] PHP Notice:  Undefined index: pageid in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:40:04 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 21
+[04-Feb-2014 15:40:04 America/New_York] PHP Notice:  Use of undefined constant site_name - assumed 'site_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 22
+[04-Feb-2014 15:40:04 America/New_York] PHP Notice:  Use of undefined constant global_logo - assumed 'global_logo' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 23
+[04-Feb-2014 15:40:04 America/New_York] PHP Notice:  Use of undefined constant extra_js - assumed 'extra_js' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 24
+[04-Feb-2014 15:40:04 America/New_York] PHP Notice:  Use of undefined constant extra_css - assumed 'extra_css' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 25
+[04-Feb-2014 15:40:04 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 33
+[04-Feb-2014 15:40:04 America/New_York] PHP Notice:  Use of undefined constant site_name - assumed 'site_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 34
+[04-Feb-2014 15:40:04 America/New_York] PHP Notice:  Use of undefined constant global_logo - assumed 'global_logo' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 35
+[04-Feb-2014 15:40:04 America/New_York] PHP Notice:  Use of undefined constant extra_js - assumed 'extra_js' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 36
+[04-Feb-2014 15:40:04 America/New_York] PHP Notice:  Use of undefined constant extra_css - assumed 'extra_css' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 37
+[04-Feb-2014 15:41:16 America/New_York] PHP Notice:  Undefined index: pageid in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:41:16 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 21
+[04-Feb-2014 15:41:16 America/New_York] PHP Notice:  Use of undefined constant site_name - assumed 'site_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 22
+[04-Feb-2014 15:41:16 America/New_York] PHP Notice:  Use of undefined constant global_logo - assumed 'global_logo' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 23
+[04-Feb-2014 15:41:16 America/New_York] PHP Notice:  Use of undefined constant extra_js - assumed 'extra_js' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 24
+[04-Feb-2014 15:41:16 America/New_York] PHP Notice:  Use of undefined constant extra_css - assumed 'extra_css' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 25
+[04-Feb-2014 15:41:16 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 33
+[04-Feb-2014 15:41:16 America/New_York] PHP Notice:  Use of undefined constant site_name - assumed 'site_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 34
+[04-Feb-2014 15:41:16 America/New_York] PHP Notice:  Use of undefined constant global_logo - assumed 'global_logo' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 35
+[04-Feb-2014 15:41:16 America/New_York] PHP Notice:  Use of undefined constant extra_js - assumed 'extra_js' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 36
+[04-Feb-2014 15:41:16 America/New_York] PHP Notice:  Use of undefined constant extra_css - assumed 'extra_css' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 37
+[04-Feb-2014 15:41:30 America/New_York] PHP Notice:  Undefined index: pageid in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:41:30 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 21
+[04-Feb-2014 15:41:30 America/New_York] PHP Notice:  Use of undefined constant site_name - assumed 'site_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 22
+[04-Feb-2014 15:41:30 America/New_York] PHP Notice:  Use of undefined constant global_logo - assumed 'global_logo' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 23
+[04-Feb-2014 15:41:30 America/New_York] PHP Notice:  Use of undefined constant extra_js - assumed 'extra_js' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 24
+[04-Feb-2014 15:41:30 America/New_York] PHP Notice:  Use of undefined constant extra_css - assumed 'extra_css' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 25
+[04-Feb-2014 15:41:30 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 33
+[04-Feb-2014 15:41:30 America/New_York] PHP Notice:  Use of undefined constant site_name - assumed 'site_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 34
+[04-Feb-2014 15:41:30 America/New_York] PHP Notice:  Use of undefined constant global_logo - assumed 'global_logo' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 35
+[04-Feb-2014 15:41:30 America/New_York] PHP Notice:  Use of undefined constant extra_js - assumed 'extra_js' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 36
+[04-Feb-2014 15:41:30 America/New_York] PHP Notice:  Use of undefined constant extra_css - assumed 'extra_css' in /home3/refinee9/public_html/framework/admin/views/edit/edit_config.inc on line 37
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant pages_id - assumed 'pages_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 28
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant page_name - assumed 'page_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 29
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant on_nav - assumed 'on_nav' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 30
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant page_template - assumed 'page_template' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 31
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant page_group - assumed 'page_group' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 32
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant sub_page - assumed 'sub_page' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 33
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant page_meta_keyword - assumed 'page_meta_keyword' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 34
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant page_meta_title - assumed 'page_meta_title' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 35
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant page_url - assumed 'page_url' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 36
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant page_order - assumed 'page_order' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 37
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant pages_id - assumed 'pages_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 46
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant page_name - assumed 'page_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 47
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant page_url - assumed 'page_url' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 48
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant page_meta_title - assumed 'page_meta_title' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 49
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant page_meta_keyword - assumed 'page_meta_keyword' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 50
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant page_template - assumed 'page_template' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 51
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant page_group - assumed 'page_group' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 52
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant sub_page - assumed 'sub_page' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 53
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant page_order - assumed 'page_order' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 54
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant on_nav - assumed 'on_nav' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 55
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 93
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant template_name - assumed 'template_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 93
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 93
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant template_name - assumed 'template_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 93
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 93
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant template_name - assumed 'template_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 93
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 93
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant template_name - assumed 'template_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 93
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 93
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant template_name - assumed 'template_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 93
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 93
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant template_name - assumed 'template_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 93
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant pages_id - assumed 'pages_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 104
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant page_name - assumed 'page_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 104
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant pages_id - assumed 'pages_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 104
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant page_name - assumed 'page_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 104
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant pages_id - assumed 'pages_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 104
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant page_name - assumed 'page_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 104
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant pages_id - assumed 'pages_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 104
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant page_name - assumed 'page_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 104
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant pages_id - assumed 'pages_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 104
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant page_name - assumed 'page_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 104
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant content_name - assumed 'content_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 147
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant content_id - assumed 'content_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 148
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant page_id - assumed 'page_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 149
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant content - assumed 'content' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 150
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant content_area - assumed 'content_area' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 151
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant content_order - assumed 'content_order' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 152
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant content_id - assumed 'content_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 154
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant content_name - assumed 'content_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 147
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant content_id - assumed 'content_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 148
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant page_id - assumed 'page_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 149
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant content - assumed 'content' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 150
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant content_area - assumed 'content_area' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 151
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant content_order - assumed 'content_order' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 152
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant content_id - assumed 'content_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 154
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant content_name - assumed 'content_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 147
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant content_id - assumed 'content_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 148
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant page_id - assumed 'page_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 149
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant content - assumed 'content' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 150
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant content_area - assumed 'content_area' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 151
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant content_order - assumed 'content_order' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 152
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant content_id - assumed 'content_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 154
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant content_name - assumed 'content_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 147
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant content_id - assumed 'content_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 148
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant page_id - assumed 'page_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 149
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant content - assumed 'content' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 150
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant content_area - assumed 'content_area' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 151
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant content_order - assumed 'content_order' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 152
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant content_id - assumed 'content_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 154
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant content_name - assumed 'content_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 147
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant content_id - assumed 'content_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 148
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant page_id - assumed 'page_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 149
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant content - assumed 'content' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 150
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant content_area - assumed 'content_area' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 151
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant content_order - assumed 'content_order' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 152
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant content_id - assumed 'content_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 154
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant content_name - assumed 'content_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 147
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant content_id - assumed 'content_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 148
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant page_id - assumed 'page_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 149
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant content - assumed 'content' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 150
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant content_area - assumed 'content_area' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 151
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant content_order - assumed 'content_order' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 152
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant content_id - assumed 'content_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 154
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant content_name - assumed 'content_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 147
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant content_id - assumed 'content_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 148
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant page_id - assumed 'page_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 149
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant content - assumed 'content' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 150
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant content_area - assumed 'content_area' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 151
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant content_order - assumed 'content_order' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 152
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant content_id - assumed 'content_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 154
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant content_name - assumed 'content_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 147
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant content_id - assumed 'content_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 148
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant page_id - assumed 'page_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 149
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant content - assumed 'content' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 150
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant content_area - assumed 'content_area' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 151
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant content_order - assumed 'content_order' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 152
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant content_id - assumed 'content_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 154
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant page_name - assumed 'page_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 178
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant page_url - assumed 'page_url' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 179
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant page_order - assumed 'page_order' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 180
+[04-Feb-2014 15:42:01 America/New_York] PHP Notice:  Use of undefined constant pages_id - assumed 'pages_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 181
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant pages_id - assumed 'pages_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 28
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant page_name - assumed 'page_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 29
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant on_nav - assumed 'on_nav' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 30
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant page_template - assumed 'page_template' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 31
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant page_group - assumed 'page_group' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 32
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant sub_page - assumed 'sub_page' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 33
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant page_meta_keyword - assumed 'page_meta_keyword' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 34
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant page_meta_title - assumed 'page_meta_title' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 35
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant page_url - assumed 'page_url' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 36
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant page_order - assumed 'page_order' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 37
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant pages_id - assumed 'pages_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 46
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant page_name - assumed 'page_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 47
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant page_url - assumed 'page_url' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 48
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant page_meta_title - assumed 'page_meta_title' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 49
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant page_meta_keyword - assumed 'page_meta_keyword' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 50
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant page_template - assumed 'page_template' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 51
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant page_group - assumed 'page_group' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 52
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant sub_page - assumed 'sub_page' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 53
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant page_order - assumed 'page_order' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 54
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant on_nav - assumed 'on_nav' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 55
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 93
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant template_name - assumed 'template_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 93
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 93
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant template_name - assumed 'template_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 93
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 93
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant template_name - assumed 'template_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 93
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 93
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant template_name - assumed 'template_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 93
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 93
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant template_name - assumed 'template_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 93
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 93
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant template_name - assumed 'template_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 93
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant pages_id - assumed 'pages_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 104
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant page_name - assumed 'page_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 104
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant pages_id - assumed 'pages_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 104
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant page_name - assumed 'page_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 104
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant pages_id - assumed 'pages_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 104
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant page_name - assumed 'page_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 104
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant pages_id - assumed 'pages_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 104
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant page_name - assumed 'page_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 104
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant pages_id - assumed 'pages_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 104
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant page_name - assumed 'page_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 104
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant content_name - assumed 'content_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 147
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant content_id - assumed 'content_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 148
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant page_id - assumed 'page_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 149
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant content - assumed 'content' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 150
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant content_area - assumed 'content_area' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 151
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant content_order - assumed 'content_order' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 152
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant content_id - assumed 'content_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 154
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant content_name - assumed 'content_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 147
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant content_id - assumed 'content_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 148
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant page_id - assumed 'page_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 149
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant content - assumed 'content' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 150
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant content_area - assumed 'content_area' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 151
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant content_order - assumed 'content_order' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 152
+[04-Feb-2014 15:43:43 America/New_York] PHP Notice:  Use of undefined constant content_id - assumed 'content_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 154
+[04-Feb-2014 15:43:46 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:43:54 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:43:54 America/New_York] PHP Notice:  Use of undefined constant user_uName - assumed 'user_uName' in /home3/refinee9/public_html/framework/admin/views/users.inc on line 20
+[04-Feb-2014 15:43:54 America/New_York] PHP Notice:  Use of undefined constant user_FullName - assumed 'user_FullName' in /home3/refinee9/public_html/framework/admin/views/users.inc on line 21
+[04-Feb-2014 15:43:54 America/New_York] PHP Notice:  Use of undefined constant user_Access - assumed 'user_Access' in /home3/refinee9/public_html/framework/admin/views/users.inc on line 22
+[04-Feb-2014 15:43:54 America/New_York] PHP Notice:  Use of undefined constant users_Id - assumed 'users_Id' in /home3/refinee9/public_html/framework/admin/views/users.inc on line 23
+[04-Feb-2014 15:43:54 America/New_York] PHP Notice:  Use of undefined constant user_uName - assumed 'user_uName' in /home3/refinee9/public_html/framework/admin/views/users.inc on line 20
+[04-Feb-2014 15:43:54 America/New_York] PHP Notice:  Use of undefined constant user_FullName - assumed 'user_FullName' in /home3/refinee9/public_html/framework/admin/views/users.inc on line 21
+[04-Feb-2014 15:43:54 America/New_York] PHP Notice:  Use of undefined constant user_Access - assumed 'user_Access' in /home3/refinee9/public_html/framework/admin/views/users.inc on line 22
+[04-Feb-2014 15:43:54 America/New_York] PHP Notice:  Use of undefined constant users_Id - assumed 'users_Id' in /home3/refinee9/public_html/framework/admin/views/users.inc on line 23
+[04-Feb-2014 15:43:54 America/New_York] PHP Notice:  Use of undefined constant user_uName - assumed 'user_uName' in /home3/refinee9/public_html/framework/admin/views/users.inc on line 20
+[04-Feb-2014 15:43:54 America/New_York] PHP Notice:  Use of undefined constant user_FullName - assumed 'user_FullName' in /home3/refinee9/public_html/framework/admin/views/users.inc on line 21
+[04-Feb-2014 15:43:54 America/New_York] PHP Notice:  Use of undefined constant user_Access - assumed 'user_Access' in /home3/refinee9/public_html/framework/admin/views/users.inc on line 22
+[04-Feb-2014 15:43:54 America/New_York] PHP Notice:  Use of undefined constant users_Id - assumed 'users_Id' in /home3/refinee9/public_html/framework/admin/views/users.inc on line 23
+[04-Feb-2014 15:43:54 America/New_York] PHP Notice:  Use of undefined constant user_uName - assumed 'user_uName' in /home3/refinee9/public_html/framework/admin/views/users.inc on line 20
+[04-Feb-2014 15:43:54 America/New_York] PHP Notice:  Use of undefined constant user_FullName - assumed 'user_FullName' in /home3/refinee9/public_html/framework/admin/views/users.inc on line 21
+[04-Feb-2014 15:43:54 America/New_York] PHP Notice:  Use of undefined constant user_Access - assumed 'user_Access' in /home3/refinee9/public_html/framework/admin/views/users.inc on line 22
+[04-Feb-2014 15:43:54 America/New_York] PHP Notice:  Use of undefined constant users_Id - assumed 'users_Id' in /home3/refinee9/public_html/framework/admin/views/users.inc on line 23
+[04-Feb-2014 15:44:05 America/New_York] PHP Notice:  Undefined index: parent_page in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 13:44:11 America/Denver] PHP Notice:  Undefined index: update_crud in /home3/refinee9/public_html/framework/admin/add.php on line 16
+[04-Feb-2014 15:44:12 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:44:17 America/New_York] PHP Notice:  Undefined index: pagename in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:44:17 America/New_York] PHP Notice:  Use of undefined constant pages_id - assumed 'pages_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 28
+[04-Feb-2014 15:44:17 America/New_York] PHP Notice:  Use of undefined constant page_name - assumed 'page_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 29
+[04-Feb-2014 15:44:17 America/New_York] PHP Notice:  Use of undefined constant on_nav - assumed 'on_nav' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 30
+[04-Feb-2014 15:44:17 America/New_York] PHP Notice:  Use of undefined constant page_template - assumed 'page_template' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 31
+[04-Feb-2014 15:44:17 America/New_York] PHP Notice:  Use of undefined constant page_group - assumed 'page_group' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 32
+[04-Feb-2014 15:44:17 America/New_York] PHP Notice:  Use of undefined constant sub_page - assumed 'sub_page' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 33
+[04-Feb-2014 15:44:17 America/New_York] PHP Notice:  Use of undefined constant page_meta_keyword - assumed 'page_meta_keyword' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 34
+[04-Feb-2014 15:44:17 America/New_York] PHP Notice:  Use of undefined constant page_meta_title - assumed 'page_meta_title' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 35
+[04-Feb-2014 15:44:17 America/New_York] PHP Notice:  Use of undefined constant page_url - assumed 'page_url' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 36
+[04-Feb-2014 15:44:17 America/New_York] PHP Notice:  Use of undefined constant page_order - assumed 'page_order' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 37
+[04-Feb-2014 15:44:17 America/New_York] PHP Notice:  Use of undefined constant pages_id - assumed 'pages_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 46
+[04-Feb-2014 15:44:17 America/New_York] PHP Notice:  Use of undefined constant page_name - assumed 'page_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 47
+[04-Feb-2014 15:44:17 America/New_York] PHP Notice:  Use of undefined constant page_url - assumed 'page_url' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 48
+[04-Feb-2014 15:44:17 America/New_York] PHP Notice:  Use of undefined constant page_meta_title - assumed 'page_meta_title' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 49
+[04-Feb-2014 15:44:17 America/New_York] PHP Notice:  Use of undefined constant page_meta_keyword - assumed 'page_meta_keyword' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 50
+[04-Feb-2014 15:44:17 America/New_York] PHP Notice:  Use of undefined constant page_template - assumed 'page_template' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 51
+[04-Feb-2014 15:44:17 America/New_York] PHP Notice:  Use of undefined constant page_group - assumed 'page_group' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 52
+[04-Feb-2014 15:44:17 America/New_York] PHP Notice:  Use of undefined constant sub_page - assumed 'sub_page' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 53
+[04-Feb-2014 15:44:17 America/New_York] PHP Notice:  Use of undefined constant page_order - assumed 'page_order' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 54
+[04-Feb-2014 15:44:17 America/New_York] PHP Notice:  Use of undefined constant on_nav - assumed 'on_nav' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 55
+[04-Feb-2014 15:44:17 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 93
+[04-Feb-2014 15:44:17 America/New_York] PHP Notice:  Use of undefined constant template_name - assumed 'template_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 93
+[04-Feb-2014 15:44:17 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 93
+[04-Feb-2014 15:44:17 America/New_York] PHP Notice:  Use of undefined constant template_name - assumed 'template_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 93
+[04-Feb-2014 15:44:17 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 93
+[04-Feb-2014 15:44:17 America/New_York] PHP Notice:  Use of undefined constant template_name - assumed 'template_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 93
+[04-Feb-2014 15:44:17 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 93
+[04-Feb-2014 15:44:17 America/New_York] PHP Notice:  Use of undefined constant template_name - assumed 'template_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 93
+[04-Feb-2014 15:44:17 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 93
+[04-Feb-2014 15:44:17 America/New_York] PHP Notice:  Use of undefined constant template_name - assumed 'template_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 93
+[04-Feb-2014 15:44:17 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 93
+[04-Feb-2014 15:44:17 America/New_York] PHP Notice:  Use of undefined constant template_name - assumed 'template_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 93
+[04-Feb-2014 15:44:17 America/New_York] PHP Notice:  Use of undefined constant pages_id - assumed 'pages_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 104
+[04-Feb-2014 15:44:17 America/New_York] PHP Notice:  Use of undefined constant page_name - assumed 'page_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 104
+[04-Feb-2014 15:44:17 America/New_York] PHP Notice:  Use of undefined constant pages_id - assumed 'pages_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 104
+[04-Feb-2014 15:44:17 America/New_York] PHP Notice:  Use of undefined constant page_name - assumed 'page_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 104
+[04-Feb-2014 15:44:17 America/New_York] PHP Notice:  Use of undefined constant pages_id - assumed 'pages_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 104
+[04-Feb-2014 15:44:17 America/New_York] PHP Notice:  Use of undefined constant page_name - assumed 'page_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 104
+[04-Feb-2014 15:44:17 America/New_York] PHP Notice:  Use of undefined constant pages_id - assumed 'pages_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 104
+[04-Feb-2014 15:44:17 America/New_York] PHP Notice:  Use of undefined constant page_name - assumed 'page_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 104
+[04-Feb-2014 15:44:17 America/New_York] PHP Notice:  Use of undefined constant pages_id - assumed 'pages_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 104
+[04-Feb-2014 15:44:17 America/New_York] PHP Notice:  Use of undefined constant page_name - assumed 'page_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 104
+[04-Feb-2014 15:44:17 America/New_York] PHP Notice:  Use of undefined constant pages_id - assumed 'pages_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 104
+[04-Feb-2014 15:44:17 America/New_York] PHP Notice:  Use of undefined constant page_name - assumed 'page_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 104
+[04-Feb-2014 15:44:22 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:44:24 America/New_York] PHP Notice:  Undefined index: parent_page in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant pages_id - assumed 'pages_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 28
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant page_name - assumed 'page_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 29
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant on_nav - assumed 'on_nav' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 30
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant page_template - assumed 'page_template' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 31
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant page_group - assumed 'page_group' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 32
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant sub_page - assumed 'sub_page' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 33
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant page_meta_keyword - assumed 'page_meta_keyword' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 34
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant page_meta_title - assumed 'page_meta_title' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 35
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant page_url - assumed 'page_url' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 36
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant page_order - assumed 'page_order' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 37
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant pages_id - assumed 'pages_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 46
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant page_name - assumed 'page_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 47
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant page_url - assumed 'page_url' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 48
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant page_meta_title - assumed 'page_meta_title' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 49
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant page_meta_keyword - assumed 'page_meta_keyword' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 50
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant page_template - assumed 'page_template' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 51
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant page_group - assumed 'page_group' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 52
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant sub_page - assumed 'sub_page' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 53
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant page_order - assumed 'page_order' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 54
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant on_nav - assumed 'on_nav' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 55
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 93
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant template_name - assumed 'template_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 93
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 93
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant template_name - assumed 'template_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 93
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 93
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant template_name - assumed 'template_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 93
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 93
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant template_name - assumed 'template_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 93
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 93
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant template_name - assumed 'template_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 93
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant id - assumed 'id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 93
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant template_name - assumed 'template_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 93
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant pages_id - assumed 'pages_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 104
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant page_name - assumed 'page_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 104
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant pages_id - assumed 'pages_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 104
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant page_name - assumed 'page_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 104
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant pages_id - assumed 'pages_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 104
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant page_name - assumed 'page_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 104
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant pages_id - assumed 'pages_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 104
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant page_name - assumed 'page_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 104
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant pages_id - assumed 'pages_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 104
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant page_name - assumed 'page_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 104
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant pages_id - assumed 'pages_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 104
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant page_name - assumed 'page_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 104
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant content_name - assumed 'content_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 147
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant content_id - assumed 'content_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 148
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant page_id - assumed 'page_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 149
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant content - assumed 'content' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 150
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant content_area - assumed 'content_area' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 151
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant content_order - assumed 'content_order' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 152
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant content_id - assumed 'content_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 154
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant content_name - assumed 'content_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 147
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant content_id - assumed 'content_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 148
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant page_id - assumed 'page_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 149
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant content - assumed 'content' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 150
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant content_area - assumed 'content_area' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 151
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant content_order - assumed 'content_order' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 152
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant content_id - assumed 'content_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 154
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant content_name - assumed 'content_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 147
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant content_id - assumed 'content_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 148
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant page_id - assumed 'page_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 149
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant content - assumed 'content' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 150
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant content_area - assumed 'content_area' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 151
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant content_order - assumed 'content_order' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 152
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant content_id - assumed 'content_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 154
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant content_name - assumed 'content_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 147
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant content_id - assumed 'content_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 148
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant page_id - assumed 'page_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 149
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant content - assumed 'content' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 150
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant content_area - assumed 'content_area' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 151
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant content_order - assumed 'content_order' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 152
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant content_id - assumed 'content_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 154
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant content_name - assumed 'content_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 147
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant content_id - assumed 'content_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 148
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant page_id - assumed 'page_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 149
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant content - assumed 'content' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 150
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant content_area - assumed 'content_area' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 151
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant content_order - assumed 'content_order' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 152
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant content_id - assumed 'content_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 154
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant content_name - assumed 'content_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 147
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant content_id - assumed 'content_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 148
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant page_id - assumed 'page_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 149
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant content - assumed 'content' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 150
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant content_area - assumed 'content_area' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 151
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant content_order - assumed 'content_order' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 152
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant content_id - assumed 'content_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 154
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant content_name - assumed 'content_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 147
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant content_id - assumed 'content_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 148
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant page_id - assumed 'page_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 149
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant content - assumed 'content' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 150
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant content_area - assumed 'content_area' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 151
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant content_order - assumed 'content_order' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 152
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant content_id - assumed 'content_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 154
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant content_name - assumed 'content_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 147
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant content_id - assumed 'content_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 148
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant page_id - assumed 'page_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 149
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant content - assumed 'content' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 150
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant content_area - assumed 'content_area' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 151
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant content_order - assumed 'content_order' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 152
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant content_id - assumed 'content_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 154
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant page_name - assumed 'page_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 178
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant page_url - assumed 'page_url' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 179
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant page_order - assumed 'page_order' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 180
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant pages_id - assumed 'pages_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 181
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant page_name - assumed 'page_name' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 178
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant page_url - assumed 'page_url' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 179
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant page_order - assumed 'page_order' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 180
+[04-Feb-2014 15:44:45 America/New_York] PHP Notice:  Use of undefined constant pages_id - assumed 'pages_id' in /home3/refinee9/public_html/framework/admin/views/edit/edit_page.inc on line 181
+[04-Feb-2014 15:52:20 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:55:51 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106
+[04-Feb-2014 15:56:48 America/New_York] PHP Notice:  Undefined index: type in /home3/refinee9/public_html/framework/includes/helpers.php on line 106

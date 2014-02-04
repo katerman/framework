@@ -4,7 +4,7 @@
 				$page = $helpers->getQuery('pageid','return');
 				$z = $model->sqlSelect("*" , "config", "", "");
 				
-				print_r($z);
+			//	print_r($z);
 				
 				echo '<table>
 						<tr class="th">
@@ -18,11 +18,11 @@
 								  
 				foreach($z as $value) {
 					echo '<tr>'.
-							'<td>'.$value[id].'</td>'
-							.'<td>'.$value[site_name].'</td>'
-							.'<td><img src="../uploads/'.$value[global_logo].'" alt="logo" width="150"></td>'
-							.'<td>'.$value[extra_js].'</td>'
-							.'<td>'.$value[extra_css].'</td>'
+							'<td>'.$value['id'].'</td>'
+							.'<td>'.$value['site_name'].'</td>'
+							.'<td><img src="../uploads/'.$value['global_logo'].'" alt="logo" width="150"></td>'
+							.'<td>'.$value['extra_js'].'</td>'
+							.'<td>'.$value['extra_css'].'</td>'
 						 .'</tr>';
 				}				
 				echo '</table>';		
@@ -30,11 +30,11 @@
 
 			$edit_token = $security->generateFormToken('edit_token'); 
 			
-			$id = $helpers->stripcleantohtml($z[0][id]);
-			$site_name = $helpers->stripcleantohtml($z[0][site_name]);
-			$global_logo = $helpers->stripcleantohtml($z[0][global_logo]);
-			$extra_js = $helpers->stripcleantohtml($z[0][extra_js]);
-			$extra_css = $helpers->stripcleantohtml($z[0][extra_css]);
+			$id = $helpers->stripcleantohtml($z[0]['id']);
+			$site_name = $helpers->stripcleantohtml($z[0]['site_name']);
+			$global_logo = $helpers->stripcleantohtml($z[0]['global_logo']);
+			$extra_js = $helpers->stripcleantohtml($z[0]['extra_js']);
+			$extra_css = $helpers->stripcleantohtml($z[0]['extra_css']);
 			
 			//File location (images)
 			$ds          = DIRECTORY_SEPARATOR;  			 

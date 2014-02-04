@@ -17,12 +17,12 @@
 								  
 				foreach($z as $value) {
 					echo '<tr>'.
-							'<td>'.$value[users_Id].'</td>'
-							.'<td>'.$value[user_uName].'</td>'
-							.'<td>'.$value[user_Pass].'</td>'
-							.'<td>'.$value[user_FullName].'</td>'
-							.'<td>'.$value[user_Salt].'</td>'
-							.'<td>'.$value[user_Access].'</td>'
+							'<td>'.$value['users_Id'].'</td>'
+							.'<td>'.$value['user_uName'].'</td>'
+							.'<td>'.$value['user_Pass'].'</td>'
+							.'<td>'.$value['user_FullName'].'</td>'
+							.'<td>'.$value['user_Salt'].'</td>'
+							.'<td>'.$value['user_Access'].'</td>'
 						 .'</tr>';
 				}				
 				echo '</table>';		
@@ -30,12 +30,12 @@
 
 			$editToken = $security->generateFormToken('edit_token'); 
 			
-			$user_id = $helpers->stripcleantohtml($z[0][users_Id]);
-			$user_name = $helpers->stripcleantohtml($z[0][user_uName]);
-/* 			$user_password = $helpers->stripcleantohtml($z[0][user_Pass]); */
-			$user_fullname = $helpers->stripcleantohtml($z[0][user_FullName]);
-			$user_salt = $helpers->stripcleantohtml($z[0][user_Salt]);
-			$user_access = $helpers->stripcleantohtml($z[0][user_Access]);
+			$user_id = $helpers->stripcleantohtml($z[0]['users_Id']);
+			$user_name = $helpers->stripcleantohtml($z[0]['user_uName']);
+/* 			$user_password = $helpers->stripcleantohtml($z[0]['user_Pass']); */
+			$user_fullname = $helpers->stripcleantohtml($z[0]['user_FullName']);
+			$user_salt = $helpers->stripcleantohtml($z[0]['user_Salt']);
+			$user_access = $helpers->stripcleantohtml($z[0]['user_Access']);
 
 		?>
 		

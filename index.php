@@ -5,13 +5,14 @@ require_once "db.php";
 require_once "AuthModel.php";
 require_once "AuthView.php";
 require_once "includes/helpers.php";
-include_once "includes/security.php";
+require_once "includes/security.php";
+require_once "_config.php";
 
 $model = new AuthModel($dsn, $db_user, $db_pass);
 $view = new AuthView();
 $helpers = new helpers();
-$security = new security();
-
+$security = new security(); 
+  
 $username = empty($_POST['username']) ? '' : strtolower(trim($_POST['username']));
 $password = empty($_POST['password']) ? '' : trim($_POST['password']);
 

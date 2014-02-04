@@ -1,16 +1,29 @@
 <?
 	session_start();
-	
+		
 	include_once "../db.php";
 	include_once "../includes/security.php";
 	include_once "../includes/helpers.php";
 	
 	$security = new security();
 	$helpers = new helpers();
+	$name = $_SESSION['userInfo']['fullname'];
+	$date_time = date( "F j, Y, g:i a");
 
+	print_r($_POST);
 	
-	$token = $_POST['token'];
-	$security->checkToken('add_page_token');	
+	$update_type = $_POST['update_type'];
+	$update_crud = $_POST['update_crud'];
+	
+	if($update_type === 'content'){
+		$security->checkToken('edit_token');	 // because our content adding is on the page edit page, we'll stick it with the edit token
+	}elseif($update_type === 'template'){
+		$security->checkToken('template_token');
+	}elseif($update_type === 'labels'){
+		$security->checkToken('label_token');
+	}else{
+		$security->checkToken('add_token');	
+	}
 		
 	try{
 		$db = new PDO($dsn, $db_user, $db_pass);		
@@ -18,10 +31,7 @@
 		var_dump($e);		
 	}
 
-	$update_type = $_POST['update_type'];
-	
-	print_r($_POST);
-	
+				
 	if(isset($update_type)){
 		if($update_type === 'pages'){ // ======== IF PAGES ========//
 		
@@ -30,9 +40,10 @@
 			$page_meta_keyword = $_POST['page_meta_keyword'];
 			$page_template = $_POST['page_template'];
 			$page_group = $_POST['page_group'];
-			$sub_page = $_POST['sub_page'];	
+			$sub_page = $_POST['parent_page'];	
 			$page_url = $_POST['page_url'];
 			$page_order = $_POST['page_order'];		
+			$on_nav = $_POST['on_nav'];		
 		
 		    
 			$data = array(':page_name' => $page_name, 
@@ -42,24 +53,27 @@
 						  ':page_template' => $page_template, 
 						  ':page_group' => $page_group, 
 						  ':sub_page' => $sub_page, 
-						  ':page_order' => $page_order
+						  ':page_order' => $page_order,
+						  ':on_nav' => $on_nav
 						 );
 			
-			$sql = $db->prepare("INSERT INTO `pages` (page_name, page_url, page_meta_title, page_meta_keyword, page_template, page_group, sub_page, page_order) VALUES (:page_name, :page_url, :page_meta_title, :page_meta_keyword, :page_template, :page_group, :sub_page, :page_order)");
+			$sql = $db->prepare("INSERT INTO `pages` (page_name, page_url, page_meta_title, page_meta_keyword, page_template, page_group, sub_page, page_order, on_nav) 
+			                                  VALUES (:page_name, :page_url, :page_meta_title, :page_meta_keyword, :page_template, :page_group, :sub_page, :page_order, :on_nav)");
 								
 			$sql->execute($data);
 			
+			//log for adding page
+			$log_data = array(
+				':log_name' => $name,
+				':page_name' => $page_name,
+				':date' => $date_time
+			);
+			$log = $db->prepare("INSERT INTO `log` (log_name, log_action, log_content, log_time) VALUES (:log_name, 'add page' , :page_name, :date)");
+			$log->execute($log_data);
+
+			
 		}elseif($update_type==='user'){ // ======== IF USERS ========//
-			
-			$username = $_POST['user_uname'];		
-			$fullname = $_POST['user_fullname'];		
-			$access = $_POST['user_access'];		
-			$password = $_POST['user_pass'];		
-		
-			$x = array($username, $fullname, $access, $password);
-			
-			print_r($x);
-			
+
 			function random_numbers($digits){ 
 			    $min = pow(10, $digits - 1);
 			    $max = pow(10, $digits) - 1;
@@ -67,12 +81,21 @@
 			}
 			
 			$salt = random_numbers(8); //heres our salt
+			$username = $_POST['username'];		
+			$fullname = $_POST['fullname'];		
+			$access = $_POST['access'];		
+			$password = $_POST['password'];		
+		
+			$x = array($username, $fullname, $access, $password, $salt);
+			
+			print_r($x);
+			
 			
 			$data = array(':user_uName' => $username, 
 					  ':user_FullName' => $fullname, 
 					  ':user_Access' => $access, 
 					  ':user_Salt' => $salt, 
-					  ':user_Pass' => MD5($salt.$password), 
+					  ':user_Pass' => MD5($salt.$password)
 					 );
 					
 			
@@ -80,7 +103,90 @@
 
             $sql->execute($data); 	
             
-            print_r($sql);		
+            //log for adding user
+			$log_data = array(
+				':log_name' => $name,
+				':user_name' => $username . ' - ' .$fullname,
+				':date' => $date_time
+			);
+			$log = $db->prepare("INSERT INTO `log` (log_name, log_action, log_content, log_time) VALUES (:log_name, 'add user' , :user_name, :date)");
+			$log->execute($log_data);	
+			
+		}elseif($update_crud ==='add' && $update_type==='content'){ // ======== IF CONTENT ========//
+			
+			$content = $_POST['content'];
+			$content_area = $_POST['content_area'];
+			$content_name = $_POST['content_name'];
+			$content_order = $_POST['content_order'];	
+			$content_page = $_POST['content_order'];	
+			$content_page_id = $_POST['content_page_id'];
+			
+			$data = array(':content' => $content, 
+					  ':content_area' => $content_area, 
+					  ':content_name' => $content_name, 
+					  ':content_order' => $content_order,
+					  ':page_id' => $content_page_id
+					 );
+					
+			
+			$sql = $db->prepare("INSERT INTO `content` (content, content_area, content_name, content_order, page_id) VALUES (:content, :content_area, :content_name, :content_order, :page_id)");
+
+            $sql->execute($data); 	
+            
+            //log for adding content
+			$log_data = array(
+				':log_name' => $name,
+				':log_content' => $content_name,
+				':date' => $date_time
+			);
+			$log = $db->prepare("INSERT INTO `log` (log_name, log_action, log_content, log_time) VALUES (:log_name, 'add content' , :log_content, :date)");
+			$log->execute($log_data);		
+			
+		}elseif($update_crud ==='add' && $update_type==='template'){ // ======== IF Template ========//
+			
+			$template_type = $_POST['template_type'];
+			$template_name = $_POST['template_name'];
+
+			$data = array(':template_type' => $template_type, 
+					      ':template_name' => $template_name
+					 );
+					
+			
+			$sql = $db->prepare("INSERT INTO `templates` (template_type, template_name) VALUES (:template_type, :template_name)");
+
+            $sql->execute($data); 	
+            
+            //log for adding template
+			$log_data = array(
+				':log_name' => $name,
+				':log_content' => $template_name,
+				':date' => $date_time
+			);
+			$log = $db->prepare("INSERT INTO `log` (log_name, log_action, log_content, log_time) VALUES (:log_name, 'add template' , :log_content, :date)");
+			$log->execute($log_data);	
+			
+		}elseif($update_crud ==='add' && $update_type==='labels'){ // ======== IF labels ========//
+			
+			$label_name = $_POST['label_name'];
+			$label_content = $_POST['label_content'];
+
+			$data = array(':label_name' => $label_name, 
+					  	  ':label_content' => $label_content
+					 );
+					
+			
+			$sql = $db->prepare("INSERT INTO `labels` (label_name, label_content) VALUES (:label_name, :label_content)");
+
+            $sql->execute($data); 	
+            
+            //log for adding template
+			$log_data = array(
+				':log_name' => $name,
+				':log_content' => $label_name,
+				':date' => $date_time
+			);
+			$log = $db->prepare("INSERT INTO `log` (log_name, log_action, log_content, log_time) VALUES (:log_name, 'add label' , :log_content, :date)");
+			$log->execute($log_data);		
 			
 		}else{
 			die;
@@ -94,4 +200,5 @@
 	
 	
 ?>
+
 
