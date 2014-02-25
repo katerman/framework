@@ -1,15 +1,15 @@
 <?php
 session_start();
 
-require_once "db.php";
-require_once "AuthModel.php";
-require_once "AuthView.php";
-require_once "includes/helpers.php";
-require_once "includes/security.php";
-require_once "_config.php";
+//includes
+$log = false;
+$admin = false;
+include_once "includes/scripts/app.php";
 
-$model = new AuthModel($dsn, $db_user, $db_pass);
-$view = new AuthView();
+
+//class calls
+$model = new appModel($dsn, $db_user, $db_pass);
+$view = new appView();
 $helpers = new helpers();
 $security = new security(); 
   
@@ -17,9 +17,10 @@ $username = empty($_POST['username']) ? '' : strtolower(trim($_POST['username'])
 $password = empty($_POST['password']) ? '' : trim($_POST['password']);
 
 $contentPage = 'body';
-$user = $_SESSION['userInfo'];
+$user = null;
 
 if(!empty($_SESSION['userInfo'])){
+	$user = $_SESSION['userInfo'];
 	$contentPage = 'body';
 	$_SESSION['userInfo'] = $user;
 }

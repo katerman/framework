@@ -1,13 +1,11 @@
 <?php
 session_start();
 
-include_once "../db.php";
-include_once "../includes/security.php";
-include_once "../AuthModel.php";
+include_once "../includes/scripts/app.php";
 
 
 $security = new security();
-$model = new AuthModel($dsn, $db_user, $db_pass);
+$model = new appModel($dsn, $db_user, $db_pass);
 
 $name = $_SESSION['userInfo']['fullname'];
 $date_time = date( "F j, Y, g:i a");
@@ -17,18 +15,12 @@ $id = $_POST['id'];
 $type = $_POST['type'];
 $db_id = $_POST['db_id'];
 
-if($type === 'content'){
-	$security->checkToken('edit_token');
-}elseif($type === 'sub_page'){
-	$security->checkToken('edit_token');
+if($type === 'sub_page'){
 	$type = "pages";	
-}elseif($type === 'templates'){
-	$security->checkToken('template_token');
-}elseif($type === 'labels'){
-	$security->checkToken('label_token');
-}else{
-	$security->checkToken('delete_page_token');
 }
+
+$security->checkToken('token');	 // check security token
+
 
 try{
 	$db = new PDO($dsn, $db_user, $db_pass);		

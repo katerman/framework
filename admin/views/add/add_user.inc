@@ -1,9 +1,9 @@
 <h1> Lets add a user!</h1>
 
-		<? 								
+		<?php 								
 					    
 
-			$addToken = $security->generateFormToken('add_token'); 
+			$token = $security->generateFormToken('token'); 
 			
 		?>
 		<form id="add_form" class="form" action="" method="" accept-charset="utf-8">
@@ -23,7 +23,7 @@
 			<label for="radio_user">User</label>
 			<input id="radio_user" type="radio" name="access" value="2" checked><br/>
 			
-			<input type="hidden" id="token" name="token" value="<?php echo $addToken; ?>">
+			<input type="hidden" id="token" name="token" value="<?php echo $token; ?>">
 			<input type="hidden" id="update_type" name="update_type" value="user">
 			
 			<input type="submit" value="Submit" class="btn">

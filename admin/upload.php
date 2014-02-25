@@ -1,4 +1,11 @@
 <?php
+
+if($_SESSION['userInfo']['access'] === '1'){
+
+}else{
+	die();
+}
+
 $ds          = DIRECTORY_SEPARATOR;  
  
 $storeFolder = 'uploads';   
@@ -17,4 +24,3 @@ if (!empty($_FILES)) {
 }
 
 //echo ''.dirname(dirname(__FILE__)) . $ds. $storeFolder . $ds;
-?>  

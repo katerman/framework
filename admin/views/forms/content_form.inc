@@ -12,7 +12,7 @@
 	<input id="content_name" name="content_name" value="" placeholder="Content Name" class="required"><br/>
 	
 	<label for="content">Content</label><br/> 
-	<textarea cols="50" rows="10" id="content" name="content" placeholder="Content goes here!"></textarea><br/>
+	<textarea id="content" class="html-code" name="content" placeholder="Content goes here!"></textarea><br/>
 	
 	<div class="pull-left">
 		<label for="content_area">Area</label><br/> 

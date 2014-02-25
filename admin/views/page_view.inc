@@ -1,8 +1,8 @@
-		<p>Welcome back, <?php echo htmlentities($data['fullname']);?>.</p>
-		<? 
+
+		<?php
 					
 				$z = $model->sqlSelect("*" , "pages", "", "ORDER BY page_order ASC");
-				$deleteToken = $security->generateFormToken('delete_page_token');
+				$token = $security->generateFormToken('token');
 			
 				function on_nav_val($x){
 					if ($x === '1'){
@@ -29,7 +29,7 @@
 							.'<td>'.$value['page_url'].'</td>'
 							.'<td>'.$value['page_order'].'</td>'
 							.'<td>'. on_nav_val($value['on_nav']) .'</td>'
-							.'<td><a class="edit" href="?pageid='. $value['pages_id'] .'&tpl=edit&type=edit_page#pages"></a> ' . '<form style="position: relative;" class="pull-left" id="delete_form" action="" method=""> <a class="delete" href="?id='.$value['pages_id'].'#pages"></a> <input type="hidden" name="token" id="token" value="'. $helpers->stripcleantohtml($deleteToken) .'"> <input id="id" type="hidden" value="'. $helpers->stripcleantohtml($value['pages_id']) .'"/> <input id="type" type="hidden" value="'. $helpers->stripcleantohtml( 'pages' ) . '"/> <input id="db_id" type="hidden" value="'.$helpers->stripcleantohtml('pages_id').'"/> <input class="hidden" type="submit" id="submit"/> </form></td>'
+							.'<td><a class="edit" href="?pageid='. $value['pages_id'] .'&tpl=edit&type=edit_page#pages"></a> ' . '<form style="position: relative;" class="pull-left" id="delete_form" action="" method=""> <a class="delete" href="?id='.$value['pages_id'].'#pages"></a> <input type="hidden" name="token" id="token" value="'.$token .'"> <input id="id" type="hidden" value="'. $helpers->stripcleantohtml($value['pages_id']) .'"/> <input id="type" type="hidden" value="'. $helpers->stripcleantohtml( 'pages' ) . '"/> <input id="db_id" type="hidden" value="'.$helpers->stripcleantohtml('pages_id').'"/> <input class="hidden" type="submit" id="submit"/> </form></td>'
 						 .'</tr>';
 				}				
 				echo '</table>';		

@@ -1,29 +1,27 @@
-<?
+<?php
 	session_start();
 		
-	include_once "../db.php";
-	include_once "../includes/security.php";
-	include_once "../includes/helpers.php";
+	include_once "../includes/scripts/app.php";
+
 	
 	$security = new security();
 	$helpers = new helpers();
 	$name = $_SESSION['userInfo']['fullname'];
 	$date_time = date( "F j, Y, g:i a");
 
-	print_r($_POST);
+	//print_r($_POST);
 	
 	$update_type = $_POST['update_type'];
-	$update_crud = $_POST['update_crud'];
 	
-	if($update_type === 'content'){
-		$security->checkToken('edit_token');	 // because our content adding is on the page edit page, we'll stick it with the edit token
-	}elseif($update_type === 'template'){
-		$security->checkToken('template_token');
-	}elseif($update_type === 'labels'){
-		$security->checkToken('label_token');
+	
+	if(isset($_POST['update_crud'])){
+		$update_crud = $_POST['update_crud'];
 	}else{
-		$security->checkToken('add_token');	
+		$update_crud = false;
 	}
+	
+	$security->checkToken('token');	 // check security token
+
 		
 	try{
 		$db = new PDO($dsn, $db_user, $db_pass);		
@@ -88,7 +86,7 @@
 		
 			$x = array($username, $fullname, $access, $password, $salt);
 			
-			print_r($x);
+			//print_r($x);
 			
 			
 			$data = array(':user_uName' => $username, 
@@ -199,6 +197,4 @@
 	}
 	
 	
-?>
-
 

@@ -1,11 +1,11 @@
 <h1> Lets add a page!</h1>
 
-<? 								
+<?php 								
 	$r = $model->sqlSelect("*" , "templates", "", "");
 	$pp = $model->sqlSelect("*" , "pages", "", "WHERE on_nav = '1'");
 	$parent_page = $helpers->getQuery('parent_page','return');
 
-	$addToken = $security->generateFormToken('add_token'); 
+	$token = $security->generateFormToken('token'); 
 	
 ?>
 <form id="add_form" class="form" action="" method="" accept-charset="utf-8">
@@ -26,7 +26,7 @@
 	
 	<label for="page_template">Page Template</label><br/>
 	<select id="page_template" name="page_template" style="margin-bottom: 10px; width: 150px;">
-	<? 
+	<?php 
 		foreach($r as $k=>$temp){
 			if($k === 0){
 				echo '<option value="none" selected>None</option>';
@@ -39,13 +39,24 @@
 	
 	<label for="parent_page">Parent Page</label><br/>
 	<select id="parent_page" name="parent_page" style="margin-bottom: 10px; width: 150px;"><div></div>
-	<? 
+	<?php 
 		foreach($pp as $k=>$p){
-			if($k === 0){
-				echo '<option value="none" selected>None</option>';
+		
+			if(isset($parent_page) && $parent_page === $p['pages_id']){
+				if($k === 0){
+					echo '<option value="none">None</option>';
+				}
+				
+				echo '<option value="'.$p['pages_id'].'" selected>'.$p['page_name'].'</option>';
+				
+			}else{
+			
+				if($k === 0){
+					echo '<option value="none" selected>None</option>';
+				}
+				
+				echo '<option value="'.$p['pages_id'].'">'.$p['page_name'].'</option>';
 			}
-									
-			echo '<option value="'.$p['pages_id'].'"'.(($k == '0')?'selected':"") .'>'.$p['page_name'].'</option>';
 		}
 		
 	?>
@@ -60,7 +71,7 @@
 	<label for="on_nav">On Nav?</label>           
     <input id="on_nav" type="checkbox" name="on_nav" value="1" /><br/>
 
-	<input type="hidden" id="token" name="token" value="<?php echo $addToken; ?>">
+	<input type="hidden" id="token" name="token" value="<?php echo $token; ?>">
 	<input type="hidden" id="update_type" name="update_type" value="pages">
 
 	<input type="submit" value="Submit" class="btn">

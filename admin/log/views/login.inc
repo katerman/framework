@@ -2,7 +2,7 @@
 
 	<div class="sixteen columns">
 		<form id="login_form" action="?" method="POST">
-			<h1>Admin Panel</h1>
+			<h1>Admin Log</h1>
 			
 			<p>Please, Log in.</p>
 			

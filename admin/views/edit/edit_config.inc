@@ -1,6 +1,6 @@
-<h1>  <? $helpers->getQuery('pagename','echo'); ?> </h1>
+<h1>  <?php $helpers->getQuery('pagename','echo'); ?> </h1>
 
-		<? 
+		<?php 
 				$page = $helpers->getQuery('pageid','return');
 				$z = $model->sqlSelect("*" , "config", "", "");
 				
@@ -28,7 +28,7 @@
 				echo '</table>';		
 					    
 
-			$edit_token = $security->generateFormToken('edit_token'); 
+			$token = $security->generateFormToken('token'); 
 			
 			$id = $helpers->stripcleantohtml($z[0]['id']);
 			$site_name = $helpers->stripcleantohtml($z[0]['site_name']);
@@ -47,15 +47,15 @@
 		?>
 		<form id="edit_form" class="form" action="" method="" accept-charset="utf-8">
 		
-            <input type="hidden" id="config_id" name="config_id" value="<? echo $id; ?>">
+            <input type="hidden" id="config_id" name="config_id" value="<?php echo $id; ?>">
 
 
 			<label for="site_name">Site Name</label><br/>
-		    <input id="site_name" name="site_name" value="<? echo $site_name; ?>" placeholder="Site Name"><br/><br/>
+		    <input id="site_name" name="site_name" value="<?php echo $site_name; ?>" placeholder="Site Name"><br/><br/>
 		
 			<label for="global_logo">Site Logo</label><br/>
 		    <select name="global_logo" id="global_logo">
-		    	<?
+		    	<?php
 					if($images){
 						foreach($images as $image) {
 							$i = str_replace('../uploads/', '', $image);
@@ -70,15 +70,15 @@
 		    </select><br/><br/>
 		
 			<label for="extra_js">Extra Javascript</label><br/>
-		    <textarea cols="40" rows="10" id="extra_js" name="extra_js" placeholder="Extra JavaScript"><? echo $extra_js; ?></textarea><br/><br/>
+		    <textarea cols="40" rows="10" id="extra_js" name="extra_js" placeholder="Extra JavaScript"><?php echo $extra_js; ?></textarea><br/><br/>
 
 			<label for="extra_css">Extra CSS</label><br/>
-		    <textarea cols="40" rows="10" id="extra_css" name="extra_css" placeholder="Extra CSS"><? echo $extra_css; ?></textarea><br/>
+		    <textarea cols="40" rows="10" id="extra_css" name="extra_css" placeholder="Extra CSS"><?php echo $extra_css; ?></textarea><br/>
 			
 			
 
 			
-			<input type="hidden" id="token" name="token" value="<?php echo $edit_token; ?>">
+			<input type="hidden" id="token" name="token" value="<?php echo $token; ?>">
 			<input type="hidden" id="update_type" name="update_type" value="config">
 
 			<input type="submit" value="Submit" class="btn clear-fix pull-left">

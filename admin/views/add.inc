@@ -1,4 +1,4 @@
-<?  
+<?php  
 
 $tpl = $helpers->getQuery('tpl','return');
 $type = $helpers->getQuery('type','return');
@@ -9,8 +9,6 @@ if($tpl && $type){
 }else{
 	header('location: index.php?tpl=default_view');
 }
-
-?>
 
 
 		

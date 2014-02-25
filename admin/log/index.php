@@ -2,16 +2,14 @@
 session_start();
 
 //includes
-include_once "../../db.php";
-include_once "../../AuthModel.php";
-include_once "../../AuthView.php";
-include_once "../../includes/helpers.php";
-include_once "../../includes/security.php";
-include_once "../../_config.php";
+$log = true;
+$admin = false;
+include_once "../../includes/scripts/app.php";
+
 
 //class calls
-$model = new AuthModel($dsn, $db_user, $db_pass);
-$view = new AuthView();
+$model = new appModel($dsn, $db_user, $db_pass);
+$view = new appView();
 $helpers = new helpers();
 $security = new security();
 
@@ -25,7 +23,11 @@ $password = empty($_POST['password']) ? '' : trim($_POST['password']);
 $contentPage = 'login';
 
 //get our user var from session information
-$user = $_SESSION['userInfo'];
+if(isset($_SESSION['userInfo'])){
+	$user = $_SESSION['userInfo'];
+}else{
+	$user = null;
+}
 
 //if our session isnt empty, but access doesnt equal 1 return them back to login(.inc) page, if it is one, bring them to the body.inc
 if(!empty($_SESSION['userInfo'])){
@@ -44,11 +46,9 @@ if (!empty($username) && !empty($password)){
 	
 	if(is_array($user)){
 		$contentPage = 'body';
-		session_start();
 		$_SESSION['userInfo'] = $user;				
 	}
 }
-
 
 //if our users access doesnt equal 1 and our page is anything other than login return a 403 error and kick them out, else run admin as it should be.
 if($user['access'] != 1 && $contentPage != 'login'){
@@ -59,5 +59,3 @@ if($user['access'] != 1 && $contentPage != 'login'){
 	$view->show('footer');
 } 
 
-
-?>

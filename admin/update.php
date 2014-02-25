@@ -7,9 +7,7 @@
 		die();
 	}
 	
-	include_once "../db.php";
-	include_once "../includes/security.php";
-	include_once "../includes/helpers.php";
+	include_once "../includes/scripts/app.php";
 	
 	$security = new security();
 	$helpers = new helpers();
@@ -18,13 +16,8 @@
 	$name = $_SESSION['userInfo']['fullname'];
 	$date_time = date( "F j, Y, g:i a");
 	
-	if($update_type === 'template'){
-		$security->checkToken('template_token');	
-	}elseif($update_type === 'labels'){
-		$security->checkToken('label_token');	
-	}else{
-		$security->checkToken('edit_token');
-	}
+	$security->checkToken('token');	 // check security token
+
 
 	try{
 		$db = new PDO($dsn, $db_user, $db_pass);		
@@ -75,6 +68,7 @@
 			$user_pass = $_POST['password'];
 			$user_fullname = $_POST['fullname'];
 			$user_access = $_POST['access'];
+			$user_comments = $_POST['user_comments'];
 
 
 			function random_numbers($digits){ 
@@ -87,11 +81,11 @@
 				$salt = random_numbers(8); //heres our new salt
 				$pw = MD5($salt.$user_pass);
 				
-		        $query = "UPDATE users SET user_uName = ?, user_Pass = ?, user_FullName = ?, user_Access = ?, user_Salt = ? WHERE users_id = ?";
-    			$data = array($user_username, $pw, $user_fullname, $user_access, $salt, $user_id);
+		        $query = "UPDATE users SET user_uName = ?, user_Pass = ?, user_FullName = ?, user_Access = ?, user_Salt = ?, user_Comments WHERE users_id = ?";
+    			$data = array($user_username, $pw, $user_fullname, $user_access, $salt, $user_comments, $user_id);
 			}else{
-				$query = "UPDATE users SET user_uName = ?, user_FullName = ?, user_Access = ? WHERE users_id = ?";
-    			$data = array($user_username, $user_fullname, $user_access, $user_id);
+				$query = "UPDATE users SET user_uName = ?, user_FullName = ?, user_Access = ?, user_Comments = ? WHERE users_id = ?";
+    			$data = array($user_username, $user_fullname, $user_access, $user_comments, $user_id);
 			}
 			
 
