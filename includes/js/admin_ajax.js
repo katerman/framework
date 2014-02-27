@@ -140,7 +140,7 @@ $(document).ready(function(){
 			});
 			
 			body.on('click', '.noBtn', function(){
-				$('.yn-overlay').remove();		
+				$(this).parent().remove();		
 			});
 			
 				
@@ -461,6 +461,72 @@ $(document).ready(function(){
         }); 	
 	}// end of template_validation
 
+function delete_image_validation(){	
+		data = new Object;
+		
+		var d_click = $('.delete_btn').click(function(e) {
+			$(this).parent().prepend('<div class="yn-overlay"><div class="yesBtn"></div> <div class="noBtn"></div></div>');
+
+			body.on('click', '.yesBtn', function(){
+				form = $(this).parents('form');
+				$('.yn-overlay').remove();		
+				delete_which_image(form);
+				form.submit();	
+
+			});
+			
+			body.on('click', '.noBtn', function(){
+				$(this).parent().remove();		
+			});
+			
+				
+				var image_value = $(this).siblings('.image_value').val();
+				var auth_token = $('#uploaded #token').text();     
+				
+				
+				//object to hold info
+				data['image_value'] = image_value;
+				data['token'] = auth_token;
+			
+				
+				e.preventDefault();
+		});
+		
+		function delete_which_image(f){
+			
+			f.validate({				     
+			    submitHandler: function(form) {                
+											
+					$(form).ajaxSubmit({
+							url:"delete_image.php",
+							type:"POST",
+							data: data,
+							timeout: 2000,
+							clearForm: true,
+							cache: false,
+							success: function(){
+								location.reload();
+								$('.result').text(data['image_value']+' was deleted');
+							},
+							error: function(x,t,m){
+								if(t==="timeout"){
+									//console.log('timeout');
+									
+								}
+								
+								//console.log( ' bad: ' + x + m);
+							}										
+					});
+				}
+			}); 
+							
+		}
+		
+		
+	}// end of delete_image_validation	
+
+
+
 
 	function init(){
 		edit_validation();
@@ -470,7 +536,7 @@ $(document).ready(function(){
 		content_validation();
 		template_validation();
 		labels_validation();
-		
+		delete_image_validation();
 		// the amount of seperate functions is silly, but makes it much easier to seperate things out.
 	}
 	

@@ -369,6 +369,10 @@ input[type="radio"] {
 	z-index: 100;
 }
 
+#uploaded .yn-overlay {
+	min-width: 100%;
+}
+
 /* helper classes */
 .under-line {
 	text-decoration: underline;

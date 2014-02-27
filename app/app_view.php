@@ -5,8 +5,9 @@ class appView {
 	public function show($template, $data = array()) {
 		global $admin;
 		global $log;
+		global $_CONFIG;
 		
-		$tpl_debug = false; //show templates!
+		$tpl_debug = $_CONFIG->template_debug; //show templates!
 		
 		$path = dirname(__FILE__);
 		//$path = str_replace('home3/refinee9/public_html/', '', $path); // this will remove anything from path that shouldnt be there

@@ -1,10 +1,5 @@
 <?php
-
-if($_SESSION['userInfo']['access'] === '1'){
-
-}else{
-	die();
-}
+//need more custom here.
 
 $ds          = DIRECTORY_SEPARATOR;  
  

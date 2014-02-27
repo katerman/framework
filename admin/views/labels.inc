@@ -1,8 +1,8 @@
 <h1> Labels </h1>
 <?php		
 
-	$label_token = $security->generateFormToken('label_token'); 
-	echo '<p id="token" class="hidden">'.$label_token.'</p>';
+	$token = $security->generateFormToken('token'); 
+	echo '<p id="token" class="hidden">'.$token.'</p>';
 	$r = $model->sqlSelect("*" , "labels", "", "");
 	
 	//print_r($r);

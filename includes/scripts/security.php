@@ -18,13 +18,13 @@ class security {
 	    
 	    // check if a session is started and a token is transmitted, if not return an error
 		if(!isset($_SESSION[$form.'_token'])) { 
-			$this->writeLog('fail 1:  '.$_SESSION[$form.'_token']);
+			$this->writeLog('fail 1:  ' . $_SESSION[$form.'_token']);
 			return false;
 	    }
 		
 		// check if the form is sent with token in it
 		if(!isset($_POST['token'])) {
-			$this->writeLog('fail 2:  '.$_POST['token']);
+			$this->writeLog('fail 2:  ' . $_POST['token']);
 			return false;
 	    }
 		
