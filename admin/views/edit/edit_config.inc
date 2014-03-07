@@ -15,12 +15,12 @@
 							<td>Extra Css</td>
 						</tr>
 					';		
-								  
+					
 				foreach($z as $value) {
 					echo '<tr>'.
 							'<td>'.$value['id'].'</td>'
 							.'<td>'.$value['site_name'].'</td>'
-							.'<td><img src="../uploads/'.$value['global_logo'].'" alt="logo" width="150"></td>'
+							.'<td><img src="../uploads/resized/'.$value['global_logo'].'-resized" alt="logo" width="150"></td>'
 							.'<td>'.$value['extra_js'].'</td>'
 							.'<td>'.$value['extra_css'].'</td>'
 						 .'</tr>';
@@ -40,9 +40,9 @@
 			$ds          = DIRECTORY_SEPARATOR;  			 
 			$storeFolder = 'uploads'; 						
 			$dirname = '..'.$ds.$storeFolder.$ds;
-			$images = glob("{$dirname}*.*");
+			$images = glob($dirname . '*.{jpg,jpeg,png,gif,JPG,JPEG,PNG,GIF}', GLOB_BRACE);
 			
-			//print_r($dirname);
+			//print_r($images);
 
 		?>
 		<form id="edit_form" class="form" action="" method="" accept-charset="utf-8">
@@ -54,20 +54,37 @@
 		    <input id="site_name" name="site_name" value="<?php echo $site_name; ?>" placeholder="Site Name"><br/><br/>
 		
 			<label for="global_logo">Site Logo</label><br/>
-		    <select name="global_logo" id="global_logo">
+			
+		    <div class="images_for_chooser hidden"><img class="image_chooser_close" src="<?php echo $_CONFIG->img_path; ?>admin/close.png" alt="close">
+		    <h1>Choose an image</h1>
+		    	<ul id="the_image_ul">
 		    	<?php
+		    	
 					if($images){
-						foreach($images as $image) {
-							$i = str_replace('../uploads/', '', $image);
-							$x = '';
-							if($i === $global_logo){
-								$x = 'selected';
+						foreach($images as $k=>$image) {
+							$image = str_replace('../uploads/', '', $image);
+							$image_name = $image;
+							
+							$i = '../uploads/resized/'.$image_name.'-resized';
+							if(!file_exists($i)){
+								$helpers->smart_resize_image('../uploads/'.$image_name , 100 , 100 , false , $i , false , false ,80 );
 							}
-							echo '<option class="logo_dropdown" value="'.$i.'"'.$x.'>'.$i.'</option>';
+							
+							echo '<li class="images"><p>'.$image_name.'</p><img src="'.$i.'" alt="imagechooser'.$k.'"></li>';
 						}
 					}		    	
 		    	 ?>
-		    </select><br/><br/>
+		    	</ul>
+		    	<div class="image_chooser_info_div">
+			    	<p class="picked"></p>
+			    	<button class="image_chooser_submit btn blue">Done</button>
+		    	</div>
+	    	</div>
+			
+		    <button class="btn blue image_chooser">Choose Image</button>
+		    <input id="global_logo" class="global_logo_value hidden" value="" type="hidden">
+		    <p class="picked"></p>
+		    <br/><br/>
 		
 			<label for="extra_js">Extra Javascript</label><br/>
 		    <textarea cols="40" rows="10" id="extra_js" name="extra_js" placeholder="Extra JavaScript"><?php echo $extra_js; ?></textarea><br/><br/>

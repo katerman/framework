@@ -87,7 +87,7 @@ $(document).ready(function(){
 					
 				}else if(update_type === 'config'){
 					
-		       		values = ['config_id','extra_css','extra_js','site_name','token'];
+		       		values = ['config_id','extra_css','extra_js','site_name','token', 'global_logo'];
 		
 					data = new Object; //make data object to hold data passed through post
 				
@@ -96,7 +96,7 @@ $(document).ready(function(){
 				        // == data[page_name] = $('#page_name').val();
 				    }
 				    
-				    data['global_logo'] = $('select.logo_dropdown option:selected').val();
+				    //data['global_logo'] = $('select.logo_dropdown option:selected').val(); // Revet this to use a dropdown method
 
 				}
 								
@@ -461,7 +461,7 @@ $(document).ready(function(){
         }); 	
 	}// end of template_validation
 
-function delete_image_validation(){	
+	function delete_image_validation(){	
 		data = new Object;
 		
 		var d_click = $('.delete_btn').click(function(e) {
@@ -525,7 +525,82 @@ function delete_image_validation(){
 		
 	}// end of delete_image_validation	
 
+	function rename_image_validation(){	
+		data = new Object;
+		start_names = new Object;
+		new_names = new Object;
+		
+		var form;
+		var input = $('.new_name');
+		var r_click = $('.rename');
+		var auth_token = $('#uploaded #token').text();
+		
+		r_click.click(function(e) {
+			
+			data['old_name'] = $(this).siblings('.old_name').val();
+			data['new_name'] = $(this).siblings('.new_name').val();
+			data['token'] = auth_token;
+			
+			form = $(this).parents('form');		
+			
+			rename_which_image(form);
+			form.submit();	
+			
+			e.preventDefault();		
+		});
+		
+		//get each image and make two data objects to contain every name.
+		$.each(input,function(){
+			start_names[$(this).parent().attr('class')] = $(this).val(); //these will never change and will always be the starting name on page load
+			new_names[$(this).parent().attr('class')] = $(this).val(); //this will change with each keyup, and be compaired to the initial start_names obj
+		});
+		
+		//console.log(start_names);
+		
+		input.keyup(function(){
+			
+			new_names[$(this).parent().attr('class')] = $(this).val();
+			
+			if(start_names[$(this).parent().attr('class')] == new_names[$(this).parent().attr('class')]){ //if the name is the same as before hide the rename checkbox
+				$(this).siblings('.rename').hide();					
+			}else{
+				$(this).siblings('.rename').show(); //if its different show it
+			}
+		});
 
+		
+		function rename_which_image(f){
+			
+			f.validate({				     
+			    submitHandler: function(form) {                
+											
+					$(form).ajaxSubmit({
+							url:"rename_image.php",
+							type:"POST",
+							data: data,
+							timeout: 2000,
+							clearForm: false,
+							cache: false,
+							success: function(){
+								//console.log(data);
+								//location.reload();
+							},
+							error: function(x,t,m){
+								if(t==="timeout"){
+									//console.log('timeout');
+									
+								}
+								
+								//console.log( ' bad: ' + x + m);
+							}										
+					});
+				}
+			}); 
+							
+		}
+		
+		
+	}// end of rename_image_validation	
 
 
 	function init(){
@@ -536,7 +611,9 @@ function delete_image_validation(){
 		content_validation();
 		template_validation();
 		labels_validation();
-		delete_image_validation();
+		delete_image_validation(); //created a new function for deleting images, it works in a seperate way than the regular delete, and dont want to over saturate the orginal function.
+		rename_image_validation();
+		
 		// the amount of seperate functions is silly, but makes it much easier to seperate things out.
 	}
 	

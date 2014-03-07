@@ -1,4 +1,13 @@
 
+/*  #Mobile (Portrait)
+================================================== */
+	@media only screen and (min-width: 1200px) {
+		.jqte {
+			width: 50%;
+		}	
+	}
+
+
 /* #Media Queries
 ================================================== */
 	@media only screen and (min-width: 960px) and (max-width: 1199px) {
@@ -156,7 +165,9 @@
 
 	/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
 	@media only screen and (max-width: 479px) {
-
+		.jqte {
+			margin-left: 10px !important;
+		}
 	}
 
 

@@ -66,6 +66,7 @@
 			<label for="user_comments">Comments </label><br/>
             <textarea id="user_comments" class="html-code" name="user_comments" placeholder="User Comments" class=""><?php echo $user_comments; ?></textarea><br/>
 			
+			<p>Permission Level</p>
 			<label for="radio_admin">Admin</label>
 			<input id="radio_admin" type="radio" name="access" class="radio" value="1"  <?php if($user_access == '1'){ echo 'checked'; } ?>>
 			
@@ -74,6 +75,8 @@
 			
 			<input type="hidden" id="token" name="token" value="<?php echo $token; ?>">
 			<input type="hidden" id="update_type" name="update_type" value="user">
+			
+			<br>
 			
 			<input type="submit" value="Submit" class="btn">
 			<p class="feedback_text hidden"></p>

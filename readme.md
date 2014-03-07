@@ -1,4 +1,25 @@
-========== 0.6.1 (untested, should be stable) ==========
+========== 0.6.2 ==========
+
+- deleted unessicary things in delete_image.php, and when you delete an image its resized counter part is also unlinked.
+
+- edit_config.inc tons of changes to accomidate the image chooser
+
+- uploaded.inc now has the ability to rename an image (or other file). The js will only show the checkmark to accept a new name.
+
+- css for wysiwyg, overlay importances, image chooser, uploadeds pictures, rename stuff, added quotes around image urls
+
+- wysiwyg somewhat responsive.
+
+- added equalheight() incase i need it.
+
+- image chooser function
+
+- updated jquery.min.js
+
+- helpers php has a image resizer $helpers->smart_resize_image(opts);
+
+
+========== 0.6.1 ==========
 
 more options in config, yay.
 
@@ -20,7 +41,7 @@ more options in config, yay.
 
 -error reporting is configable,
 
--delete image script in admin, for.. deleting images in uploads.
+-delete image script in admin, for deleting images in uploads.
 
 
 ========== 0.5 ==========

@@ -1,6 +1,7 @@
 $(document).ready(function(){
 	var body = $('body');
 	var nav_tab = window.location.hash;
+	var KEYCODE_ESC = 27;
 	
 	function navdropdowns(){
 		var fb = $('#nav > ul > li'); //parents
@@ -24,8 +25,7 @@ $(document).ready(function(){
 	function content(){
 		var content = $('.edit_content');
 		var overlay = $('#overlay');
-		var add_content = $('.add_content');
-		var KEYCODE_ESC = 27;     
+		var add_content = $('.add_content');     
 		var x = '0'; 
 		var update = $('#update_crud');
 		var form = $('#content_form');
@@ -305,7 +305,8 @@ $(document).ready(function(){
 		
 		
 	}//labels
-
+	
+	//for searching filtering search field
 	function regexSearch(v, s){
 		$(s).keyup(function() {
 			$rows = v;
@@ -340,6 +341,7 @@ $(document).ready(function(){
 
 	}	
 	
+	//$.queryString jquery plugin, $.QueryString["string"] returns ?string=something
 	(function($) {
 	    $.QueryString = (function(a) {
 	        if (a == "") return {};
@@ -354,6 +356,71 @@ $(document).ready(function(){
 	    })(window.location.search.substr(1).split('&'))
 	})(jQuery);
 
+	//image chooser, div pops up choose and image, wah-lah.
+	function image_chooser(){
+		var overlay = $('#overlay');
+		var ic = $('.image_chooser');
+		var close = $('.image_chooser_close');
+		var ifc = $('.images_for_chooser');
+		var current_image = null;
+		var images = $('.images_for_chooser .images');
+		var picked = $('.picked');
+		var submit = $('.image_chooser_submit');
+		var value = $('.global_logo_value');
+		
+		ic.click(function(e){
+			
+			openChooser();
+				
+			e.preventDefault();	
+			return false;
+		});
+		
+		function openChooser(){			
+			ifc.show();
+			overlay.show();
+		}
+		
+		close.click(function(){
+			closeChooser();
+		});
+		
+		function closeChooser(){	
+			ifc.hide();
+			overlay.hide();
+		}
+		
+		$(document).keyup(function(e) { //clicking escape will hide the overlay 
+	        if (e.keyCode == KEYCODE_ESC) {
+				closeChooser();
+	        } 
+		});
+		
+		images.click(function(){
+			$('.images').removeClass('image-active');
+			current_image = $(this).children('p').text();
+			picked.text(current_image);
+			$(this).addClass('image-active');
+		});
+		
+		submit.click(function(e){
+			value.val(current_image);
+			closeChooser();
+			e.preventDefault();
+		});
+	
+	}
+	
+	//create equal height of something
+    function equalHeight(element){
+    
+        var max = 0;    
+        element.css('height', 'auto');
+    	jQuery(element).each(function() {
+        	max = Math.max(jQuery(this).innerHeight(), max);
+		}).css('min-height', max);    
+				   
+    }
 		
 	function init(){
 		AddTarget();
@@ -361,11 +428,9 @@ $(document).ready(function(){
 		content();
 		templates();
 		labels();
+		image_chooser();
 		
-		//var tables = $('table').addClass('responsive'); // for responsive tables.. yay
-		
-		//$('#page_template').val($('.page_template').text());
-		//$('#parent_page').val($('.sub_page').text());
+		//equalHeight($('.images'));
 
 		regexSearch($('.search_table .data'), $('.search'));
 

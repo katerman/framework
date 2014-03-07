@@ -1,8 +1,5 @@
-
-admin/security.log
-
-admin/add_copy.php
-
 error_log
 
 admin/security.log
+
+uploads/

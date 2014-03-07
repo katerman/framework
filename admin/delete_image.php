@@ -14,11 +14,13 @@ $image = $_POST['delete_file'];
 	if (file_exists($image)) {
 	
 		unlink($image);
-/* 		echo '<p style="color: rgb(206, 36, 36); margin-bottom: 10px;">File '.$image.' has been deleted</p>'; */
-	
-	} else {
-	
-/* 		echo '<p style="color: rgb(206, 36, 36); margin-bottom: 10px;">Could not delete '.$image.', file does not exist</p>'; */
+		
+		$dir = dirname($image);
+		$resized = $dir.'/resized/'.$image'-resized';
+		
+		if(file_exists($resized){
+			unlink($resized);
+		}
 	
 	}
 
