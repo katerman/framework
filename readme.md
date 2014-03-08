@@ -1,3 +1,7 @@
+========== 0.6.3 ==========
+
+- image delete was broken, now fixed.
+
 ========== 0.6.2 ==========
 
 - deleted unessicary things in delete_image.php, and when you delete an image its resized counter part is also unlinked.
