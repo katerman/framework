@@ -70,10 +70,35 @@ $(document).ready(function(){
 					var pass_word = $('#user_pass').val();	
 					var full_name = $('#user_fullname').val();	
 					var user_comments = $('#user_comments').val();	
-					var access = $('#edit_page_form input[type="radio"]:checked').val(); 
+					var access = $('#edit_page_form input[name="access"]:checked').val(); 
 					var update_type = $('#update_type').val();
 				 	var token = $('#token').val();
-				 	
+				 
+				 	/* list of perms */
+					var perm_config = $('#edit_page_form input[name="checkbox_config"]'); 
+					if (perm_config.is(":checked")){ perm_config = 1; }else{ perm_config = 0; }
+					
+					var perm_pages = $('#edit_page_form input[name="checkbox_pages"]'); 
+					if (perm_pages.is(":checked")){ perm_pages = 1; }else{ perm_pages = 0; }
+					
+					var perm_toplevel = $('#edit_page_form input[name="checkbox_assets_tl"]'); 
+					if (perm_toplevel.is(":checked")){ perm_toplevel = 1; }else{ perm_toplevel = 0; }
+					
+					var perm_upload = $('#edit_page_form input[name="checkbox_assets_upload"]'); 
+					if (perm_upload.is(":checked")){ perm_upload = 1; }else{ perm_upload = 0; }
+					
+					var perm_uploaded = $('#edit_page_form input[name="checkbox_assets_uploaded"]'); 
+					if (perm_uploaded.is(":checked")){ perm_uploaded = 1; }else{ perm_uploaded = 0; }
+					
+					var perm_templates = $('#edit_page_form input[name="checkbox_assets_templates"]'); 
+					if (perm_templates.is(":checked")){ perm_templates = 1; }else{ perm_templates = 0; }
+					
+					var perm_labels = $('#edit_page_form input[name="checkbox_assets_labels"]'); 
+					if (perm_labels.is(":checked")){ perm_labels = 1; }else{ perm_labels = 0; }
+					
+					var perm_users = $('#edit_page_form input[name="checkbox_users"]'); 
+					if (perm_users.is(":checked")){ perm_users = 1; }else{ perm_users = 0; }
+
 					data = new Object; //make data object to hold data passed through post
 					
 					data['user_id'] = user_id;
@@ -84,6 +109,18 @@ $(document).ready(function(){
 					data['user_access'] = access;
 					data['token'] = token;	
 					data['update_type'] = update_type;
+					
+					/*perms*/
+					data['perm_config'] = perm_config;
+					data['perm_pages'] = perm_pages;
+					data['perm_users'] = perm_users;
+					data['perm_toplevel'] = perm_toplevel;
+					data['perm_upload'] = perm_upload;
+					data['perm_uploaded'] = perm_uploaded;
+					data['perm_templates'] = perm_templates;
+					data['perm_labels'] = perm_labels;
+					
+					
 					
 				}else if(update_type === 'config'){
 					

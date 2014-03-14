@@ -1,6 +1,6 @@
 
-
-		<?php 
+	
+		<?php
 				$uid = $helpers->getQuery('userid','return');
 				$z = $model->sqlSelect("*" , "users", "", "WHERE users_Id = $uid" );
 				
@@ -45,8 +45,10 @@
 			$user_fullname = $helpers->stripcleantohtml($z[0]['user_FullName']);
 			$user_salt = $helpers->stripcleantohtml($z[0]['user_Salt']);
 			$user_access = $helpers->stripcleantohtml($z[0]['user_Access']);
-			$user_comments = htmlentities($z[0]['user_Comments']);
-
+			$user_comments = htmlentities($z[0]['user_Comments']); 
+			$user_custom_perms = unserialize($z[0]['user_custom_perms']);
+			
+			//print_r($user_custom_perms);
 		?>
         
 		<form id="edit_form" class="form" action="" method="" accept-charset="utf-8">
@@ -66,17 +68,14 @@
 			<label for="user_comments">Comments </label><br/>
             <textarea id="user_comments" class="html-code" name="user_comments" placeholder="User Comments" class=""><?php echo $user_comments; ?></textarea><br/>
 			
-			<p>Permission Level</p>
-			<label for="radio_admin">Admin</label>
-			<input id="radio_admin" type="radio" name="access" class="radio" value="1"  <?php if($user_access == '1'){ echo 'checked'; } ?>>
-			
-			<label for="radio_user">User</label>
-			<input id="radio_user" type="radio" name="access" class="radio" value="2" <?php if($user_access == '2'){ echo 'checked'; } ?>><br/>
-			
+			<?php 
+				include_once 'edit_user_perms.inc';
+			?>
+												
 			<input type="hidden" id="token" name="token" value="<?php echo $token; ?>">
 			<input type="hidden" id="update_type" name="update_type" value="user">
 			
-			<br>
+			<br><br/>
 			
 			<input type="submit" value="Submit" class="btn">
 			<p class="feedback_text hidden"></p>

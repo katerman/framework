@@ -56,7 +56,10 @@
 			<label for="global_logo">Site Logo</label><br/>
 			
 		    <div class="images_for_chooser hidden"><img class="image_chooser_close" src="<?php echo $_CONFIG->img_path; ?>admin/close.png" alt="close">
-		    <h1>Choose an image</h1>
+		    <div class="image_chooser_search">
+		    	<h1>Choose an image</h1>
+				<input class="search" placeholder="Type to search"/>
+		    </div>
 		    	<ul id="the_image_ul">
 		    	<?php
 		    	

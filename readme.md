@@ -1,3 +1,19 @@
+========== 0.7.0 ==========
+
+- User Permissions on a user by user basis, no user groups yet.
+
+- the mandetory css changes.
+
+- i think i fixed a x-scrollbar issue, hopefully.
+
+- user permissions for 0.7.0 are nav only, user could still travel to the page.
+
+- image check in uploaded  before resizing, dont want to try to resize a non-image that throws an error.
+
+- added normalize.css to admin.
+
+- updated skeleton.css hopefully for the better.
+
 ========== 0.6.3 ==========
 
 - image delete was broken, now fixed.

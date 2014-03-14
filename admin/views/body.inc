@@ -31,19 +31,19 @@
 		<div id="nav" class="three columns"><? include_once('nav.inc'); ?></div>
 	
 		<div id="display" class="thirteen columns">
-	
-			<? 
-			
-				if($tpl == false){
-					include_once('default_view.inc'); 
-				}else if(file_exists('views/'.$tpl.'.inc')){
-					include_once($tpl.'.inc'); 
-				}else{
-					include_once('default_view.inc'); 
-				}			
+			<div id="display-spacer">
+				<?php 
 				
-			?>
-			
+					if($tpl == false){
+						include_once('default_view.inc'); 
+					}else if(file_exists('views/'.$tpl.'.inc')){
+						include_once($tpl.'.inc'); 
+					}else{
+						include_once('default_view.inc'); 
+					}			
+					
+				?>
+			</div>
 		</div>
 		
 	</div><!-- end content-->

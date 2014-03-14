@@ -69,8 +69,21 @@
 			$user_fullname = $_POST['fullname'];
 			$user_access = $_POST['access'];
 			$user_comments = $_POST['user_comments'];
-
-
+			$perms_array =  array(
+								"config" => $_POST['checkbox_config'],
+								"pages" => $_POST['checkbox_pages'],
+								"users" => $_POST['checkbox_users'],
+								"assets" => array(
+												"top_level"=>$_POST['checkbox_assets_tl'],
+												"upload"=>$_POST['checkbox_assets_upload'],
+												"uploaded"=>$_POST['checkbox_assets_uploaded'],
+												"templates"=>$_POST['checkbox_assets_templates'],
+												"labels"=>$_POST['checkbox_assets_labels']
+											)
+							);
+							
+			$perms_array = serialize($perms_array);
+			
 			function random_numbers($digits){ 
 			    $min = pow(10, $digits - 1);
 			    $max = pow(10, $digits) - 1;
@@ -81,11 +94,11 @@
 				$salt = random_numbers(8); //heres our new salt
 				$pw = MD5($salt.$user_pass);
 				
-		        $query = "UPDATE users SET user_uName = ?, user_Pass = ?, user_FullName = ?, user_Access = ?, user_Salt = ?, user_Comments WHERE users_id = ?";
-    			$data = array($user_username, $pw, $user_fullname, $user_access, $salt, $user_comments, $user_id);
+		        $query = "UPDATE users SET user_uName = ?, user_Pass = ?, user_FullName = ?, user_Access = ?, user_Salt = ?, user_Comments,  user_custom_perms = ? WHERE users_id = ?";
+    			$data = array($user_username, $pw, $user_fullname, $user_access, $salt, $user_comments, $perms_array, $user_id);
 			}else{
-				$query = "UPDATE users SET user_uName = ?, user_FullName = ?, user_Access = ?, user_Comments = ? WHERE users_id = ?";
-    			$data = array($user_username, $user_fullname, $user_access, $user_comments, $user_id);
+				$query = "UPDATE users SET user_uName = ?, user_FullName = ?, user_Access = ?, user_Comments = ?, user_custom_perms = ? WHERE users_id = ?";
+    			$data = array($user_username, $user_fullname, $user_access, $user_comments, $perms_array, $user_id);
 			}
 			
 

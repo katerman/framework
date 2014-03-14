@@ -1,6 +1,6 @@
 <?php global $_CONFIG; ?>
 
-<div id="footer" class="sixteen columns">
+<div id="footer" class="thirteen columns">
 	<span><a href="https://github.com/katerman/framework">Refined Framework <? echo $_CONFIG->version.  '(' . date('Y') . ')'; ?></a></span>
 </div>
 

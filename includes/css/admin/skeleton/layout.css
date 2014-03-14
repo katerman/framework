@@ -20,6 +20,10 @@
 	        width: 380px;
 	    }
 	    
+	    #display .image_chooser_search .search {
+		    width: 220px;
+	    }
+	    
 	    
 	    #login_form {
 	        padding: 20px 5px 80px 85px;
@@ -32,6 +36,7 @@
 	    #display {
 		    margin-left: 5px;
 	    }
+	    
 	}
 
 	/* Smaller than standard 960 (devices and browsers) */
@@ -54,6 +59,10 @@
         #display .form input {
 	        width: 300px;
         }
+        
+	    #display .image_chooser_search .search {
+		    width: 220px;
+	    }        
 
         #login_form {
 	        padding: 20px 5px 20px 85px;
@@ -63,7 +72,7 @@
 	        overflow: auto;
 	        margin-left: 5px;
         }
-		
+        
 	}
 
 	/* All Mobile Sizes (devices and browser) */
@@ -78,6 +87,10 @@
         #display .form input {
 	        width: 280px;
         }
+        
+	    #display .image_chooser_search .search {
+		    width: 195px;
+	    }        
         
         #login_form {
 	        padding: 20px 0px 80px 20px;
@@ -142,6 +155,10 @@
         #display .form input {
 	        width: 380px;
         }
+        
+	    #display .image_chooser_search .search {
+		    width: 245px;
+	    }        
         
         #login_form {
 	        padding: 20px 5px 80px 85px;

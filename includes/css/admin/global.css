@@ -1,3 +1,5 @@
+@import url('normalize.css');
+
 /*RESET*/
 * {
 	margin: 0;
@@ -19,6 +21,7 @@ h1 {
 
 body {
 	background: url('../../img/admin/bg.png') 0 0 repeat;
+	margin: 0;
 }
 
 #container {
@@ -180,8 +183,11 @@ a:active {
 	float: left;
 	border: 1px solid #a9a9a9;
 	background: rgba(0,0,0,0.2);
-/* 	margin-left: 10px; */
-	padding: 20px 0 20px 10px;
+	padding: 20px 0 20px 0;
+}
+
+#display-spacer {
+	margin-left: 5px;
 }
 
 #display .edit, #display .delete {
@@ -394,7 +400,7 @@ input[type="radio"] {
 	padding: 3px 0 3px 5px;
 	display: none;
 	position: absolute;
-	top: 2px;
+	top: 0;
 	right: -5px;
 	background: #008200;
 	width: 18px;
@@ -480,13 +486,24 @@ input[type="radio"] {
 }
 
 #uploaded form .delete_btn {
-	position: absolute;
+	position: static;
 	z-index: 1;
 	display: block;
-	background: url('../../img/admin/delete.ico') no-repeat !important;
+	background: url('../../img/admin/delete.ico') no-repeat 2px 6px !important;
 	border: none;
-	width: 105px;
-	height: 15px;	
+	width: 85px;	
+}
+
+.no_preview {
+	background: rgba(255,255,255,0.8);
+	height: 111px;
+	width: 164px;
+	margin-top: 5px;	
+}
+
+.no_preview p {
+	line-height: 110px;
+	text-align: center;
 }
 
 #uploaded form .delete_btn:hover {
@@ -538,7 +555,7 @@ input[type="radio"] {
 
 li.images{
 	float:left;
-	margin-left: 10px;
+	margin: 10px 0 0 10px;
 	max-height: 150px;
 	min-height: 150px;
 	overflow-y: hidden;
@@ -551,11 +568,7 @@ li.images img {
 	margin: 0 auto;
 }
 
-li.images p {
-	
-}
-
-li.images:hover {
+li.images:hover, li.images:active {
 	background: rgba(0,0,0,0.5);
 }
 
@@ -573,6 +586,14 @@ li.images:hover {
 
 #the_image_ul {
 	overflow-y: auto;
+	height: 430px;
+	width: 100%;
+}
+
+.image_chooser_search {
+	width: 100%;
+	float: left;
+	border-bottom: 1px solid #000;
 }
 
 #overlay #template_form, #overlay #label_form {
@@ -775,27 +796,106 @@ li.images:hover {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#21a0e5', endColorstr='#61b5e2',GradientType=0 ); /* IE6-9 */
 }
 
- /* Dashboard */
+/* Dashboard */
  
- .dashboard {
-	 margin-top: 10px;
-	 width: 100%;
- }
+.dashboard {
+	margin-top: 10px;
+	width: 100%;
+}
+
+.dashboard a {
+	text-decoration: underline;
+}
  
- .dashboard a {
-	 text-decoration: underline;
- }
+/* WYSISYG */
+.jqte {
+	padding-right: 10px;
+	margin: 0 !important;
+	box-shadow: none !important;
+	border: 0 !important;
+}
+
+/* token */
+
+#token {
+	display: none !important;
+}
+
+/*edit form for perms */
+
  
- /* WYSISYG */
- .jqte {
-	 padding-right: 10px;
-	 margin: 0 !important;
-	 box-shadow: none !important;
-	 border: 0 !important;
- }
- 
- /* token */
- 
- #token {
-	 display: none !important;
- }
+#edit_form .permission_div{
+	background: rgba(255,255,225,0.2);
+	margin-left: 0;
+}
+
+.perms, .perms_access {
+	border-top: 1px solid black;
+	line-height: 25px;
+	cursor: pointer;
+	padding: 0 0 0 0;
+	float: left;
+	width: 100%;
+	height: 25px;
+}
+
+.perms > div, .perms_access > div {
+	display: block;
+	float: right;
+}
+
+.perms:hover, .perms_access:hover {
+	background: rgba(255,255,225,0.1);
+}
+
+.perms input, .perms label, .perms_access input, .perms_access input {
+	width: auto !important;
+	margin: 0 10px 0 0 !important;
+	padding: 0 !important;
+}
+
+.border-bottom {
+	border-bottom: 1px solid #000;
+}
+
+.perms > p, .perms_access > p {
+	float: left;
+	padding-left: 10px;
+}
+
+.permission_div h3 {
+	margin: 15px 0 0 5px;
+	float: left;
+}
+
+.checkbox_perms_bg_red, .checkbox_perms_bg_red:hover {
+	background: rgba(255,0,0,0.2);
+}
+
+.checkbox_perms_bg_green, .checkbox_perms_bg_green:hover {
+	background: rgba(0,255,48,0.2);
+}
+
+.permission_div_header {
+	cursor: pointer;
+	position: relative;
+	border-top: 1px solid #000;
+	border-bottom: 1px solid #000;
+}
+
+.permission_div_header:after {
+	position: absolute;
+	background: url('../../img/down.png') 0 0 no-repeat;
+	width: 16px;
+	height: 16px;
+	display: block;
+	content: '';
+	right: 0px;
+	top: 18px;	
+}
+
+
+
+.permission_div_body{
+	display: none;
+}

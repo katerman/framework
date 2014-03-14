@@ -422,6 +422,35 @@ $(document).ready(function(){
 				   
     }
 		
+	function perms_func(){
+		$('.perms').click(function(){
+			$(this).find('.checkbox_perms').click();
+			
+			if ($(this).find('.checkbox_perms').is(":checked")){ 
+				$(this).removeClass('checkbox_perms_bg_red'); 				
+				$(this).addClass('checkbox_perms_bg_green'); 				
+				$(this).find('label').text('Can Access');
+			}else{ 
+				$(this).find('label').text('Cannot Access');
+				$(this).removeClass('checkbox_perms_bg_green'); 				
+				$(this).addClass('checkbox_perms_bg_red'); 				
+			}
+		});
+		
+		$('.permission_div_header').click(function(){
+			$('.permission_div_body').slideToggle();
+		});
+		
+		$('.perms .checkbox_perms').click(function(){
+			$(this).parent().click();
+		});
+		
+		$('.perms label').click(function(){
+			$(this).find('.checkbox_perms').parent().click();
+		});
+		
+	}	
+		
 	function init(){
 		AddTarget();
 		navdropdowns();
@@ -429,16 +458,20 @@ $(document).ready(function(){
 		templates();
 		labels();
 		image_chooser();
+		perms_func();
 		
 		//equalHeight($('.images'));
 
-		regexSearch($('.search_table .data'), $('.search'));
+		regexSearch($('.search_table .data'), $('.search')); //search field regex
+		regexSearch($('.images'), $('.search')); //search field regex
 
 		
-		if($.QueryString["type"] == 'edit_page' || $.QueryString["type"] == 'edit_user'){
+		if($.QueryString["type"] == 'edit_page' || $.QueryString["type"] == 'edit_user'){ //show wysiwyg one edit_page and edit_user only!
 			$('.html-code').jqte();
 		}
-
+		
+		document.documentElement.style.overflowX = 'hidden'; //strange issue where there was some Horozontal bars well lets get rid of it.
+		
 	}
 	
 	init();
