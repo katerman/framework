@@ -1,4 +1,6 @@
-
+<?php
+	if($perms['users'] == 1){
+?>
 	
 		<?php
 				$uid = $helpers->getQuery('userid','return');
@@ -84,6 +86,10 @@
 		
 		</form>
 		
-		
+<?php
+	}else{
+		header('Location: ?tpl=default_view#dashboard');
+	}
+?> 	
 
 		

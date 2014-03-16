@@ -1,3 +1,7 @@
+========== 0.7.1 ==========
+
+- Each individual template checks for permissions before displaying.
+
 ========== 0.7.0 ==========
 
 - User Permissions on a user by user basis, no user groups yet.

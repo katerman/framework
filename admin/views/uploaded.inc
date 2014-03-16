@@ -1,4 +1,8 @@
 <?php
+	if($perms['assets']['uploaded'] == 1 && $perms['assets']['top_level'] == 1){
+?>
+
+<?php
 include_once "../includes/scripts/app.php";
 
 $security = new security();
@@ -61,3 +65,9 @@ $token = $security->generateFormToken('token');
 		?>
 	</ul>
 </div>
+
+<?php
+	}else{
+		header('Location: ?tpl=default_view#dashboard');
+	}
+?> 	

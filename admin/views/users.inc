@@ -1,6 +1,10 @@
-<h1> this is the edit <? $helpers->getQuery('pagename','echo'); ?> page</h1>
+<?php
+	if($perms['users'] == 1){
+?>
 
-<? 
+<h1> this is the edit <?php $helpers->getQuery('pagename','echo'); ?> page</h1>
+
+<?php 
 	
 	$q = $model->sqlSelect("*" , "users", "", "ORDER BY user_Access ASC");
 	$token = $security->generateFormToken('token');
@@ -28,7 +32,11 @@
 
 ?>
 
-
+<?php
+	}else{
+		header('Location: ?tpl=default_view#dashboard');
+	}
+?> 
 		
 
 		

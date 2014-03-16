@@ -1,3 +1,7 @@
+<?php
+	if($perms['users'] == 1){
+?>
+
 <h1> Lets add a user!</h1>
 
 		<?php 								
@@ -30,6 +34,10 @@
 			<p class="feedback_text hidden"></p>
 		</form>
 		
-		
+<?php
+	}else{
+		header('Location: ?tpl=default_view#dashboard');
+	}
+?> 		
 
 		

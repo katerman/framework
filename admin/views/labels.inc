@@ -1,3 +1,7 @@
+<?php
+	if($perms['assets']['labels'] == 1 && $perms['assets']['top_level'] == 1){
+?>
+
 <h1> Labels </h1>
 <?php		
 
@@ -32,4 +36,11 @@
 	
 ?>
 
-			<p class="add_labels">Add new label</p>
+<p class="add_labels">Add new label</p>
+
+<?php
+	}else{
+		header('Location: ?tpl=default_view#dashboard');
+	}
+?> 	
+

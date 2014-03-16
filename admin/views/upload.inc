@@ -1,4 +1,8 @@
 <?php
+	if($perms['assets']['upload'] == 1 && $perms['assets']['top_level'] == 1){
+?>
+
+<?php
 	global $_CONFIG;
 
 	if($_CONFIG->allow_image_upload){
@@ -16,3 +20,9 @@
 		echo '<h1>Sorry, you don\'t have image uploads enabled';
 	}
 ?>
+
+<?php
+	}else{
+		header('Location: ?tpl=default_view#dashboard');
+	}
+?> 	

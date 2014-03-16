@@ -1,3 +1,7 @@
+<?php
+	if($perms['pages'] == 1){
+?>
+
 <h1> Edit <?php  $helpers->getQuery('pagename','echo'); ?></h1>
 
 		<?php 
@@ -193,5 +197,9 @@
 		
 			<a href="?tpl=add&type=add_page&parent_page=<?php echo $page ?>#pages" class="add_page">Add new sub-page</a>
 		
-
+<?php
+	}else{
+		header('Location: ?tpl=default_view#dashboard');
+	}
+?> 
 		

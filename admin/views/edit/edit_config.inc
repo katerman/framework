@@ -1,3 +1,7 @@
+<?php
+	if($perms['config'] == 1){
+?>
+
 <h1>  <?php $helpers->getQuery('pagename','echo'); ?> </h1>
 
 		<?php 
@@ -106,5 +110,9 @@
 		</form>
 		
 		
-
+<?php
+	}else{
+		header('Location: ?tpl=default_view#dashboard');
+	}
+?>
 		

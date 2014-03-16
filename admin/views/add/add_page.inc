@@ -1,3 +1,7 @@
+<?php
+	if($perms['pages'] == 1){
+?>
+
 <h1> Lets add a page!</h1>
 
 <?php 								
@@ -78,5 +82,9 @@
 	<p class="feedback_text hidden"></p>
 </form>
 
-
+<?php
+	}else{
+		header('Location: ?tpl=default_view#dashboard');
+	}
+?> 
 
