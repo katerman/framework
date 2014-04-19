@@ -1,9 +1,5 @@
 <?php global $_CONFIG; ?>
 
-<div id="footer" class="thirteen columns">
-	<span><a href="https://github.com/katerman/framework">Refined Framework <? echo $_CONFIG->version.  '(' . date('Y') . ')'; ?></a></span>
-</div>
-
 <script type="text/javascript" src="<?php echo $_CONFIG->js_path; ?>jquery.min.js"></script>
 <script type="text/javascript" src="<?php echo $_CONFIG->js_path; ?>admin.js" charset="utf-8"></script>
 <script type="text/javascript" src="<?php echo $_CONFIG->js_path; ?>jquery.validate.min.js"></script>

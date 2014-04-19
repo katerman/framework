@@ -582,9 +582,12 @@ $(document).ready(function(){
 			
 			rename_which_image(form);
 			form.submit();	
+			$(this).hide();
 			
 			e.preventDefault();		
 		});
+		
+		
 		
 		//get each image and make two data objects to contain every name.
 		$.each(input,function(){

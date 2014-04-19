@@ -6,18 +6,21 @@
 
 		<?php 
 				$page = $helpers->getQuery('pageid','return');
-				$z = $model->sqlSelect("*" , "config", "", "");
+				$z = $helpers->sqlSelect("*" , "config", "", "");
 				
 			//	print_r($z);
 				
-				echo '<table>
-						<tr class="th">
+				echo '<table class="table">
+						<thead>
+						<tr>
 							<td>ID</td>
 							<td>Site Name</td>
 							<td>Global Logo</td>
 							<td>Extra Js</td>
 							<td>Extra Css</td>
 						</tr>
+						</thead>
+						<tbody>
 					';		
 					
 				foreach($z as $value) {
@@ -29,7 +32,7 @@
 							.'<td>'.$value['extra_css'].'</td>'
 						 .'</tr>';
 				}				
-				echo '</table>';		
+				echo '</tbody></table>';		
 					    
 
 			$token = $security->generateFormToken('token'); 

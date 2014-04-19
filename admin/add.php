@@ -5,7 +5,7 @@
 
 	
 	$security = new security();
-	$helpers = new helpers();
+	$helpers = new helpers($dsn, $db_user, $db_pass);
 	$name = $_SESSION['userInfo']['fullname'];
 	$date_time = date( "F j, Y, g:i a");
 

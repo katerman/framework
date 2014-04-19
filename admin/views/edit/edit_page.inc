@@ -6,24 +6,27 @@
 
 		<?php 
 				$page = $helpers->getQuery('pageid','return');
-				$z = $model->sqlSelect("*" , "pages", "", "WHERE pages_id = $page" );
-				$r = $model->sqlSelect("*" , "templates", "", "");
-				$sub_p = $model->sqlSelect("*" , "pages", "", "WHERE sub_page = $page");
-				$pp = $model->sqlSelect("*" , "pages", "", "WHERE on_nav = '1'");
+				$z = $helpers->sqlSelect("*" , "pages", "", "WHERE pages_id = $page" );
+				$r = $helpers->sqlSelect("*" , "templates", "", "");
+				$sub_p = $helpers->sqlSelect("*" , "pages", "", "WHERE sub_page = $page");
+				$pp = $helpers->sqlSelect("*" , "pages", "", "WHERE on_nav = '1'");
 
-					echo '<table>
-						<tr class="th">
-							<td class="hidden">Pages ID</td>
-							<td>Page Name</td>
-							<td>On Nav</td>
-							<td>Page Template</td>
-							<td>Page Group</td>
-							<td>Sub Page</td>
-							<td>Page Meta Keyword</td>
-							<td>Page Meta Description</td>
-							<td>Page Url</td>
-							<td>Page Order</td>
-						</tr>
+					echo '<table class="table">
+						<thead>
+							<tr>
+								<td class="hidden">Pages ID</td>
+								<td>Page Name</td>
+								<td>On Nav</td>
+								<td>Page Template</td>
+								<td>Page Group</td>
+								<td>Sub Page</td>
+								<td>Page Meta Keyword</td>
+								<td>Page Meta Description</td>
+								<td>Page Url</td>
+								<td>Page Order</td>
+							</tr>
+						</thead>
+						<tbody>
 					';		
 								  
 				foreach($z as $value) {
@@ -40,7 +43,7 @@
 							.'<td>'.$value['page_order'].'</td>'
 						 .'</tr>';
 				}				
-				echo '</table>';		
+				echo '</tbody></table>';		
 					    
 
 			$token = $security->generateFormToken('token'); 
@@ -114,7 +117,7 @@
 				<label for="page_order">Page Order</label><br/>
 	            <input id="page_order" name="page_order" value="<?php echo $page_order; ?>" placeholder="Page Order"><br/>
 	
-				<label for="on_nav">On Nav?</label>           
+				<label for="on_nav">Appear on navigation:</label>           
 	            <input id="on_nav" type="checkbox" name="on_nav" value="1" <?php if($on_nav_val === '1'){ echo 'checked';} ?>/>
 			</div>
 			
@@ -137,20 +140,26 @@
 		
 		
 		<?php
-			$c = $model->sqlSelect("*" , "content", "", "WHERE page_id = $page ORDER BY content_order ASC" );
+			$c = $helpers->sqlSelect("*" , "content", "", "WHERE page_id = $page ORDER BY content_order ASC" );
 			//print_r($c);
 			echo '<h2 style="padding-top: 20px;" class="clear-fix">Content for '.$page_name.'</h2> 
-				  <table style="padding-top: 20px;" class="clear-fix search_table">
-					<tr class="th">
-						<td>Content Name</td>
-						<td class="hidden">Content ID</td>
-						<td class="hidden">Page ID</td>
-						<td class="hidden">Content</td>
-						<td>Content Area</td>
-						<td>Order</td>
-						<td>Actions</td>
-						<td>  <input class="search" placeholder="Type to search"/></td>
-					</tr>
+				  <table style="padding-top: 20px;" class="clear-fix search_table table">
+					<thead>
+						<tr>
+							<td class="vis-hidden"></td>
+							<td><input class="search" placeholder="Type to search"/></td>
+						</tr>					
+						<tr class="th">
+							<td>Content Name</td>
+							<td class="hidden">Content ID</td>
+							<td class="hidden">Page ID</td>
+							<td class="hidden">Content</td>
+							<td>Content Area</td>
+							<td>Order</td>
+							<td>Actions</td>
+						</tr>
+					<thead>
+					<tbody>
 				';		
 							  
 			foreach($c as $value) {
@@ -165,7 +174,7 @@
 						.'<td><a class="edit edit_content" href="#pages"></a> ' . '<form style="position: relative;" class="pull-left" id="delete_form" action="" method=""> <a class="delete" href="#pages"></a> <input type="hidden" name="token" id="token" value="'.$token.'"> <input id="id" type="hidden" value="'. $helpers->stripcleantohtml($value['content_id']) .'"/> <input id="type" type="hidden" value="content"/> <input id="db_id" type="hidden" value="'.$helpers->stripcleantohtml('content_id').'"/> <input class="hidden" type="submit" id="submit"/> </form></td>'				
 					 .'</tr>';
 			}				
-			echo '</table>';	
+			echo '</tbody></table>';	
 		
 		?>
 		
@@ -174,15 +183,21 @@
 		
 		
 		<h2 style="margin-top: 20px;">Sub-Pages</h2>
-		<table>
-		
-			<tr class="th">
-				<td>Page Name</td>
-				<td>Page Url</td>
-				<td>Page Order</td>
-				<td>Actions</td>
-				<td>  <input class="search" placeholder="Type to search"/></td>
-			</tr>
+		<table class="table">
+			<thead>
+				<tr>
+					<td class="vis-hidden"></td>
+					<td><input class="search" placeholder="Type to search"/></td>
+				</tr>
+				<tr>
+					<td>Page Name</td>
+					<td>Page Url</td>
+					<td>Page Order</td>
+					<td>Actions</td>
+				</tr>
+			<thead>
+			
+			<tbody>
 			<?php
 				foreach($sub_p as $value) {
 					echo '<tr class="data">'
@@ -193,6 +208,7 @@
 						 .'</tr>';
 				}				
 			?>
+			</tbody>
 		</table>
 		
 			<a href="?tpl=add&type=add_page&parent_page=<?php echo $page ?>#pages" class="add_page">Add new sub-page</a>

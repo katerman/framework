@@ -5,8 +5,8 @@
 <h1> Lets add a page!</h1>
 
 <?php 								
-	$r = $model->sqlSelect("*" , "templates", "", "");
-	$pp = $model->sqlSelect("*" , "pages", "", "WHERE on_nav = '1'");
+	$r = $helpers->sqlSelect("*" , "templates", "", "");
+	$pp = $helpers->sqlSelect("*" , "pages", "", "WHERE on_nav = '1'");
 	$parent_page = $helpers->getQuery('parent_page','return');
 
 	$token = $security->generateFormToken('token'); 

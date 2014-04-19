@@ -2,9 +2,17 @@
 
 class helpers {
 	
-	static $db;
-	static $model;
-		
+    public function __construct($dsn, $db_user, $db_pass){
+        $this->db = new PDO($dsn, $db_user, $db_pass);
+    }		
+	/**
+	 * url function.
+	 * 
+	 * @access public
+	 * @static
+	 * @param mixed $t
+	 * @return full, base, fullpage, folder, lastpath, current
+	 */
 	public static function url($t){ //Return url based on arguments (full, base, fullpage, folder), $type, $amount = for folder levels
 		switch ($t) {
 		
@@ -77,29 +85,15 @@ class helpers {
 			break;
  		}	    	    
 	}
-
-    public function debugAll(){
-	    $x = print '<pre>' . print_r($GLOBALS) . '</pre>';
-	    return $x;
-	}
-   
-	public function debugOpts($array, $type){
-		switch ($type) {
-			case 'printr':
-				$x = print '<pre>' . print_r($array) . '</pre>';
-				return $x;
-			break;
-				
 	
-			case 'vardump':
-				$x = print '<pre>' . var_dump($array) . '</pre>';
-				return $x;
-			break;
-		}	
-	
-	}
-	
-	
+	/**
+	 * getQuery function.
+	 * 
+	 * @access public
+	 * @param string $query (default: "page")
+	 * @param string $type (default: "echo")
+	 * @return query as param
+	 */
 	public function getQuery($query="page", $type="echo"){ /* Default is to echo out the query, but including a second argument called return you can return the query instead */
 		if(isset($_GET[$query])){
 			$r = htmlentities($_GET[$query]);
@@ -116,16 +110,37 @@ class helpers {
 		
 	}
 	
+	/**
+	 * cleantohtml function.
+	 * 
+	 * @access public
+	 * @param mixed $s
+	 * @return string passed in
+	 */
 	function cleantohtml($s){
 		//should contain html
 		return strip_tags(htmlentities(trim(stripslashes($s))), ENT_NOQUOTES, "UTF-8");
 	}	
 
+	/**
+	 * stripcleantohtml function.
+	 * 
+	 * @access public
+	 * @param mixed $s
+	 * @return string passed in
+	 */
 	function stripcleantohtml($s){
 		// Use: Anything that shouldn't contain html (pretty much everything that is not a textarea)
 		return htmlentities(trim(strip_tags(stripslashes($s))), ENT_NOQUOTES, "UTF-8");
 	}	
 
+	/**
+	 * custom_clean function.
+	 * 
+	 * @access public
+	 * @param mixed $document
+	 * @return string passed in
+	 */
 	function custom_clean($document){ 
 		$search = array('@<script[^>]*?>.*?</script>@si',  // Strip out javascript 
 		               '@<[\/\!]*?[^<>]*?>@si',            // Strip out HTML tags 
@@ -259,5 +274,46 @@ class helpers {
 
 	return true;
 	}
+	
+
+	/**
+	 * sqlSelect function.
+	 * 
+	 * @access public
+	 * @static
+	 * @param string $select (default: "*") column(s) name
+	 * @param string $table (default: "*") table name
+	 * @param string $table (default: "") more on this later
+	 * @param string $where (default: "") room for more after the select.
+	 * @return - an array of data from the DB
+	 */
+	 public function sqlSelect($select = "*", $table="*", $values="", $where=""){
+		//die(print_r(debug_backtrace(),true));
+		$stmt = $this->db->prepare("SELECT $select FROM $table $where");
+		try {
+			if ($stmt->execute()) {
+				$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+			}
+		}
+		catch(PDOException $e){
+			echo "Query Failed -> sqlselect() ". $e;
+		}			
+		
+		$arr = array();
+		if (is_array($results)){
+			foreach($results as $rkey=>$r){
+				
+				if($values != ""){
+					foreach($values as $v){			
+						array_push($arr,$r[$v]);
+					}
+				}else{
+					array_push($arr,$r);
+				}
+				
+			}
+			return $arr;		
+		}
+	}	
 	
 }

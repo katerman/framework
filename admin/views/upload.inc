@@ -9,7 +9,7 @@
 	
 ?>
 
-<h1> Upload someting matey? </h1>
+<h1> Upload</h1>
 
 <form action="upload.php" class="dropzone"></form>
 

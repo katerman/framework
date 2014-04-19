@@ -1,0 +1,190 @@
+
+/*  #Mobile (Portrait)
+================================================== */
+	@media only screen and (min-width: 1200px) {
+		.jqte {
+			width: 50%;
+		}	
+	}
+
+
+/* #Media Queries
+================================================== */
+	@media only screen and (min-width: 960px) and (max-width: 1199px) {
+	    #header a.logout {
+	        top: 0;
+	        right: 159px;	
+	    }
+	    
+	    #display .form input {
+	        width: 380px;
+	    }
+	    
+	    #display .image_chooser_search .search {
+		    width: 220px;
+	    }
+	    
+	    
+	    #login_form {
+	        padding: 20px 5px 80px 85px;
+	    }
+	
+	    #nav {
+	        margin-bottom: 20px;
+	    }
+	    
+	    #display {
+		    margin-left: 5px;
+	    }
+	    
+	}
+
+	/* Smaller than standard 960 (devices and browsers) */
+	@media only screen and (max-width: 959px) {
+		
+		#display {
+			margin-left: 5px;
+			margin-top: 10px;
+		}
+	}
+
+	/* Tablet Portrait size to standard 960 (devices and browsers) */
+	@media only screen and (min-width: 768px) and (max-width: 959px) {
+		
+		#header a.logout {
+	        top: 0;
+	        right: 122px;
+        }
+        
+        #display .form input {
+	        width: 300px;
+        }
+        
+	    #display .image_chooser_search .search {
+		    width: 220px;
+	    }        
+
+        #login_form {
+	        padding: 20px 5px 20px 85px;
+        }
+        
+        #display {
+	        overflow: auto;
+	        margin-left: 5px;
+        }
+        
+	}
+
+	/* All Mobile Sizes (devices and browser) */
+	@media only screen and (max-width: 767px) {
+        #header a.logout {
+	        top: 0px;
+			left: 6px;
+			position: relative;
+			margin-bottom: 10px;
+        }
+        
+        #display .form input {
+	        width: 280px;
+        }
+        
+	    #display .image_chooser_search .search {
+		    width: 195px;
+	    }        
+        
+        #login_form {
+	        padding: 20px 0px 80px 20px;
+	        margin-left: -20px;
+        }
+        
+        #container #nav {
+	        margin-bottom: 10px;
+	        width: 297px;
+        }
+        
+        #container #nav li {
+	        width: 297px;
+        }
+        
+        #container #overlay form{
+	        width: 260px;
+        }    
+        
+		#container #display {
+			padding-left: 0;
+		}
+		
+		.yn-overlay {
+			min-height: 100%;
+			min-width: 73px;
+			background: #838282;
+			position: absolute;
+			top: 0px;
+			left: -7px;
+			display: block;
+			z-index: 100;
+		}
+		
+		#overlay #content_form, #overlay #template_form, #overlay #label_form{
+			margin: 0 auto;
+			max-width: 290px;
+			background: rgba(255,255,255,0.9);
+			padding: 20px 0 20px 10px;
+			height: 94%;
+			border: 2px dashed rgba(0,0,0,0.5);
+			border-top: none;
+			position: relative;
+		}	
+		
+		table {
+			overflow-x: auto;
+			display: block;
+		}
+	
+	}
+
+	/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+	@media only screen and (min-width: 480px) and (max-width: 767px) {
+        #header a.logout {
+	        top: 0px;
+			left: 6px;
+			position: relative;
+			margin-bottom: 10px;
+        }
+        
+        #display .form input {
+	        width: 380px;
+        }
+        
+	    #display .image_chooser_search .search {
+		    width: 245px;
+	    }        
+        
+        #login_form {
+	        padding: 20px 5px 80px 85px;
+        }
+        
+        #container #nav {
+	        margin-bottom: 10px;
+	        width: 415px;
+        }
+        
+        #container #nav li {
+	        width: 415px;
+        }
+        
+        #overlay form{
+	        width: 260px;
+        }
+        
+        
+	}
+
+	/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+	@media only screen and (max-width: 479px) {
+		.jqte {
+			margin-left: 10px !important;
+		}
+	}
+
+

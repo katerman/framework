@@ -1,4 +1,4 @@
-<? 
+<?php
 	global $model; 
 	global $helpers; 
 	global $view;
@@ -7,6 +7,14 @@
 	
 ?>
 
-
-<? echo '<h1 class="three columns">'. ucfirst($helpers::url('base')).'</h1>'; ?>
-<a class="logout six columns" href="logout.php">Log out</a>
+	<a href="#" id="logo"><img src="<?php echo $_CONFIG->img_path; ?>admin/refined.png" alt="refined logo"></a>
+	<ul id="header_ul">
+		<li>
+			<div class="fa fa-user">							
+				<ul>
+					<li><a class="logout" href="logout.php">Log out</a></li>
+				</ul>
+			</div>
+		</li>					
+	</ul>
+	

@@ -1,6 +1,5 @@
-<div id="content" class="container">
+<div id="content" class="container login">
 
-	<div class="sixteen columns">
 		<form id="login_form" action="?" method="POST">
 			<h1>Admin Panel</h1>
 			
@@ -24,16 +23,4 @@
 			<input class="btn orange" type="submit"/>
 			
 		</form>
-	</div>
 </div>
-<?
-/*
-	global $model;
-
-	$x = $model->sqlSelect("*" , "users", "", "");
-	print_r($x);
-	
-	$pw = MD5('12225687'.'halo12');
-	echo $pw;
-*/
-?>

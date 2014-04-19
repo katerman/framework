@@ -4,7 +4,7 @@
 
 <?php
 			
-	$z = $model->sqlSelect("*" , "pages", "", "ORDER BY page_order ASC");
+	$z = $helpers->sqlSelect("*" , "pages", "", "ORDER BY page_order ASC");
 	$token = $security->generateFormToken('token');
 	
 	function on_nav_val($x){
@@ -15,15 +15,20 @@
 		}
 	}
 							
-	echo '<table class="search_table">
-			<tr class="th">
+	echo '<table class="search_table table">
+			<thead>
+			<tr>
+				<td class="vis-hidden"></td>
+				<td><input class="search" placeholder="Type to search"/></td>
+			</tr>
+			<tr>
 				<td>Page Name</td>
 				<td>Page Url</td>
 				<td>Page Order</td>
 				<td>On Nav</td>
 				<td>Actions</td>
-				<td>  <input class="search" placeholder="Type to search"/></td>
 			</tr>
+			</thead><tbody>
 		';		
 					  
 	foreach($z as $value) {
@@ -35,7 +40,7 @@
 				.'<td><a class="edit" href="?pageid='. $value['pages_id'] .'&tpl=edit&type=edit_page#pages"></a> ' . '<form style="position: relative;" class="pull-left" id="delete_form" action="" method=""> <a class="delete" href="?id='.$value['pages_id'].'#pages"></a> <input type="hidden" name="token" id="token" value="'.$token .'"> <input id="id" type="hidden" value="'. $helpers->stripcleantohtml($value['pages_id']) .'"/> <input id="type" type="hidden" value="'. $helpers->stripcleantohtml( 'pages' ) . '"/> <input id="db_id" type="hidden" value="'.$helpers->stripcleantohtml('pages_id').'"/> <input class="hidden" type="submit" id="submit"/> </form></td>'
 			 .'</tr>';
 	}				
-	echo '</table>';		
+	echo '</tbody></table>';		
 					    
 ?>
 

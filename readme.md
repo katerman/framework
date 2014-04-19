@@ -1,3 +1,19 @@
+========== 0.8.0 ==========
+
+-Upgraded from alpha to beta.
+
+-helper class now handles sqlSelect(). This involves helpers having its own PDO method.
+
+-New UI, tons of small changes to accomidate (JS/CSS/INC)
+
+-Font Awesome Added (not all symbols updated yet)
+
+-put in some docblocks in helpers
+
+-old css file saved, but will eventually be phazed out.
+
+
+
 ========== 0.7.1 ==========
 
 - Each individual template checks for permissions before displaying.

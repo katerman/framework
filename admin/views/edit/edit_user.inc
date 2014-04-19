@@ -4,7 +4,7 @@
 	
 		<?php
 				$uid = $helpers->getQuery('userid','return');
-				$z = $model->sqlSelect("*" , "users", "", "WHERE users_Id = $uid" );
+				$z = $helpers->sqlSelect("*" , "users", "", "WHERE users_Id = $uid" );
 				
 				
 				if(strlen($z['0']['user_FullName']) > 0){	

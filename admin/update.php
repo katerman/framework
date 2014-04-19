@@ -10,7 +10,7 @@
 	include_once "../includes/scripts/app.php";
 	
 	$security = new security();
-	$helpers = new helpers();
+	$helpers = new helpers($dsn, $db_user, $db_pass);
 	$update_type = $_POST['update_type'];
 	
 	$name = $_SESSION['userInfo']['fullname'];

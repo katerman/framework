@@ -10,7 +10,7 @@ include_once "includes/scripts/app.php";
 //class calls
 $model = new appModel($dsn, $db_user, $db_pass);
 $view = new appView();
-$helpers = new helpers();
+$helpers = new helpers($dsn, $db, $db_pass);
 $security = new security(); 
   
 $username = empty($_POST['username']) ? '' : strtolower(trim($_POST['username']));

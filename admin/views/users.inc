@@ -6,17 +6,23 @@
 
 <?php 
 	
-	$q = $model->sqlSelect("*" , "users", "", "ORDER BY user_Access ASC");
+	$q = $helpers->sqlSelect("*" , "users", "", "ORDER BY user_Access ASC");
 	$token = $security->generateFormToken('token');
 
-	echo '<table class="search_table">
-			<tr class="th">
+	echo '<table class="search_table table">
+			<thead>
+			<tr>
+				<td class="vis-hidden"></td>
+				<td><input class="search" placeholder="Type to search"/></td>
+			</tr>
+			<tr>
 				<td>username</td>
 				<td>full name</td>
 				<td>access</td>
 				<td>Actions</td>
-				<td>  <input class="search" placeholder="Type to search"/></td>
 			</tr>
+			</thead>
+			<tbody>
 		';		
 					  
 	foreach($q as $value) {
@@ -27,7 +33,7 @@
 				.'<td><a class="edit" href="?userid='. $value['users_Id'] .'&tpl=edit&type=edit_user#users"></a> ' . '<form style="position: relative;" class="pull-left" id="delete_form" action="" method=""> <a class="delete" href="?id='.$value['users_Id'].'#users"></a> <input type="hidden" name="token" id="token" value="'. $token .'"> <input id="id" type="hidden" value="'. $helpers->stripcleantohtml($value['users_Id']) .'"/> <input id="type" type="hidden" value="'. $helpers->stripcleantohtml( 'users' ) . '"/> <input id="db_id" type="hidden" value="'.$helpers->stripcleantohtml('users_Id').'"/> <input class="hidden" type="submit" id="submit"/> </form></td>'
 			 .'</tr>';
 	}				
-	echo '</table>';		
+	echo '</tbody></table>';		
 		    
 
 ?>
