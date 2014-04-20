@@ -24,7 +24,7 @@
 	global $page;
 	global $_CONFIG; //config file
 
-	$r = $model->sqlSelect("*" , "templates", "", "WHERE id = '$page[page_template]'");
+	$r = $helpers->sqlSelect("*" , "templates", "", "WHERE id = '$page[page_template]'");
 /*
 	echo 'full: ' . helpers::url(full) . '<br>';
 	echo 'fullpage: ' . helpers::url(fullpage) . '<br>';
@@ -56,8 +56,8 @@
 			}
 			
 			if($page['page_template']){
-				include_once($_CONFIG->template_path.$r[0]['template_name'].'.inc');
-				echo $_CONFIG->template_path.$r[0]['template_name'].'.inc';
+				$view->show($r[0]['template_name']);
+				//echo $_CONFIG->template_path.$r[0]['template_name'].'.inc';
 			}
 						 
 			 foreach($content as $cont){

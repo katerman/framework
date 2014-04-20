@@ -6,9 +6,9 @@
 	global $_CONFIG;
 	
 	$page_url = $helpers->getQuery('page','return');
-	$q = $model->sqlSelect("*" , "pages", "", "WHERE page_url LIKE '%$page_url%'");
-	$c = $model->sqlSelect("*" , "config", "", "");
-	$l = $model->sqlSelect("*" , "labels", "", "");
+	$q = $helpers->sqlSelect("*" , "pages", "", "WHERE page_url LIKE '%$page_url%'");
+	$c = $helpers->sqlSelect("*" , "config", "", "");
+	$l = $helpers->sqlSelect("*" , "labels", "", "");
 
 
 	$GLOBALS['config'] = $c[0];
@@ -18,7 +18,7 @@
 	$config = $GLOBALS['config'];
 	
 	$page_id = $page['pages_id'];
-	$cont = $model->sqlSelect("*" , "content", "", "WHERE page_id = $page_id");
+	$cont = $helpers->sqlSelect("*" , "content", "", "WHERE page_id = $page_id");
 	
 	$GLOBALS['content'] = $cont;
 	$content = $GLOBALS['content'];

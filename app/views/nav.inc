@@ -1,7 +1,7 @@
 <?		global $page;
 		global $model;
 
-		$p = $model->sqlSelect( "*", //select, 
+		$p = $helpers->sqlSelect( "*", //select, 
 					  "pages", //from
 					  "", //column names
 					  "WHERE on_nav = 1 ORDER BY page_order ASC" //where
