@@ -375,6 +375,11 @@ a:link, a:visited, a:hover, a:active {
 	text-align: center;
 }
 
+#nav a {
+	width: 100%;
+	height: 100%;
+}
+
 /********* MIN NAV **********/
 #nav.nav-min > ul > li:first-child:before /* #nav > ul > li > ul > li:before */ {
 	display: none;
@@ -1289,6 +1294,10 @@ input[type="radio"] {
 	width: 100px;
 }
 
+#content_form {
+	overflow-y: auto;
+}
+
 #overlay #content_form, #overlay #template_form, #overlay #label_form, .images_for_chooser{
 	margin: 0 auto;
 	max-width: 350px;
@@ -1478,6 +1487,7 @@ li.images:hover, li.images:active {
 #edit_form .permission_div{
 	background: rgba(255,255,225,0.2);
 	margin-left: 0;
+	width: 100%;
 }
 
 .perms, .perms_access {

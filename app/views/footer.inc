@@ -9,7 +9,7 @@
 <script src="<?php echo $_CONFIG->js_path ?>site.js" charset="utf-8"></script>
 <script src="<?php echo $_CONFIG->js_path ?>ajax.js" charset="utf-8"></script>
 <script>
-	<?php echo $config->extra_js;?>
+	<?php echo $config['extra_js'];?>
 </script>
 </body>
 </html>

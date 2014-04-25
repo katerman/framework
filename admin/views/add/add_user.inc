@@ -36,7 +36,7 @@
 		
 <?php
 	}else{
-		header('Location: ?tpl=default_view#dashboard');
+		header('Location: ?tpl=default_view');
 	}
 ?> 		
 

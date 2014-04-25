@@ -13,7 +13,7 @@
 					echo '<h1>Edit User</h1>';	
 				}
 				
-				echo '<table>
+				echo '<table class="hidden">
 						<tr class="th">
 							<td>user id</td>
 							<td>Username</td>
@@ -41,13 +41,13 @@
 
 			$token = $security->generateFormToken('token'); 
 			
-			$user_id = $helpers->stripcleantohtml($z[0]['users_Id']);
-			$user_name = $helpers->stripcleantohtml($z[0]['user_uName']);
-/* 			$user_password = $helpers->stripcleantohtml($z[0]['user_Pass']); */
-			$user_fullname = $helpers->stripcleantohtml($z[0]['user_FullName']);
-			$user_salt = $helpers->stripcleantohtml($z[0]['user_Salt']);
-			$user_access = $helpers->stripcleantohtml($z[0]['user_Access']);
-			$user_comments = htmlentities($z[0]['user_Comments']); 
+			$user_id = $helpers->custom_clean($z[0]['users_Id']);
+			$user_name = $helpers->custom_clean($z[0]['user_uName']);
+/* 			$user_password = $helpers->custom_clean($z[0]['user_Pass']); */
+			$user_fullname = $helpers->custom_clean($z[0]['user_FullName']);
+			$user_salt = $helpers->custom_clean($z[0]['user_Salt']);
+			$user_access = $helpers->custom_clean($z[0]['user_Access']);
+			$user_comments = $helpers->custom_clean($z[0]['user_Comments'], true, false); 
 			$user_custom_perms = unserialize($z[0]['user_custom_perms']);
 			
 			//print_r($user_custom_perms);

@@ -1,4 +1,4 @@
-<div class="columns eleven permission_div">
+<div class="columns permission_div">
 	
 	<div class="permission_div_header">
 		<h2>Permission Levels <h6>Click To Open </h6></h2>

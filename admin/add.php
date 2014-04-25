@@ -33,15 +33,15 @@
 	if(isset($update_type)){
 		if($update_type === 'pages'){ // ======== IF PAGES ========//
 		
-			$page_name = $_POST['page_name'];
-			$page_meta_title = $_POST['page_meta_title'];
-			$page_meta_keyword = $_POST['page_meta_keyword'];
-			$page_template = $_POST['page_template'];
-			$page_group = $_POST['page_group'];
-			$sub_page = $_POST['parent_page'];	
-			$page_url = $_POST['page_url'];
-			$page_order = $_POST['page_order'];		
-			$on_nav = $_POST['on_nav'];		
+			$page_name = $helpers->custom_clean($_POST['page_name']);
+			$page_meta_title = $helpers->custom_clean($_POST['page_meta_title']);
+			$page_meta_keyword = $helpers->custom_clean($_POST['page_meta_keyword']);
+ 			$page_template = $helpers->custom_clean($_POST['page_template']);
+			$page_group = $helpers->custom_clean($_POST['page_group']);
+			$sub_page = $helpers->custom_clean($_POST['parent_page']);	
+			$page_url = $helpers->custom_clean($_POST['page_url']);
+			$page_order = $helpers->custom_clean($_POST['page_order']);		
+			$on_nav = $helpers->custom_clean($_POST['on_nav']);		
 		
 		    
 			$data = array(':page_name' => $page_name, 
@@ -79,10 +79,10 @@
 			}
 			
 			$salt = random_numbers(8); //heres our salt
-			$username = $_POST['username'];		
-			$fullname = $_POST['fullname'];		
-			$access = $_POST['access'];		
-			$password = $_POST['password'];		
+			$username = $helpers->custom_clean($_POST['username']);		
+			$fullname = $helpers->custom_clean($_POST['fullname']);		
+			$access = $helpers->custom_clean($_POST['access']);		
+			$password = $helpers->custom_clean($_POST['password']);		
 		
 			$x = array($username, $fullname, $access, $password, $salt);
 			
@@ -112,12 +112,12 @@
 			
 		}elseif($update_crud ==='add' && $update_type==='content'){ // ======== IF CONTENT ========//
 			
-			$content = $_POST['content'];
-			$content_area = $_POST['content_area'];
-			$content_name = $_POST['content_name'];
-			$content_order = $_POST['content_order'];	
-			$content_page = $_POST['content_order'];	
-			$content_page_id = $_POST['content_page_id'];
+			$content = $helpers->custom_clean($_POST['content'], true, false, false);
+			$content_area = $helpers->custom_clean($_POST['content_area']);
+			$content_name = $helpers->custom_clean($_POST['content_name']);
+			$content_order = $helpers->custom_clean($_POST['content_order']);	
+			$content_page = $helpers->custom_clean($_POST['content_order']);	
+			$content_page_id = $helpers->custom_clean($_POST['content_page_id']);
 			
 			$data = array(':content' => $content, 
 					  ':content_area' => $content_area, 
@@ -142,8 +142,8 @@
 			
 		}elseif($update_crud ==='add' && $update_type==='template'){ // ======== IF Template ========//
 			
-			$template_type = $_POST['template_type'];
-			$template_name = $_POST['template_name'];
+			$template_type = $helpers->custom_clean($_POST['template_type']);
+			$template_name = $helpers->custom_clean($_POST['template_name']);
 
 			$data = array(':template_type' => $template_type, 
 					      ':template_name' => $template_name
@@ -165,8 +165,8 @@
 			
 		}elseif($update_crud ==='add' && $update_type==='labels'){ // ======== IF labels ========//
 			
-			$label_name = $_POST['label_name'];
-			$label_content = $_POST['label_content'];
+			$label_name = $helpers->custom_clean($_POST['label_name']);
+			$label_content = $helpers->custom_clean($_POST['label_content']);
 
 			$data = array(':label_name' => $label_name, 
 					  	  ':label_content' => $label_content
@@ -187,12 +187,12 @@
 			$log->execute($log_data);		
 			
 		}else{
-			die;
+			die();
 		}
 		
 	}else{
 	
-		die;
+		die();
 	
 	}
 	

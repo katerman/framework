@@ -72,7 +72,7 @@
 	<label for="page_order">Page Order</label><br/>
     <input id="page_order" name="page_order" value="" placeholder="Page Order"><br/>
 
-	<label for="on_nav">On Nav?</label>           
+	<label for="on_nav">Appear On Navigation?</label>           
     <input id="on_nav" type="checkbox" name="on_nav" value="1" /><br/>
 
 	<input type="hidden" id="token" name="token" value="<?php echo $token; ?>">
@@ -84,7 +84,7 @@
 
 <?php
 	}else{
-		header('Location: ?tpl=default_view#dashboard');
+		header('Location: ?tpl=default_view');
 	}
 ?> 
 

@@ -37,14 +37,14 @@
 				.'<td>'.$value['page_url'].'</td>'
 				.'<td>'.$value['page_order'].'</td>'
 				.'<td>'. on_nav_val($value['on_nav']) .'</td>'
-				.'<td><a class="edit" href="?pageid='. $value['pages_id'] .'&tpl=edit&type=edit_page#pages"></a> ' . '<form style="position: relative;" class="pull-left" id="delete_form" action="" method=""> <a class="delete" href="?id='.$value['pages_id'].'#pages"></a> <input type="hidden" name="token" id="token" value="'.$token .'"> <input id="id" type="hidden" value="'. $helpers->stripcleantohtml($value['pages_id']) .'"/> <input id="type" type="hidden" value="'. $helpers->stripcleantohtml( 'pages' ) . '"/> <input id="db_id" type="hidden" value="'.$helpers->stripcleantohtml('pages_id').'"/> <input class="hidden" type="submit" id="submit"/> </form></td>'
+				.'<td><a class="edit" href="?pageid='. $value['pages_id'] .'&tpl=edit&type=edit_page#pages"></a> ' . '<form style="position: relative;" class="pull-left" id="delete_form" action="" method=""> <a class="delete" href="?id='.$value['pages_id'].'#pages"></a> <input type="hidden" name="token" id="token" value="'.$token .'"> <input id="id" type="hidden" value="'. $helpers->custom_clean($value['pages_id']) .'"/> <input id="type" type="hidden" value="'. $helpers->custom_clean( 'pages' ) . '"/> <input id="db_id" type="hidden" value="'.$helpers->custom_clean('pages_id').'"/> <input class="hidden" type="submit" id="submit"/> </form></td>'
 			 .'</tr>';
 	}				
 	echo '</tbody></table>';		
 					    
 ?>
 
-<a href="?tpl=add&type=add_page#pages" class="add_page">Add a page</a>
+<a href="?tpl=add&type=add_page" class="add_page">Add a page</a>
 
 <?php
 	}else{

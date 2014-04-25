@@ -29,16 +29,16 @@
 	
 	if(isset($update_type)){
 		if($update_type === 'pages'){
-			$id = $_POST['pages_id'];
-			$page_name = $_POST['page_name'];
-			$page_meta_title = $_POST['page_meta_title'];
-			$page_meta_keyword = $_POST['page_meta_keyword'];
- 			$page_template = $_POST['page_template'];
-			$page_group = $_POST['page_group'];
-			$sub_page = $_POST['parent_page'];	
-			$page_url = $_POST['page_url'];
-			$page_order = $_POST['page_order'];		
-			$on_nav = $_POST['on_nav'];		
+			$id = $helpers->custom_clean($_POST['pages_id']);
+			$page_name = $helpers->custom_clean($_POST['page_name']);
+			$page_meta_title = $helpers->custom_clean($_POST['page_meta_title']);
+			$page_meta_keyword = $helpers->custom_clean($_POST['page_meta_keyword']);
+ 			$page_template = $helpers->custom_clean($_POST['page_template']);
+			$page_group = $helpers->custom_clean($_POST['page_group']);
+			$sub_page = $helpers->custom_clean($_POST['parent_page']);	
+			$page_url = $helpers->custom_clean($_POST['page_url']);
+			$page_order = $helpers->custom_clean($_POST['page_order']);		
+			$on_nav = $helpers->custom_clean($_POST['on_nav']);		
 		
 		    try{
 		        $query = "UPDATE pages SET page_name = ?, page_meta_title = ?, page_meta_keyword = ?, page_template = ?, page_group = ?, sub_page = ?, page_url = ?, page_order = ?, on_nav = ? WHERE pages_id = ?";
@@ -63,25 +63,26 @@
 		
 		
 		if($update_type === 'user'){ //User
-			$user_id = $_POST['user_id'];
-			$user_username = $_POST['username'];
-			$user_pass = $_POST['password'];
-			$user_fullname = $_POST['fullname'];
-			$user_access = $_POST['access'];
-			$user_comments = $_POST['user_comments'];
+		
+			$user_id = $helpers->custom_clean($_POST['user_id']);
+			$user_username = $helpers->custom_clean($_POST['username']);
+			$user_pass = $helpers->custom_clean($_POST['password']);
+			$user_fullname = $helpers->custom_clean($_POST['fullname']);
+			$user_access = $helpers->custom_clean($_POST['access']);
+			$user_comments = $helpers->custom_clean($_POST['user_comments'], false, false);
 			$perms_array =  array(
-								"config" => $_POST['checkbox_config'],
-								"pages" => $_POST['checkbox_pages'],
-								"users" => $_POST['checkbox_users'],
+								"config" => $helpers->custom_clean($_POST['checkbox_config']),
+								"pages" => $helpers->custom_clean($_POST['checkbox_pages']),
+								"users" => $helpers->custom_clean($_POST['checkbox_users']),
 								"assets" => array(
-												"top_level"=>$_POST['checkbox_assets_tl'],
-												"upload"=>$_POST['checkbox_assets_upload'],
-												"uploaded"=>$_POST['checkbox_assets_uploaded'],
-												"templates"=>$_POST['checkbox_assets_templates'],
-												"labels"=>$_POST['checkbox_assets_labels']
+												"top_level"=>$helpers->custom_clean($_POST['checkbox_assets_tl']),
+												"upload"=>$helpers->custom_clean($_POST['checkbox_assets_upload']),
+												"uploaded"=>$helpers->custom_clean($_POST['checkbox_assets_uploaded']),
+												"templates"=>$helpers->custom_clean($_POST['checkbox_assets_templates']),
+												"labels"=>$helpers->custom_clean($_POST['checkbox_assets_labels'])
 											)
 							);
-							
+			
 			$perms_array = serialize($perms_array);
 			
 			function random_numbers($digits){ 
@@ -122,11 +123,11 @@
 		}
 		
 		if($update_type === 'config'){
-			$id = $_POST['config_id'];
-			$site_name = $_POST['site_name'];
-			$global_logo = $_POST['global_logo'];
-			$extra_js = $_POST['extra_js'];
- 			$extra_css = $_POST['extra_css'];
+			$id = $helpers->custom_clean($_POST['config_id']);
+			$site_name = $helpers->custom_clean($_POST['site_name']);
+			$global_logo = $helpers->custom_clean($_POST['global_logo']);
+			$extra_js = $helpers->custom_clean($_POST['extra_js'], false);
+ 			$extra_css = $helpers->custom_clean($_POST['extra_css'], true, false);
 
 			$ds          = DIRECTORY_SEPARATOR;  			 
 			$storeFolder = 'uploads'; 
@@ -153,11 +154,11 @@
 		}
 		
 		if($update_type === 'content'){
-			$content_id = $_POST['content_id'];
-			$content = $_POST['content'];
-			$content_area = $_POST['content_area'];
-			$content_name = $_POST['content_name'];
-			$content_order = $_POST['content_order'];
+			$content_id = $helpers->custom_clean($_POST['content_id']);
+			$content = $helpers->custom_clean($_POST['content'], true, false, false);
+			$content_area = $helpers->custom_clean($_POST['content_area']);
+			$content_name = $helpers->custom_clean($_POST['content_name']);
+			$content_order = $helpers->custom_clean($_POST['content_order']);
 
 			
 		
@@ -181,8 +182,8 @@
 		}
 		
 		if($update_type === 'template'){
-			$template_name = $_POST['template_name'];
-			$template_type = $_POST['template_type'];
+			$template_name = $helpers->custom_clean($_POST['template_name']);
+			$template_type = $helpers->custom_clean($_POST['template_type']);
 			$id = $_POST['id'];
 		
 		    try{
@@ -206,9 +207,9 @@
 		}
 		
 		if($update_type === 'labels'){
-			$label_name = $_POST['label_name'];
-			$label_content = $_POST['label_content'];
-			$id = $_POST['id'];
+			$label_name = $helpers->custom_clean($_POST['label_name']);
+			$label_content = $helpers->custom_clean($_POST['label_content'], true, false, false);
+			$id = $helpers->custom_clean($_POST['id']);
 
 		    try{
 		        $query = "UPDATE labels SET label_name = ?, label_content = ? WHERE label_id = ?";
@@ -231,7 +232,7 @@
 		}
 				
 	}else{
-		die;
+		die();
 	}
 	
 	

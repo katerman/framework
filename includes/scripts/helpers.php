@@ -108,45 +108,30 @@ class helpers {
 			echo $r;
 		}
 		
-	}
-	
-	/**
-	 * cleantohtml function.
-	 * 
-	 * @access public
-	 * @param mixed $s
-	 * @return string passed in
-	 */
-	function cleantohtml($s){
-		//should contain html
-		return strip_tags(htmlentities(trim(stripslashes($s))), ENT_NOQUOTES, "UTF-8");
 	}	
 
-	/**
-	 * stripcleantohtml function.
-	 * 
-	 * @access public
-	 * @param mixed $s
-	 * @return string passed in
-	 */
-	function stripcleantohtml($s){
-		// Use: Anything that shouldn't contain html (pretty much everything that is not a textarea)
-		return htmlentities(trim(strip_tags(stripslashes($s))), ENT_NOQUOTES, "UTF-8");
-	}	
 
 	/**
 	 * custom_clean function.
 	 * 
 	 * @access public
-	 * @param mixed $document
-	 * @return string passed in
+	 * @param mixed $document = text/code you're passing in to be sanitized 
+	 * @param bool $js (default: true) = clean js true/false
+	 * @param bool $html (default: true) = clean html true/false
+	 * @param bool $styles (default: true) = clean styling true/false
+	 * @param bool $cdata (default: true) = clean cdata true/false
+	 * @param bool $php (default: true) = clean php tag true/false
+	 * @return cleaned text/code
 	 */
-	function custom_clean($document){ 
-		$search = array('@<script[^>]*?>.*?</script>@si',  // Strip out javascript 
-		               '@<[\/\!]*?[^<>]*?>@si',            // Strip out HTML tags 
-		               '@<style[^>]*?>.*?</style>@siU',    // Strip style tags properly 
-		               '@<![\s\S]*?--[ \t\n\r]*>@'         // Strip multi-line comments including CDATA 
-		); 
+	function custom_clean($document, $js = true, $html = true, $styles = true, $cdata = true, $php = true){ 
+		$search = array();
+		
+		if($js){array_push($search, '@<script[^>]*?>.*?</script>@si');}
+		if($html){array_push($search, '@<[\/\!]*?[^<>]*?>@si');}
+		if($styles){array_push($search, '@<style[^>]*?>.*?</style>@siU');}
+		if($cdata){array_push($search, '@<![\s\S]*?--[ \t\n\r]*>@');}
+		if($php){array_push($search, '(<\?{1}[pP\s]{1}.+)');}
+		
 		$text = preg_replace($search, '', $document); 
 		return $text; 
 		
@@ -314,6 +299,30 @@ class helpers {
 			}
 			return $arr;		
 		}
+	}
+	
+	/**
+	 * sqlDelete function.
+	 * 
+	 * @access public
+	 * @param string $select (default: "")
+	 * @param string $table (default: "")
+	 * @param string $where (default: "")
+	 * @return - delete something from the DB
+	 */
+	public function sqlDelete($select = "", $table="", $where=""){
+
+		//die(print_r(debug_backtrace(),true));
+		$stmt = $this->db->prepare("DELETE $select FROM $table $where");
+		try {
+			if ($stmt->execute()) {
+				$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+			}
+		}
+		catch(PDOException $e){
+			echo "Query Failed -> sqlDelete() ". $e;
+		}			
+
 	}	
 	
 }

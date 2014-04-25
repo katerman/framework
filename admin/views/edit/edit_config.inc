@@ -7,7 +7,14 @@
 		<?php 
 				$page = $helpers->getQuery('pageid','return');
 				$z = $helpers->sqlSelect("*" , "config", "", "");
+				$token = $security->generateFormToken('token'); 
 				
+				$id = $helpers->custom_clean($z[0]['id']);
+				$site_name = $helpers->custom_clean($z[0]['site_name']);
+				$global_logo = $helpers->custom_clean($z[0]['global_logo']);
+				$extra_js = $helpers->custom_clean($z[0]['extra_js'],false);
+				$extra_css = $helpers->custom_clean($z[0]['extra_css'],true,false);
+
 			//	print_r($z);
 				
 				echo '<table class="table">
@@ -25,23 +32,15 @@
 					
 				foreach($z as $value) {
 					echo '<tr>'.
-							'<td>'.$value['id'].'</td>'
-							.'<td>'.$value['site_name'].'</td>'
-							.'<td><img src="../uploads/resized/'.$value['global_logo'].'-resized" alt="logo" width="150"></td>'
-							.'<td>'.$value['extra_js'].'</td>'
-							.'<td>'.$value['extra_css'].'</td>'
+							'<td>'.$id.'</td>'
+							.'<td>'.$site_name.'</td>'
+							.'<td><img src="../uploads/resized/'.$global_logo.'-resized" alt="logo" width="150"></td>'
+							.'<td>'.$extra_js.'</td>'
+							.'<td>'.$extra_css.'</td>'
 						 .'</tr>';
 				}				
 				echo '</tbody></table>';		
 					    
-
-			$token = $security->generateFormToken('token'); 
-			
-			$id = $helpers->stripcleantohtml($z[0]['id']);
-			$site_name = $helpers->stripcleantohtml($z[0]['site_name']);
-			$global_logo = $helpers->stripcleantohtml($z[0]['global_logo']);
-			$extra_js = $helpers->stripcleantohtml($z[0]['extra_js']);
-			$extra_css = $helpers->stripcleantohtml($z[0]['extra_css']);
 			
 			//File location (images)
 			$ds          = DIRECTORY_SEPARATOR;  			 
@@ -115,7 +114,7 @@
 		
 <?php
 	}else{
-		header('Location: ?tpl=default_view#dashboard');
+		header('Location: ?tpl=default_view');
 	}
 ?>
 		
