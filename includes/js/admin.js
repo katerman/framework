@@ -329,7 +329,7 @@ function navdropdowns(){
 			}
 			
 			//$('#content').val(data['content']);
-			$('.jqte_editor').text(data['content']);
+			$('.jqte_editor').jqteVal(data['content']);
 						
 			//document.getElementById('content').innerHTML = data['content'];
 			//console.log(data['content']);
