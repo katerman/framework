@@ -51,20 +51,15 @@
 
 	<div id="display">
 	<?php		
-			if(isset($areas->area)){
-				echo '<br><h1>'.$areas->area .'</h1>' ;
-			}
-			
 			if($page['page_template']){
-				$view->show($r[0]['template_name']);
-				//echo $_CONFIG->template_path.$r[0]['template_name'].'.inc';
+				$view->show('templates/'.$r[0]['template_name']);
 			}
-						 
-			 foreach($content as $cont){
-				 if(empty($cont['content_area'])){
-					 echo $cont['content'];
-				 }
-			 }
+
+			foreach($content as $cont){
+				if(empty($cont['content_area'])){
+					echo $cont['content'];
+				}
+			}
 		?>
 
 		<?php 

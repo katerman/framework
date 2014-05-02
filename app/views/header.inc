@@ -9,7 +9,11 @@
 	$q = $helpers->sqlSelect("*" , "pages", "", "WHERE page_url LIKE '%$page_url%'");
 	$c = $helpers->sqlSelect("*" , "config", "", "");
 	$l = $helpers->sqlSelect("*" , "labels", "", "");
-
+	
+	if(empty($q)){
+		header("HTTP/1.0 404 Not Found");
+		header("Location: /page/404");
+	}
 
 	$GLOBALS['config'] = $c[0];
 	$GLOBALS['page'] = $q[0];
