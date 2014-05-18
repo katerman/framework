@@ -1,29 +1,4 @@
 
-
-#nav a{
-	margin-left: 10px;
-}
-
-#nav a:first-child {
-	margin-left: 0;
-}
-
-
-
-#nav #active {
-	text-decoration: underline !important;
-	color: #000 !important;
-}
-
-#header {
-	width: 1000px;
-	margin: 0 auto;
-	padding: 10px;
-	height: 170px;
-	clear: both !important;
-}
-
-
 /* General styles */
 
 *{
@@ -31,222 +6,32 @@
 	list-style-type: none;
 }
 
-h1 {
-	margin: 0;
-	padding: 3px;
-}
-
 
 body {
-	background-color: #CCCCFF;	
-	background: url('../img/bg.png') 0 0 repeat;
-}
-
-#content {
-	border-radius: 10px;
-	-moz-border-radius: 10px;
-	background-color: rgba(0,0,0,0.3);
-	width: 1000px;
-	margin: 0 auto;
-	padding: 10px;
-	border: 1px solid black;
-	height: auto;
-	clear: both !important;
+	background: #cce4ff;
 }
 
 
-/*links */
-a:link {
-	color: white;
-	text-decoration: none;
+div.navbar-header .navbar-brand {
+	padding: 0 5px 0 0;
 }
 
-a:visited {
-	color: white;
+.nav a {
+	text-transform: capitalize;
 }
 
-a:hover {
-	text-decoration: underline;
+.jumbotron {
+	background:  url('../img/bg.png') 0 0 repeat;
 }
 
-.delete:hover, .edit:hover{
-	text-decoration: underline;
+.navbar {
+	border-radius: 0px;
 }
 
-/* crud buttons */
-.create{
-	background:url(../img/add.ico) no-repeat 10px 0;
-	text-indent:30px;
-	display:block;
-}
-.delete{
-	background:url(../img/delete.ico) no-repeat 10px 0;
-	text-indent:30px;
-	display:block;
-}
-.edit{
-	background:url(../img/edit.ico) no-repeat 10px 0;
-	text-indent:30px;
-	display:block;
+.jumbotron h1 {
+	color: #000;	
 }
 
-.logout{
-	background:url(../img/logout.ico) no-repeat 10px 0;
-	text-indent:30px;
-	display:block;
+hr {
+	border-top:1px solid #636363;
 }
-
-.edit, .delete{
-	text-align: left;
-}
-
-
-/* forms */
-input {
-	margin: 5px;
-}
-
-ul {
-	margin: 15px 0 0 0;
-	padding:0;
-}
-
-
-/* helper classes */
-.small-text {
-	font-size: 12px;
-}
-
-.pull-right {
-	float: right;	
-}
-
-.pull-left {
-	float: left;	
-}
-
-
-.clear-fix {
-	clear:both;
-}
-
-.lifix {
-	display:inline;
-	list-style-type: none;
-}
-
-.margin-top {
-	margin-top: 50px;
-}
-
-
-/* Jquery Table */
-table {
-	text-align: center;
-	color: #fff;
-}
-
-table img.spec {
-	width:33%;
-	height: 33%;
-}
-
-thead { 
-	background-color: rgba(0,0,0,0.5); 
-}
-
-.zebra tbody tr { 
-	background-color: rgba(255,255,255,0.2); 
-}
-
-.zebra tbody tr:nth-child(odd) {	
-	background-color: rgba(0,0,0,0.2); 
-}
-
-td,th {
-	padding: 5px 10px !important;
-	text-align: center;
-}
-
-.pagination a {
-	color: #fff;
-}
-
-.pagination li {
-	display:inline;
-}
-
-.pagination .active {
-	text-decoration: underline;
-	font-weight: bold;
-}
-
-
-/* tabs ui fix for bottom*/
-#tabs .tabs-spacer { float: left; height: 200px; }
-  .tabs-bottom .ui-tabs-nav { clear: left; padding: 0 .2em .2em .2em; }
-  .tabs-bottom .ui-tabs-nav li { top: auto; bottom: 0; margin: 0 .2em 1px 0; border-bottom: auto; border-top: 0; }
-  .tabs-bottom .ui-tabs-nav li.ui-tabs-active { margin-top: -1px; padding-top: 1px; }
-
-
-/*tabs for patterns */
-#tabs-patterns ul li{ 
-	list-style-type: none;
-	margin-left: 5px;
-}
-
-/* CMS edit button */
-.table-pos {
-	position: relative;
-	max-width: 100%;
-}
-
-.table-pos tbody {
-	min-height:100%;
-
-}
-
-.edit-block {
-	position: absolute;
-	bottom: 0;
-	width: 100px;
-	background-color: #333;
-	display:block;
-	-webkit-border-radius: 5px;    
-	border-radius: 8px;
-	padding: 5px;
-	
-	text-indent:35px;
-	display:block;
-    	
- color:#ffffff;
-    text-shadow:0 -1px 0 rgba(0, 0, 0, 0.25);
-    background-color:#007cc5;
-    background-image:-moz-linear-gradient(top, #01a4d9, #0193c5);
-    background-image:-webkit-gradient(linear, 0 0, 0 100%, from(#01a4d9),  to(#0193c5));
-    background-image:-webkit-linear-gradient(top, #01a4d9, #0193c5);
-    background-image:-o-linear-gradient(top, #01a4d9, #0193c5);
-    background-image:linear-gradient(to bottom, #01a4d9, #0193c5);
-    background-repeat:repeat-x;
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0096c5', endColorstr='#ff0054c5', GradientType=0);
-    border-color:#0193c5 #0193c5 #003479;
-    border-color:rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-    *background-color:#0193c5;filter:progid:DXImageTransform.Microsoft.gradient(enabled = false);
-
-}
-
-.edit-block:hover {
-    color:#ffffff;
-    background-color:#0193c5;
-    *background-color:#0049ac;
- }
-
-.edit-block:active {
-    background-color:#003f92;
- }
- 
- /* Login Form */
- 
- #login_form {
-	 margin: 0 auto;
- }

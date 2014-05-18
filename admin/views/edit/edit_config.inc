@@ -30,7 +30,6 @@
 						<tbody>
 					';		
 					
-				foreach($z as $value) {
 					echo '<tr>'.
 							'<td>'.$id.'</td>'
 							.'<td>'.$site_name.'</td>'
@@ -38,7 +37,7 @@
 							.'<td>'.$extra_js.'</td>'
 							.'<td>'.$extra_css.'</td>'
 						 .'</tr>';
-				}				
+								
 				echo '</tbody></table>';		
 					    
 			
@@ -91,8 +90,8 @@
 	    	</div>
 			
 		    <button class="btn blue image_chooser">Choose Image</button>
-		    <input id="global_logo" class="global_logo_value hidden" value="" type="hidden">
-		    <p class="picked"></p>
+		    <input id="global_logo" class="global_logo_value hidden" value="<?php echo $global_logo; ?>" type="hidden">
+		    <p class="picked"><?php echo $global_logo; ?></p>
 		    <br/><br/>
 		
 			<label for="extra_js">Extra Javascript</label><br/>

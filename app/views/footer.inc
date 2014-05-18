@@ -8,6 +8,10 @@
 <script src="<?php echo $_CONFIG->js_path ?>jquery.form.js" charset="utf-8"></script>
 <script src="<?php echo $_CONFIG->js_path ?>site.js" charset="utf-8"></script>
 <script src="<?php echo $_CONFIG->js_path ?>ajax.js" charset="utf-8"></script>
+
+<!-- bootsrap -->
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
 <script>
 	<?php echo $config['extra_js'];?>
 </script>

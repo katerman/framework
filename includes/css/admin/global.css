@@ -9,9 +9,9 @@
 }
 
 body,html, #container {
-	height: 100%;
 	width: 100%;
 	font: 'Helvetica', sans-serif;
+	height: 100%;
 }
 
 #container {
@@ -20,11 +20,11 @@ body,html, #container {
 	height: auto;
 }
 
-.inner-padding {
+#container > div.inner-padding.container {
 	padding-top: 10px;
 	min-height: 100%;
 	height: 100%;
-	margin-bottom: 34px !important;
+	margin-bottom: 54px;
 }
 
 .container > h1 {
@@ -38,12 +38,13 @@ body,html, #container {
 }
 
 .inner-padding-gray {
-	padding: 10px;	
+	padding: 10px 10px 20px 10px;	
 	background: #f1f1f1;
 	border: 1px solid #cacac8;
 	float: left;
 	margin-top: 38px;
 	width: 100%;
+	margin-bottom: 50px;
 }
 
 .container, .custom {
@@ -282,6 +283,12 @@ a:link, a:visited, a:hover, a:active {
 
 #nav.nav-min:before {
 	width: 30px;
+}
+
+#nav.nav-min a.nav-spot {
+	width: 100%;
+	display: block;
+	height: 100%;
 }
 
 #nav ul {
@@ -1432,6 +1439,12 @@ li.images:hover, li.images:active {
 	padding:5px;
 }
 
+
+.fa.fa-user a.logout {
+	width: 100%;
+	display: block;
+	height: 100%;
+}
 
 
 .icon-user, .icon-pass {

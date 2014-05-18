@@ -36,7 +36,7 @@ function navdropdowns(){
 					
 					the_right_li.show();
 					the_right_li.find('.dropdown').show();
-					the_right_li.find('.nav-spot').show();	
+					the_right_li.find('.nav-spot').css('display','block');	
 													
 					e.preventDefault();
 					
@@ -223,8 +223,7 @@ function navdropdowns(){
 	function navbarmin(){
 		nav = $('#nav');
 		controller = $('#nav div.retract-nav .fa');
-		
-	
+			
 		controller.click(function(){
 					
 			nav.toggleClass('nav-min');
@@ -241,6 +240,8 @@ function navdropdowns(){
 				
 				index = null;
 				
+				$.cookie('navmin','true');
+				
 				
 			}else{ // if the navbar is in normal mode
 				nav.find('.search_field').show();
@@ -252,6 +253,7 @@ function navdropdowns(){
 				$('#nav > ul > li:first-child').removeClass('navBorderBottom');
 				$('#nav > ul > li:first-child').removeClass('isSlide');
 				
+				$.cookie('navmin','false');
 			}
 			
 		});
@@ -281,17 +283,6 @@ function navdropdowns(){
 		    
 		});
 	}
-	
-	function hash(){
-		if(window.location.hash) {
-			var hash = window.location.hash.substring(1); //Puts hash in variable, and removes the # character
-			//alert (hash);
-			// hash found
-		} else {
-			// No hash found
-		}
-	}
-	
 
 	function content(){
 		var content = $('.edit_content');
@@ -723,7 +714,7 @@ function navdropdowns(){
 	}	
 		
 	function init(){
-		AddTarget();
+/* 		AddTarget();  broken atm*/
 		content();
 		templates();
 		labels();
@@ -747,7 +738,11 @@ function navdropdowns(){
 		//slideable();
 		navbarmin();
 		navdropdowns();
-		hash();
+		
+		//close the nav if its in navmin
+		if($.cookie('navmin') == 'true'){
+			controller.click();
+		} 
 		
 		//$('.pager-amount').customSelect();
 		   

@@ -305,24 +305,43 @@ class helpers {
 	 * sqlDelete function.
 	 * 
 	 * @access public
-	 * @param string $select (default: "")
 	 * @param string $table (default: "")
 	 * @param string $where (default: "")
 	 * @return - delete something from the DB
 	 */
-	public function sqlDelete($select = "", $table="", $where=""){
+	public function sqlDelete($table="", $where=""){
 
 		//die(print_r(debug_backtrace(),true));
-		$stmt = $this->db->prepare("DELETE $select FROM $table $where");
+		$stmt = $this->db->prepare("DELETE FROM $table $where");
 		try {
-			if ($stmt->execute()) {
-				$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-			}
+			$stmt->execute();
 		}
 		catch(PDOException $e){
 			echo "Query Failed -> sqlDelete() ". $e;
 		}			
 
 	}	
+	
+	
+	/**
+	 * sqlTruncateTable function.
+	 * 
+	 * @access public
+	 * @param string $table (default: "")
+	 * @return void - truncate a table
+	 */
+	public function sqlTruncateTable($table=""){
+
+		//die(print_r(debug_backtrace(),true));
+		$stmt = $this->db->prepare("TRUNCATE TABLE $table");
+		try {
+			$stmt->execute();
+		}
+		catch(PDOException $e){
+			echo "Query Failed -> sqlTruncateTable() ". $e;
+		}			
+
+	}	
+	
 	
 }

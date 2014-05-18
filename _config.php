@@ -7,7 +7,7 @@ $array = array(
 	'js_path' => $config_path.'/includes/js/',
 	'img_path' => $config_path.'/includes/img/',
 	'upload_path' => $config_path.'/uploads/',
-	'version' => 'v0.8.2 BETA',
+	'version' => 'v0.9 BETA',
 	'template_path' => 'app/views/templates/',
 	'views_path' => 'app/views/',
 	

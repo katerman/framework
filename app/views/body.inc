@@ -39,38 +39,40 @@
 				  ); 	
 */
 
+	//if there is no page query return page=home
+	if($helpers->getQuery('page','return') == false){
+		header('Location:index.php?page=home');
+	}	
+
 ?>
 
-<div id="header">
-	<?php echo '<img src="'.$_CONFIG->upload_path.$config['global_logo'].'" alt="logo">';?>
-</div>
 
-<div id="content"><!-- start content -->
 	
+		
 	<?php include_once('nav.inc'); ?>
-
-	<div id="display">
-	<?php		
-			if($page['page_template']){
-				$view->show('templates/'.$r[0]['template_name']);
-			}
-
-			foreach($content as $cont){
-				if(empty($cont['content_area'])){
-					echo $cont['content'];
-				}
-			}
-		?>
-
-		<?php 
-		
-			if($helpers->getQuery('page','return') == false){
-				header('Location:index.php?page=home');
-			}		
-			
-		?>
-		
-	</div>
 	
-</div><!-- end content-->
+	<?php 
+		//if current page has a template display it.
+		if($page['page_template']){
+			$view->show('templates/'.$r[0]['template_name']);
+		}
+		
+		//to not lock doors, we'll show content without an area, but it wont be included in any template.
+		foreach($content as $cont){
+			if(empty($cont['content_area'])){
+				echo $cont['content'];
+			}
+		}
+	
+	?>
 
+
+    <footer>
+    	<div class="container">
+    		<div class="row">
+			    <hr>
+		        <p><?php $view->show_label('refined_designs');?></p>
+    		</div>
+    	</div>
+    </footer>
+</div><!-- /container -->

@@ -55,14 +55,14 @@
         
 		<form id="edit_form" class="form" action="" method="" accept-charset="utf-8">
 			
-			<input type="hidden" id="user_id" name="user_id" value="<?php echo $user_id; ?>"><br/>
+			<input type="hidden" id="user_id" name="user_id" value="<?php echo $user_id; ?>">
 
 				
-			<label for="user_uname">Username</label><br/>
-            <input id="user_uname" name="username" value="<?php echo $user_name; ?>" placeholder="Username" class="required"><br/>
+			<label for="user_uname" class="hidden">Username</label>
+            <input id="user_uname" name="username" value="<?php echo $user_name; ?>" placeholder="Username" class="hidden">
 			
 			<label for="user_pass">Password</label><br/>
-            <input id="user_pass" name="password" value="" placeholder="Enter a password to update the current password."><br/>
+            <input id="user_pass" name="password" value="" placeholder="Enter a password to update"><br/>
 		
 			<label for="user_fullname">Full Name</label><br/>
             <input id="user_fullname" name="fullname" value="<?php echo $user_fullname; ?>" placeholder="Full Name" class="required"><br/>

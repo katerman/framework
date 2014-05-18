@@ -1,3 +1,20 @@
+========== 0.9 ==========
+- When creating a user, validation will now check to see if there is already a user with that username.
+- Username cannot be edited any longer.
+- log updates, you can now purge the log using helpers truncate method
+- added jquery.cookie.js this will help remmeber what state the nav should be in.
+- logo in config will now have the already selected logo set as its value. Now you dont have to reselect a new one everytime you save.
+- log will now show up under users, its still in its own subfolder and will be changed in the future to be contained in the admin where it should be 
+- view class now has two new methods $view->show_content, and $view->show_label
+- bootstrap theme for the front end, making it look more presentable
+- css updates
+
+========== 0.8.2 ==========
+
+- added 404 page (non customizable, if the page url isn’t in the db it will auto forward to 404, so you need a 404 page under pages).
+- fix in app/views/body.inc
+- fix in labels.inc
+
 ========== 0.8.1 ==========
 - Better and more thought out sanitization added to add/update. $helpers->custom_clean($passin,$js,$html, look in helpers for the whole list)
 - log is fixed, purge button added but not functional yet.

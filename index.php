@@ -39,7 +39,7 @@ if (!empty($username) && !empty($password)){
 
 
 
-$view->show('header');
+$view->show('head');
 $view->show($contentPage, $user);
 $view->show('footer');
 

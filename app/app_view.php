@@ -28,5 +28,15 @@ class appView {
 			include_once $templatePath;
 		}
 	}
+	
+	public function show_content($content){
+		global $areas;
+		if(isset($areas->$content)){echo $areas->$content; }
+	}
+	
+	public function show_label($label){
+		global $labels;
+		if($labels->$label){echo $labels->$label; }
+	}
 
 }

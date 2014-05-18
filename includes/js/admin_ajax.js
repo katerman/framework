@@ -191,7 +191,7 @@ $(document).ready(function(){
 					var auth_token = $('#token').val();     
 				}
 				
-				console.log(auth_token);
+				//console.log(auth_token);
 				//object to hold info
 				data['type'] = update_type;
 				data['id'] = id;
@@ -228,6 +228,40 @@ $(document).ready(function(){
 	}// end of delete_validation	
 
 	function add_validation(){	
+	
+		$('#user_uname').bind('input', function(){
+
+			var u = $(this).val();			
+			var data = {
+				"username": u,
+			};			
+		
+			$('.error-taken').remove();
+			
+			$.ajax({
+				type: "POST",
+				dataType: "json", 
+				url: "check_user.php",
+				data: data,
+				clearform: false,
+				success: function(data) {
+					//console.log('Data: '+ data.length);
+					if(data.length != 0){
+						$('input.btn').attr('disabled', 'true');
+						$('#user_uname').after('<label for="user_uname" class="error-taken">Username Taken</label>');
+					}else{
+						$('input.btn').removeAttr('disabled');
+					}
+				},
+				error: function(jxhr,ts,et){
+					//console.log(JSON.stringify(jxhr) + '  ' + ts + '  ' + et);
+				}
+			}).done(function() {
+				//console.log('done');
+			});//ajax
+			
+		});	//change
+	
          $("#add_form").validate({   
             submitHandler: function(form) {
             			 	
@@ -270,9 +304,9 @@ $(document).ready(function(){
 					data['token'] = token;	
 					data['update_type'] = update_type;
 					
-					var added = data['user_uname'];			
+					var added = data['user_uname'];	
 				}
-  
+				
             
 				$(form).ajaxSubmit({
 						url:"add.php",
@@ -285,7 +319,7 @@ $(document).ready(function(){
 							var feedb_text = $('.feedback_text');
 							feedb_text.show().css('color', 'green').text('Added: ' + added + ' !');						
 							//location.reload();
-							console.log(data);
+							//console.log(data);
 						},
 						error: function(x,t,m){
 							if(t==="timeout"){
