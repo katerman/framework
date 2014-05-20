@@ -1,6 +1,10 @@
 <?php
 	if($perms['pages'] == 1){
 	
+		//pager
+		$amt = $helpers->getQuery('amt','return');
+		include_once "scripts/pager.class.php"; //include this class where needed
+	
 		$page = $helpers->getQuery('pageid','return');
 		$z = $helpers->sqlSelect("*" , "pages", "", "WHERE pages_id = $page" );
 		$r = $helpers->sqlSelect("*" , "templates", "", "");
@@ -118,14 +122,14 @@
 	    <input id="on_nav" type="checkbox" name="on_nav" value="1" <?php if($on_nav_val === '1'){ echo 'checked';} ?>/>
 	</div>
 	
-	<div class="pull-left">
+	<div class="pull-left seo_column">
 	
 		<h2>SEO</h2><br/>
 		<label for="page_meta_title">Page Meta Description</label><br/>
-	    <input id="page_meta_title" name="page_meta_title" value="<?php echo $meta_title; ?>" placeholder="Page Meta Title"><br/>
+	    <textarea id="page_meta_title" name="page_meta_title" placeholder="Page Meta Title"><?php echo $meta_title; ?></textarea><br/>
 	
 		<label for="page_meta_keyword">Page Meta Keywords <span style="font-size: 10px">Seperate each keyword by a comma</span></label><br/>
-	    <input id="page_meta_keyword" name="page_meta_keyword" value="<?php echo $meta_keyword; ?>" placeholder="Page Meta Keywords"><br/>
+	    <textarea id="page_meta_keyword" name="page_meta_keyword" placeholder="Page Meta Keywords"><?php echo $meta_keyword; ?></textarea><br/>
 	</div>
 	
 	<input type="hidden" id="token" name="token" value="<?php echo $token; ?>">
@@ -137,14 +141,16 @@
 	
 	
 	<?php
-	$c = $helpers->sqlSelect("*" , "content", "", "WHERE page_id = $page ORDER BY content_order ASC" );
-	//print_r($c);
+	//$c = $helpers->sqlSelect("*" , "content", "", "WHERE page_id = $page ORDER BY content_order ASC" );
+	$pager = new pager($amt, 'content', '*');  
+	$pager->setTableSqlDataWhere("WHERE page_id = $page ORDER BY content_order ASC");
+	
 	echo '<h2 style="padding-top: 20px;" class="clear-fix">Content for '.$page_name.'</h2> 
 		  <table style="padding-top: 20px;" class="clear-fix search_table table">
 			<thead>
 				<tr>
 					<td class="vis-hidden"></td>
-					<td><input class="search" placeholder="Type to search"/></td>
+					<td><input class="search" placeholder="Type to Filter"/></td>
 				</tr>					
 				<tr class="th">
 					<td>Content Name</td>
@@ -159,7 +165,7 @@
 			<tbody>
 		';		
 					  
-	foreach($c as $value) {
+	foreach($pager->getTableData() as $value) {
 		echo '<tr class="content-table data">'.
 				'<td class="content_name">'.$value['content_name'].'</td>'
 				.'<td class="content_id hidden">'.$value['content_id'].'</td>'
@@ -172,10 +178,11 @@
 			 .'</tr>';
 	}				
 	echo '</tbody></table>';	
-	
+	echo '<p class="add_content">Add new content</p>';
+
+	$pager->ShowPaging();
 	?>
-	
-	<p class="add_content">Add new content</p>
+	<br><br>
 	
 	
 	
@@ -184,7 +191,7 @@
 	<thead>
 		<tr>
 			<td class="vis-hidden"></td>
-			<td><input class="search" placeholder="Type to search"/></td>
+			<td><input class="search" placeholder="Type to Filter"/></td>
 		</tr>
 		<tr>
 			<td>Page Name</td>

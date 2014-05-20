@@ -1,5 +1,10 @@
 <?php
 	if($perms['assets']['templates'] == 1 && $perms['assets']['top_level'] == 1){
+		
+		//pager	
+		$amt = $helpers->getQuery('amt','return');
+		include_once "scripts/pager.class.php"; //include this class where needed
+	
 ?>
 
 <h1> Templates </h1>
@@ -7,14 +12,16 @@
 
 	$token = $security->generateFormToken('token'); 
 	echo '<p id="token" class="hidden">'.$token.'</p>';
-	$r = $helpers->sqlSelect("*" , "templates", "", "");
+	//$r = $helpers->sqlSelect("*" , "templates", "", "");
+	$pager = new pager($amt, 'templates', '*');  
+
 	//print_r($r);
 	
 	echo '<table class="search_table table">
 			<thead>
 			<tr>
 				<td class="vis-hidden"></td>
-				<td><input class="search" placeholder="Type to search"/></td>
+				<td><input class="search" placeholder="Type to Filter"/></td>
 			</tr>
 			<tr>
 				<td class="hidden">id</td>
@@ -26,7 +33,7 @@
 			<tbody>
 		';		
 					  
-	foreach($r as $value) {
+	foreach($pager->getTableData() as $value) {
 		$type = $value['template_type'];
 		if($type === '0'){
 			$type = 'page';
@@ -43,10 +50,11 @@
 			 .'</tr>';
 	}				
 	echo '</tbody></table>';		
-
+	echo '<p class="add_template">Add new template</p>';
+	
+	$pager->ShowPaging();
 ?>
 
-<p class="add_template">Add new template</p>
 
 <?php
 	}else{

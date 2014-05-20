@@ -10,3 +10,5 @@ uploads/logo.png
 includes/img/admin/refined.png
 
 *.png
+
+.DS_Store

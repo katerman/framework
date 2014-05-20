@@ -1,19 +1,26 @@
 <?php
 	if($perms['users'] == 1){
+	
+		//pager
+		$amt = $helpers->getQuery('amt','return');
+		include_once "scripts/pager.class.php"; //include this class where needed
+
 ?>
 
 <h1> this is the edit <?php $helpers->getQuery('pagename','echo'); ?> page</h1>
 
 <?php 
 	
-	$q = $helpers->sqlSelect("*" , "users", "", "ORDER BY user_Access ASC");
+	//$q = $helpers->sqlSelect("*" , "users", "", "ORDER BY user_Access ASC LIMIT $amt");
+	$pager = new pager($amt, 'users', 'user_uName, user_FullName, user_Access, users_Id');  
+	 
 	$token = $security->generateFormToken('token');
 
 	echo '<table class="search_table table">
 			<thead>
 			<tr>
 				<td class="vis-hidden"></td>
-				<td><input class="search" placeholder="Type to search"/></td>
+				<td><input class="search" placeholder="Type to Filter"/></td>
 			</tr>
 			<tr>
 				<td>username</td>
@@ -24,8 +31,8 @@
 			</thead>
 			<tbody>
 		';		
-					  
-	foreach($q as $value) {
+			  
+	foreach($pager->getTableData() as $value) {
 		echo '<tr class="data">'
 				.'<td>'.$value['user_uName'].'</td>'
 				.'<td>'.$value['user_FullName'].'</td>'
@@ -38,9 +45,11 @@
 			 .'</tr>';
 	}				
 	echo '</tbody></table>';		
-		    
-
+			 
+	$pager->ShowPaging();
 ?>
+
+
 
 <?php
 	}else{

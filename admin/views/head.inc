@@ -1,5 +1,6 @@
 <?php
 	global $_CONFIG;
+	global $helpers;
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +24,7 @@
 <!-- Google fonts -->
 <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-<title>Admin-<?php echo helpers::url('base'); ?></title>
+<title>Admin-<?php echo $helpers->url('base'); ?></title>
 </head>
 <body>
 

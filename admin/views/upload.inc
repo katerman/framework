@@ -11,7 +11,7 @@
 
 <h1> Upload</h1>
 
-<form action="upload.php" class="dropzone"></form>
+<form action="scripts/upload.php" class="dropzone"></form>
 
 <script src="<? echo $_CONFIG->js_path; ?>dropzone.min.js" charset="utf-8"></script>
 

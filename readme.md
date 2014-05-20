@@ -1,3 +1,15 @@
+========== 1.0 ==========
+- scripts in admin are now in admin/scripts, it needed organization.
+- log is out of its own folder, and now correctly in admin under users.
+- pagenation class, and implimentation on several pages.
+- updated add_user.inc 
+- updated the search inputs to say filter instead, because they dont search
+- trying to remove hashs from links.
+- css fixes to admin 
+- removed old css
+- admin_ajax has a pager function to go with php pager class
+- $helpers->setParam will force page redirect even after headers have sent.
+
 ========== 0.9 ==========
 - When creating a user, validation will now check to see if there is already a user with that username.
 - Username cannot be edited any longer.
@@ -23,7 +35,7 @@
 - $helpers has an added sqlDelete() method that does not function yet.
 
 
-========== 0.8.0 ==========
+========== 0.8.0 BETA ==========
 
 - Upgraded from alpha to beta.
 - helper class now handles sqlSelect(). This involves helpers having its own PDO method.
@@ -80,7 +92,7 @@ more options in config, yay.
 - delete image script in admin, for deleting images in uploads.
 
 
-========== 0.5 ==========
+========== 0.5 ALPHA ==========
 
 - Complete overhaul of file system.
 - changed token security system to be easier, and less stupid, stop looking for specific tokens every time and just look for ‘token’.

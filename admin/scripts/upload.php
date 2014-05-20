@@ -9,7 +9,7 @@ if (!empty($_FILES)) {
      
     $tempFile = $_FILES['file']['tmp_name'];                    
       
-    $targetPath = dirname(dirname(__FILE__)) . $ds. $storeFolder . $ds;  
+    $targetPath = dirname(dirname(dirname(__FILE__))) . $ds. $storeFolder . $ds;  
      
     $targetFile =  $targetPath. $_FILES['file']['name'];  
  

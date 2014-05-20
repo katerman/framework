@@ -12,13 +12,13 @@
 		?>
 		<form id="add_form" class="form" action="" method="" accept-charset="utf-8">
 				
-			<label for="user_uname">Username</label><br/>
+			<label for="user_uname">Username *</label><br/>
             <input id="user_uname" name="username" value="" placeholder="Username" class="required"><br/>
-			
-			<label for="user_pass">Password</label><br/>
-            <input id="user_pass" name="password" value="" placeholder="Password" class="required"><br/>
+			 
+			<label for="user_pass">Password *</label><br/>
+            <input id="user_pass" name="password" value="" placeholder="Password" class="required" minlength="6"><br/>
 		
-			<label for="user_fullname">Full Name</label><br/>
+			<label for="user_fullname">Full Name *</label><br/>
             <input id="user_fullname" name="fullname" value="" placeholder="Full Name" class="required"><br/>
 			
 			<label for="radio_admin">Admin</label>

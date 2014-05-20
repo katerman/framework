@@ -1,5 +1,51 @@
 $(document).ready(function(){
 	var body = $('body');
+
+	function insertParam(key, value) {
+		 key = encodeURI(key); value = encodeURI(value);
+	
+		 var kvp = document.location.search.substr(1).split('&');
+	
+		 var i=kvp.length; var x; while(i--) 
+		 {
+			 x = kvp[i].split('=');
+	
+			 if (x[0]==key)
+			 {
+				 x[1] = value;
+				 kvp[i] = x.join('=');
+				 break;
+			 }
+		 }
+	
+		 if(i<0) {kvp[kvp.length] = [key,value].join('=');}
+	
+		 //this will reload the page, it's likely better to store this until finished
+		 document.location.search = kvp.join('&'); 
+	}		
+	
+	var QueryString = function () {
+		// This function is anonymous, is executed immediately and 
+		// the return value is assigned to QueryString!
+		var query_string = {};
+		var query = window.location.search.substring(1);
+		var vars = query.split("&");
+		for (var i=0;i<vars.length;i++) {
+			var pair = vars[i].split("=");
+			// If first entry with this name
+			if (typeof query_string[pair[0]] === "undefined") {
+				query_string[pair[0]] = pair[1];
+				// If second entry with this name
+			} else if (typeof query_string[pair[0]] === "string") {
+				var arr = [ query_string[pair[0]], pair[1] ];
+				query_string[pair[0]] = arr;
+				// If third or later entry with this name
+			} else {
+				query_string[pair[0]].push(pair[1]);
+			}
+		} 
+		return query_string;
+	} ();	
 	
 	function login_validation(){		
          $("#login_form").validate({				     
@@ -138,7 +184,7 @@ $(document).ready(function(){
 				}
 								
 				$(form).ajaxSubmit({
-						url:"update.php",
+						url:"scripts/update.php",
 						type:"POST",
 						data: data,
 						timeout: 2000,
@@ -205,7 +251,7 @@ $(document).ready(function(){
 		    submitHandler: function(form) {                
 										
 				$(form).ajaxSubmit({
-						url:"delete.php",
+						url:"scripts/delete.php",
 						type:"POST",
 						data: data,
 						timeout: 2000,
@@ -241,7 +287,7 @@ $(document).ready(function(){
 			$.ajax({
 				type: "POST",
 				dataType: "json", 
-				url: "check_user.php",
+				url: "scripts/check_user.php",
 				data: data,
 				clearform: false,
 				success: function(data) {
@@ -309,7 +355,7 @@ $(document).ready(function(){
 				
             
 				$(form).ajaxSubmit({
-						url:"add.php",
+						url:"scripts/add.php",
 						type:"POST",
 						data: data,
 						timeout: 2000,
@@ -352,7 +398,7 @@ $(document).ready(function(){
 							// == data[page_name] = $('#page_name').val();
 						}
 						
-						url = "update.php";
+						url = "scripts/update.php";
 						feedback = 'Updated!';
 						
 					}else if(update_type === 'content' && update_crud == 'add'){
@@ -364,7 +410,7 @@ $(document).ready(function(){
 							// == data[page_name] = $('#page_name').val();
 						}
 						
-						url = "add.php";
+						url = "scripts/add.php";
 						feedback = 'Added!';
 					}
 				
@@ -419,7 +465,7 @@ $(document).ready(function(){
 							data[values[i]] = $('#'+values[i]).val();
 						}
 						
-						url = "update.php";
+						url = "scripts/update.php";
 						feedback = 'Updated!';
 						
 					}else if(update_type === 'template' && update_crud == 'add'){
@@ -430,7 +476,7 @@ $(document).ready(function(){
 							data[values[i]] = $('#'+values[i]).val();
 						}
 						
-						url = "add.php";
+						url = "scripts/add.php";
 						feedback = 'Added!';
 					}
 				
@@ -486,7 +532,7 @@ $(document).ready(function(){
 							data[values[i]] = $('#'+values[i]).val();
 						}
 												
-						url = "update.php";
+						url = "scripts/update.php";
 						feedback = 'Updated!';
 						
 					}else if(update_type === 'labels' && update_crud === 'add'){
@@ -498,7 +544,7 @@ $(document).ready(function(){
 							data[values[i]] = $('#'+values[i]).val();
 						}
 												
-						url = "add.php";
+						url = "scripts/add.php";
 						feedback = 'Added!';
 					}
 				
@@ -569,7 +615,7 @@ $(document).ready(function(){
 			    submitHandler: function(form) {                
 											
 					$(form).ajaxSubmit({
-							url:"delete_image.php",
+							url:"scripts/delete_image.php",
 							type:"POST",
 							data: data,
 							timeout: 2000,
@@ -649,7 +695,7 @@ $(document).ready(function(){
 			    submitHandler: function(form) {                
 											
 					$(form).ajaxSubmit({
-							url:"rename_image.php",
+							url:"scripts/rename_image.php",
 							type:"POST",
 							data: data,
 							timeout: 2000,
@@ -676,6 +722,75 @@ $(document).ready(function(){
 		
 	}// end of rename_image_validation	
 
+	function log_purge(){
+		var data = {
+			"purge": 1,
+			"token": $('.token').val()
+		};
+	
+		$('#purge').on('click', function(){
+			$.ajax({
+				type: "POST",
+				dataType: "json", 
+				url: "scripts/log.php",
+				data: data,
+				clearform: true,
+				success: function(data) {
+					//console.log('Data: '+ data.length);
+				},
+				error: function(jxhr,ts,et){
+					//console.log(JSON.stringify(jxhr) + '  ' + ts + '  ' + et);
+				}
+			}).done(function() {
+				location.reload();
+			});//ajax
+		});
+	}//log purge
+
+	function pager(){
+		var amount = $('.pager-amount').val();
+		var page = parseInt(QueryString.page);
+		var max = $('.pager-max').text();
+			
+		$('.pager-amount').change(function(){
+			var amount = $(this).val();
+			insertParam('amt',amount);
+			insertParam('page',1);
+		});//pager amount change - dropdown
+		
+		$('.pager-forward').click(function(e){
+					
+			if(page + 1 > parseInt(max)){
+				insertParam('page',1);
+			}else{
+				insertParam('page', parseInt(page)+1);
+			}
+			
+		});
+		
+		$('.pager-back').click(function(e){
+					
+			if(page - 1 == 0){
+				insertParam('page',parseInt(max));
+			}else{
+				insertParam('page', parseInt(page)-1);
+			}
+			
+		});		
+		
+		$('.pager-input').keydown(function(e){
+		
+			if(e.which == 13){ // fire on enter, then check if the value entered is higher than our max, if it is  bring them to the last page. If not bring them to the page they want
+				if($(this).val() > max){
+					insertParam('page',max);
+				}else{
+					insertParam('page',$(this).val());
+				}
+			}
+		});
+		
+	}//pager 
+
 
 	function init(){
 		edit_validation();
@@ -688,6 +803,9 @@ $(document).ready(function(){
 		delete_image_validation(); //created a new function for deleting images, it works in a seperate way than the regular delete, and dont want to over saturate the orginal function.
 		rename_image_validation();
 		
+		log_purge();
+		
+		pager();
 		// the amount of seperate functions is silly, but makes it much easier to seperate things out.
 	}
 	

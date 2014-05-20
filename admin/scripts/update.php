@@ -7,7 +7,7 @@
 		die();
 	}
 	
-	include_once "../includes/scripts/app.php";
+	include_once "../../includes/scripts/app.php";
 	
 	$security = new security();
 	$helpers = new helpers($dsn, $db_user, $db_pass);

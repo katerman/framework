@@ -529,6 +529,7 @@ a:link, a:visited, a:hover, a:active {
 	border-top: 1px solid #cacac8;
 	position: fixed;
 	bottom: 0;
+	z-index: 100;
 }
 
 #footer > div {
@@ -553,7 +554,8 @@ a:link, a:visited, a:hover, a:active {
 
 /* Pager */
 .pager{ 
-	margin-top: 10px; 
+	float: left;
+	margin-top: 10px;
 }
 
 .pager > * {
@@ -583,6 +585,10 @@ a:link, a:visited, a:hover, a:active {
 	background: #6dcff6;
 	line-height: 26px;
 	cursor: pointer;
+}
+
+input.pager-input {
+	margin: 0;
 }
 
 
@@ -712,6 +718,10 @@ a:link, a:visited, a:hover, a:active {
 	clear: both;
 	width: 100%;
 	padding-top: 10px;
+}
+
+.form input[type="checkbox"], .form input[type="radio"] {
+	width: auto;
 }
 
 
@@ -1079,6 +1089,10 @@ tr.data td {
 tr.data form {
 	position: static !important;
 }
+
+tr.data td .delete, tr.data td .edit {
+	float: left;
+}
 /*footer */
 
 #footer {
@@ -1097,7 +1111,7 @@ tr.data form {
 
 /* forms */
 input, textarea {
-	margin: 5px;
+	margin: 5px 5px 5px 0;
 }
 
 .radio {
@@ -1123,6 +1137,10 @@ input, textarea {
 	font-size: 16px;
 }
 
+.seo_column {
+	margin-left: 20px;
+}
+
 .form input, .form textarea{
 	padding: 5px;
 	width: 200px;
@@ -1134,8 +1152,8 @@ input[type="radio"] {
 
 .yn-overlay{
 	min-height: 100%;
-	min-width: 73px;
-	background: #838282;
+	min-width: 100%;
+	background: #f1f1f1;
 	position: absolute;
 	top: 0px;
 	left: 0px;

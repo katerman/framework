@@ -13,7 +13,7 @@ class helpers {
 	 * @param mixed $t
 	 * @return full, base, fullpage, folder, lastpath, current
 	 */
-	public static function url($t){ //Return url based on arguments (full, base, fullpage, folder), $type, $amount = for folder levels
+	public function url($t){ //Return url based on arguments (full, base, fullpage, folder), $type, $amount = for folder levels
 		switch ($t) {
 		
 		    case 'full':
@@ -343,5 +343,27 @@ class helpers {
 
 	}	
 	
+	public function setParam(&$url, $varName, $value, $refresh = true) {
+	    // is there already an ?
+	    if (strpos($url, "?")){
+	        $url .= "&" . $varName . "=" . $value; 
+	    }
+	    else{
+	        $url .= "?" . $varName . "=" . $value;
+	    }
+
+	    if($refresh == true){
+	    
+			if (headers_sent()) {
+				die('<script> location.replace("'.$url.'"); </script>');
+			}
+			else{
+				exit(header("Location: $url"));
+			}	    
+
+		}
+	    
+	    
+    }	
 	
 }

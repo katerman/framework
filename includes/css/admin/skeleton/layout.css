@@ -50,6 +50,14 @@
 		.flat-box {
 			width: 527px;
 		}
+		
+		#edit_form {
+			margin: 20px 0 0 10px;
+		}
+		
+		.seo_column {
+			margin: 15px 0 0 0;
+		}
 	}
 
 	/* Tablet Portrait size to standard 960 (devices and browsers) */

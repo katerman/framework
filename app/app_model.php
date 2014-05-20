@@ -27,6 +27,7 @@ class appModel{
 				return $rows[0];
 			}else{
 				$e = header("HTTP/1.1 403 Forbidden");
+				die();
 			}
 		}
 		return array();//If the expected successful return is an array, the failed return should be an empty array
