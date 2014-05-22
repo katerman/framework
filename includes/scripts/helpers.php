@@ -275,6 +275,7 @@ class helpers {
 	 public function sqlSelect($select = "*", $table="*", $values="", $where=""){
 		//die(print_r(debug_backtrace(),true));
 		$stmt = $this->db->prepare("SELECT $select FROM $table $where");
+		//print_r($stmt);
 		try {
 			if ($stmt->execute()) {
 				$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -343,6 +344,16 @@ class helpers {
 
 	}	
 	
+	/**
+	 * setParam function.
+	 * 
+	 * @access public
+	 * @param mixed &$url
+	 * @param mixed $varName
+	 * @param mixed $value
+	 * @param bool $refresh (default: true)
+	 * @return will automatically redirect to page, even if the headers have already sent, js must be on.
+	 */
 	public function setParam(&$url, $varName, $value, $refresh = true) {
 	    // is there already an ?
 	    if (strpos($url, "?")){

@@ -1,11 +1,17 @@
 <?php
+if($perms['users'] == 1){
+
+	//pager
+	$amt = $helpers->getQuery('amt','return');
+	include_once "scripts/pager.class.php"; //include this class where needed
 
 	global $helpers;
 	
-	$log = $helpers->sqlSelect("*" , "log", "", "");
+	//$log = $helpers->sqlSelect("*" , "log", "", "");
 
 	$token = $security->generateFormToken('token'); 
-
+	
+	$pager = new pager($amt, 'log', '*');  
 ?>
 
 <h1>The Log</h1>
@@ -30,7 +36,7 @@
 	
 	<tbody>
 		<?
-			foreach($log as $l){
+			foreach($pager->getTableData() as $l){
 				echo '<tr class="data"><td>'.$l['log_name'].'</td>';
 				echo '<td>'.$l['log_action'].'</td>';
 				echo '<td>'.$l['log_content'].'</td>';
@@ -40,3 +46,11 @@
 		?>
 	</tbody>
 </table>
+
+	
+
+<?php
+		$pager->ShowPaging();
+	}else{
+		header('Location: ?tpl=default_view');
+	}

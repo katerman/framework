@@ -28,4 +28,6 @@
 </head>
 <body>
 
-  
+  <script>
+  	var pager_array = [];
+  </script>

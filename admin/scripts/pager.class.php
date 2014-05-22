@@ -29,7 +29,7 @@ class Pager {
 		//same as above but for page url param
 		if(isset($_GET[$page_key])){
 			$this->page = $_GET[$page_key];
-			$this->page_key = $amt_key;
+			$this->page_key = $page_key;
 		}else{
 			$helpers->setParam($url,$page_key, 1,true);
 		}
@@ -119,6 +119,7 @@ class Pager {
 		}
 
 		$count = count($helpers->sqlSelect($this->sql['columns'], $this->sql['table'] ,"", $where));
+		if($count == 0){return 1;}
 		return ceil($count / $this::getAmount());
 	}
 
@@ -130,7 +131,7 @@ class Pager {
 	 * @info this determines our limit for paging, basically what row in the DB will we need on whatever page.
 	 */
 	public function getLimit(){
-		if($this::getPage() == 1){
+		if($this::getPage() == 1 || $this::getPage() <= 0){
 			return 0;
 		}else{
 			$limit = $this::getPage() - 1;
@@ -147,7 +148,13 @@ class Pager {
 	public function paging_html(){
 		
 		echo '
-			<div class="pager">
+			<script>
+				var array = ["'.$this->page_key.'","'.$this->amt_key.'"]
+				pager_array.push(array);
+			</script>';
+		
+		echo '
+			<div class="pager" id="pager-'.$this->page_key.'">
 				<p>Page</p>
 				<div class="pager-back fa fa-arrow-left"></div>
 				<input type="text" value="'.$this::getPage().'" class="pager-input">

@@ -563,40 +563,44 @@ $(document).ready(function() {
 		});
 	}
 
-	function pager() {
-		var amount = $('.pager-amount').val();
-		var page = parseInt(QueryString.page);
-		var max = $('.pager-max').text();
-		$('.pager-amount').change(function() {
+	function pager(page_key,amt_key, id) {
+		var amount = $('#pager-'+id+' .pager-amount').val();
+		var page = parseInt(QueryString[page_key]);
+		var max = $('#pager-'+id+' .pager-max').text();
+				
+		if(page > max){insertParam(page_key, max);} //check if user is above max pages
+		
+		$('#pager-'+id+' .pager-amount').change(function() {
 			var amount = $(this).val();
-			insertParam('amt', amount);
+			insertParam(amt_key, amount);
 		}); //pager amount change - dropdown
-		$('.pager-forward').click(function(e) {
+		$('#pager-'+id+' .pager-forward').click(function(e) {
 			if (page + 1 > parseInt(max)) {
-				insertParam('page', 1);
+				insertParam(page_key, 1);
 			} else {
-				insertParam('page', parseInt(page) + 1);
+				insertParam(page_key, parseInt(page) + 1);
 			}
 		});
-		$('.pager-back').click(function(e) {
+		$('#pager-'+id+' .pager-back').click(function(e) {
 			if (page - 1 == 0) {
-				insertParam('page', parseInt(max));
+				insertParam(page_key, parseInt(max));
 			} else {
-				insertParam('page', parseInt(page) - 1);
+				insertParam(page_key, parseInt(page) - 1);
 			}
 		});
-		$('.pager-input').keydown(function(e) {
+		$('#pager-'+id+' .pager-input').keydown(function(e) {
 			if (e.which == 13) { // fire on enter, then check if the value entered is higher than our max, if it is  bring them to the last page. If not bring them to the page they want
 				if ($(this).val() > max) {
-					insertParam('page', max);
+					insertParam(page_key, max);
 				} else {
-					insertParam('page', $(this).val());
+					insertParam(page_key, $(this).val());
 				}
 			}
 		});
 	} //pager 
 
-	function init() { /* 		AddTarget();  broken atm*/
+	function init() { 
+		/* 		AddTarget();  broken atm*/
 		content();
 		templates();
 		labels();
@@ -619,7 +623,13 @@ $(document).ready(function() {
 			controller.click();
 		}
 		//$('.pager-amount').customSelect();
-		pager();
+
+		function foreach_callback(element, index, array) {
+			//console.log("[" + index + "]" + " = " + element);
+			pager(element[0], element[1], element[0]);
+		}
+		pager_array.forEach(foreach_callback);
+		
 	}
 	init();
 });

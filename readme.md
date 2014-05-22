@@ -1,3 +1,12 @@
+========== 1.1 ==========
+- sql table added
+- docblock added to a helpers method
+- admin.js changed to accomidate more than one pager
+- added pager to log
+- two pagers on edit_page one for sub-pages and one for content
+- some fixes in pager.class.php
+- upon calling a new pager the pager class will generate some js for admin.js to grab. make sure page_key, and amt_key are never the same when using more than one pager.
+
 ========== 1.0 ==========
 - scripts in admin are now in admin/scripts, it needed organization.
 - log is out of its own folder, and now correctly in admin under users.

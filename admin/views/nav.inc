@@ -78,7 +78,7 @@
 				<ul class="dropdown">
 					<li><a class="nav_view-page nav-spot" href="?tpl=users&pagename=users&amt=10&page=1">View Users</a></li>
 					<li><a class="nav_add-page nav-spot" href="?tpl=add&type=add_user">Add User</a></li>					
-					<li><a class="nav-spot" href="?tpl=log">User Log</a></li>					
+					<li><a class="nav-spot" href="?tpl=log&amt=10&page=1">User Log</a></li>					
 				</ul>
 			</li>
 		</ul>
