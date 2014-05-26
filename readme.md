@@ -1,3 +1,8 @@
+========== 1.2 ==========
+- log where updated to orderby ID (latest entry)
+- updating default.inc
+- new script to handle resized images on the fly "img src="includes/scripts/image.php?w=1000&fit=0&h=120&file=refined.png"" 
+
 ========== 1.1 ==========
 - sql table added
 - docblock added to a helpers method

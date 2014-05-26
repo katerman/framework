@@ -2,13 +2,6 @@ error_log
 
 admin/security.log
 
-uploads/
-uploads/RD.png
-
-uploads/logo.png
-
-includes/img/admin/refined.png
+.DS_Store
 
 *.png
-
-.DS_Store

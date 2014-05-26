@@ -13,6 +13,7 @@
 	if(empty($q)){
 		header("HTTP/1.0 404 Not Found");
 		header("Location: /page/404");
+		exit();
 	}
 
 	$GLOBALS['config'] = $c[0];
@@ -22,7 +23,7 @@
 	$config = $GLOBALS['config'];
 	
 	$page_id = $page['pages_id'];
-	$cont = $helpers->sqlSelect("*" , "content", "", "WHERE page_id = $page_id");
+	$cont = $helpers->sqlSelect("*" , "content", "", "WHERE page_id = $page_id ORDER BY content_order ASC");
 	
 	$GLOBALS['content'] = $cont;
 	$content = $GLOBALS['content'];

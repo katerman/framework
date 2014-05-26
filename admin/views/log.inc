@@ -12,7 +12,10 @@ if($perms['users'] == 1){
 	$token = $security->generateFormToken('token'); 
 	
 	$pager = new pager($amt, 'log', '*');  
+	$pager->setTableSqlDataWhere("ORDER BY log_id DESC");
+
 ?>
+
 
 <h1>The Log</h1>
 

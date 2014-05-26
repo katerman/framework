@@ -56,13 +56,6 @@
 		if($page['page_template']){
 			$view->show('templates/'.$r[0]['template_name']);
 		}
-		
-		//to not lock doors, we'll show content without an area, but it wont be included in any template.
-		foreach($content as $cont){
-			if(empty($cont['content_area'])){
-				echo $cont['content'];
-			}
-		}
 	
 	?>
 
