@@ -5,3 +5,5 @@ admin/security.log
 .DS_Store
 
 *.png
+
+*.log

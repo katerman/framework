@@ -153,9 +153,10 @@
 			$log->execute($log_data);
 		}
 		
-		if($update_type === 'content'){
+		if($update_type === 'content'){	
+		
 			$content_id = $helpers->custom_clean($_POST['content_id']);
-			$content = $helpers->custom_clean($_POST['content'], true, false, false);
+			$content = $helpers->custom_clean(htmlspecialchars_decode(stripslashes($_POST['content']), ENT_QUOTES), true, false, false);
 			$content_area = $helpers->custom_clean($_POST['content_area']);
 			$content_name = $helpers->custom_clean($_POST['content_name']);
 			$content_order = $helpers->custom_clean($_POST['content_order']);

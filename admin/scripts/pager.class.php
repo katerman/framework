@@ -120,7 +120,7 @@ class Pager {
 
 		$count = count($helpers->sqlSelect($this->sql['columns'], $this->sql['table'] ,"", $where));
 		if($count == 0){return 1;}
-		return ceil($count / $this::getAmount());
+		return ceil($count / $this->getAmount());
 	}
 
 	/**
@@ -131,10 +131,10 @@ class Pager {
 	 * @info this determines our limit for paging, basically what row in the DB will we need on whatever page.
 	 */
 	public function getLimit(){
-		if($this::getPage() == 1 || $this::getPage() <= 0){
+		if($this->getPage() == 1 || $this->getPage() <= 0){
 			return 0;
 		}else{
-			$limit = $this::getPage() - 1;
+			$limit = $this->getPage() - 1;
 			return $limit;
 		}
 	}
@@ -157,10 +157,10 @@ class Pager {
 			<div class="pager" id="pager-'.$this->page_key.'">
 				<p>Page</p>
 				<div class="pager-back fa fa-arrow-left"></div>
-				<input type="text" value="'.$this::getPage().'" class="pager-input">
+				<input type="text" value="'.$this->getPage().'" class="pager-input">
 				<div class="pager-forward fa fa-arrow-right"></div>
 				<p> of
-					<span class="pager-max">'.$this::getTotal().'</span>
+					<span class="pager-max">'.$this->getTotal().'</span>
 				</p>
 
 
@@ -170,7 +170,7 @@ class Pager {
 				
 				//using our $this->dropdown_values this foreach will populate text and values
 				foreach($this->dropdown_values as $text=>$value){
-					echo '<option value="'.$value.'"'.($value == $this::getAmount() ? "selected" : "").'>'.$text.'</option>';
+					echo '<option value="'.$value.'"'.($value == $this->getAmount() ? "selected" : "").'>'.$text.'</option>';
 				}
 
 		echo '
@@ -189,7 +189,7 @@ class Pager {
 	 * @return void - this shows paging elements, customize how it looks in paging_html()
 	 */
 	public function ShowPaging(){
-		$this::paging_html();
+		$this->paging_html();
 	}
 
 	/**
@@ -200,8 +200,8 @@ class Pager {
 	 */
 	public function getTableData(){
 		global $helpers;	
-		$query = $helpers->sqlSelect($this->sql['columns'], $this->sql['table'],"", $this::getTableSqlDataWhere().' LIMIT '.$this::getLimit().','. $this::getAmount());
-		//print_r('Start from this row #: '.$this::getLimit().', Limit to this amount of rows: '. $this::getAmount());
+		$query = $helpers->sqlSelect($this->sql['columns'], $this->sql['table'],"", $this->getTableSqlDataWhere().' LIMIT '.$this->getLimit().','. $this->getAmount());
+		//print_r('Start from this row #: '.$this->getLimit().', Limit to this amount of rows: '. $this->getAmount());
 		return $query;
 	}
 
