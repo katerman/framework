@@ -260,7 +260,7 @@ class helpers {
 	return true;
 	}
 	
-
+	
 	/**
 	 * sqlSelect function.
 	 * 
@@ -268,38 +268,54 @@ class helpers {
 	 * @static
 	 * @param string $select (default: "*") column(s) name
 	 * @param string $table (default: "*") table name
-	 * @param string $table (default: "") more on this later
+	 * @param string $debug (default: false) echos out your statement ($stmt)
 	 * @param string $where (default: "") room for more after the select.
 	 * @return - an array of data from the DB
 	 */
-	 public function sqlSelect($select = "*", $table="*", $values="", $where=""){
+	 public function sqlSelect($select = "*", $table="*", $debug=false, $where="", $join = null){		 
+					
+		$join_string = '';
+		if($join != null && is_array($join)){
+			if(is_array($join[0])){
+				foreach($join as $j){
+					$join_string .= "$j[2] JOIN `$j[0]` ON $j[1]";
+				}
+			}else{
+				$join_string .= "$join[2] JOIN `$join[0]` ON $join[1]";
+			}
+			//echo $join_string;
+		}
+		
 		//die(print_r(debug_backtrace(),true));
-		$stmt = $this->db->prepare("SELECT $select FROM $table $where");
-		//print_r($stmt);
+		
+		if($join != null){
+			$stmt = $this->db->prepare("SELECT $select FROM $table $join_string $where");
+		}else{
+			$stmt = $this->db->prepare("SELECT $select FROM $table $where");
+		}
+		
+		if($debug === true && $debug != ""){ // Debug, $debug != ""  - is to preserve some old functionality where the previous param was looking for a string
+			echo '<div style="border: 1px solid red;"><p style="color:red;">sqlSelect DEBUG:<p> ';		
+			print_r($stmt);
+			echo '</div>';
+			exit();
+		}
+		
 		try {
 			if ($stmt->execute()) {
 				$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+			}else{
+				$results = null;
+				echo 'Query Failed -> sqlselect()';
 			}
 		}
 		catch(PDOException $e){
 			echo "Query Failed -> sqlselect() ". $e;
 		}			
 		
-		$arr = array();
-		if (is_array($results)){
-			foreach($results as $rkey=>$r){
-				
-				if($values != ""){
-					foreach($values as $v){			
-						array_push($arr,$r[$v]);
-					}
-				}else{
-					array_push($arr,$r);
-				}
-				
-			}
-			return $arr;		
-		}
+		$stmt->closeCursor(); // Free memory used in this query
+	
+		return $results;	
 	}
 	
 	/**
@@ -308,20 +324,55 @@ class helpers {
 	 * @access public
 	 * @param string $table (default: "")
 	 * @param string $where (default: "")
+	 * @param string $debug (default: false) echos out the statement
 	 * @return - delete something from the DB
 	 */
-	public function sqlDelete($table="", $where=""){
+	public function sqlDelete($table="", $where="", $debug=false){
 
 		//die(print_r(debug_backtrace(),true));
-		$stmt = $this->db->prepare("DELETE FROM $table $where");
+		$stmt = $this->db->prepare("DELETE FROM $table WHERE $where");
+		
+		if($debug === true){ // Debug
+			echo '<div style="border: 1px solid red;"><p style="color:red;">sqlDelete DEBUG:<p> ';		
+			print_r($stmt);
+			echo '</div>';
+			exit();
+		}
+		
 		try {
 			$stmt->execute();
 		}
 		catch(PDOException $e){
 			echo "Query Failed -> sqlDelete() ". $e;
 		}			
-
+		
+		$stmt->closeCursor(); // Free memory used in this query
+		
 	}	
+	
+	public function sqlRaw($query, $debug=false){
+
+		//die(print_r(debug_backtrace(),true));
+		$stmt = $this->db->prepare("$query");
+		
+		if($debug === true){ // Debug
+			echo '<div style="border: 1px solid red;"><p style="color:red;">sqlRaw DEBUG:<p> ';		
+			print_r($stmt);
+			echo '</div>';
+			exit();
+		}
+		
+		try {
+			$stmt->execute();
+		}
+		catch(PDOException $e){
+			echo "Query Failed -> sqlRaw() ". $e;
+		}			
+		
+		$stmt->closeCursor(); // Free memory used in this query
+		
+	}		
+	
 	
 	
 	/**
@@ -331,18 +382,126 @@ class helpers {
 	 * @param string $table (default: "")
 	 * @return void - truncate a table
 	 */
-	public function sqlTruncateTable($table=""){
+	public function sqlTruncateTable($table="", $debug = false){
 
 		//die(print_r(debug_backtrace(),true));
 		$stmt = $this->db->prepare("TRUNCATE TABLE $table");
+
+		if($debug === true){ // Debug
+			echo '<div style="border: 1px solid red;"><p style="color:red;">sqlTruncateTable DEBUG:<p> ';		
+			print_r($stmt);
+			echo '</div>';
+			exit();
+		}		
+		
 		try {
 			$stmt->execute();
 		}
 		catch(PDOException $e){
 			echo "Query Failed -> sqlTruncateTable() ". $e;
-		}			
+		}		
+		
+		$stmt->closeCursor(); // Free memory used in this query
+		
 
 	}	
+	
+	
+	/**
+	 * sqlAdd function.
+	 * 
+	 * @access public
+	 * @param string $table (default: "") - table name in DB
+	 * @param mixed $values - assoc array of table names and their values.
+	 * @param bool $debug (default: false) - echos out the statement
+	 * @return void - adds new row to specified table
+	 */
+	public function sqlAdd($table="", $values, $debug = false ){
+
+			$array = array();
+			$clean_values = '';
+			$bind_values = '';
+			
+			
+			foreach($values as $k=>$value){
+				$next = next($values);
+				$array[':'.$k] = $this->custom_clean($value);
+								
+				if($next === false){
+					$clean_values .= $k;
+					$bind_values .= ':'.$k;					
+				}else{
+					$clean_values .= $k.', ';
+					$bind_values .= ':'.$k.', ';										
+				}
+			}		
+			
+			$stmt = $this->db->prepare("INSERT INTO `$table` ($clean_values) VALUES ($bind_values)");			
+			
+		if($debug === true){ // Debug
+			echo '<div style="border: 1px solid red;"><p style="color:red;">sqlAdd DEBUG:<p> ';		
+			
+			print_r($stmt);
+			echo '<br><br>';
+			print_r($array);
+			
+			echo '</div>';
+			exit();
+		}	
+					
+		if($debug != true){
+			try {
+				$stmt->execute($array);
+			}
+			catch(PDOException $e){
+				echo "Query Failed -> sqlAdd() ". $e;
+			}		
+			
+			$stmt->closeCursor(); // Free memory used in this query
+		}
+			
+	}
+	
+	public function sqlUpdate($table, $values, $where,  $debug = false){
+	
+		$array = array();
+		$bind_values = '';
+		
+		
+		foreach($values as $k=>$value){
+			$next = next($values);
+			$array[':'.$k] = $value;
+							
+			if($next === false){
+				$bind_values .= $k .' = :'.$k;					
+			}else{
+				$bind_values .= $k .' = :'.$k . ', ';					
+			}
+		}	
+	
+		$stmt = $this->db->prepare("UPDATE `$table` SET $bind_values WHERE $where");
+	
+		if($debug === true){ // Debug
+			echo '<div style="border: 1px solid red;"><p style="color:red;">sqlUpdate DEBUG:<p> ';		
+			print_r($stmt);
+			echo '<br>';
+			print_r($array);
+			echo '</div>';
+			exit();
+		}		
+		
+		if($debug != true){
+			try {
+				$stmt->execute($array);
+			}
+			catch(PDOException $e){
+				echo "Query Failed -> sqlUpdate() ". $e;
+			}		
+			
+			$stmt->closeCursor(); // Free memory used in this query
+		}
+	
+	}
 	
 	/**
 	 * setParam function.
@@ -375,6 +534,27 @@ class helpers {
 		}
 	    
 	    
-    }	
+    }
+    
+	public function display_filesize($filesize){
+	
+		if(is_numeric($filesize)){
+			$decr = 1024; $step = 0;
+			$prefix = array('Byte','KB','MB','GB','TB','PB');
+			
+			while(($filesize / $decr) > 0.9){
+				$filesize = $filesize / $decr;
+				$step++;
+			} 
+			
+			return round($filesize,2).' '.$prefix[$step];
+		
+		} else {
+		
+			return 'NaN';
+		}
+		
+	}
+    	
 	
 }

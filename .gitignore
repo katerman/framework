@@ -7,3 +7,5 @@ admin/security.log
 *.png
 
 *.log
+
+app/db.php

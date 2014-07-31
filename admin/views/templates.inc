@@ -46,7 +46,7 @@
 				.'<td class="template_name">'.$value['template_name'].'</td>'
 				.'<td class="template_type">'.$type.'</td>'
 				.'<td id="token" class="hidden">'.$token.'</td>'
-				.'<td><a class="edit edit_template" href="#"></a> ' . '<form style="position: relative;" class="pull-left" id="delete_form" action="" method=""> <a class="delete" href="#assets"></a>  <input id="id" type="hidden" value="'. $helpers->custom_clean($value['id']) .'"/> <input id="type" type="hidden" value="templates"/> <input id="db_id" type="hidden" value="id"/> <input class="hidden" type="submit" id="submit"/> </form></td>'				
+				.'<td><a class="edit edit_template" href="#"></a> ' . '<form style="position: relative;" class="pull-left delete_form" action="" method=""> <a class="delete" href="#assets"></a>  <input id="id" type="hidden" value="'. $helpers->custom_clean($value['id']) .'"/> <input id="type" type="hidden" value="templates"/> <input id="db_id" type="hidden" value="id"/> <input class="hidden" type="submit" id="submit"/> </form></td>'				
 			 .'</tr>';
 	}				
 	echo '</tbody></table>';		

@@ -2,10 +2,8 @@
 session_start();
 
 //includes
-$log = false;
-$admin = true;
 include_once "../includes/scripts/app.php";
-
+$admin = true;
 
 //class calls
 $model = new appModel($dsn, $db_user, $db_pass);

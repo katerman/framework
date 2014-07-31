@@ -14,7 +14,7 @@
 
 /* #Media Queries
 ================================================== */
-	@media only screen and (min-width: 960px) and (max-width: 1199px) {
+	@media only screen and (min-width: 960px) and (max-width: 1200px) {
 		
 		#container .container .custom {
 			width: 743px;

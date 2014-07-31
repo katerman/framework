@@ -1,3 +1,17 @@
+========== 1.3 ==========
+- removed a few old code from index.php's
+- image information is now stored in DB, delete/rename/upload updated to hit file system and Db now.
+- search script, now admin has the ability to search through content/pages/templates/labels and users
+- html/css changes for the better.
+- some pages session data set up.
+- user session contains comments now.
+- basic php caching added in config, off by default.
+- updated dropzone/form.js
+- fun new classes, User.class and table.class
+- Helpers now has the rest of the CRUD functions sqlUpdate, sqlRaw (input your own statement) each sql method as a debugging option 
+- script included to update all images in file system to database (update_images_db.php)
+- base sql file updated
+
 ========== 1.2 ==========
 - log where updated to orderby ID (latest entry)
 - updating default.inc

@@ -7,7 +7,7 @@
 	
 ?>
 
-	<a href="#" id="logo"><img src="<?php echo $_CONFIG->img_path; ?>admin/refined.png" alt="refined logo"></a>
+	<a href="?tpl=default_view" id="logo"><img src="<?php echo $_CONFIG->img_path; ?>admin/refined.png" alt="refined logo"></a>
 	<ul id="header_ul">
 		<li>
 			<div class="fa fa-user">							

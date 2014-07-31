@@ -1,28 +1,32 @@
 <?php
-	if($perms['assets']['upload'] == 1 && $perms['assets']['top_level'] == 1){
-?>
 
-<?php
+if($perms['assets']['upload'] == 1 && $perms['assets']['top_level'] == 1){
+
 	global $_CONFIG;
+	global $security;
 
 	if($_CONFIG->allow_image_upload){
+	
+		$token = $security->generateFormToken('token'); 
+		//echo $token;
+		//print_r($_SESSION);
 	
 ?>
 
 <h1> Upload</h1>
 
-<form action="scripts/upload.php" class="dropzone"></form>
-
-<script src="<? echo $_CONFIG->js_path; ?>dropzone.min.js" charset="utf-8"></script>
+<form action="scripts/upload.php" id="dropzone" class="dropzone" enctype="multipart/form-data">
+	<input type="hidden" class="token" name="token" value="<?php echo $token; ?>">	
+</form>
 
 <?php
+
 	}else{
 		echo '<h1>Sorry, you don\'t have image uploads enabled';
 	}
-?>
 
-<?php
-	}else{
-		header('Location: ?tpl=default_view');
-	}
+}else{
+	header('Location: ?tpl=default_view');
+}
+
 ?> 	

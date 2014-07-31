@@ -71,6 +71,10 @@ ul,li,ol {
 	padding: 0;
 }
 
+h2 {
+	padding: 20px 0 10px;
+}
+
 a {
 	text-decoration: none;
 }
@@ -104,6 +108,9 @@ a:link, a:visited, a:hover, a:active {
 	float: right;	
 }
 
+.full {
+	width: 100%;
+}
 
 /* HEADER */
 #header {
@@ -192,7 +199,6 @@ a:link, a:visited, a:hover, a:active {
 }
 
 .retract-nav .fa:hover {
-	background: #333;
 	cursor: pointer;
 }
 
@@ -235,22 +241,22 @@ a:link, a:visited, a:hover, a:active {
 .search_submit, .search_submit_min {
 	width: 26px;
 	height: 26px;
-	background: #ef3e23;
-	border: 1px solid #cacac8;
+	background: #cacac8;
+	border: 1px solid #f1f1f1;
 	float: left;
 	margin: 5px 5px 0 0;
 }
 
 .search_submit:after, .search_submit_min:after {
-	content: '';
-	background: url('../img/search_icon.png') center center no-repeat;
+	content: '\f002';
+	font-family: FontAwesome;
 	width: 15px;
 	height: 16px;
 	margin-left: -1px;
 	display: block;
 }
 
-.search_submit:hover:after, .search_submit_min:hover:after {
+.search_submit:hover:after, .search_submit_min:hover:after, .search_bg .fa-bars:hover:before {
 	opacity: 0.3;
 }
 
@@ -407,6 +413,7 @@ a:link, a:visited, a:hover, a:active {
 	border: 4px solid #cacac8;
 	z-index: 0;
 	border-right: 30px solid #cacac8;
+	z-index: 100;
 }
 
 #nav.nav-min {
@@ -446,6 +453,7 @@ a:link, a:visited, a:hover, a:active {
 	position: absolute;
 	top: 34px;
 	right: -189px;	
+	z-index: 101;
 }
 
 #nav.nav-min > ul {  /* Top Level Nav */
@@ -517,8 +525,8 @@ a:link, a:visited, a:hover, a:active {
 
 #nav.nav-min .nav-min-form-close:after {
 	background-image: none;
+	content: '';
 }
-
 
 /* Footer */
 #footer {
@@ -879,6 +887,7 @@ input.pager-input {
 
 .table {
 	border: 1px solid #cacac8;
+	width: 100%;
 }
 
 .table thead tr:last-child {
@@ -1165,11 +1174,16 @@ input[type="radio"] {
 	min-width: 100%;
 }
 
-#uploaded input {
+#uploaded > ul > li input {
 	margin: 0;
 	border: 0;
 	
 	padding: 3px 0 3px 5px;
+	width: 100%;
+}
+
+#uploaded > ul {
+	float: left;
 	width: 100%;
 }
 
@@ -1586,8 +1600,23 @@ li.images:hover, li.images:active {
 	top: 18px;	
 }
 
-
-
 .permission_div_body{
 	display: none;
+}
+
+/*search page stuff*/
+.full.search_field {
+	margin: 10px 0;
+	float: left;
+	padding: 10px 0 5px;
+	background: #cacac8;
+}
+
+.search_field > *{
+	float: left;
+	margin: 0 0 0 10px;
+}
+
+.search_field input {
+	padding: 0;
 }

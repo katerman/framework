@@ -16,7 +16,7 @@ class appModel{
 	//get users
 	public function getUserByNamePass($name, $pass){
 		$stmt = $this->db->prepare("
-			SELECT users_Id AS id, user_uName AS name, user_Fullname AS fullname, user_Access AS access
+			SELECT users_Id AS id, user_uName AS name, user_Fullname AS fullname, user_Access AS access, user_custom_perms as permissions, user_Comments as comments
 			FROM users
 			WHERE (user_uName = :name)
 				AND (user_Pass = MD5(CONCAT(user_salt,:pass)))

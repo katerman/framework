@@ -24,7 +24,16 @@
 	global $page;
 	global $_CONFIG; //config file
 
+
 	$r = $helpers->sqlSelect("*" , "templates", "", "WHERE id = '$page[page_template]'");
+
+	//USING JOINS
+	//$join = array('content', 'content.page_id = pages.pages_id', 'INNER');
+	//$test = $helpers->sqlSelect("content.page_id, pages.page_name" , "pages", false, "", $join);
+
+	//DELETING
+	//$test = $helpers->sqlDelete("labels", "label_id = 99", true);
+
 /*
 	echo 'full: ' . helpers::url(full) . '<br>';
 	echo 'fullpage: ' . helpers::url(fullpage) . '<br>';

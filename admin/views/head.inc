@@ -1,6 +1,19 @@
 <?php
 	global $_CONFIG;
 	global $helpers;
+	
+	$_SESSION['page'] = array();
+	
+	if(isset($_GET['pagename'])){
+		$page['page_name'] = $_GET['pagename'];	
+	}
+	
+	if(isset($_GET['tpl'])){
+		$page['page_tpl'] = $_GET['tpl'];	
+	}	
+
+	$page = $_SESSION['page'];
+		
 ?>
 
 <!DOCTYPE html>

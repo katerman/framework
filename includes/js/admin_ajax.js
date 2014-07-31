@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	var body = $('body');
+	var body = $('body');	
 	
 	function login_validation(){		
          $("#login_form").validate({				     
@@ -8,7 +8,7 @@ $(document).ready(function(){
 						url:"index.php",
 						data: $(this).serialize(),
 						type:"POST",
-						timeout: 2000,
+						timeout: 10000,
 						clearForm: false,
 						cache: false,
 						success: function(){
@@ -141,7 +141,7 @@ $(document).ready(function(){
 						url:"scripts/update.php",
 						type:"POST",
 						data: data,
-						timeout: 2000,
+						timeout: 10000,
 						clearForm: false,
 						cache: false,
 						success: function(){
@@ -201,14 +201,14 @@ $(document).ready(function(){
 				e.preventDefault();
 		});
 		
-		$("#delete_form").validate({				     
+		$(".delete_form").validate({				     
 		    submitHandler: function(form) {                
 										
 				$(form).ajaxSubmit({
 						url:"scripts/delete.php",
 						type:"POST",
 						data: data,
-						timeout: 2000,
+						timeout: 10000,
 						clearForm: true,
 						cache: false,
 						success: function(){
@@ -312,7 +312,7 @@ $(document).ready(function(){
 						url:"scripts/add.php",
 						type:"POST",
 						data: data,
-						timeout: 2000,
+						timeout: 10000,
 						clearForm: false,
 						cache: false,
 						success: function(){
@@ -373,7 +373,7 @@ $(document).ready(function(){
 							url:url,
 							type:"POST",
 							data: data,
-							timeout: 2000,
+							timeout: 10000,
 							clearForm: false,
 							cache: false,
 							success: function(){
@@ -439,7 +439,7 @@ $(document).ready(function(){
 							url:url,
 							type:"POST",
 							data: data,
-							timeout: 2000,
+							timeout: 10000,
 							clearForm: false,
 							cache: false,
 							success: function(){
@@ -507,7 +507,7 @@ $(document).ready(function(){
 							url:url,
 							type:"POST",
 							data: data,
-							timeout: 2000,
+							timeout: 10000,
 							clearForm: false,
 							cache: false,
 							success: function(){
@@ -551,12 +551,14 @@ $(document).ready(function(){
 			});
 			
 				
-				var image_value = $(this).siblings('.image_value').val();
+				var image_id = $(this).siblings('.image_id').val();
+				var image_name = $(this).siblings('.image_value').val();
 				var auth_token = $('#uploaded #token').text();     
 				
 				
 				//object to hold info
-				data['image_value'] = image_value;
+				data['image_name'] = image_name;
+				data['image_id'] = image_id;
 				data['token'] = auth_token;
 			
 				
@@ -571,13 +573,16 @@ $(document).ready(function(){
 					$(form).ajaxSubmit({
 							url:"scripts/delete_image.php",
 							type:"POST",
+							dataType: 'json',
 							data: data,
-							timeout: 2000,
+							timeout: 10000,
 							clearForm: true,
 							cache: false,
-							success: function(){
-								location.reload();
-								$('.result').text(data['image_value']+' was deleted');
+							success: function(data){
+								//location.reload();
+								console.log(JSON.stringify(data));
+								$('.results').text(data['image']+' was deleted');
+								$('#image-'+data['id']).remove();
 							},
 							error: function(x,t,m){
 								if(t==="timeout"){
@@ -608,6 +613,7 @@ $(document).ready(function(){
 		
 		r_click.click(function(e) {
 			
+			data['id'] = $(this).siblings('.id').val();
 			data['old_name'] = $(this).siblings('.old_name').val();
 			data['new_name'] = $(this).siblings('.new_name').val();
 			data['token'] = auth_token;
@@ -622,12 +628,14 @@ $(document).ready(function(){
 		});
 		
 		
-		
-		//get each image and make two data objects to contain every name.
-		$.each(input,function(){
-			start_names[$(this).parent().attr('class')] = $(this).val(); //these will never change and will always be the starting name on page load
-			new_names[$(this).parent().attr('class')] = $(this).val(); //this will change with each keyup, and be compaired to the initial start_names obj
-		});
+		function get_image_names(){
+			//get each image and make two data objects to contain every name.
+			$.each(input,function(){
+				start_names[$(this).parent().attr('class')] = $(this).val(); //these will never change and will always be the starting name on page load
+				new_names[$(this).parent().attr('class')] = $(this).val(); //this will change with each keyup, and be compaired to the initial start_names obj
+			});
+		}
+		get_image_names();
 		
 		//console.log(start_names);
 		
@@ -652,20 +660,21 @@ $(document).ready(function(){
 							url:"scripts/rename_image.php",
 							type:"POST",
 							data: data,
-							timeout: 2000,
+							timeout: 10000,
 							clearForm: false,
 							cache: false,
 							success: function(){
 								//console.log(data);
-								//location.reload();
-							},
-							error: function(x,t,m){
-								if(t==="timeout"){
-									//console.log('timeout');
-									
+								if(form != undefined){
+									$(form).children('.old_name').val(data['new_name']);									
+									$(form).next('.delete_image').children('.image_name').val(data['new_name']);
+									$(form).siblings('.delete_image').children('.image_name').val(data['new_name']);
 								}
 								
-								//console.log( ' bad: ' + x + m);
+								get_image_names();
+							},
+							error: function(x,t,m){
+								console.log('Error -- rename_which_image');
 							}										
 					});
 				}
@@ -702,9 +711,7 @@ $(document).ready(function(){
 	}//log purge
 
 
-
-
-	function init(){
+	function init(){ //CLEAN THIS UP
 		edit_validation();
 		login_validation();
 		delete_validation();
@@ -712,11 +719,10 @@ $(document).ready(function(){
 		content_validation();
 		template_validation();
 		labels_validation();
-		delete_image_validation(); //created a new function for deleting images, it works in a seperate way than the regular delete, and dont want to over saturate the orginal function.
+		delete_image_validation(); 
 		rename_image_validation();
 		
 		log_purge();
-		// the amount of seperate functions is silly, but makes it much easier to seperate things out.
 	}
 	
 	init();	

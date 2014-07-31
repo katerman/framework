@@ -173,7 +173,7 @@
 				.'<td class="content_area">'.$value['content_area'].'</td>'
 				.'<td class="content_order">'.$value['content_order'].'</td>'
 				.'<td id="content_token" class="hidden">'.$token.'</td>'
-				.'<td><a class="edit edit_content" href="#pages"></a> ' . '<form style="position: relative;" class="pull-left" id="delete_form" action="" method=""> <a class="delete" href="#pages"></a> <input type="hidden" name="token" id="token" value="'.$token.'"> <input id="id" type="hidden" value="'.$value['content_id'].'"/> <input id="type" type="hidden" value="content"/> <input id="db_id" type="hidden" value="content_id"/> <input class="hidden" type="submit" id="submit"/> </form></td>'				
+				.'<td><a class="edit edit_content" href="#pages"></a> ' . '<form style="position: relative;" class="pull-left delete_form" action="" method=""> <a class="delete" href="#pages"></a> <input type="hidden" name="token" id="token" value="'.$token.'"> <input id="id" type="hidden" value="'.$value['content_id'].'"/> <input id="type" type="hidden" value="content"/> <input id="db_id" type="hidden" value="content_id"/> <input class="hidden" type="submit" id="submit"/> </form></td>'				
 			 .'</tr>';
 	}				
 	echo '</tbody></table>';	

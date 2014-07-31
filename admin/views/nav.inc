@@ -1,21 +1,25 @@
 <?php
-	global $user;
+	$user = new user();	
+
+	$perms = $user->get_Permissions();
+	$perms = unserialize($perms);
 	
-	$uid = $user['id'];
-	$perms = $helpers->sqlSelect("user_custom_perms" , "users", "", "WHERE users_Id = $uid" );
-	$perms = unserialize($perms[0]['user_custom_perms']);
 	
-?>
-	<div class="search_bg"> 
-		<div class="retract-nav"><span class="fa fa-bars"></span></div>
-<!-- NOT READY YET
-		<form>
-			<input class="search_field" type="text" Placeholder="Search Here"> 
-			<button class="search_submit"></button>
-			<button class="search_submit_min hidden"></button>
-		</form>
--->
-	</div> 	   
+	
+		echo '
+		<div class="search_bg"> 
+			<div class="retract-nav"><span class="fa fa-bars"></span></div>';
+			
+		if($perms['pages']){	
+			echo '<form class="search-all" method="POST">
+				<input class="search_field" type="text" Placeholder="Search"> 
+				<button class="search_submit"></button>
+				<button class="search_submit_min hidden"></button>
+			</form>';
+		}
+		
+		echo '</div>';
+?>		    
 		    
 	<ul>
 		<li><span class="fa fa-bar-chart-o"></span><a class="nav-spot" href="">Dashboard</a></li>
@@ -92,10 +96,10 @@
 		<li>
 			<ul class="dropdown">
 		';
-				if($perms['assets']['upload'] == 1 && $perms['assets']['top_level'] == 1){ echo'<li><a class="nav-spot" href="?tpl=upload&pagename=upload">Upload</a></li>';}
-				if($perms['assets']['uploaded'] == 1 && $perms['assets']['top_level'] == 1){ echo'<li><a class="nav-spot" href="?tpl=uploaded&pagename=uploaded">Uploaded</a></li>';}
-				if($perms['assets']['templates'] == 1 && $perms['assets']['top_level'] == 1){ echo'<li><a class="nav-spot" href="?tpl=templates&pagename=templates&amt=10&page=1">Templates</a></li>';}
-				if($perms['assets']['labels'] == 1 && $perms['assets']['top_level'] == 1){ echo'<li><a class="nav-spot" href="?tpl=labels&pagename=labels&amt=10&page=1">Labels</a></li>';}
+				if($perms['assets']['upload'] == 1 && $perms['assets']['top_level'] == 1){ echo'<li><a class="nav-spot" href="?tpl=upload">Upload</a></li>';}
+				if($perms['assets']['uploaded'] == 1 && $perms['assets']['top_level'] == 1){ echo'<li><a class="nav-spot" href="?tpl=uploaded">Uploaded</a></li>';}
+				if($perms['assets']['templates'] == 1 && $perms['assets']['top_level'] == 1){ echo'<li><a class="nav-spot" href="?tpl=templates&amt=10&page=1">Templates</a></li>';}
+				if($perms['assets']['labels'] == 1 && $perms['assets']['top_level'] == 1){ echo'<li><a class="nav-spot" href="?tpl=labels&amt=10&page=1">Labels</a></li>';}
 		echo'	</ul>
 		</li>
 	</ul>	

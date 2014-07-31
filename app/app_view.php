@@ -14,8 +14,6 @@ class appView {
 		
 		if($admin){
 			$templatePath = dirname($path)."/admin/views/${template}.inc";
-		}elseif($log){
-			$templatePath = dirname($path)."/admin/log/views/${template}.inc";
 		}else{
 			$templatePath = $path."/views/${template}.inc";
 		}
@@ -36,7 +34,7 @@ class appView {
 	
 	public function show_label($label){
 		global $labels;
-		if($labels->$label){echo $labels->$label; }
+		if(isset($labels->$label)){echo $labels->$label; }
 	}
 
 }

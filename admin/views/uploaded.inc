@@ -1,13 +1,19 @@
 <?php
-	if($perms['assets']['uploaded'] == 1 && $perms['assets']['top_level'] == 1){
-?>
 
-<?php
-include_once "../includes/scripts/app.php";
+if($perms['assets']['uploaded'] == 1 && $perms['assets']['top_level'] == 1){
 
-$security = new security();
+	include_once "../includes/scripts/app.php";
+	include_once "scripts/pager.class.php"; 
 
-$token = $security->generateFormToken('token'); 
+	
+	global $_CONFIG;
+		
+	$security = new security();
+	
+	$token = $security->generateFormToken('token'); 
+
+	$amt = $helpers->getQuery('amt','return');
+	$pager = new pager($amt, 'images', '*', 'atm', 'test');  
 
 ?>
 <h1> Things we've uploaded! </h1>
@@ -29,41 +35,58 @@ $token = $security->generateFormToken('token');
 		}
 		
 		$dirname = "../uploads/";
-		$images = glob("{$dirname}*.*");
+		$images = $helpers->sqlSelect("image_name, id", "images", false, "");
+		//print_r($images);
 		
 		if($images){
-			foreach($images as $k=>$image){
-			
-				$image = str_replace('../uploads/', '', $image);
-				$image_name = $image;
+			foreach($pager->getTableData() as $k=>$image){
 				
-				$i = '../uploads/resized/'.$image_name.'-resized';
-				if(!file_exists($i) && is_image('../uploads/'.$image_name)){
-					$helpers->smart_resize_image('../uploads/'.$image_name , 164 , 111 , true , $i , false , false ,80 );//file, width, height, proportional, output, delete org, use linux commands, quality
-				}
+				$image_name = $image['image_name'];
+				$image_and_dir = $dirname.$image_name;
+
+								
+				if(file_exists($image_and_dir)){
 				
-				echo '<li class="rename_li">
-					<form class="image_rename-'.$k.'" placeholder="Name of Image">
-						<input type="text" class="new_name" name="new_name" value="'. str_replace('../uploads/', '', $image) .'">
-						<input type="hidden" class="old_name hidden" name="old_name" value="'. str_replace('../uploads/', '', $image) .'">
-						</input><button class="rename">&#x2713;</button>
-					</form>'
-				;
-				
-				if (file_exists($i)){
-					echo '<img class="uploaded" src="'.$i.'" />';
-				}else{
-					echo '<div class="no_preview"><p>Sorry, No preview</p></div>';
-				}
-				 echo '<form method="post" class="image-'.$k.'">'
-				 .'<input class="image_value" type="hidden" value="'.$image.'" name="delete_file" />'
-				 .'<div class="picture_box"><input type="submit" value="Delete" class="delete_btn"/></div>'
-				 .'</form></li>';
+					$id = $image['id'];
+									
+					$i = '../uploads/resized/'.$image_name.'-resized';
+					if(!file_exists($i) && is_image('../uploads/'.$image_name)){
+						$helpers->smart_resize_image('../uploads/'.$image_name , 164 , 111 , true , $i , false , false ,80 );//file, width, height, proportional, output, delete org, use linux commands, quality
+					}
+					
+					echo '<li class="rename_li" id="image-'.$id.'">
+						<form class="image_rename-'.$id.'" placeholder="Name of Image">
+							<input type="text" class="new_name" name="new_name" value="'. $image_name .'">
+							<input type="hidden" class="old_name hidden" name="old_name" value="'. $image_name .'">
+							<input type="hidden" value="'.$id.'" name="image_id">
+							</input><button class="rename">&#x2713;</button>
+						</form>'
+					;
+					
+					if (file_exists($i)){
+						echo '<img class="uploaded" src="'.$i.'" />';
+					}else{
+						echo '<div class="no_preview"><p>Sorry, No preview</p></div>';
+					}
+					 echo '<form method="post" class="image-'.$id.' delete_image">'
+					 .'<input class="image_name" type="hidden" value="'.$image_name.'" name="image_name" />'
+					 .'<input class="image_id" type="hidden" value="'.$id.'" name="image_id" />'
+					 .'<div class="picture_box"><input type="submit" value="Delete" class="delete_btn"/></div>'
+					 .'</form></li>';
+				 }else{
+					//if the image doesnt exist in our folder, but does exist in the DB delete it from db.
+					$id = $image['id'];
+					$helpers->sqlDelete('images', "id = $id");	
+				 }
 			}
+			
 		}
 		
 		?>
 	</ul>
+	
+	
+	<?php $pager->ShowPaging(); ?>
 </div>
 
 <?php

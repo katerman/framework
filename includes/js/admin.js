@@ -14,6 +14,24 @@ $(document).ready(function() {
 			return $(this).data(prop) == val;
 		});
 	}
+	
+	function redirect(url) { //thanks mcpdesigns @stackoverflow
+		var ua    = navigator.userAgent.toLowerCase(),
+		isIE      = ua.indexOf('msie') !== -1,
+		version   = parseInt(ua.substr(4, 2), 10);
+		
+		// IE8 and lower
+		if (isIE && version < 9) {
+			var link = document.createElement('a');
+			link.href = url;
+			document.body.appendChild(link);
+			link.click();
+		}
+		
+		// All other browsers
+		else { window.location.replace(url); }
+	}	
+	
 
 	function insertParam(key, value) {
 		key = encodeURI(key);
@@ -598,6 +616,59 @@ $(document).ready(function() {
 			}
 		});
 	} //pager 
+	
+	function search_nav(){
+		var query;
+		
+		$('#nav .search_bg input').keyup(function(e) {
+			query = $(this).val();
+			
+			if(e.which == 13 && query){//if keypress is enter "submit" the form.
+				redirect('?filter=all&tpl=search&search='+query);
+			}
+			
+			//console.log(e.which);
+		});		
+		
+		$('#nav button').on('click', function(e){
+						
+			var query = $(this).siblings('.search_field').val();
+			
+			if(query){
+				redirect('?filter=all&tpl=search&search='+query);
+				e.preventDefault();
+			}else{
+				e.preventDefault();
+			}
+		});
+	}//Search nav	
+	
+	function search(){
+		var select = $('.search_field .change_filter');
+		var input = $('.search_field .search_query');
+		var submit = $('.search_field button');
+		
+		select.change(function(){
+			insertParam('filter', $(this).val());
+		});		
+		
+		submit.click(function(e){
+			if(input.val() != undefined){
+				insertParam('search', input.val());
+			}
+			e.preventDefault();
+		});
+		
+		input.keyup(function(e) {
+			query = $(this).val();
+			
+			if(e.which == 13 && query){//if keypress is enter "submit" the form.
+				insertParam('search', input.val());
+			}
+			
+			//console.log(e.which);
+		});			
+	}
 
 	function init() { 
 		/* 		AddTarget();  broken atm*/
@@ -622,14 +693,16 @@ $(document).ready(function() {
 		if ($.cookie('navmin') == 'true') {
 			controller.click();
 		}
-		//$('.pager-amount').customSelect();
 
+		//pager JS
 		function foreach_callback(element, index, array) {
 			//console.log("[" + index + "]" + " = " + element);
 			pager(element[0], element[1], element[0]);
 		}
 		pager_array.forEach(foreach_callback);
 		
+		search_nav();
+		search();
 	}
 	init();
 });
