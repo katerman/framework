@@ -1,7 +1,5 @@
 <?php
 
-include_once "../includes/scripts/app.php";
-
 class Pager {
 	
 	/**
@@ -14,25 +12,9 @@ class Pager {
 	 * @param string $amt_key (default: "amt") - the url query you'll be using for paging, customizable so you can have more than one
 	 * @param string $page_key (default: "page") - url query for page customizable
 	 */
-	public function __construct($current, $table, $columns, $amt_key = "amt", $page_key = "page"){
+	public function __construct($current = null, $table = null, $columns = null, $amt_key = "amt", $page_key = "page"){
 		global $helpers;
 		$url = $helpers->url('full');
-		
-		//if our url params dont have amt (thats the default), then add a param to the url amt=10
-		if(isset($_GET[$amt_key])){
-			$this->amount = $_GET[$amt_key]; //set $this->amount to our url param
-			$this->amt_key = $amt_key; //reusable the class now knows what our amount key is, letting us have more than one pager per page
-		}else{
-			$helpers->setParam($url,$amt_key, 10,true);
-		}
-		
-		//same as above but for page url param
-		if(isset($_GET[$page_key])){
-			$this->page = $_GET[$page_key];
-			$this->page_key = $page_key;
-		}else{
-			$helpers->setParam($url,$page_key, 1,true);
-		}
 		
 		$this->sql = array(
 			"table" => $table,
@@ -45,6 +27,24 @@ class Pager {
 			"30" => "30",
 			"All" => "1000"
 		);
+				
+		//if our url params dont have amt (thats the default), then add a param to the url amt=10
+		if(isset($_GET[$amt_key])){
+			$this->amount = $_GET[$amt_key]; //set $this->amount to our url param
+			$this->amt_key = $amt_key; //reusable the class now knows what our amount key is, letting us have more than one pager per page
+		}else{
+			$amt_key ? $this->amt_key = $amt_key : $this->amt_key = null ;
+			$this->amount = key($this->dropdown_values);
+		}
+		
+		//same as above but for page url param
+		if(isset($_GET[$page_key])){
+			$this->page = $_GET[$page_key];
+			$this->page_key = $page_key;
+		}else{
+			$page_key ? $this->page_key = $page_key : $this->page_key = null ;
+			$this->page = 1;
+		}		
 		
 		$this->tableWhere = '';
 
@@ -91,7 +91,32 @@ class Pager {
 	public function setTableSqlDataWhere($where){
 		$this->tableWhere = $where;
 	}
-
+	
+	/**
+	 * setShowPagerWhereNoData function.
+	 * 
+	 * @access public
+	 * @param mixed $bool
+	 * @return void - used to hide the pager if there is no data, why waste screen space?
+	 */
+	public function setShowPagerWhereNoData($bool){
+		$this->ShowPagerWhereNoData = (bool)$bool;
+	}
+	
+	/**
+	 * getShowPagerWhereNoData function - get what the value of showPagerWhereNoData is
+	 * 
+	 * @access public
+	 * @return - false if its not set, whatever value it is if it is set.
+	 */
+	public function getShowPagerWhereNoData(){
+		if(isset($this->ShowPagerWhereNoData)){
+			return $this->ShowPagerWhereNoData;
+		}else{
+			return null;
+		}
+	}
+	
 	/**
 	 * getTableSqlDataWhere function.
 	 * 
@@ -181,17 +206,6 @@ class Pager {
 		';
 	}
 
-
-	/**
-	 * ShowPaging function.
-	 * 
-	 * @access public
-	 * @return void - this shows paging elements, customize how it looks in paging_html()
-	 */
-	public function ShowPaging(){
-		$this->paging_html();
-	}
-
 	/**
 	 * getTableData function.
 	 * 
@@ -204,6 +218,32 @@ class Pager {
 		//print_r('Start from this row #: '.$this->getLimit().', Limit to this amount of rows: '. $this->getAmount());
 		return $query;
 	}
+	
+	/**
+	 * ShowPaging function.
+	 * 
+	 * @access public
+	 * @return void - this shows paging elements, customize how it looks in paging_html()
+	 */
+	public function ShowPaging(){
+		if($this->getShowPagerWhereNoData() == true && count($this->getTableData()) == 0){
+			
+		}else{
+			$this->paging_html();
+		}
+	}	
+	
+	/**
+	 * Debug function.
+	 * 
+	 * @access public
+	 * @return void - var dump of this class
+	 */	
+	public function debug(){
+		echo '<div style="border: 1px solid red;"><p style="color:red;">pager.class DEBUG:<p> ';	
+		var_dump($this);
+		echo '</div>';	
+	}	
 
 
 }

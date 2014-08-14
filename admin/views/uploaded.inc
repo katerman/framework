@@ -1,10 +1,6 @@
 <?php
 
 if($perms['assets']['uploaded'] == 1 && $perms['assets']['top_level'] == 1){
-
-	include_once "../includes/scripts/app.php";
-	include_once "scripts/pager.class.php"; 
-
 	
 	global $_CONFIG;
 		

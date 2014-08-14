@@ -5,9 +5,7 @@
 <?php
 	//pager
 	$amt = $helpers->getQuery('amt','return');
-	include_once "scripts/pager.class.php"; //include this class where needed
 	
-	//$z = $helpers->sqlSelect("*" , "pages", "", "ORDER BY page_order ASC");
 	$token = $security->generateFormToken('token');
 	
 	$pager = new pager($amt, 'pages', '*');  	

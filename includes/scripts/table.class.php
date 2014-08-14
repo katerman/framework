@@ -1,7 +1,7 @@
 <?php
 
 /**
- * user class - Information of the current logged in user
+ * Table Class - Generate tables with a wide array of settings
  */
 class table {
 	    
@@ -37,7 +37,7 @@ class table {
 	public function set_ToolTip($set){
 		$this->tooltip = $set;
 	}
-    
+	    
     //get	
 	public function get_TableClass(){
 		if(isset($this->table_class)){
@@ -67,7 +67,7 @@ class table {
 		if(isset($this->table_StrLen)){
 			return $this->table_StrLen;		
 		}else{
-			return 9999;
+			return 99999;
 		}	
 	}
 
@@ -94,7 +94,7 @@ class table {
 			return false;
 		}	
 	}
-	
+		
 	public function make_Table(){
 		
 		$table_head = $this->get_TableHead();	
@@ -139,8 +139,7 @@ class table {
 				}
 			
 				$count = count($table_head);
-				//$count++;
-				//var_dump($count . '  ' . $i. '    ');
+
 				if($i % $count == 0 && $actions){
 					if(is_array($actions)){
 						echo '<td style="position: relative;">';
@@ -177,7 +176,7 @@ class table {
 					}else{
 						die('Actions needs to be an array');
 					}
-					//echo '<td>'.$i.' Iterator'.$count .' Count</td>';
+
 				}		
 				$i++;		
 			}		
@@ -193,7 +192,6 @@ class table {
 		echo '<div style="border: 1px solid red;"><p style="color:red;">table.class DEBUG:<p> ';	
 		var_dump($this);
 		echo '</div>';	
-
 	}
   
 }

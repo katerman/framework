@@ -1,11 +1,11 @@
-	@media only screen and (max-width: 1400px) {		
+	@media only screen and (max-width: 1460px) {		
 		
 		#container .container .custom {
-			width: 985px;
+			width: 948px;
 		}
 		
 		.container {
-			width: 995px;
+			width: 988px;
 		}
 		
 	}
@@ -17,11 +17,11 @@
 	@media only screen and (min-width: 960px) and (max-width: 1200px) {
 		
 		#container .container .custom {
-			width: 743px;
+			width: 705px;
 		}	
 		
 		.container {
-			width: 753px;
+			width: 747px;
 		}
 		
 	}
@@ -62,8 +62,18 @@
 
 	/* Tablet Portrait size to standard 960 (devices and browsers) */
 	@media only screen and (min-width: 768px) and (max-width: 959px) {
-
-
+		#container .container .custom {
+			width: 514px;
+		}
+		
+		.container {
+			width: 555px;
+		}
+		
+		#container .container .custom > div {
+			overflow-x: scroll;
+			max-width: 529px;
+		}
 	}
 
 	/* All Mobile Sizes (devices and browser) */

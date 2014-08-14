@@ -1,3 +1,4 @@
+<div id="search_page">
 <?php
 	if($perms['pages'] == 1){
 
@@ -51,7 +52,7 @@
 		$user_heads = array('Username'=>'user_uName', 'User Fullname' => 'user_FullName', 'User Comments' => 'user_Comments');
 	
 		$users_table->set_TableHead($user_heads);
-		$users_table->set_TableRows($users);
+		$users_table->set_TableRows($users->getTableData());
 		$users_table->set_TableClass('table search_table');
 		$users_table->set_TableStrLen(50);
 		$users_table->set_TableActions(array('view' => array('query' => '?&tpl=edit&type=edit_user&userid=', 'id' => 'users_Id'), 
@@ -60,6 +61,9 @@
 		//$users_table->set_ToolTip(true);								
 		$users_table->set_Token($token);
 		$users_table->make_Table();
+		
+		$users->ShowPaging();
+
 		
 	}		
 	
@@ -70,7 +74,7 @@
 		$label_head = array('Content'=>'label_content', 'Name' => 'label_name');
 	
 		$label_table->set_TableHead($label_head);
-		$label_table->set_TableRows($labels);
+		$label_table->set_TableRows($labels->getTableData());
 		$label_table->set_TableClass('table search_table');
 		$label_table->set_TableActions(array('link' => array('query' => '?tpl=labels')));
 		
@@ -78,6 +82,7 @@
 		//$users_table->set_ToolTip(true);								
 		$label_table->make_Table();
 		
+		$labels->ShowPaging();
 	}
 	
 	if(isset($templates) && $filter == 'templates' || $filter == 'all' && $templates_perm){
@@ -87,13 +92,15 @@
 		$template_head = array('Name'=>'template_name', 'Type' => 'template_type');
 	
 		$template_table->set_TableHead($template_head);
-		$template_table->set_TableRows($templates);
+		$template_table->set_TableRows($templates->getTableData());
 		$template_table->set_TableClass('table search_table');
 		$template_table->set_TableActions(array('link' => array('query' => '?tpl=templates')));
 		
 		$template_table->set_TableStrLen(50);
 		//$template_table->set_ToolTip(true);								
 		$template_table->make_Table();
+		
+		$templates->ShowPaging();		
 		
 	}	
 
@@ -105,7 +112,7 @@
 		$pages_head = array('Name'=>'page_name', 'Group' => 'page_group', 'Template'=>'page_template', 'Meta Keywords'=>'page_meta_keyword', 'Meta Title'=>'page_meta_title');
 	
 		$pages_table->set_TableHead($pages_head);
-		$pages_table->set_TableRows($pages);
+		$pages_table->set_TableRows($pages->getTableData());
 		$pages_table->set_TableClass('table search_table');
 		$pages_table->set_TableActions(array('view' => array('query' => '?tpl=edit&type=edit_page&pageid=', 'id'=>'pages_id')));
 		
@@ -113,6 +120,8 @@
 		//$users_table->set_ToolTip(true);								
 		$pages_table->make_Table();
 		
+		$pages->ShowPaging();
+
 	}				
 	
 	if(isset($content) && $filter == 'content' || $filter == 'all' && $page_perm){
@@ -122,7 +131,7 @@
 		$content_heads = array('Content'=>'content', 'Content Area' => 'content_area', 'Content Name' => 'content_name');
 	
 		$content_table->set_TableHead($content_heads);
-		$content_table->set_TableRows($content);
+		$content_table->set_TableRows($content->getTableData());
 		$content_table->set_TableClass('table search_table');
 		$content_table->set_TableStrLen(50);
 		$content_table->set_TableActions(array('view' => array('query' => '?tpl=edit&type=edit_page&amt=10&page=1&pageid=', 'id' => 'page_id'), //for viewing the content we want to send them to the page its on, so ive added the page query in there and the id is the sql column name, it will auto populate each rows page_id
@@ -132,10 +141,12 @@
 		$content_table->set_Token($token);
 		$content_table->make_Table();
 		
+		$content->ShowPaging();
+		
 	}				
 	
 	}else{
 		header('Location: ?tpl=default_view');
 	}
 ?> 
-
+</div>

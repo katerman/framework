@@ -583,7 +583,13 @@ $(document).ready(function() {
 
 	function pager(page_key,amt_key, id) {
 		var amount = $('#pager-'+id+' .pager-amount').val();
-		var page = parseInt(QueryString[page_key]);
+		
+		if(QueryString[page_key] === undefined){
+			var page = 1;
+		}else{
+			var page = parseInt(QueryString[page_key]);
+		}
+		
 		var max = $('#pager-'+id+' .pager-max').text();
 				
 		if(page > max){insertParam(page_key, max);} //check if user is above max pages

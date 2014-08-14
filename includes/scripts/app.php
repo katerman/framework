@@ -26,4 +26,5 @@ require_once $path."/helpers.php";
 require_once $path."/security.php";
 require_once $path."/user.class.php";
 require_once $path."/strings.php";
+require_once $path."/pager.class.php";
 require_once $path."/table.class.php";

@@ -3,7 +3,6 @@
 		
 		//pager	
 		$amt = $helpers->getQuery('amt','return');
-		include_once "scripts/pager.class.php"; //include this class where needed
 	
 ?>
 

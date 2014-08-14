@@ -1604,7 +1604,12 @@ li.images:hover, li.images:active {
 	display: none;
 }
 
-/*search page stuff*/
+/*search page*/
+#search_page .pager {
+	width: 100%;
+	margin-bottom: 15px;
+}
+
 .full.search_field {
 	margin: 10px 0;
 	float: left;

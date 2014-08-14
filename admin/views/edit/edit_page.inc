@@ -2,10 +2,9 @@
 	if($perms['pages'] == 1){
 	
 		//pager
-		$amt = $helpers->getQuery('amt','return');
-		include_once "scripts/pager.class.php"; //include this class where needed
-	
+		$amt = $helpers->getQuery('amt','return');	
 		$page = $helpers->getQuery('pageid','return');
+		
 		$z = $helpers->sqlSelect("*" , "pages", "", "WHERE pages_id = $page" );
 		$r = $helpers->sqlSelect("*" , "templates", "", "");
 		$pp = $helpers->sqlSelect("*" , "pages", "", "WHERE on_nav = '1'");
@@ -140,7 +139,6 @@
 	
 	
 	<?php
-	//$c = $helpers->sqlSelect("*" , "content", "", "WHERE page_id = $page ORDER BY content_order ASC" );
 	$pager = new pager($amt, 'content', '*');  
 	$pager->setTableSqlDataWhere("WHERE page_id = $page ORDER BY content_order ASC");
 	
@@ -187,42 +185,44 @@
 	
 	<h2 style="margin-top: 20px;">Sub-Pages</h2>
 	<table class="table">
-	<thead>
-		<tr>
-			<td class="vis-hidden"></td>
-			<td><input class="search" placeholder="Type to Filter"/></td>
-		</tr>
-		<tr>
-			<td>Page Name</td>
-			<td>Page Url</td>
-			<td>Page Order</td>
-			<td>Actions</td>
-		</tr>
-	<thead>
-	
-	<tbody>
-	<?php
-		//$sub_p = $helpers->sqlSelect("*" , "pages", "", "WHERE sub_page = $page");
-		$amt = $helpers->getQuery('amt2','return');
-		$pager = new pager($amt, 'pages', '*', 'amt2', 'page2');  
-		$pager->setTableSqlDataWhere("WHERE sub_page = $page");
+		<thead>
+			<tr>
+				<td class="vis-hidden"></td>
+				<td><input class="search" placeholder="Type to Filter"/></td>
+			</tr>
+			<tr>
+				<td>Page Name</td>
+				<td>Page Url</td>
+				<td>Page Order</td>
+				<td>Actions</td>
+			</tr>
+		<thead>
 		
-		foreach($pager->getTableData() as $value) {
-			echo '<tr class="data">'
-					.'<td>'.$value['page_name'].'</td>'
-					.'<td>'.$value['page_url'].'</td>'
-					.'<td>'.$value['page_order'].'</td>'
-					.'<td><a class="edit" href="?pageid='. $value['pages_id'] .'&tpl=edit&type=edit_page"></a> ' . '<form style="position: relative;" class="pull-left" id="delete_form" action="" method=""> <a class="delete" href="?id='.$value['pages_id'].'#pages"></a> <input type="hidden" name="token" id="token" value="'. $token.'"> <input id="id" type="hidden" value="'. $value['pages_id'] .'"/> <input id="type" type="hidden" value="sub_page"/><input id="special" type="hidden" value="pages"/> <input id="db_id" type="hidden" value="pages_id"/> <input class="hidden" type="submit" id="submit"/> </form></td>'
-				 .'</tr>';
-		}				
-	?>
-			</tbody>
-		</table>
+		<tbody>
+				<?php
+					//$sub_p = $helpers->sqlSelect("*" , "pages", "", "WHERE sub_page = $page");
+					$amt = $helpers->getQuery('amt2','return');
+					$pager = new pager($amt, 'pages', '*', 'amt2', 'page2');  
+					$pager->setTableSqlDataWhere("WHERE sub_page = $page");
+					
+					foreach($pager->getTableData() as $value) {
+						echo '<tr class="data">'
+								.'<td>'.$value['page_name'].'</td>'
+								.'<td>'.$value['page_url'].'</td>'
+								.'<td>'.$value['page_order'].'</td>'
+								.'<td><a class="edit" href="?pageid='. $value['pages_id'] .'&tpl=edit&type=edit_page"></a> ' . '<form style="position: relative;" class="pull-left" id="delete_form" action="" method=""> <a class="delete" href="?id='.$value['pages_id'].'#pages"></a> <input type="hidden" name="token" id="token" value="'. $token.'"> <input id="id" type="hidden" value="'. $value['pages_id'] .'"/> <input id="type" type="hidden" value="sub_page"/><input id="special" type="hidden" value="pages"/> <input id="db_id" type="hidden" value="pages_id"/> <input class="hidden" type="submit" id="submit"/> </form></td>'
+							 .'</tr>';
+					}				
+			
+				?>
+		</tbody>
+	</table>
 		
-		<p><a href="?tpl=add&type=add_page&parent_page=<?php echo $page ?>" class="add_page">Add new sub-page</a></p>
-		<?php $pager->ShowPaging(); ?>
+	<p><a href="?tpl=add&type=add_page&parent_page=<?php echo $page ?>" class="add_page">Add new sub-page</a></p>
 		
-<?php
+<?php 
+	$pager->ShowPaging(); 
+		
 	}else{
 		header('Location: ?tpl=default_view');
 	}

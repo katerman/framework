@@ -1,6 +1,6 @@
 <?php
 
-include_once "../../includes/scripts/app.php";
+require_once '../../includes/scripts/app.php';
 
 $security = new security();
 

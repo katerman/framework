@@ -3,12 +3,8 @@ if($perms['users'] == 1){
 
 	//pager
 	$amt = $helpers->getQuery('amt','return');
-	include_once "scripts/pager.class.php"; //include this class where needed
-
 	global $helpers;
 	
-	//$log = $helpers->sqlSelect("*" , "log", "", "");
-
 	$token = $security->generateFormToken('token'); 
 	
 	$pager = new pager($amt, 'log', '*');  
