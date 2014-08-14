@@ -1,5 +1,5 @@
 ========== 1.31 ==========
-- pager class edited. Pager class no longer requires an amount/page to function it will automatically take the start values, and only take paramaters from links when they are present.
+- pager class edited. Pager class no longer requires an amount/page to function it will automatically take the start values, and only take parameters from links when they are present.
 - new pager class method for hiding the pager system if there is no rows to be shown. setShowPagerWhereNoData() / getShowPagerWhereNoData()
 - search page updated to have pagers.
 - small misc changes to a few files/ taking out useless code.
