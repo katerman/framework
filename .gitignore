@@ -1,11 +1,7 @@
-error_log
-
-admin/security.log
-
 .DS_Store
-
-*.png
 
 *.log
 
 app/db.php
+
+error_log
