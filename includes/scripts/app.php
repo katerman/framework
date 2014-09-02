@@ -22,9 +22,12 @@ require_once $path."/../../_config.php";
 require_once $path."/../../app/db.php";
 require_once $path."/../../app/app_model.php";
 require_once $path."/../../app/app_view.php";
+
+require_once $path."/user.class.php";
 require_once $path."/helpers.php";
 require_once $path."/security.php";
-require_once $path."/user.class.php";
+
 require_once $path."/strings.php";
 require_once $path."/pager.class.php";
+require_once $path."/form.class.php";
 require_once $path."/table.class.php";

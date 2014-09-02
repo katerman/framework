@@ -371,7 +371,38 @@ class helpers {
 		
 		$stmt->closeCursor(); // Free memory used in this query
 		
-	}		
+	}
+	
+	public function sqlLog($content, $action, $debug=false){
+		$date_time = date( "F j, Y, g:i a");
+        $user = new user();
+        $name = $user->get_Fullname();
+
+		$log_data = array(
+			':log_name' => $name,
+			':log_content' => $content,
+			':date' => $date_time,
+			':action' => $action
+		);
+		$stmt = $this->db->prepare("INSERT INTO `log` (log_name, log_action, log_content, log_time) VALUES (:log_name, :action , :log_content, :date)");
+					
+		if($debug === true){ // Debug
+			echo '<div style="border: 1px solid red;"><p style="color:red;">sqlLog DEBUG:<p> ';		
+			print_r($stmt);
+			echo '</div>';
+			exit();
+		}
+		
+		try {
+			$stmt->execute($log_data);
+		}
+		catch(PDOException $e){
+			echo "Query Failed -> sqlLog() ". $e;
+		}			
+		
+		$stmt->closeCursor(); // Free memory used in this query
+		
+	}			
 	
 	
 	

@@ -2,9 +2,7 @@
 	$user = new user();	
 
 	$perms = $user->get_Permissions();
-	$perms = unserialize($perms);
-	
-	
+	$perms = unserialize($perms);	
 	
 		echo '
 		<div class="search_bg"> 
@@ -39,6 +37,7 @@
 					<li>
 						<ul class="dropdown">
 							<li><a class="nav-spot" href="?tpl=edit&type=edit_config&pagename=config">Config</a></li>
+							<li><a class="nav-spot" href="?tpl=update_cms">Update</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -100,6 +99,8 @@
 				if($perms['assets']['uploaded'] == 1 && $perms['assets']['top_level'] == 1){ echo'<li><a class="nav-spot" href="?tpl=uploaded">Uploaded</a></li>';}
 				if($perms['assets']['templates'] == 1 && $perms['assets']['top_level'] == 1){ echo'<li><a class="nav-spot" href="?tpl=templates">Templates</a></li>';}
 				if($perms['assets']['labels'] == 1 && $perms['assets']['top_level'] == 1){ echo'<li><a class="nav-spot" href="?tpl=labels">Labels</a></li>';}
+				if($perms['assets']['scattershot'] == 1 && $perms['assets']['top_level'] == 1){ echo'<li><a class="nav-spot" href="?tpl=scattershot">Scattershot</a></li>';}
+
 		echo'	</ul>
 		</li>
 	</ul>	

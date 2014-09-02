@@ -6,7 +6,7 @@
 
 ?>
 
-<h1> this is the edit <?php $helpers->getQuery('pagename','echo'); ?> page</h1>
+<h1>Users</h1>
 
 <?php 
 	

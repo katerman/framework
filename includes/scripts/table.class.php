@@ -3,7 +3,7 @@
 /**
  * Table Class - Generate tables with a wide array of settings
  */
-class table {
+class Table {
 	    
     //set
 	public function set_TableStrLen($strln){

@@ -7,6 +7,7 @@
 ?>
 
 <h1> Templates </h1>
+<p>Templates are files associated to pages, they can be page specific templates, or content specific</p>
 <?php	
 
 	$token = $security->generateFormToken('token'); 

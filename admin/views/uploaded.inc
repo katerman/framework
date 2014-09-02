@@ -9,13 +9,15 @@ if($perms['assets']['uploaded'] == 1 && $perms['assets']['top_level'] == 1){
 	$token = $security->generateFormToken('token'); 
 
 	$amt = $helpers->getQuery('amt','return');
-	$pager = new pager($amt, 'images', '*', 'atm', 'test');  
+	$pager = new pager($amt, 'images', '*', 'atm', 'page');  
 
 ?>
-<h1> Things we've uploaded! </h1>
+<h1> Uploaded </h1>
+<p>These are all the files that have been uploaded to your site.</p>
 
 <div id="uploaded">
 <p class="results"></p>
+
 <p class="hidden" id="token"><?php echo $token ?></p>
 	<ul>
 		<?php
@@ -51,7 +53,7 @@ if($perms['assets']['uploaded'] == 1 && $perms['assets']['top_level'] == 1){
 					}
 					
 					echo '<li class="rename_li" id="image-'.$id.'">
-						<form class="image_rename-'.$id.'" placeholder="Name of Image">
+						<form class="image_rename-'.$id.'">
 							<input type="text" class="new_name" name="new_name" value="'. $image_name .'">
 							<input type="hidden" class="old_name hidden" name="old_name" value="'. $image_name .'">
 							<input type="hidden" value="'.$id.'" name="image_id">

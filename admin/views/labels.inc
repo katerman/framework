@@ -8,6 +8,7 @@
 ?>
 
 <h1> Labels </h1>
+<p>A label is a short piece of reusable content that should be in areas page content doesn't cover.</p>
 <?php		
 
 	$token = $security->generateFormToken('token'); 

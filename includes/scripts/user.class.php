@@ -32,6 +32,10 @@ class user {
 	function get_Comments(){
 		return $this->user['comments'];
 	}	
+
+	function get_Scattershot(){
+		return $this->user['scattershot'];
+	}
 	
 	function debug(){
 		echo '<div style="border: 1px solid red;"><p style="color:red;">user.class DEBUG:<p> ';	

@@ -86,8 +86,7 @@ class security {
 		   die;
 		
 		}
-	}	
-				
+	}					
 }
 
 ?>

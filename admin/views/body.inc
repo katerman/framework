@@ -1,33 +1,25 @@
 <?php
-global $helpers;
-$type = $helpers->getQuery('type','return');
-$tpl = $helpers->getQuery('tpl','return');
-/*
-	echo 'full: ' . helpers::url(full) . '<br>';
-	echo 'fullpage: ' . helpers::url(fullpage) . '<br>';
-	echo 'folder: ' . helpers::url(folder) . '<br>';
-	echo 'base: ' . helpers::url(base) . '<br>';
-	echo 'lastpath: ' . helpers::url(lastpath);
-	
-	$model->sqlSelect( "*" //select, 
-					  "pages", //from
-					  array("page_template"), //column names
-					  "" //where
-				  ); 	
-*/
-
+	global $helpers;
+	$type = $helpers->getQuery('type','return');
+	$tpl = $helpers->getQuery('tpl','return');
 ?>
 
-<div id="overlay"> <?if($type === 'edit_page'){ include_once('forms/content_form.inc'); }
-										 else if($tpl === 'templates'){include_once('forms/template_form.inc');}
-										 else if($tpl === 'labels'){include_once('forms/label_form.inc');}
-?></div>
+<div id="overlay"> 
 
-<div id="header"><? include_once('header.inc'); ?></div>
+	<?php 	// /forms/edit_form.inc
+		if($type === 'edit_page'){ include_once('forms/edit_form.inc'); }
+		else if($tpl === 'templates'){include_once('forms/template_form.inc');}
+		else if($tpl === 'labels'){include_once('forms/label_form.inc');}
+		else if($tpl === 'scattershot'){include_once('forms/scattershot_form.inc');}
+	?>
+
+</div>
+
+<div id="header"><?php include_once('header.inc'); ?></div>
 
 <div id="container"><!-- start content -->
 	
-	<div id="nav"><? include_once('nav.inc'); ?></div>
+	<div id="nav"><?php include_once('nav.inc'); ?></div>
 
 	<div class="inner-padding container">
 		<div class="custom columns">
@@ -50,7 +42,7 @@ $tpl = $helpers->getQuery('tpl','return');
 	
 	<div id="footer">
 		<div>
-			<a href="https://github.com/katerman/framework">Refined Framework <? echo $_CONFIG->version.  '(' . date('Y') . ')'; ?></a>
+			<a href="https://github.com/katerman/framework">Refined Framework <?php echo $_CONFIG->version.  '(' . date('Y') . ')'; ?></a>
 		</div>
 	</div>
 	

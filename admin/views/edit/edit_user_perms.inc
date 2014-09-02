@@ -114,6 +114,19 @@
 			</div>
 			<!-- Labels Access -->		
 		</div>
+		
+		<div class="perms <?php if($user_custom_perms['assets']['scattershot'] == 1){ echo 'checkbox_perms_bg_green'; }else{echo 'checkbox_perms_bg_red';} ?>">
+			<!-- ScatterShot Access -->
+			<p>Scattershot Access</p>
+			
+			<div>
+				<label for="checkbox_assets_scattershot_t"><?php if($user_custom_perms['assets']['scattershot'] == 1){ echo 'Can Access'; }else{echo 'Cannot Access';} ?></label>
+				<input id="checkbox_assets_scattershot_t" type="checkbox" name="checkbox_assets_scattershot" class="checkbox_perms" value="1"  <?php if($user_custom_perms['assets']['scattershot'] == 1){ echo 'checked'; } ?>>
+			</div>
+			<!-- ScatterShot Access -->		
+		</div>
+		
+		
 	</div>
 	
 </div>	

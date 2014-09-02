@@ -47,6 +47,10 @@ body,html, #container {
 	margin-bottom: 50px;
 }
 
+.inner-padding-gray p {
+	line-height: 150%;
+}
+
 .container, .custom {
 	width: 90%;
 }
@@ -718,6 +722,23 @@ input.pager-input {
 	background: #ef3e23;
 }
 
+/* Text classes */
+.error {
+	color: #ef3e23;
+}
+
+.success {
+	color: #0EA800;
+}
+
+.warning {
+	color: #f1ff24;
+}
+
+.information {
+	color: #6dcff6;
+}
+
 
 /*********** forms ***********/
 
@@ -1064,18 +1085,18 @@ input.pager-input {
 
 
 
-.add_content, .add_template, .add_labels, .add_page {
+.add_content, .add_template, .add_labels, .add_page, .add_scattershot {
 	padding-left: 20px;
 	cursor: pointer;
 	margin: 10px 0;	
 	color: #000;		
 }
 
-.add_content:hover,.add_template:hover, .add_labels:hover, .add_page:hover {
+.add_content:hover,.add_template:hover, .add_labels:hover, .add_page:hover, .add_scattershot {
 	text-decoration: underline;
 }
 
-.add_content:before, .add_template:before, .add_labels:before, .add_page:before{
+.add_content:before, .add_template:before, .add_labels:before, .add_page:before, .add_scattershot:before{
 	background: rgba(0, 255, 0, 0.5) url('../../img/admin/add-file_black.png') no-repeat -2px -1px;
 	content: '';
 	position: absolute;
@@ -1313,7 +1334,7 @@ input[type="radio"] {
 
 #uploaded > ul > li {
 	float: left;
-	margin-left: 20px;
+	margin: 10px 20px 0 0;
 }
 /*
 
@@ -1337,7 +1358,7 @@ input[type="radio"] {
 	overflow-y: auto;
 }
 
-#overlay #content_form, #overlay #template_form, #overlay #label_form, .images_for_chooser{
+.images_for_chooser, #overlay > form{
 	margin: 0 auto;
 	max-width: 350px;
 	background: rgba(255,255,255,0.9);
@@ -1362,7 +1383,7 @@ li.images{
 	margin: 10px 0 0 10px;
 	max-height: 150px;
 	min-height: 150px;
-	overflow-y: hidden;
+	overflow: hidden;
 	max-width: 150px;
 	min-width: 150px;
 }

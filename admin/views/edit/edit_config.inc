@@ -90,8 +90,8 @@
 	    	</div>
 			
 		    <button class="btn blue image_chooser">Choose Image</button>
-		    <input id="global_logo" class="global_logo_value hidden" value="<?php echo $global_logo; ?>" type="hidden">
-		    <p class="picked"><?php echo $global_logo; ?></p>
+		    <input id="global_logo_old" class="global_logo_value hidden" value="<?php echo $global_logo; ?>" type="hidden">
+		    <p id="global_logo" class="picked"><?php echo $global_logo; ?></p>
 		    <br/><br/>
 		
 			<label for="extra_js">Extra Javascript</label><br/>

@@ -242,6 +242,7 @@ $(document).ready(function() {
 	//for searching filtering search field
 
 	function regexSearch(v, s, m) {
+		console.log('test');
 		$(s).keyup(function(e) {
 			$rows = v;
 			var val = $.trim($(this).val()),
@@ -431,7 +432,7 @@ $(document).ready(function() {
 			update.val('add');
 			data = new Object;
 			for (var i = 0; i < values.length; i++) {
-				$('#template_form ' + '#' + values[i]).val('');
+				$('#label_form ' + '#' + values[i]).val('');
 			}
 			form.children('h1').text('Add Label');
 			data = new Object;
@@ -453,6 +454,76 @@ $(document).ready(function() {
 			}
 		});
 	} //labels
+	
+	function scattershot() {
+		var scattershot_edit = $('.edit_scattershot');
+		var overlay = $('#overlay');
+		var add_scattershot = $('.add_scattershot');
+		var KEYCODE_ESC = 27;
+		var x = '0';
+		var update = $('#update_crud');
+		var form = $('#scattershot_form');
+		overlay.on('click', '.form_close', function() {
+			overlay.hide();
+			x = '0';
+		});
+		scattershot_edit.click(function(e) { //=================== EDIT ===================
+			overlay.toggle();
+			form.children('h1').text('Edit Scattershot');
+			values = ['scattershot_id', 'scattershot_value', 'scattershot_name','scattershot_type','scattershot_anchor','scattershot_class','id'];
+			update.val('edit');
+			data = new Object;
+			for (var i = 0; i < values.length; i++) {
+				data[values[i]] = $(this).parents('tr').children('.' + values[i]).text();
+				$('#scattershot_form ' + '#' + values[i]).val(data[values[i]]);
+				//console.log($(this).parents('tr').children('.' + values[i]).text());
+			}
+			data['token'] = $('p#token').text();
+			$('#token').val(data['token']);
+			console.log(data);
+			if (x === '0') {
+				overlay.append(form);
+				x++;
+			}
+			e.preventDefault();
+		});
+		add_scattershot.click(function(e) { //=================== ADD ===================
+			overlay.toggle();
+			values = ['value', 'name','type','anchor','class','id'];
+			update.val('add');
+			data = new Object;
+			for (var i = 0; i < values.length; i++) {
+				$('#scattershot_form ' + '#' + values[i]).val('');
+			}
+			form.children('h1').text('Add Label');
+			data = new Object;
+			
+			//reset values
+			form.children('#scattershot_name').val('');
+			form.children('#scattershot_value').val('');
+			form.children('#scattershot_type').val('');
+			form.children('#scattershot_anchor').val('');
+			form.children('#scattershot_class').val('');
+			form.children('#scattershot_id').val('');
+			
+			data['token'] = $('p#token').text();
+			$('#scattershot_token').val(data['token']);
+			//console.log(data);
+			if (x === '0') {
+				overlay.append(form);
+				x++;
+			}
+			e.preventDefault();
+		});
+		$(document).keyup(function(e) { //clicking escape will hide the overlay 
+			if (e.keyCode == KEYCODE_ESC) {
+				overlay.hide();
+				x = '0';
+			}
+		});
+	} //scattershot
+	
+	
 	//for searching filtering search field
 
 	function regexSearch(v, s) {
@@ -684,12 +755,13 @@ $(document).ready(function() {
 		image_chooser();
 		perms_func();
 		//equalHeight($('.images'));
+		
 		regexSearch($('.search_table .data'), $('.search')); //search field regex
-		regexSearch($('.images'), $('.search')); //search field regex
+		regexSearch($('.images'), $('.search')); //search field regex		
+		
 		if ($.QueryString["type"] == 'edit_page' || $.QueryString["type"] == 'edit_user') { //show wysiwyg one edit_page and edit_user only!
 			$('.html-code').jqte();
 		}
-		document.documentElement.style.overflowX = 'hidden'; //strange issue where there was some Horozontal bars well lets get rid of it.
 		headerdropdown();
 		//extremeform(); /*Form node handler*/
 		//slideable();
@@ -709,6 +781,8 @@ $(document).ready(function() {
 		
 		search_nav();
 		search();
+		
+		scattershot();
 	}
 	init();
 });

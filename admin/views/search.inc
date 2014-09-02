@@ -48,7 +48,7 @@
 	if(isset($content) && $filter == 'users' || $filter == 'all' && $user_perm){
 		echo '<h2>Users</h2>';
 		
-		$users_table = new table();
+		$users_table = new Table();
 		$user_heads = array('Username'=>'user_uName', 'User Fullname' => 'user_FullName', 'User Comments' => 'user_Comments');
 	
 		$users_table->set_TableHead($user_heads);
@@ -70,7 +70,7 @@
 	if(isset($labels) && $filter == 'labels' || $filter == 'all' && $label_perm){
 		echo '<h2>Labels</h2>';
 
-		$label_table = new table();
+		$label_table = new Table();
 		$label_head = array('Content'=>'label_content', 'Name' => 'label_name');
 	
 		$label_table->set_TableHead($label_head);
@@ -88,7 +88,7 @@
 	if(isset($templates) && $filter == 'templates' || $filter == 'all' && $templates_perm){
 		echo '<h2>Templates</h2>';
 
-		$template_table = new table();
+		$template_table = new Table();
 		$template_head = array('Name'=>'template_name', 'Type' => 'template_type');
 	
 		$template_table->set_TableHead($template_head);
@@ -108,7 +108,7 @@
 		echo '<h2>Pages</h2>';
 //WHERE page_name LIKE '%$query%' OR page_group LIKE '%$query%' OR page_template LIKE '%$query%' 
 //OR page_meta_keyword LIKE '%$query%' OR page_meta_title LIKE '%$query%'
-		$pages_table = new table();
+		$pages_table = new Table();
 		$pages_head = array('Name'=>'page_name', 'Group' => 'page_group', 'Template'=>'page_template', 'Meta Keywords'=>'page_meta_keyword', 'Meta Title'=>'page_meta_title');
 	
 		$pages_table->set_TableHead($pages_head);
@@ -127,7 +127,7 @@
 	if(isset($content) && $filter == 'content' || $filter == 'all' && $page_perm){
 		echo '<h2>Content</h2>';
 		
-		$content_table = new table();
+		$content_table = new Table();
 		$content_heads = array('Content'=>'content', 'Content Area' => 'content_area', 'Content Name' => 'content_name');
 	
 		$content_table->set_TableHead($content_heads);

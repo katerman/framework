@@ -1,3 +1,13 @@
+========== 1.32 ==========
+- Upgrade system now in place, it will check if an update is avaliable and install it.
+- New scattershot area under assets. Scattershot will be for any information to be quickly added to the db. That can later be used for any number of purposes. 
+- couple new config options config path and root path, and a upgrade remote path.
+- add/upgrade.php were upgraded to use newer helper methods.
+- start of form class is included, not suggested to use it yet.
+- minor fixes to many template files
+- new css, and css fixes
+
+
 ========== 1.31 ==========
 - pager class edited. Pager class no longer requires an amount/page to function it will automatically take the start values, and only take parameters from links when they are present.
 - new pager class method for hiding the pager system if there is no rows to be shown. setShowPagerWhereNoData() / getShowPagerWhereNoData()

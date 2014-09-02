@@ -15,7 +15,7 @@
 	}
 	
 	//<img src="includes/scripts/image.php?w=1000&fit=false&h=120&file=refined.png">
-	//website.com/includes/scripts/image_resize.php?w=20&h=10&file=image.png
+	//website.com/includes/scripts/image.php?w=20&h=10&file=image.png
 	if($_GET['w'] && $_GET['h'] && $_GET['file']){
 		
 		$width = $_GET['w'];

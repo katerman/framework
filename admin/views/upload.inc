@@ -14,6 +14,7 @@ if($perms['assets']['upload'] == 1 && $perms['assets']['top_level'] == 1){
 ?>
 
 <h1> Upload</h1>
+<p>Drag a file onto the area below to automatically upload that file. Alternatively you can click on the area below to do the same thing.</p>
 
 <form action="scripts/upload.php" id="dropzone" class="dropzone" enctype="multipart/form-data">
 	<input type="hidden" class="token" name="token" value="<?php echo $token; ?>">	

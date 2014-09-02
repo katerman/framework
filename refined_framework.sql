@@ -247,6 +247,19 @@ VALUES
 UNLOCK TABLES;
 
 
+DROP TABLE IF EXISTS `scattershot`;
+
+CREATE TABLE `scattershot` (
+  `scattershot_id` int(11) NOT NULL AUTO_INCREMENT,
+  `value` text COLLATE latin1_general_ci,
+  `name` text COLLATE latin1_general_ci,
+  `type` text COLLATE latin1_general_ci,
+  `anchor` text COLLATE latin1_general_ci,
+  `class` text COLLATE latin1_general_ci,
+  `id` text COLLATE latin1_general_ci,
+  PRIMARY KEY (`scattershot_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
 
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
