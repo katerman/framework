@@ -2,7 +2,11 @@
 
 include_once "../includes/scripts/app.php";
 
-$config = $helpers->sqlSelect("version" , "config", "", "");
+global $dsn, $db_user, $db_pass;//need db info for helpers
+
+$helpers = new helpers($dsn, $db_user, $db_pass);
+
+$config = $helpers->sqlSelect("version" , "config", "");
 $config = $config[0];
 
 $current_ver = $config['version'];
