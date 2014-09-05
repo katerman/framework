@@ -1,3 +1,9 @@
+========== 1.33 ==========
+- upgrading system updated to use patch.php instead of update.php
+- config updated to be DB based instead of file based
+- db.php added.. ahem
+- base sql updated
+
 ========== 1.32 ==========
 - Upgrade system now in place, it will check if an update is avaliable and install it.
 - New scattershot area under assets. Scattershot will be for any information to be quickly added to the db. That can later be used for any number of purposes. 

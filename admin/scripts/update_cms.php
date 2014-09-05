@@ -2,7 +2,10 @@
 
 include_once "../includes/scripts/app.php";
 
-$current_ver = $_CONFIG->version;
+$config = $helpers->sqlSelect("version" , "config", "", "");
+$config = $config[0];
+
+$current_ver = $config['version'];
 $updated = null;
 $found = false;
 $error = null;

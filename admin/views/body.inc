@@ -2,6 +2,8 @@
 	global $helpers;
 	$type = $helpers->getQuery('type','return');
 	$tpl = $helpers->getQuery('tpl','return');
+	$config = $helpers->sqlSelect("*" , "config", "", "");
+	$config = $config[0];
 ?>
 
 <div id="overlay"> 
@@ -42,7 +44,7 @@
 	
 	<div id="footer">
 		<div>
-			<a href="https://github.com/katerman/framework">Refined Framework <?php echo $_CONFIG->version.  '(' . date('Y') . ')'; ?></a>
+			<a href="https://github.com/katerman/framework">RefinedCMS &bull; v<?php echo $config['version'].  ' &bull; ' . date('Y'); ?></a>
 		</div>
 	</div>
 	

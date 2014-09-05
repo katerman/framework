@@ -3,8 +3,6 @@ $config_root = dirname(__FILE__);
 $config_path = str_replace($_SERVER['DOCUMENT_ROOT'], '', $config_root);
 	
 $array = array(	
-	'version' => '1.32',
-
 	'config_path' => $config_root.'/',
 	'root_path' => $config_path.'/',
 	
