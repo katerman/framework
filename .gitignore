@@ -2,7 +2,5 @@
 
 *.log
 
-app/db.php
-
 error_log
 
