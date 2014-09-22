@@ -2,10 +2,17 @@
 
 include_once "../../includes/scripts/app.php";
 
+global $dsn, $db_user, $db_pass;//need db info for helpers
+
+$helpers = new helpers($dsn, $db_user, $db_pass);
+
 $security = new security();
 $security->checkToken('token');  // check security token
 
-$current_ver = $_CONFIG->version;
+$config = $helpers->sqlSelect("version" , "config", "", "");
+$config = $config[0];
+
+$current_ver = $config['version'];
 $updated = null;
 $error = null;
 $aV = $_POST['new_update_num'];
@@ -57,12 +64,12 @@ while ($aF = zip_read($zipHandle) ){
 			$updateThis = '';
 
 			//If we need to run commands, then do it.
-			if ( $thisFileName == 'upgrade.php' ){
-				$upgradeExec = fopen('upgrade.php','w');
+			if ( $thisFileName == 'patch.php' ){
+				$upgradeExec = fopen('patch.php','w');
 				fwrite($upgradeExec, $contents);
 				fclose($upgradeExec);
-				include ('upgrade.php');
-				unlink('upgrade.php');
+				include ('patch.php');
+				unlink('patch.php');
 			
 				$data['files'][$loop]['status'] = 'Executed';
 				$loop++;

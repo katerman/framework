@@ -22,3 +22,4 @@ function url(){
 if(!preg_match('/install/', url())){
 	header('Location: '.$_CONFIG->root_path.'install');
 }
+

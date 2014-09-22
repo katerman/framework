@@ -31,15 +31,16 @@ CREATE TABLE `config` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `extra_js` varchar(1000) COLLATE latin1_general_ci DEFAULT NULL,
   `extra_css` varchar(1000) COLLATE latin1_general_ci DEFAULT NULL,
+  `version` varchar(10) COLLATE latin1_general_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 LOCK TABLES `config` WRITE;
 /*!40000 ALTER TABLE `config` DISABLE KEYS */;
 
-INSERT INTO `config` (`site_name`, `global_logo`, `id`, `extra_js`, `extra_css`)
+INSERT INTO `config` (`site_name`, `global_logo`, `id`, `extra_js`, `extra_css`, `version`)
 VALUES
-	('R&D Motorsports','refined.png',1,'','');
+	('Site Name','refined.png',1,'','','1.33');
 
 /*!40000 ALTER TABLE `config` ENABLE KEYS */;
 UNLOCK TABLES;
