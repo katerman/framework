@@ -128,11 +128,11 @@
 				include_once($_CONFIG->config_path.'app/db.php');
 				$helpers = new helpers($dsn, $db_user, $db_pw);
 				
-				$helpers->sqlAdd('users', $values);
-
 				$sql = file_get_contents('../refined_framework.sql');
 				
-				$helpers->sqlRaw($sql);
+				$helpers->sqlRaw($sql);				
+				
+				$helpers->sqlAdd('users', $values);
 				
 				$helpers->sqlUpdate('config', array('site_name' => $name), '`id`=1');
 				

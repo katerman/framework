@@ -241,7 +241,6 @@ LOCK TABLES `users` WRITE;
 
 INSERT INTO `users` (`users_Id`, `user_uName`, `user_Pass`, `user_FullName`, `user_Salt`, `user_Access`, `user_Comments`, `user_custom_perms`)
 VALUES
-	(34,'testadmin','1bf7a4d56591dfe62d1545e0997cdf52','Test Admin','12898661',1,NULL,''),
 	(38,'testuser','544566aa7c66abc52c005e7395398d2e','Testy McTesterson','42215298',2,NULL,'');
 
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
