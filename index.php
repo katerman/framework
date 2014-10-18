@@ -7,9 +7,11 @@ include_once "includes/scripts/app.php";
 //class calls
 $model = new appModel($dsn, $db_user, $db_pass);
 $view = new appView();
-$helpers = new helpers($dsn, $db_user, $db_pass);
-$security = new security(); 
-  
+$helpers = new helpers();
+$security = new security();
+
+include_once "includes/scripts/_start.php";
+
 $username = empty($_POST['username']) ? '' : strtolower(trim($_POST['username']));
 $password = empty($_POST['password']) ? '' : trim($_POST['password']);
 
@@ -25,7 +27,7 @@ if(!empty($_SESSION['userInfo'])){
 if (!empty($username) && !empty($password)){
 
 	$user = $model->getUserByNamePass($username, $password);
-	
+
 	if(is_array($user)){
 		$contentPage = 'body';
 		session_start();

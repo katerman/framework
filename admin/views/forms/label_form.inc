@@ -1,9 +1,9 @@
-<?
+<?php
 	global $_CONFIG;
 ?>	
 
 
-<form id="label_form" class="form" action="" method="" accept-charset="utf-8"><h1>edit/add label</h1><img class="form_close" src="<? echo $_CONFIG->img_path; ?>admin/close.png" alt="close"> 
+<form id="label_form" class="form" action="" method="" accept-charset="utf-8"><h1>edit/add label</h1><img class="form_close" src="<?php echo $_CONFIG->img_path; ?>admin/close.png" alt="close"> 
 
 	<p> Press Escape, or Click the x to close.</p>
 	
@@ -16,7 +16,7 @@
 	<input id="label_content" name="label_content" value="" placeholder="Label Content"><br/>	
 
 	
-	<input type="hidden" id="label_token" name="token" value="">
+	<input type="hidden" id="token" name="token" value="">
 	<input type="hidden" id="update_type" name="update_type" value="labels">
 	<input type="hidden" id="update_crud" name="update_crud" value="">
 

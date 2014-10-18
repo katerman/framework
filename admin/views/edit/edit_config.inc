@@ -1,4 +1,10 @@
 <?php
+	
+	global $helpers, $security;
+	
+	$user = new user();
+	$perms = $user->get_Permissions();
+	
 	if($perms['config'] == 1){
 ?>
 
@@ -14,8 +20,6 @@
 				$global_logo = $helpers->custom_clean($z[0]['global_logo']);
 				$extra_js = $helpers->custom_clean($z[0]['extra_js'],false);
 				$extra_css = $helpers->custom_clean($z[0]['extra_css'],true,false);
-
-			//	print_r($z);
 				
 				echo '<table class="table">
 						<thead>
@@ -95,10 +99,10 @@
 		    <br/><br/>
 		
 			<label for="extra_js">Extra Javascript</label><br/>
-		    <textarea cols="40" rows="10" id="extra_js" name="extra_js" placeholder="Extra JavaScript"><?php echo $extra_js; ?></textarea><br/><br/>
+		    <textarea cols="40" rows="5" id="extra_js" name="extra_js" placeholder="Extra JavaScript"><?php echo $extra_js; ?></textarea><br/><br/>
 
 			<label for="extra_css">Extra CSS</label><br/>
-		    <textarea cols="40" rows="10" id="extra_css" name="extra_css" placeholder="Extra CSS"><?php echo $extra_css; ?></textarea><br/>
+		    <textarea cols="40" rows="5" id="extra_css" name="extra_css" placeholder="Extra CSS"><?php echo $extra_css; ?></textarea><br/>
 			
 			
 
@@ -113,7 +117,7 @@
 		
 <?php
 	}else{
-		header('Location: ?tpl=default_view');
+		$helpers->redirect('index.php?tpl=default_view');
 	}
 ?>
 		

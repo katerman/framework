@@ -1,3 +1,20 @@
+========== 1.34 ==========
+- WYSIWYG upgraded to Froala editor. It has better methods and options.
+- some hardcoded paths updated in a few files to config specific paths
+- helpers class construct updated to no longer require the three db params
+- user class has new methods is_New(username) and get_UserById(id) and get_Permissions now comes unseralized as well as two permission related methods get_maxPermissions() and get_minPermissions() both of these are pretty much hardcoded strings that return the highest and lowest permission levels for users
+- log php script fixed
+- update_cms script fix
+- add/edit routing templates updated to user app view to display proper templates
+- helpers new redirect function based off of the add param function, and a few new docblocks
+- dropdown in admin changed to a gear icon and now shows the current users name with a link to their edit_use page
+- views now adhere to themes (folders in your template path) with default being the default. Make a new folder to create a new theme and change the directory in which views pulls templates from by changing the theme name.
+- template debug now has a red border to help with debugging templates.
+- all templates global variables are set up through _start php file
+- new functions php file for random functions needed outside of classes first one is print_pre
+- image php file fixed height or width is now needed (if only one is present the image will be auto proportional). 
+- base sql updated
+
 ========== 1.33 ==========
 - upgrading system updated to use patch.php instead of update.php
 - config updated to be DB based instead of file based

@@ -36,7 +36,7 @@ $(document).ready(function() {
 				});
 			}
 		});
-	} // end of login_validation	
+	} // end of login_validation
 
 	function edit_validation() {
 		$("#edit_form").validate({
@@ -60,21 +60,21 @@ $(document).ready(function() {
 					var access = $('#edit_page_form input[name="access"]:checked').val();
 					var update_type = $('#update_type').val();
 					var token = $('#token').val(); /* list of perms */
-									
+
 					perm_values = ['checkbox_config', 'checkbox_pages', 'checkbox_assets_tl','checkbox_assets_upload','checkbox_assets_uploaded', 'checkbox_assets_templates', 'checkbox_assets_labels', 'checkbox_users', 'checkbox_assets_scattershot'];
-						
-					data = new Object(); //make data object to hold data passed through post						
-						
+
+					data = new Object(); //make data object to hold data passed through post
+
 					for(i = 0 ; i < perm_values.length ; i++){
 						var current_perm = $('.permission_div input[name="'+perm_values[i]+'"]' );
-						
+
 						if(current_perm.is(":checked")){
 							data[perm_values[i]] = 1;
 						}else{
 							data[perm_values[i]] = 0;
 						}
 					}
-										
+
 					data['user_id'] = user_id;
 					data['user_uname'] = user_name;
 					data['user_pass'] = pass_word;
@@ -83,7 +83,7 @@ $(document).ready(function() {
 					data['user_access'] = access;
 					data['token'] = token;
 					data['update_type'] = update_type; /*perms*/
-										
+
 				} else if (update_type === 'config') {
 					values = ['config_id', 'extra_css', 'extra_js', 'site_name', 'token'];
 					data = new Object(); //make data object to hold data passed through post
@@ -167,7 +167,7 @@ $(document).ready(function() {
 				});
 			}
 		});
-	} // end of delete_validation	
+	} // end of delete_validation
 
 	function add_validation() {
 		$('#user_uname').bind('input', function() {
@@ -183,10 +183,10 @@ $(document).ready(function() {
 				data: data,
 				clearform: false,
 				success: function(data) {
-					//console.log('Data: '+ data.length);
-					if (data.length != 0) {
+
+					if (data['taken'] === false) {
 						$('input.btn').attr('disabled', 'true');
-						$('#user_uname').after('<label for="user_uname" class="error-taken">Username Taken</label>');
+						$('#user_uname').after('<label style="color: red;" for="user_uname" class="error-taken">Username Taken</label>');
 					} else {
 						$('input.btn').removeAttr('disabled');
 					}
@@ -196,7 +196,7 @@ $(document).ready(function() {
 				}
 			}); //ajax
 		}); //change
-		
+
 		$("#add_form").validate({
 			submitHandler: function(form) {
 				var update_type = $('#update_type').val(); // need to grab the update type to send the correct data
@@ -492,8 +492,7 @@ $(document).ready(function() {
 						clearForm: true,
 						cache: false,
 						success: function(data) {
-							//location.reload();
-							console.log(JSON.stringify(data));
+							//console.log(JSON.stringify(data));
 							$('.results').text(data['image'] + ' was deleted');
 							$('#image-' + data['id']).remove();
 						},
@@ -507,7 +506,7 @@ $(document).ready(function() {
 				}
 			});
 		}
-	} // end of delete_image_validation	
+	} // end of delete_image_validation
 
 	function rename_image_validation() {
 		data = new Object();
@@ -573,7 +572,7 @@ $(document).ready(function() {
 				}
 			});
 		}
-	} // end of rename_image_validation	
+	} // end of rename_image_validation
 
 	function log_purge() {
 		var data = {
@@ -588,10 +587,10 @@ $(document).ready(function() {
 				data: data,
 				clearform: true,
 				success: function(data) {
-					//console.log('Data: '+ data.length);
+					console.log('Data: '+ data);
 				},
 				error: function(jxhr, ts, et) {
-					//console.log(JSON.stringify(jxhr) + '  ' + ts + '  ' + et);
+					console.log(JSON.stringify(jxhr) + '  ' + ts + '  ' + et);
 				}
 			}).done(function() {
 				location.reload();

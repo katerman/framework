@@ -30,9 +30,9 @@
 <link rel="stylesheet" href="<?php echo $_CONFIG->css_path; ?>admin/dropzone.css" type="text/css" media="screen" charset="utf-8">
 <link rel="stylesheet" href="<?php echo $_CONFIG->css_path; ?>admin/skeleton/skeleton.css" type="text/css" media="screen" charset="utf-8">
 <link rel="stylesheet" href="<?php echo $_CONFIG->css_path; ?>admin/skeleton/layout.css" type="text/css" media="screen" charset="utf-8">
-<link rel="stylesheet" href="<?php echo $_CONFIG->css_path; ?>admin/jquery-te.css" type="text/css" media="screen" charset="utf-8">
 
-<!-- head JS -->
+<link rel="stylesheet" href="<?php echo $_CONFIG->css_path; ?>admin/froala_page.min.css" type="text/css" media="screen" charset="utf-8">
+<link rel="stylesheet" href="<?php echo $_CONFIG->css_path; ?>admin/froala_editor.min.css" type="text/css" media="screen" charset="utf-8">
 
 <!-- Google fonts -->
 <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
@@ -41,6 +41,6 @@
 </head>
 <body>
 
-  <script>
-  	var pager_array = [];
-  </script>
+<script>
+	var pager_array = [];
+</script>

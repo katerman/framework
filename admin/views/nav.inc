@@ -2,7 +2,6 @@
 	$user = new user();	
 
 	$perms = $user->get_Permissions();
-	$perms = unserialize($perms);	
 	
 		echo '
 		<div class="search_bg"> 

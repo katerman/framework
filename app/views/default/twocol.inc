@@ -7,6 +7,9 @@
 			<?php
 				$view->show_content('header_col_one');
 				$view->show_content('content_col_one');
+				
+				$user = new user();
+				print_pre($user->get_Permissions());
 			?>
 	
 		</div>

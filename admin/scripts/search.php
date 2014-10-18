@@ -4,7 +4,7 @@
 		
 	include_once "../includes/scripts/app.php";
 
-	$helpers = new helpers($dsn, $db_user, $db_pass);
+	$helpers = new helpers();
 	$security = new security();
 	
 	$token = $security->generateFormToken('token'); 

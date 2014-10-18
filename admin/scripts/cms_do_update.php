@@ -4,7 +4,7 @@ include_once "../../includes/scripts/app.php";
 
 global $dsn, $db_user, $db_pass;//need db info for helpers
 
-$helpers = new helpers($dsn, $db_user, $db_pass);
+$helpers = new helpers();
 
 $security = new security();
 $security->checkToken('token');  // check security token

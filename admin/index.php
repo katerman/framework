@@ -8,7 +8,7 @@ $admin = true;
 //class calls
 $model = new appModel($dsn, $db_user, $db_pass);
 $view = new appView();
-$helpers = new helpers($dsn, $db_user, $db_pass);
+$helpers = new helpers();
 $security = new security();
 
 global $_CONFIG;
@@ -30,8 +30,8 @@ if(isset($_SESSION['userInfo'])){
 //if our session isnt empty, but access doesnt equal 1 return them back to login(.inc) page, if it is one, bring them to the body.inc
 if(!empty($_SESSION['userInfo'])){
 	if($user['access'] != 1){
-		$contentPage = 'login';		
-	}else{	
+		$contentPage = 'login';
+	}else{
 		$contentPage = 'body';
 		$_SESSION['userInfo'] = $user;
 	}
@@ -41,10 +41,10 @@ if(!empty($_SESSION['userInfo'])){
 if (!empty($username) && !empty($password)){
 
 	$user = $model->getUserByNamePass($username, $password);
-	
+
 	if(is_array($user)){
 		$contentPage = 'body';
-		$_SESSION['userInfo'] = $user;				
+		$_SESSION['userInfo'] = $user;
 	}
 }
 
@@ -55,5 +55,5 @@ if($user['access'] != 1 && $contentPage != 'login'){
 	$view->show('head');
 	$view->show($contentPage, $user);
 	$view->show('footer');
-} 
+}
 

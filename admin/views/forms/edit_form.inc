@@ -1,5 +1,5 @@
 <?
-	global $_CONFIG;
+	global $_CONFIG, $helpers;
 ?>	
 
 <form id="content_form" class="form" action="" method="" accept-charset="utf-8"><h1>Edit Content</h1><img class="form_close" src="<?php echo $_CONFIG->img_path; ?>admin/close.png" alt="close"> 
@@ -27,7 +27,7 @@
 	<input type="hidden" id="content_token" name="token" value="">
 	<input type="hidden" id="update_type" name="update_type" value="content">
 	<input type="hidden" id="update_crud" name="update_crud" value="">
-	<input type="hidden" id="content_page_id" name="content_page_id" value="<?php global $helpers; $helpers->getQuery('pageid','echo') ?> ">
+	<input type="hidden" id="content_page_id" name="content_page_id" value="<?php $helpers->getQuery('pageid','echo') ?> ">
 	<input type="submit" value="Submit" class="btn clear-fix pull-left">
 	
 	<p class="feedback_content hidden clear-fix pull-left"></p>

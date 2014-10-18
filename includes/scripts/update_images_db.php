@@ -5,7 +5,7 @@ $runnable = false;
 if($runnable === true){
 	
 	include_once 'app.php';
-	$helpers = new helpers($dsn, $db_user, $db_pass);
+	$helpers = new helpers();
 	
 	function is_image($path){
 		$a = getimagesize($path);

@@ -147,60 +147,6 @@ $(document).ready(function() {
 		});
 	}
 
-	function extremeform() {
-		top_node = $('.top-node');
-		child_node = $('.child-node');
-		child = $('.child');
-		top_node.each(function(i, e) {
-			$(e).data("topNode", i);
-		});
-		child_node.each(function(i, e) {
-			parentNode = $(e).prevAll('.top-node').data("topNode");
-			$(e).data("childNode", parentNode);
-			$(e).data("myChildren", i);
-			$(e).addClass('childNode-' + parentNode);
-			$(e).addClass('myChildren-' + i);
-		});
-		child.each(function(i, e) {
-			parentNode = $(e).prevAll('.child-node').data("myChildren");
-			$(e).data("child", parentNode);
-			$(e).addClass('child-' + parentNode);
-		});
-		//Auto Checkall - or Uncheck all checkboxes
-		$('thead .autocheck input').click(function() {
-			if (this.checked) {
-				$('tbody .autocheck input').each(function() {
-					this.checked = true;
-				});
-			} else {
-				$('tbody .autocheck input').each(function() {
-					this.checked = false;
-				});
-			}
-		});
-		//top level nodes
-		top_node.click(function() {
-			thisNode = $(this).data('topNode');
-			console.log($(this).data());
-			$(this).siblings('.child-node').filterByData('childNode', thisNode).each(function(index, item) {
-				$(this).toggle();
-			});
-			$(this).nextUntil('.top-node', '.child').hide();
-		});
-		//2nd level nodes
-		child_node.click(function() {
-			thisNode = $(this).data('childNode');
-			myChildren = $(this).data('myChildren');
-			console.log($(this).data());
-			$(this).siblings('.child').filterByData('child', myChildren).each(function(index, item) {
-				$(this).toggle();
-			});
-		});
-		//child lowest level
-		child.click(function() {
-			console.log($(this).data());
-		});
-	}
 
 	function slideable() {
 		slideable = $('.slideable h1');
@@ -260,40 +206,58 @@ $(document).ready(function() {
 	}
 
 	function content() {
+		'use strict'
+	
 		var content = $('.edit_content');
 		var overlay = $('#overlay');
 		var add_content = $('.add_content');
-		var x = '0';
+		var x = 0;
 		var update = $('#update_crud');
 		var form = $('#content_form');
+
+		//if we close our content window and we are in the html view get out of it because this causes issues
+		function exec_html_cmd(){	
+			var elems = document.getElementsByClassName('fr-bttn');
+			var length = elems.length
+			for(var i = 0; i < length; i++){
+				var _this = $(elems[i]);
+				if(_this.data('cmd') === 'html' && _this.hasClass('active')){
+					console.log('true');
+					$(".html-code").editable("exec", "html");	
+				}
+			}		
+		}
+
 		overlay.on('click', '.form_close', function() {
+			exec_html_cmd();
 			overlay.hide();
-			x = '0';
+			x = 0;
 		});
 		content.click(function(e) { //edit content
 			overlay.toggle();
 			form.children('h1').text('Edit Content');
-			values = ['content_order', 'content_area', 'content_name', 'content_id'];
+			var values = ['content_order', 'content_area', 'content_name', 'content_id'];
 			update.val('edit');
-			data = new Object;
+			var data = new Object;
 			for (var i = 0; i < values.length; i++) {
 				data[values[i]] = $(this).parents('tr').children('.' + values[i]).text();
 				$('#content_form ' + '#' + values[i]).val(data[values[i]]);
 			}
 			var content = $(this).parents('tr').children('.content');
+			
 			if (content.html().match(/<(\w+)((?:\s+\w+(?:\s*=\s*(?:(?:"[^"]*")|(?:'[^']*')|[^>\s]+))?)*)\s*(\/?)>/)) {
 				data['content'] = content.html();
 			} else {
 				data['content'] = content.text();
 			}
-			//$('#content').val(data['content']);
-			$('.jqte_editor').jqteVal(data['content']);
-			//document.getElementById('content').innerHTML = data['content'];
-			//console.log(data['content']);
-			data['token'] = $(this).parents('tr').children('#content_token').text();
-			$('#content_token').val(data['token']);
-			//console.log(data);
-			if (x === '0') {
+				
+			//wyswiyg
+			var editor = $('.html-code');	
+			editor.editable("setHTML", data['content'], true);			
+
+			data['token'] = $(this).parents('tr').children('.token').text();
+			$('.token').val(data['token']);
+			if (x === 0) {
 				overlay.append(form);
 				x++;
 			}
@@ -301,18 +265,18 @@ $(document).ready(function() {
 		});
 		add_content.click(function(e) {
 			overlay.toggle();
-			values = ['content_order', 'content', 'content_area', 'content_name', 'content_id'];
+			var values = ['content_order', 'content', 'content_area', 'content_name', 'content_id'];
 			update.val('add');
-			data = new Object;
+			var data = new Object;
 			for (var i = 0; i < values.length; i++) {
 				$('#content_form ' + '#' + values[i]).val('');
 			}
 			form.children('h1').text('Add Content');
 			data = new Object;
-			data['token'] = $('table #content_token').first().text();
-			$('#content_token').val(data['token']);
-			//console.log(data);
-			if (x === '0') {
+			data['token'] = $('table .token').first().text();
+			$('.token').val(data['token']);
+
+			if (x === 0) {
 				overlay.append(form);
 				x++;
 			}
@@ -320,8 +284,9 @@ $(document).ready(function() {
 		});
 		$(document).keyup(function(e) { //clicking escape will hide the overlay 
 			if (e.keyCode == KEYCODE_ESC) {
-				overlay.hide();
-				x = '0';
+				exec_html_cmd();
+				overlay.css({display:'none'});
+				x = 0;
 			}
 		});
 		//overlay.click(td);
@@ -332,17 +297,17 @@ $(document).ready(function() {
 		var overlay = $('#overlay');
 		var add_template = $('.add_template');
 		var KEYCODE_ESC = 27;
-		var x = '0';
+		var x = 0;
 		var update = $('#update_crud');
 		var form = $('#template_form');
 		overlay.on('click', '.form_close', function() {
 			overlay.hide();
-			x = '0';
+			x = 0;
 		});
 		template_edit.click(function(e) {
 			overlay.toggle();
 			form.children('h1').text('Edit Template');
-			values = ['template_name', 'id'];
+			var values = ['template_name', 'id'];
 			update.val('edit');
 			data = new Object;
 			for (var i = 0; i < values.length; i++) {
@@ -352,16 +317,16 @@ $(document).ready(function() {
 			data['template_type'] = $(this).parents('tr').children('.template_type').text();
 			var type = data['template_type'];
 			if (type === 'page') {
-				type = '0';
+				type = 0;
 			} else {
-				type = '1';
+				type = 1;
 			}
 			$('#template_form #template_type').val(type);
 			//console.log(data['template_type']);
 			data['token'] = $('p#token').text();
 			$('#template_token').val(data['token']);
 			//console.log(data);
-			if (x === '0') {
+			if (x === 0) {
 				overlay.append(form);
 				x++;
 			}
@@ -369,9 +334,9 @@ $(document).ready(function() {
 		});
 		add_template.click(function(e) {
 			overlay.toggle();
-			values = ['template_name', 'id'];
+			var values = ['template_name', 'id'];
 			update.val('add');
-			data = new Object;
+			var data = new Object;
 			for (var i = 0; i < values.length; i++) {
 				$('#template_form ' + '#' + values[i]).val('');
 			}
@@ -380,17 +345,17 @@ $(document).ready(function() {
 			$('#template_form #template_type').val('0');
 			data['token'] = $('p#token').text();
 			$('#template_token').val(data['token']);
-			//console.log(data);
-			if (x === '0') {
+
+			if (x === 0) {
 				overlay.append(form);
 				x++;
 			}
 			e.preventDefault();
 		});
-		$(document).keyup(function(e) { //clicking escape will hide the overlay 
+		$(document).keyup(function(e) { //hitting escape will hide the overlay 
 			if (e.keyCode == KEYCODE_ESC) {
 				overlay.hide();
-				x = '0';
+				x = 0;
 			}
 		});
 	} //templates
@@ -400,27 +365,27 @@ $(document).ready(function() {
 		var overlay = $('#overlay');
 		var add_label = $('.add_labels');
 		var KEYCODE_ESC = 27;
-		var x = '0';
+		var x = 0;
 		var update = $('#update_crud');
 		var form = $('#label_form');
 		overlay.on('click', '.form_close', function() {
 			overlay.hide();
-			x = '0';
+			x = 0;
 		});
 		label_edit.click(function(e) { //=================== EDIT ===================
 			overlay.toggle();
 			form.children('h1').text('Edit Label');
-			values = ['label_name', 'id', 'label_content'];
+			var values = ['label_name', 'id', 'label_content'];
 			update.val('edit');
 			data = new Object;
 			for (var i = 0; i < values.length; i++) {
 				data[values[i]] = $(this).parents('tr').children('.' + values[i]).text();
 				$('#label_form ' + '#' + values[i]).val(data[values[i]]);
 			}
-			data['token'] = $('p#token').text();
+			data['token'] = $('#token').text();
 			$('#label_token').val(data['token']);
 			//console.log(data);
-			if (x === '0') {
+			if (x === 0) {
 				overlay.append(form);
 				x++;
 			}
@@ -439,9 +404,9 @@ $(document).ready(function() {
 			form.children('#label_name').val('');
 			form.children('#label_content').val('');
 			data['token'] = $('p#token').text();
-			$('#label_token').val(data['token']);
+			$('#token').val(data['token']);
 			//console.log(data);
-			if (x === '0') {
+			if (x === 0) {
 				overlay.append(form);
 				x++;
 			}
@@ -450,7 +415,7 @@ $(document).ready(function() {
 		$(document).keyup(function(e) { //clicking escape will hide the overlay 
 			if (e.keyCode == KEYCODE_ESC) {
 				overlay.hide();
-				x = '0';
+				x = 0;
 			}
 		});
 	} //labels
@@ -460,12 +425,12 @@ $(document).ready(function() {
 		var overlay = $('#overlay');
 		var add_scattershot = $('.add_scattershot');
 		var KEYCODE_ESC = 27;
-		var x = '0';
+		var x = 0;
 		var update = $('#update_crud');
 		var form = $('#scattershot_form');
 		overlay.on('click', '.form_close', function() {
 			overlay.hide();
-			x = '0';
+			x = 0;
 		});
 		scattershot_edit.click(function(e) { //=================== EDIT ===================
 			overlay.toggle();
@@ -481,7 +446,7 @@ $(document).ready(function() {
 			data['token'] = $('p#token').text();
 			$('#token').val(data['token']);
 			console.log(data);
-			if (x === '0') {
+			if (x === 0) {
 				overlay.append(form);
 				x++;
 			}
@@ -509,7 +474,7 @@ $(document).ready(function() {
 			data['token'] = $('p#token').text();
 			$('#scattershot_token').val(data['token']);
 			//console.log(data);
-			if (x === '0') {
+			if (x === 0) {
 				overlay.append(form);
 				x++;
 			}
@@ -518,14 +483,13 @@ $(document).ready(function() {
 		$(document).keyup(function(e) { //clicking escape will hide the overlay 
 			if (e.keyCode == KEYCODE_ESC) {
 				overlay.hide();
-				x = '0';
+				x = 0;
 			}
 		});
 	} //scattershot
 	
 	
 	//for searching filtering search field
-
 	function regexSearch(v, s) {
 		$(s).keyup(function() {
 			$rows = v;
@@ -538,26 +502,7 @@ $(document).ready(function() {
 			}).hide();
 		});
 	}
-	// inDomain & AddTarget = allows external links to automatically be opened in new windows, all self site links are opened in the same window
-
-	function inDomain(url) {
-		var match = url.match(/^([^:\/?#]+:)?(?:\/\/([^\/?#]*))?([^?#]+)?(\?[^#]*)?(#.*)?/);
-		if (typeof match[2] === "string" && match[2].length > 0 && match[2].replace(new RegExp(":(" + {
-			"http:": 80,
-			"https:": 443
-		}[location.protocol] + ")?$"), "") !== location.host) return false;
-		return true;
-	}
-
-	function AddTarget() { // get each anchor check if it doesnt have a target and give it 
-		$('a').each(function(i, a) {
-			var target = $(a).attr('target');
-			var $a = $(a);
-			if (typeof target === 'undefined' || target === false) {
-				$a.attr('target', (inDomain($a.attr('href'))) ? '_self' : '_blank');
-			}
-		});
-	}
+	
 	//$.queryString jquery plugin, $.QueryString["string"] returns ?string=something
 	(function($) {
 		$.QueryString = (function(a) {
@@ -571,8 +516,8 @@ $(document).ready(function() {
 			return b;
 		})(window.location.search.substr(1).split('&'))
 	})(jQuery);
+	
 	//image chooser, div pops up choose and image, wah-lah.
-
 	function image_chooser() {
 		var overlay = $('#overlay');
 		var ic = $('.image_chooser');
@@ -703,8 +648,6 @@ $(document).ready(function() {
 			if(e.which == 13 && query){//if keypress is enter "submit" the form.
 				redirect('?filter=all&tpl=search&search='+query);
 			}
-			
-			//console.log(e.which);
 		});		
 		
 		$('#nav button').on('click', function(e){
@@ -742,39 +685,39 @@ $(document).ready(function() {
 			if(e.which == 13 && query){//if keypress is enter "submit" the form.
 				insertParam('search', input.val());
 			}
-			
-			//console.log(e.which);
 		});			
 	}
 
 	function init() { 
-		/* 		AddTarget();  broken atm*/
 		content();
 		templates();
 		labels();
 		image_chooser();
 		perms_func();
-		//equalHeight($('.images'));
 		
 		regexSearch($('.search_table .data'), $('.search')); //search field regex
 		regexSearch($('.images'), $('.search')); //search field regex		
-		
-		if ($.QueryString["type"] == 'edit_page' || $.QueryString["type"] == 'edit_user') { //show wysiwyg one edit_page and edit_user only!
-			$('.html-code').jqte();
-		}
+
 		headerdropdown();
-		//extremeform(); /*Form node handler*/
 		//slideable();
 		navbarmin();
 		navdropdowns();
+		
 		//close the nav if its in navmin
 		if ($.cookie('navmin') == 'true') {
 			controller.click();
 		}
+		
+		$('.html-code').editable({
+			inlineMode: false, 
+			imageUploadURL: 'scripts/upload.php', 
+			fileUploadURL: 'script/upload.php',
+			imageUploadParams: {token: $('.token').first().text()},
+			fileUploadParams: {token: $('.token').first().text()}
+		});
 
 		//pager JS
 		function foreach_callback(element, index, array) {
-			//console.log("[" + index + "]" + " = " + element);
 			pager(element[0], element[1], element[0]);
 		}
 		pager_array.forEach(foreach_callback);

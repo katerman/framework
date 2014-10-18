@@ -1,4 +1,11 @@
 <?php
+	
+	global $helpers, $security;
+	
+	$user = new user();
+	$perms = $user->get_Permissions();
+
+	
 	if($perms['users'] == 1){
 ?>
 
@@ -36,7 +43,7 @@
 		
 <?php
 	}else{
-		header('Location: ?tpl=default_view');
+		$helpers->redirect('index.php?tpl=default_view');
 	}
 ?> 		
 

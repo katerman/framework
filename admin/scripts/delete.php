@@ -3,9 +3,7 @@ session_start();
 
 include_once "../../includes/scripts/app.php";
 
-
 $security = new security();
-$model = new appModel($dsn, $db_user, $db_pass);
 
 $name = $_SESSION['userInfo']['fullname'];
 $date_time = date( "F j, Y, g:i a");

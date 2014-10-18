@@ -2,7 +2,8 @@
 
 class helpers {
 	
-    public function __construct($dsn, $db_user, $db_pass){
+    public function __construct(){
+	    global $dsn, $db_user, $db_pass;//we need access to DB
         $this->db = new PDO($dsn, $db_user, $db_pass);
     }		
 	/**
@@ -350,6 +351,14 @@ class helpers {
 		
 	}	
 	
+	/**
+	 * sqlRaw function. For custom sql type in exact sql and it will fire
+	 * 
+	 * @access public
+	 * @param mixed $query Straight SQL query
+	 * @param bool $debug (default: false)
+	 * @return void
+	 */
 	public function sqlRaw($query, $debug=false){
 
 		//die(print_r(debug_backtrace(),true));
@@ -373,6 +382,15 @@ class helpers {
 		
 	}
 	
+	/**
+	 * sqlLog function.
+	 * 
+	 * @access public
+	 * @param mixed $content Description of log action
+	 * @param mixed $action Action that has occured (deleted, added, etc)
+	 * @param bool $debug (default: false)
+	 * @return void
+	 */
 	public function sqlLog($content, $action, $debug=false){
 		$date_time = date( "F j, Y, g:i a");
         $user = new user();
@@ -493,7 +511,17 @@ class helpers {
 			
 	}
 	
-	public function sqlUpdate($table, $values, $where,  $debug = false){
+	/**
+	 * sqlUpdate function.
+	 * 
+	 * @access public
+	 * @param mixed $table SQL Table name
+	 * @param mixed $values Array of values to be updated in db
+	 * @param mixed $where optional where sql line
+	 * @param bool $debug (default: false)
+	 * @return void
+	 */
+	public function sqlUpdate($table, $values, $where = '',  $debug = false){
 	
 		$array = array();
 		$bind_values = '';
@@ -552,7 +580,7 @@ class helpers {
 	    else{
 	        $url .= "?" . $varName . "=" . $value;
 	    }
-
+ 
 	    if($refresh == true){
 	    
 			if (headers_sent()) {
@@ -567,6 +595,32 @@ class helpers {
 	    
     }
     
+
+    /**
+     * redirect function. 
+     * 
+     * @access public
+     * @param mixed $url Url in which to redirect to
+     * @return void Returns false if it fails to work
+     */
+    public function redirect($url){
+		if (headers_sent()) {
+			die('<script> location.replace("'.$url.'"); </script>');
+		}
+		else{
+			exit(header("Location: $url"));
+		} 
+		
+		return false;
+    }
+    
+	/**
+	 * display_filesize function.
+	 * 
+	 * @access public
+	 * @param mixed $filesize
+	 * @return void Returns a human readable filesize
+	 */
 	public function display_filesize($filesize){
 	
 		if(is_numeric($filesize)){

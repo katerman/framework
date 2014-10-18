@@ -12,11 +12,11 @@
 
 
 <?php
-	global $model; 
-	global $helpers; 
+	global $model;
+	global $helpers;
 	global $view;
 	global $security;
-	
+
 	//globals for content
 	global $config; //config in db
 	global $areas;
@@ -40,32 +40,32 @@
 	echo 'folder: ' . helpers::url(folder) . '<br>';
 	echo 'base: ' . helpers::url(base) . '<br>';
 	echo 'lastpath: ' . helpers::url(lastpath);
-	
-	$model->sqlSelect( "*" //select, 
+
+	$model->sqlSelect( "*" //select,
 					  "pages", //from
 					  array("page_template"), //column names
 					  "" //where
-				  ); 	
+				  );
 */
 
 	//if there is no page query return page=home
 	if($helpers->getQuery('page','return') == false){
 		header('Location:index.php?page=home');
-	}	
+	}
 
 ?>
 
 
-	
-		
+
+
 	<?php include_once('nav.inc'); ?>
-	
-	<?php 
+
+	<?php
 		//if current page has a template display it.
 		if($page['page_template']){
-			$view->show('templates/'.$r[0]['template_name']);
+			$view->show($r[0]['template_name']);
 		}
-	
+
 	?>
 
 

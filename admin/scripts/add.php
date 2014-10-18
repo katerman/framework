@@ -4,7 +4,7 @@ session_start();
 include_once "../../includes/scripts/app.php";
 
 $security = new security();
-$helpers = new helpers($dsn, $db_user, $db_pass);
+$helpers = new helpers();
 $user = new user();
 
 $name = $user->get_Fullname();
@@ -60,6 +60,8 @@ if(isset($update_type)){
 			return mt_rand($min, $max);
 		}
 
+		$min_perms = $user->get_minPermissions();
+
 		$salt = random_numbers(8); //heres our salt
 		$username = $helpers->custom_clean($_POST['username']);
 		$fullname = $helpers->custom_clean($_POST['fullname']);
@@ -68,15 +70,13 @@ if(isset($update_type)){
 
 		$x = array($username, $fullname, $access, $password, $salt);
 
-		//print_r($x);
-
-
 		$values = array(
 			'user_uName' => $username,
 			'user_FullName' => $fullname,
 			'user_Access' => $access,
 			'user_Salt' => $salt,
-			'user_Pass' => md5($salt.$password)
+			'user_Pass' => md5($salt.$password),
+			'user_custom_perms' => $min_perms
 		);
 
 		$helpers->sqlAdd('users', $values);
@@ -86,7 +86,7 @@ if(isset($update_type)){
 
 	}elseif($update_crud ==='add' && $update_type==='content'){ // ======== IF CONTENT ========//
 
-		$content = $helpers->custom_clean(htmlspecialchars_decode(stripslashes($_POST['content']), ENT_QUOTES), true, false, false);
+		$content = $helpers->custom_clean(htmlentities(stripslashes($_POST['content']), ENT_QUOTES), true, false, false);
 		$content_area = $helpers->custom_clean($_POST['content_area']);
 		$content_name = $helpers->custom_clean($_POST['content_name']);
 		$content_order = $helpers->custom_clean($_POST['content_order']);

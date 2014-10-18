@@ -1,12 +1,12 @@
-<p>Welcome back, <?php echo htmlentities($data['fullname']);?>.</p>
+<?php
+	$user = new user();	
+	$helpers = new helpers();
+?>
+
+<p>Welcome back, <?php echo $helpers->custom_clean($user->get_FullName());?>.</p>
 
 <div class="dashboard">
-<?php
-	global $model;
-	
-	$user_id = $_SESSION['userInfo']['id'];
-	$user = $helpers->sqlSelect("*" , "users", "", "WHERE users_Id = $user_id");
-	
-	echo $user['0']['user_Comments'];
+<?php	
+	echo $helpers->custom_clean($user->get_Comments()); 
 ?>
 </div>

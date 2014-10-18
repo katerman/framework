@@ -8,7 +8,7 @@ $security->checkToken('token');	 // check security token
 
 if($_POST){
 
-	$helpers = new helpers($dsn, $db_user, $db_pass);
+	$helpers = new helpers();
 
 	$image = $_POST['image_name'];
 	$dir = '../../uploads/';	

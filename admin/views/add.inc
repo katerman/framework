@@ -5,10 +5,11 @@ $type = $helpers->getQuery('type','return');
 
 
 if($tpl && $type){
-	include($tpl.'/'.$type.'.inc'); //should return something like add/add_page.inc
+	global $view, $_CONFIG;
+	
+	$tpl = "$tpl/$type";
+	$view->show($tpl); //should return something like add/add_page.inc
+
 }else{
-	header('location: index.php?tpl=default_view');
+	$helpers->redirect('index.php?tpl=default_view');
 }
-
-
-		

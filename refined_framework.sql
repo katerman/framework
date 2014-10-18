@@ -5,9 +5,9 @@
 # http://www.sequelpro.com/
 # http://code.google.com/p/sequel-pro/
 #
-# Host: refineddesigns.net (MySQL 5.5.37-log)
+# Host: refineddesigns.net (MySQL 5.5.38-35.2-log)
 # Database: refinee9_framework_db
-# Generation Time: 2014-07-18 04:16:38 +0000
+# Generation Time: 2014-10-18 18:57:48 +0000
 # ************************************************************
 
 
@@ -22,8 +22,6 @@
 
 # Dump of table config
 # ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `config`;
 
 CREATE TABLE `config` (
   `site_name` varchar(50) COLLATE latin1_general_ci NOT NULL,
@@ -40,7 +38,7 @@ LOCK TABLES `config` WRITE;
 
 INSERT INTO `config` (`site_name`, `global_logo`, `id`, `extra_js`, `extra_css`, `version`)
 VALUES
-	('Site Name','refined.png',1,'','','1.33');
+	('','',1,'//test','/*test*/','1.34');
 
 /*!40000 ALTER TABLE `config` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -68,7 +66,7 @@ INSERT INTO `content` (`content_order`, `page_id`, `content_id`, `content`, `con
 VALUES
 	(0,38,3,'<h1>Header</h1>','header','H1'),
 	(0,38,37,'<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p><br></p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br></p><p><br></p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br></p>','content','Content'),
-	(0,36,42,'<h1>Refined Framework</h1><p>This is filler content, don\'t take it too seriously.</p><p><a href=\"https://github.com/katerman/framework\" class=\"btn btn-primary btn-lg\" role=\"button\">Github Â»</a></p>','jumbotron','content'),
+	(0,36,42,'<h1 class=\"fr-tag\">Refined Framework</h1><p class=\"fr-tag\">This is filler content, don\'t take it too seriously.</p><p class=\"fr-tag\"><a class=\"btn btn-primary btn-lg\" href=\"https://github.com/katerman/framework\">Github Â»</a></p>','jumbotron','content'),
 	(0,36,43,'            <h2>Heading</h2>            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>            <p><a class=\"btn btn-default\" href=\"#\" role=\"button\">View details Â»</a></p>','column_one','column 1'),
 	(0,36,44,'            <h2>Heading</h2>\n\n            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>\n\n            <p><a class=\"btn btn-default\" href=\"#\" role=\"button\">View details &raquo;</a></p>','column_two','column 2'),
 	(0,36,45,'            <h2>Heading</h2>            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>            <p><a class=\"btn btn-default\" href=\"#\" role=\"button\">View details Â»</a></p>','column_three','column 3'),
@@ -81,7 +79,9 @@ VALUES
 	(8,52,52,'<h3>0.7.1</h3>\n<ul>\n	<li>Each individual template checks for permissions before displaying.</li>\n</ul>\n\n<h3>0.7.0</h3>\n<ul>\n	<li>User Permissions on a user by user basis, no user groups yet.</li>\n	<li>the mandetory css changes.</li>\n	<li>i think i fixed a x-scrollbar issue, hopefully.</li>\n	<li>user permissions for 0.7.0 are nav only, user could still travel to the page.</li>\n	<li>image check in uploaded before resizing, dont want to try to resize a non-image that throws an error.</li>\n	<li>added normalize.css to admin.</li>\n	<li>updated skeleton.css hopefully for the better.</li>\n</ul>','','0.7.x'),
 	(7,52,53,'<h3>0.8.2</h3>\n<ul>\n	<li>added 404 page (non customizable, if the page url isnât in the db it will auto forward to 404, so you need a 404 page under pages).</li>\n	<li>fix in app/views/body.inc</li>\n	<li>fix in labels.inc</li>\n</ul>\n\n<h3>0.8.1</h3>\n<ul>\n	<li>Better and more thought out sanitization added to add/update. $helpers->custom_clean($passin,$js,$html, look in helpers for the whole list)</li>\n	<li>log is fixed, purge button added but not functional yet.</li>\n	<li>minor template fixes for admin</li>\n	<li>minor css fixes for admin</li>\n	<li>$helpers has an added sqlDelete() method that does not function yet.</li>\n</ul>\n\n<h3>0.8.0 (Beta)</h3>\n<ul>\n	<li>Upgraded from alpha to beta.</li>\n	<li>helper class now handles sqlSelect(). This involves helpers having its own PDO method.</li>\n	<li>New UI, tons of small changes to accomidate (JS/CSS/INC)</li>\n	<li>Font Awesome Added (not all symbols updated yet)</li>\n	<li>put in some docblocks in helpers</li>\n	<li>old css file saved, but will eventually be phazed out.</li>\n</ul>','','0.8.x'),
 	(6,52,54,'\n\n<h3>0.9.0</h3>\n<ul>\n	<li>When creating a user, validation will now check to see if there is already a user with that username.</li>\n	<li>Username cannot be edited any longer.</li>\n	<li>log updates, you can now purge the log using helpers truncate method</li>\n	<li>added jquery.cookie.js this will help remmeber what state the nav should be in.</li>\n	<li>logo in config will now have the already selected logo set as its value. Now you dont have to reselect a new one everytime you save.</li>\n	<li>log will now show up under users, its still in its own subfolder and will be changed in the future to be contained in the admin where it should be</li>\n	<li>view class now has two new methods $view->show_content, and $view->show_label</li>\n	<li>bootstrap theme for the front end, making it look more presentable</li>\n	<li>css updates</li>\n</ul>','','0.9.x'),
-	(5,52,55,'<h3>1.2</h3>\n<ul>\n	<li>log where updated to orderby ID (latest entry)</li>\n	<li>updating default.inc</li>\n	<li>new script to handle resized images on the fly \"img src=\"includes/scripts/image.php?w=1000&fit=0&h=120&file=refined.png\"\"</li>\n</ul>\n\n<h3>1.1</h3>\n<ul>\n	<li>sql table added</li>\n	<li>docblock added to a helpers method</li>\n	<li>admin.js changed to accomidate more than one pager</li>\n	<li>added pager to log</li>\n	<li>two pagers on edit_page one for sub-pages and one for content</li>\n	<li>some fixes in pager.class.php</li>\n	<li>upon calling a new pager the pager class will generate some js for admin.js to grab. make sure page_key, and amt_key are never the same when using more than one pager.</li>\n</ul>\n\n<h3>1.0</h3>\n<ul>\n	<li>scripts in admin are now in admin/scripts, it needed organization.</li>\n	<li>log is out of its own folder, and now correctly in admin under users.</li>\n	<li>pagenation class, and implimentation on several pages.</li>\n	<li>updated add_user.inc</li>\n	<li>updated the search inputs to say filter instead, because they dont search</li>\n	<li>trying to remove hashs from links.</li>\n	<li>css fixes to admin</li>\n	<li>removed old css</li>\n	<li>admin_ajax has a pager function to go with php pager class</li>\n	<li>$helpers->setParam will force page redirect even after headers have sent.</li>\n</ul>','','1.x');
+	(5,52,55,'<h3>1.31</h3>\n<ul>\n<li>pager class edited. Pager class no longer requires an amount/page to function it will automatically take the start values, and only take parameters from links when they are present.</li>\n<li>new pager class method for hiding the pager system if there is no rows to be shown. setShowPagerWhereNoData() / getShowPagerWhereNoData()</li>\n<li>search page updated to have pagers.</li>\n<li>small misc changes to a few files/ taking out useless code.</li>\n<li>css for search pages pager</li>\n<li>responsive bug fixed</li>\n<li>js for pager updated</li>\n<li>pager added to app.php so it auto includes on all pages that require app.php</li>\n</ul>\n\n<h3>1.3</h3><ul><li> removed a few old code from index.php\'s</li><li> image information is now stored in DB, delete/rename/upload updated to hit file system and Db now.</li><li> search script, now admin has the ability to search through content/pages/templates/labels and users</li><li> html/css changes for the better.</li><li> some pages session data set up.</li><li> user session contains comments now.</li><li> basic php caching added in config, off by default.</li><li> updated dropzone/form.js</li><li> fun new classes, User.class and table.class</li><li> Helpers now has the rest of the CRUD functions sqlUpdate, sqlRaw (input your own statement) each sql method as a debugging option </li><li> script included to update all images in file system to database (update_images_db.php)</li><li> base sql file updated</li></ul><h3>1.2</h3><ul><li>log where updated to orderby ID (latest entry)</li><li>updating default.inc</li><li>new script to handle resized images on the fly \"img src=\"includes/scripts/image.php?w=1000&fit=0&h=120&file=refined.png\"\"</li></ul><h3>1.1</h3><ul><li>sql table added</li><li>docblock added to a helpers method</li><li>admin.js changed to accomidate more than one pager</li><li>added pager to log</li><li>two pagers on edit_page one for sub-pages and one for content</li><li>some fixes in pager.class.php</li><li>upon calling a new pager the pager class will generate some js for admin.js to grab. make sure page_key, and amt_key are never the same when using more than one pager.</li></ul><h3>1.0</h3><ul><li>scripts in admin are now in admin/scripts, it needed organization.</li><li>log is out of its own folder, and now correctly in admin under users.</li><li>pagenation class, and implimentation on several pages.</li><li>updated add_user.inc</li><li>updated the search inputs to say filter instead, because they dont search</li><li>trying to remove hashs from links.</li><li>css fixes to admin</li><li>removed old css</li><li>admin_ajax has a pager function to go with php pager class</li><li>$helpers->setParam will force page redirect even after headers have sent.</li></ul>','','1.x'),
+	(4,52,58,'<h3>1.32</h3><ul>\n<li> Upgrade system now in place, it will check if an update is avaliable and install it.\n</li><li> New scattershot area under assets. Scattershot will be for any information to be quickly added to the db. That can later be used for any number of purposes. \n</li><li> couple new config options config path and root path, and a upgrade remote path.\n</li><li> add/upgrade.php were upgraded to use newer helper methods.\n</li><li> start of form class is included, not suggested to use it yet.\n</li><li> minor fixes to many template files\n</li><li> new css, and css fixes</li></ul>\n','','1.32'),
+	(0,36,59,'<p class=\"fr-tag\">test 2</p>','','test');
 
 /*!40000 ALTER TABLE `content` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -89,8 +89,6 @@ UNLOCK TABLES;
 
 # Dump of table images
 # ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `images`;
 
 CREATE TABLE `images` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -104,22 +102,10 @@ CREATE TABLE `images` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-LOCK TABLES `images` WRITE;
-/*!40000 ALTER TABLE `images` DISABLE KEYS */;
-
-INSERT INTO `images` (`id`, `image_name`, `image_desc`, `image_created`, `image_size`, `image_type`, `uploaded_by`, `last_edited_by`)
-VALUES
-	(1,'logo.png','','2014-07-12 11:26:22',NULL,NULL,NULL,NULL),
-	(2,'refined.png','','2014-07-12 11:26:22',NULL,NULL,NULL,NULL);
-
-/*!40000 ALTER TABLE `images` ENABLE KEYS */;
-UNLOCK TABLES;
 
 
 # Dump of table labels
 # ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `labels`;
 
 CREATE TABLE `labels` (
   `label_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -133,7 +119,8 @@ LOCK TABLES `labels` WRITE;
 
 INSERT INTO `labels` (`label_id`, `label_content`, `label_name`)
 VALUES
-	(15,'Refined Designs &copy;','refined_designs');
+	(15,'Refined Designs &copy;','refined_designs'),
+	(16,'testa','atest');
 
 /*!40000 ALTER TABLE `labels` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -141,8 +128,6 @@ UNLOCK TABLES;
 
 # Dump of table log
 # ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `log`;
 
 CREATE TABLE `log` (
   `log_id` int(10) NOT NULL AUTO_INCREMENT,
@@ -157,8 +142,6 @@ CREATE TABLE `log` (
 
 # Dump of table pages
 # ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `pages`;
 
 CREATE TABLE `pages` (
   `on_nav` int(11) NOT NULL DEFAULT '0',
@@ -185,17 +168,30 @@ VALUES
 	(1,0,36,'home','15','','none','homepage, more stuff, more more more stuff','the homepage is where the heart is','home',1),
 	(1,0,38,'about','19','','none','about, page, doodley','the about page is where learn about stuff','about',2),
 	(1,NULL,51,'twocol','21','','none','','','twocol',3),
-	(1,NULL,52,'Update Log','19','','none','','','update_log',4),
-	(0,NULL,53,'testtest','none','','none','','','test',0);
+	(1,NULL,52,'Update Log','19','','none','','','update_log',4);
 
 /*!40000 ALTER TABLE `pages` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
-# Dump of table templates
+# Dump of table scattershot
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `templates`;
+CREATE TABLE `scattershot` (
+  `scattershot_id` int(11) NOT NULL AUTO_INCREMENT,
+  `value` text COLLATE latin1_general_ci,
+  `name` text COLLATE latin1_general_ci,
+  `type` text COLLATE latin1_general_ci,
+  `anchor` text COLLATE latin1_general_ci,
+  `class` text COLLATE latin1_general_ci,
+  `id` text COLLATE latin1_general_ci,
+  PRIMARY KEY (`scattershot_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
+
+
+# Dump of table templates
+# ------------------------------------------------------------
 
 CREATE TABLE `templates` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -220,14 +216,12 @@ UNLOCK TABLES;
 # Dump of table users
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `users`;
-
 CREATE TABLE `users` (
   `users_Id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `user_uName` varchar(20) NOT NULL DEFAULT '',
-  `user_Pass` char(32) NOT NULL DEFAULT '',
-  `user_FullName` varchar(40) NOT NULL DEFAULT '',
-  `user_Salt` char(8) DEFAULT NULL,
+  `user_Pass` varchar(128) NOT NULL DEFAULT '',
+  `user_FullName` text NOT NULL,
+  `user_Salt` varchar(8) DEFAULT NULL,
   `user_Access` int(1) DEFAULT NULL,
   `user_Comments` text,
   `user_custom_perms` text NOT NULL,
@@ -236,29 +230,7 @@ CREATE TABLE `users` (
   UNIQUE KEY `UX_name_password` (`user_Pass`,`user_uName`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
 
-INSERT INTO `users` (`users_Id`, `user_uName`, `user_Pass`, `user_FullName`, `user_Salt`, `user_Access`, `user_Comments`, `user_custom_perms`)
-VALUES
-	(38,'testuser','544566aa7c66abc52c005e7395398d2e','Testy McTesterson','42215298',2,NULL,'');
-
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
-UNLOCK TABLES;
-
-
-DROP TABLE IF EXISTS `scattershot`;
-
-CREATE TABLE `scattershot` (
-  `scattershot_id` int(11) NOT NULL AUTO_INCREMENT,
-  `value` text COLLATE latin1_general_ci,
-  `name` text COLLATE latin1_general_ci,
-  `type` text COLLATE latin1_general_ci,
-  `anchor` text COLLATE latin1_general_ci,
-  `class` text COLLATE latin1_general_ci,
-  `id` text COLLATE latin1_general_ci,
-  PRIMARY KEY (`scattershot_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
