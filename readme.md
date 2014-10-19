@@ -13,6 +13,9 @@
 - all templates global variables are set up through _start php file
 - new functions php file for random functions needed outside of classes first one is print_pre
 - image php file fixed height or width is now needed (if only one is present the image will be auto proportional). 
+- fixes to content display for user comments.
+- font awesome update so froala’s icons work.
+- stripslashes added to helpers method custom_clean().
 - base sql updated
 
 ========== 1.33 ==========

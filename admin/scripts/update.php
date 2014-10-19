@@ -58,7 +58,7 @@ if(isset($update_type)){
 		$user_pass = $helpers->custom_clean($_POST['password']);
 		$fullname = $helpers->custom_clean($_POST['fullname']);
 		$access = $helpers->custom_clean($_POST['access']);
-		$user_comments = $helpers->custom_clean($_POST['user_comments'], false, false);
+		$user_comments = $helpers->custom_clean(htmlspecialchars_decode($_POST['user_comments'], ENT_QUOTES), false, false);
 
 		$perms_array =  array(
 			"config" => $helpers->custom_clean($_POST['checkbox_config']),
@@ -73,7 +73,7 @@ if(isset($update_type)){
 				"scattershot"=>$helpers->custom_clean($_POST['checkbox_assets_scattershot'])
 			)
 		);
-							
+
 		$perms_array = serialize($perms_array);
 
 		function random_numbers($digits){
@@ -85,7 +85,7 @@ if(isset($update_type)){
 		if(strlen($user_pass) != 0){ // we have to split up to see if we're updating the password or not, if the password field is empty it wont pass any new password/salt data to the db
 			$salt = random_numbers(8); //heres our new salt
 			$pw = md5($salt.$user_pass);
-	
+
 			$values = array(
 				'user_uName' => $username,
 				'user_FullName' => $fullname,
@@ -95,10 +95,10 @@ if(isset($update_type)){
 				'user_custom_perms' => $perms_array,
 				'user_Comments' => $user_comments
 			);
-	
+
 			$helpers->sqlUpdate('users', $values, "users_id = $user_id");
-	
-	
+
+
 		}else{
 			$values = array(
 				'user_uName' => $username,
@@ -107,7 +107,7 @@ if(isset($update_type)){
 				'user_custom_perms' => $perms_array,
 				'user_Comments' => $user_comments
 			);
-	
+
 			$helpers->sqlUpdate('users', $values, "users_id = $user_id");
 		}
 
@@ -126,7 +126,7 @@ if(isset($update_type)){
 		$ds          = DIRECTORY_SEPARATOR;
 		$storeFolder = 'uploads';
 		$dirname = '..'.$ds.$storeFolder.$ds;
-		
+
 		$values = array(
 			'site_name' => $site_name,
 			'global_logo' => $global_logo,
@@ -135,7 +135,7 @@ if(isset($update_type)){
 		);
 
 		$helpers->sqlUpdate('config', $values, "id = $id");
-		
+
 
 		//log for updating config
 		$helpers->sqlLog('config', 'Update Config');
@@ -144,7 +144,7 @@ if(isset($update_type)){
 	if($update_type === 'content'){
 
 		$content_id = $helpers->custom_clean($_POST['content_id']);
-		$content = $helpers->custom_clean(htmlspecialchars_decode(stripslashes($_POST['content']), ENT_QUOTES), true, false, false);
+		$content = $helpers->custom_clean(htmlspecialchars_decode($_POST['content'], ENT_QUOTES), true, false, false);
 		$content_area = $helpers->custom_clean($_POST['content_area']);
 		$content_name = $helpers->custom_clean($_POST['content_name']);
 		$content_order = $helpers->custom_clean($_POST['content_order']);
@@ -198,7 +198,7 @@ if(isset($update_type)){
 	}
 
 	if($update_type === 'scattershot'){
-	
+
 		// $id is unique id (scattershot_id), $scattershot_id is keyword shortcut for any html id (id="whatever")
 		$id = $helpers->custom_clean($_POST['id']);
 		$scattershot_name = $helpers->custom_clean($_POST['scattershot_name']);
@@ -222,8 +222,8 @@ if(isset($update_type)){
 
 		//log for adding Scattershot
 		$helpers->sqlLog($scattershot_name, 'Update Scattershot');
-		
-	}	
+
+	}
 
 }else{
 	die();

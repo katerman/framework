@@ -86,7 +86,7 @@ if(isset($update_type)){
 
 	}elseif($update_crud ==='add' && $update_type==='content'){ // ======== IF CONTENT ========//
 
-		$content = $helpers->custom_clean(htmlentities(stripslashes($_POST['content']), ENT_QUOTES), true, false, false);
+		$content = $helpers->custom_clean(htmlentities($_POST['content'], ENT_QUOTES), true, false, false);
 		$content_area = $helpers->custom_clean($_POST['content_area']);
 		$content_name = $helpers->custom_clean($_POST['content_name']);
 		$content_order = $helpers->custom_clean($_POST['content_order']);
