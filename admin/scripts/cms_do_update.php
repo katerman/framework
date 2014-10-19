@@ -34,6 +34,7 @@ while ($aF = zip_read($zipHandle) ){
 	// if($error == true){break;}
 
 	$thisFileName = zip_entry_name($aF);
+	$thisFileName = str_replace('cms-'.$aV.'/', '', $thisFileName);
 	$thisFileDir = dirname($thisFileName).'/';
 
 	//Continue if its not a file
@@ -53,9 +54,9 @@ while ($aF = zip_read($zipHandle) ){
 
 		//Overwrite the file
 		if ( !is_dir($_CONFIG->config_path.$thisFileName) ) {
-			
+
 			$data['files'][$loop]['name'] = $thisFileName;
-			
+
 			$contents = zip_entry_read($aF, zip_entry_filesize($aF));
 			$pieces = explode(".", $thisFileName);
 			if ($pieces[1] != 'png' && $pieces[1] != 'jpg' && $pieces[1] != 'gif') {
@@ -70,7 +71,7 @@ while ($aF = zip_read($zipHandle) ){
 				fclose($upgradeExec);
 				include ('patch.php');
 				unlink('patch.php');
-			
+
 				$data['files'][$loop]['status'] = 'Executed';
 				$loop++;
 			}else{
@@ -83,9 +84,9 @@ while ($aF = zip_read($zipHandle) ){
 				}else{
 					$data['files'][$loop]['progress'] = 'Failed';
 				}
-				
-				
-				
+
+
+
 				unset($contents);
 
 				$loop++;
