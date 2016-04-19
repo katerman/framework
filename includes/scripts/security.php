@@ -62,7 +62,7 @@ class security {
 			
 		} else {  // if first method is not working, for example because of wrong file permissions, email the data
 		
-	    	$to = 'katermanlw@gmail.com';  
+	    	$to = 'test@test.com';  
 	    	$subject = 'HACK ATTEMPT';
 	    	$header = 'From: rd.net';
 	    	if (mail($to, $subject, $logging, $header)) {
