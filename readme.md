@@ -1,3 +1,5 @@
+**Old Personal project, no longer in development**
+
 ========== 1.34 ==========
 - WYSIWYG upgraded to Froala editor. It has better methods and options.
 - some hardcoded paths updated in a few files to config specific paths
